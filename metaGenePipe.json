@@ -1,6 +1,6 @@
 {
   "##_COMMENT_1###": "metaPipe config",
-  "metaGenePipe.inputSamplesFile": "/vlsci/SG0009/bshaban/metaGenPipe/input.txt",
+  "metaGenePipe.inputSamplesFile": "/vlsci/SG0009/bshaban/metaGenPipe/full_test/inputFastq.txt",
   "metaGenePipe.idbaLocation": "/vlsci/SG0009/bshaban/graftm/assembly/idba/bin/idba_ud",
   "metaGenePipe.megahitLocation": "/vlsci/SG0009/bshaban/graftm/assembly/mh/megahit",
   "metaGenePipe.megahit_asm_core": "/vlsci/SG0009/bshaban/graftm/assembly/mh/megahit_asm_core",
@@ -9,9 +9,9 @@
   "metaGenePipe.prodigalLocation": "/vlsci/SG0009/bshaban/graftm/bin/prodigal",
   "metaGenePipe.tigrHMM": "/vlsci/SG0009/bshaban/graftm/pipeline/databases/tigrfam/TIGR.hmm",
   "metaGenePipe.pfamHMM": "/vlsci/SG0009/bshaban/graftm/pipeline/databases/pfam/Pfam-A.hmm",
-  "metaGenePipe.refPackage": "/vlsci/SG0009/bshaban/graftm/analysis/7.40.2013_08_greengenes_97_otus.with_euks.gpkg",
+  "metaGenePipe.refPackage": "/vlsci/SG0009/bshaban/metaGenPipe/full_test/metaGenPipe/7.39.2013_08_greengenes_97_otus.better_tree.gpkg",
   "metaGenePipe.graftMLocation": "/usr/local/easybuild/software/Python/2.7.12-vlsci_intel-2015.08.25/bin/graftM",
-  "metaGenePipe.outputFolder" : "/vlsci/SG0009/bshaban/metaGenPipe/output",
+  "metaGenePipe.outputFolder" : "/vlsci/SG0009/bshaban/metaGenPipe/full_test/output",
 
   "##_COMMENT_2###": "emboss task parameters",
   "metaGenePipe.emboss.embossMem": 40000,
