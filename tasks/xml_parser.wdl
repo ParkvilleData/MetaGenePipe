@@ -14,15 +14,19 @@ task xmlparser_task {
         Int xmlParserRunMem
 	String outputDir
 	String outputFileName
+	String scriptsDirectory
 	Array[String] scatterCompleteFlag
 	File koFormattedFile
 	File keggSpeciesFile
+	File taxRankFile
+	File fullLineageFile	
 
         command {
 		module load Perl/5.26.2-intel-2018.u4
                 module load web_proxy
 		#remove quotes from xml for processing
-		perl /data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_02092019/scripts/xml_parser.function.pl '${outputDir}' '${outputFileName}' 1 '${koFormattedFile}' '${keggSpeciesFile}'
+		perl '${scriptsDirectory}'/xml_parser.function.pl '${outputDir}' '${outputFileName}' 1 '${koFormattedFile}' '${keggSpeciesFile}'
+		perl '${scriptsDirectory}'/orgID_2_name.pl '${taxRankFile}' '${fullLineageFile}' '${outputDir}' > '${outputDir}'/OTU.out.txt 
         }
         runtime {
                 runtime_minutes: '${xmlParserRunMinutes}'

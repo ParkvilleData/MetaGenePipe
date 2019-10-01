@@ -25,10 +25,13 @@ File inputSamplesFile
 Array[Array[File]] inputSamples = read_tsv(inputSamplesFile)
 String outputDir
 String outputFileName
+String scriptsDirectory
 File kolist
 File koFormattedFile
 File keggSpeciesFile
 File keggDB
+File taxRankFile
+File fullLineageFile
 
    scatter (sample in inputSamples) {
 
@@ -105,7 +108,7 @@ File keggDB
             Int xmlParserRunMinutes
             Int xmlParserRunMem
 
-            input: outputDir=outputDir,koFormattedFile=koFormattedFile,keggSpeciesFile=keggSpeciesFile,outputFileName=outputFileName,scatterCompleteFlag=collation_task.scatterCompleteFlag
+            input: outputDir=outputDir,taxRankFile=taxRankFile,fullLineageFile=fullLineageFile,scriptsDirectory=scriptsDirectory,koFormattedFile=koFormattedFile,keggSpeciesFile=keggSpeciesFile,outputFileName=outputFileName,scatterCompleteFlag=collation_task.scatterCompleteFlag
         }
 
 	call copyOutputTask.copyoutput_task {

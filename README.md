@@ -20,3 +20,8 @@ Run the pipeline using the following commands from SG1
 module load Java
 
 java -Dconfig.file=./cromslurm.conf -jar cromwell-30.1.jar run metaGenePipe.wdl -i metaGenePipe.json
+
+
+*** NOTE ****
+
+Some reference files have not been added due to be kegg reference files. These must be obtained separately with authorisation

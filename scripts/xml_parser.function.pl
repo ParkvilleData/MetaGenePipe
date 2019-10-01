@@ -188,7 +188,7 @@ sub print_all_table{
 	 my %temp_all_level_table_hash=%{$megaLevelHash_sub};
 	 #print Dumper(%temp_all_level_table_hash);
 
-         my $file = "All_level.table.counts.txt";
+         my $file = "Functional.table.counts.txt";
          open(my $fileHandle, '>', $file) or die "Could not open file '$file' $!";
 
 	#foreach my $hashLevel (@levelArray){
