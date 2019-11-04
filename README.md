@@ -31,15 +31,22 @@ Copy your sample files to the path you used in the input.txt file. There is a fo
 Step 4: 
 Edit metaGenePipe.json (config file) and update the workingDir variable to reflect your working directory.
 
-<<
+`
 {
-"##_GLBOAL_VARS#": \"global",
+
+"##_GLBOAL_VARS#": "global",
+
   "metaGenPipe.workingDir": "/data/cephfs/punim0256/MGP_ComEnc_011119/",
+  
   "metaGenPipe.outputDir": "output",
+  
   "metaGenPipe.inputSamplesFile": "input.txt",
+  
   "metaGenPipe.outputFileName": "geneCountTable.txt",
+  
   "metaGenPipe.kolist": "ko.sorted.txt",
->>
+  
+`
 
 metaGenePipe.workingDir should be the only variable you will have to edit to run the pipeline. You may edit the job submission resource requests further down the json config file to fine tune the pipeline to your needs.
 
