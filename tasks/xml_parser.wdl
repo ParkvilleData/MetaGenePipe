@@ -15,18 +15,19 @@ task xmlparser_task {
 	String outputDir
 	String outputFileName
 	String scriptsDirectory
+	String workingDir
 	Array[String] scatterCompleteFlag
-	File koFormattedFile
-	File keggSpeciesFile
-	File taxRankFile
-	File fullLineageFile	
+	String koFormattedFile
+	String keggSpeciesFile
+	String taxRankFile
+	String fullLineageFile	
 
         command {
 		module load Perl/5.26.2-intel-2018.u4
                 module load web_proxy
 		#remove quotes from xml for processing
-		perl '${scriptsDirectory}'/xml_parser.function.pl '${outputDir}' '${outputFileName}' 1 '${koFormattedFile}' '${keggSpeciesFile}'
-		perl '${scriptsDirectory}'/orgID_2_name.pl '${taxRankFile}' '${fullLineageFile}' '${outputDir}' > '${outputDir}'/OTU.out.txt 
+		/usr/bin/time -v perl '${workingDir}'/'${scriptsDirectory}'/xml_parser.function.pl '${workingDir}'/'${outputDir}' '${outputFileName}' 1 '${workingDir}'/reference_files/'${koFormattedFile}' '${workingDir}'/reference_files/'${keggSpeciesFile}'
+		/usr/bin/time -v perl '${workingDir}'/'${scriptsDirectory}'/orgID_2_name.pl '${workingDir}'/reference_files/'${taxRankFile}' '${workingDir}'/reference_files/'${fullLineageFile}' '${workingDir}'/'${outputDir}' > '${workingDir}'/'${outputDir}'/OTU.out.txt 
         }
         runtime {
                 runtime_minutes: '${xmlParserRunMinutes}'

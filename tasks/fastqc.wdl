@@ -16,11 +16,12 @@ task fastqc_task {
 	File inputFastqRead2
 	String outputDir
         String sampleName
+	String workingDir
 
         command {
                 module load fastqc
 		
-                fastqc -t '${fastqcRunThreads}' '${inputFastqRead1}' '${inputFastqRead2}' -o '${outputDir}'
+                /usr/bin/time -v fastqc -t '${fastqcRunThreads}' '${inputFastqRead1}' '${inputFastqRead2}' -o '${workingDir}'/'${outputDir}'
         }
         runtime {
                 runtime_minutes: '${fastqcRunMinutes}'

@@ -15,10 +15,13 @@ task collation_task {
         File inputXML
 	String outputDir
         String sampleName
+	String workingDir
 
         command {
 		#remove quotes from xml for processing
-		sed 's/\&quot;//g' '${inputXML}' | sed 's/\&//g' > '${outputDir}'/'${sampleName}'.xml
+		#/usr/bin/time -v sed 's/\&quot;//g' '${inputXML}' | sed 's/\&//g' | sed 's/\\/ /g' > '${outputDir}'/'${sampleName}'.xml
+		/usr/bin/time -v sed 's/\&quot;//g' '${inputXML}' | sed 's/\&//g' > '${workingDir}'/'${outputDir}'/'${sampleName}'.xml
+		#Doesn't like ^A
 		#ugly but will work for now
         }
         runtime {

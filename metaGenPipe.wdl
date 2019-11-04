@@ -26,10 +26,11 @@ Array[Array[File]] inputSamples = read_tsv(inputSamplesFile)
 String outputDir
 String outputFileName
 String scriptsDirectory
+String workingDir
 File kolist
 File koFormattedFile
 File keggSpeciesFile
-File keggDB
+File DB
 File taxRankFile
 File fullLineageFile
 
@@ -40,7 +41,7 @@ File fullLineageFile
 	    Int fastqcRunMinutes
 	    Int fastqcRunMem
 
-            input: inputFastqRead1=sample[1],inputFastqRead2=sample[2],sampleName=sample[0],outputDir=outputDir
+            input: inputFastqRead1=sample[1],inputFastqRead2=sample[2],sampleName=sample[0],outputDir=outputDir,workingDir=workingDir
 	}
 
 	call flashTask.flash_task {
@@ -48,7 +49,7 @@ File fullLineageFile
 	    Int flashRunMinutes
 	    Int flashRunMem
 
-            input: inputFastqRead1=sample[1],inputFastqRead2=sample[2],sampleName=sample[0],outputDir=outputDir
+            input: inputFastqRead1=sample[1],inputFastqRead2=sample[2],sampleName=sample[0],outputDir=outputDir,workingDir=workingDir
 	}
 
 	call interLeaveTask.interleave_task {
@@ -56,7 +57,7 @@ File fullLineageFile
             Int interLeaveRunMinutes
             Int interLeaveRunMem		
 
-	    input: flashNotCombined1=flash_task.flashArray[1], flashNotCombined2=flash_task.flashArray[2], flashExtended=flash_task.flashArray[0], sampleName=sample[0], outputDir=outputDir
+	    input: flashNotCombined1=flash_task.flashArray[1], flashNotCombined2=flash_task.flashArray[2], flashExtended=flash_task.flashArray[0], sampleName=sample[0], outputDir=outputDir,workingDir=workingDir
 	}
 
 	 call hostRemovalTask.hostremoval_task {
@@ -64,7 +65,7 @@ File fullLineageFile
             Int hostRemovalRunMinutes
             Int hostRemovalRunMem
 
-            input: flashMergedFastq=interleave_task.flashMergedFastq,sampleName=sample[0],outputDir=outputDir
+            input: flashMergedFastq=interleave_task.flashMergedFastq,sampleName=sample[0],outputDir=outputDir,workingDir=workingDir
         }
 
 	call megahitTask.megahit_task {
@@ -72,7 +73,7 @@ File fullLineageFile
             Int megaHitRunMinutes
             Int megaHitRunMem
 
-	    input: sampleName=sample[0],outputDir=outputDir,deconseqReadFile=hostremoval_task.hostRemovalArray[0]	
+	    input: sampleName=sample[0],outputDir=outputDir,deconseqReadFile=hostremoval_task.hostRemovalArray[0],workingDir=workingDir	
 
 	}
 
@@ -81,7 +82,7 @@ File fullLineageFile
             Int genePredictionRunMinutes
             Int genePredictionRunMem
 
-            input: sampleName=sample[0],outputDir=outputDir,megahitOutputTranscripts=megahit_task.megahitArray[0]
+            input: sampleName=sample[0],outputDir=outputDir,megahitOutputTranscripts=megahit_task.megahitArray[0],workingDir=workingDir
 
         }
 	
@@ -90,7 +91,7 @@ File fullLineageFile
             Int diamondRunMinutes
             Int diamondRunMem
 
-            input: sampleName=sample[0],outputDir=outputDir,genesAlignmentOutput=geneprediction_task.proteinAlignmentOutput
+            input: database=DB,sampleName=sample[0],outputDir=outputDir,genesAlignmentOutput=geneprediction_task.proteinAlignmentOutput,workingDir=workingDir
         }
 		
 	call collationTask.collation_task {
@@ -98,7 +99,7 @@ File fullLineageFile
             Int collationRunMinutes
             Int collationRunMem
 
-            input: sampleName=sample[0],outputDir=outputDir,inputXML=diamond_task.diamondOutput
+            input: sampleName=sample[0],outputDir=outputDir,inputXML=diamond_task.diamondOutput,workingDir=workingDir
         }
    }
 	
@@ -108,7 +109,7 @@ File fullLineageFile
             Int xmlParserRunMinutes
             Int xmlParserRunMem
 
-            input: outputDir=outputDir,taxRankFile=taxRankFile,fullLineageFile=fullLineageFile,scriptsDirectory=scriptsDirectory,koFormattedFile=koFormattedFile,keggSpeciesFile=keggSpeciesFile,outputFileName=outputFileName,scatterCompleteFlag=collation_task.scatterCompleteFlag
+            input: outputDir=outputDir,taxRankFile=taxRankFile,fullLineageFile=fullLineageFile,scriptsDirectory=scriptsDirectory,koFormattedFile=koFormattedFile,keggSpeciesFile=keggSpeciesFile,outputFileName=outputFileName,scatterCompleteFlag=collation_task.scatterCompleteFlag,workingDir=workingDir
         }
 
 	call copyOutputTask.copyoutput_task {
@@ -116,7 +117,7 @@ File fullLineageFile
             Int copyOutputRunMinutes
             Int copyOutputRunMem
 
-	     input: outputDir=outputDir,all_level_table=xmlparser_task.outputArray[0],gene_count_table=xmlparser_task.outputArray[1],level_one=xmlparser_task.outputArray[2],level_two=xmlparser_task.outputArray[3],level_three=xmlparser_task.outputArray[4]
+	     input: outputDir=outputDir,all_level_table=xmlparser_task.outputArray[0],gene_count_table=xmlparser_task.outputArray[1],level_one=xmlparser_task.outputArray[2],level_two=xmlparser_task.outputArray[3],level_three=xmlparser_task.outputArray[4],workingDir=workingDir
  	}
 }
 ## end of worklfow metaGenPipe

@@ -13,10 +13,11 @@ task megahit_task {
         Int megaHitRunMem
         String outputDir
         String sampleName
+	String workingDir
 	File deconseqReadFile
 
         command {
-		/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_02092019/mh/megahit -t 16 -r '${deconseqReadFile}' 	
+		/usr/bin/time -v '${workingDir}'/bin/mh/mh/megahit -t 16 -r '${deconseqReadFile}' 	
         }
         runtime {
                 runtime_minutes: '${megaHitRunMinutes}'

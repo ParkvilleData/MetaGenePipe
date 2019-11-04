@@ -19,7 +19,7 @@ task alignment_task {
         command {
                 module load prodigal
 		
-		prodigal -i '${megahitOutputTranscripts}' -o '${sampleName}'.prodgial.genes.fa -a '${sampleName}'.prodigal.proteins.fa -d '${sampleName}'.prodigal.nucl.genes.fa -s '${sampleName}'.prodigal.potential_genes.fa
+		/usr/bin/time -v prodigal -i '${megahitOutputTranscripts}' -o '${sampleName}'.prodgial.genes.fa -a '${sampleName}'.prodigal.proteins.fa -d '${sampleName}'.prodigal.nucl.genes.fa -s '${sampleName}'.prodigal.potential_genes.fa
 
         }
         runtime {

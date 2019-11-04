@@ -16,11 +16,12 @@ task flash_task {
 	File inputFastqRead2
 	String outputDir
         String sampleName
+	String workingDir
 
         command {
                 module load FLASH
 		
-		flash -t 16 -o '${sampleName}' '${inputFastqRead1}'  '${inputFastqRead2}'
+		/usr/bin/time -v flash -t 16 -o '${sampleName}' '${inputFastqRead1}'  '${inputFastqRead2}'
         }
         runtime {
                 runtime_minutes: '${flashRunMinutes}'

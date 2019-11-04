@@ -15,12 +15,12 @@ task hostremoval_task {
 	File flashMergedFastq
 	String outputDir
         String sampleName
+	String workingDir
 
         command {
-		module load Perl
+		module load Perl/5.26.2-intel-2018.u4
 
-#		perl /data/cephfs/punim0256/metaGenPipe/phase4testing/dqc/deconseq.pl -dbs mm10_1,mm10_2,mm10_3,mm10_4 -i 70 -c 70 -out_dir '${outputDir}' -f '${flashMergedFastq}'
-		perl /data/cephfs/punim0256/metaGenPipe/phase4testing/dqc/deconseq.pl -dbs mm10_1,mm10_2,mm10_3,mm10_4 -i 70 -c 70 -f '${flashMergedFastq}'
+		/usr/bin/time -v perl '${workingDir}'/bin/dqc/deconseq.pl -dbs mm1,mm2,mm3,mm4,mm5,mm6 -i 70 -c 70 -f '${flashMergedFastq}'
         }
         runtime {
                 runtime_minutes: '${hostRemovalRunMinutes}'

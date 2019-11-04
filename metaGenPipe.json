@@ -1,65 +1,66 @@
 {
 "##_GLBOAL_VARS#": "global",
-  "metaGenPipe.outputDir": "/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_011019v3/output",
-  "metaGenPipe.inputSamplesFile": "/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_011019v3/input.new.txt",
+  "metaGenPipe.workingDir": "/data/cephfs/punim0256/MGP_ComEnc_011119/",
+  "metaGenPipe.outputDir": "output",
+  "metaGenPipe.inputSamplesFile": "input.txt",
   "metaGenPipe.outputFileName": "geneCountTable.txt",
-  "metaGenPipe.kolist": "/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_011019v3/reference_files/ko.sorted.txt",
-  "metaGenPipe.koFormattedFile": "/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_011019v3/reference_files/formatted.xml.out",
-  "metaGenPipe.keggSpeciesFile": "/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_011019v3/reference_files/species_prokaryotes.dat",
-  "metaGenPipe.keggDB": "/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_011019v3/kegg/kegg.dmbd",
-  "metaGenPipe.scriptsDirectory": "/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_011019v3/scripts/",
-  "metaGenPipe.taxRankFile": "/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_011019v3/reference_files/tax_rank",
-  "metaGenPipe.fullLineageFile": "/data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_011019v3/reference_files/fullnamelineage.dmp",
+  "metaGenPipe.kolist": "ko.sorted.txt",
+  "metaGenPipe.koFormattedFile": "formatted.xml.out",
+  "metaGenPipe.keggSpeciesFile": "species_prokaryotes.dat",
+  "metaGenPipe.DB": "kegg/kegg.dmnd",
+  "metaGenPipe.scriptsDirectory": "scripts/",
+  "metaGenPipe.taxRankFile": "tax_rank",
+  "metaGenPipe.fullLineageFile": "fullnamelineage.dmp",
 
 "##_COMMENT_1#": "fastqc",
   "metaGenPipe.fastqc_task.fastqcRunThreads": 16,
   "metaGenPipe.fastqc_task.fastqcRunMinutes": 200,
-  "metaGenPipe.fastqc_task.fastqcRunMem": 20000,
+  "metaGenPipe.fastqc_task.fastqcRunMem": 60000,
 
 
 "##_COMMENT_2#": "flash",
   "metaGenPipe.flash_task.flashRunThreads": 16,
   "metaGenPipe.flash_task.flashRunMinutes": 200,
-  "metaGenPipe.flash_task.flashRunMem": 20000,
+  "metaGenPipe.flash_task.flashRunMem": 60000,
 
  "##_COMMENT_4#": "interleave shell",
   "metaGenPipe.interleave_task.interLeaveRunThreads": 16,
   "metaGenPipe.interleave_task.interLeaveRunMinutes": 200,
-  "metaGenPipe.interleave_task.interLeaveRunMem": 20000,
+  "metaGenPipe.interleave_task.interLeaveRunMem": 60000,
 
  "##_COMMENT_5#": "host removal ",
   "metaGenPipe.hostremoval_task.hostRemovalRunThreads": 16,
   "metaGenPipe.hostremoval_task.hostRemovalRunMinutes": 200,
-  "metaGenPipe.hostremoval_task.hostRemovalRunMem": 20000,
+  "metaGenPipe.hostremoval_task.hostRemovalRunMem": 60000,
 
  "##_COMMENT_6#": "assembly ",
   "metaGenPipe.megahit_task.megaHitRunThreads": 16,
   "metaGenPipe.megahit_task.megaHitRunMinutes": 200,
-  "metaGenPipe.megahit_task.megaHitRunMem": 20000,
+  "metaGenPipe.megahit_task.megaHitRunMem": 60000,
 
   "##_COMMENT_6#": "gene prediction ",
   "metaGenPipe.geneprediction_task.genePredictionRunThreads": 16,
   "metaGenPipe.geneprediction_task.genePredictionRunMinutes": 200,
-  "metaGenPipe.geneprediction_task.genePredictionRunMem": 20000,
+  "metaGenPipe.geneprediction_task.genePredictionRunMem": 60000,
 
  "##_COMMENT_7#": "diamond alignment ",
   "metaGenPipe.diamond_task.diamondRunThreads": 16,
   "metaGenPipe.diamond_task.diamondRunMinutes": 200,
-  "metaGenPipe.diamond_task.diamondRunMem": 20000,
+  "metaGenPipe.diamond_task.diamondRunMem": 60000,
 
    "##_COMMENT_8#": "collation task ",
-  "metaGenPipe.collation_task.collationRunThreads": 2,
+  "metaGenPipe.collation_task.collationRunThreads": 16,
   "metaGenPipe.collation_task.collationRunMinutes": 200,
-  "metaGenPipe.collation_task.collationRunMem": 20000,
+  "metaGenPipe.collation_task.collationRunMem": 60000,
 
    "##_COMMENT_9#": "XML parsing ",
-  "metaGenPipe.xmlparser_task.xmlParserRunThreads": 2,
+  "metaGenPipe.xmlparser_task.xmlParserRunThreads": 16,
   "metaGenPipe.xmlparser_task.xmlParserRunMinutes": 200,
-  "metaGenPipe.xmlparser_task.xmlParserRunMem": 20000,
+  "metaGenPipe.xmlparser_task.xmlParserRunMem": 60000,
 
  "##_COMMENT_10#": "copying output",
-  "metaGenPipe.copyoutput_task.copyOutputRunThreads": 2,
+  "metaGenPipe.copyoutput_task.copyOutputRunThreads": 16,
   "metaGenPipe.copyoutput_task.copyOutputRunMinutes": 200,
-  "metaGenPipe.copyoutput_task.copyOutputRunMem": 20000
+  "metaGenPipe.copyoutput_task.copyOutputRunMem": 60000
 
 }

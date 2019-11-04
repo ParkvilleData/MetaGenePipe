@@ -13,6 +13,7 @@ task copyoutput_task {
         Int copyOutputRunMinutes
         Int copyOutputRunMem
 	String outputDir
+	String workingDir
 	File all_level_table
 	File gene_count_table
 	File level_one
@@ -20,7 +21,7 @@ task copyoutput_task {
 	File level_three
 
         command {
-		cp '${all_level_table}'  '${gene_count_table}'  '${level_one}'  '${level_two}'  '${level_three}' '${outputDir}'
+		/usr/bin/time -v cp '${all_level_table}'  '${gene_count_table}'  '${level_one}'  '${level_two}'  '${level_three}' '${workingDir}'/'${outputDir}'
         }
         runtime {
                 runtime_minutes: '${copyOutputRunMinutes}'

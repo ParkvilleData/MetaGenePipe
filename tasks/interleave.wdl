@@ -17,10 +17,11 @@ task interleave_task {
 	File flashExtended
 	String outputDir
         String sampleName
+	String workingDir
 
         command {
-		sh /data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_02092019/interleave_fastq.sh '${flashNotCombined1}' '${flashNotCombined2}' > ${sampleName}.interLeaved.fastq
-		cat ${sampleName}.interLeaved.fastq '${flashExtended}' > ${sampleName}.merged.fastq
+		/usr/bin/time -v sh /data/cephfs/punim0256/MGP_ComEnc_011119/scripts/interleave_fastq.sh '${flashNotCombined1}' '${flashNotCombined2}' > ${sampleName}.interLeaved.fastq
+		/usr/bin/time -v cat ${sampleName}.interLeaved.fastq '${flashExtended}' > ${sampleName}.merged.fastq
         }
         runtime {
                 runtime_minutes: '${interLeaveRunMinutes}'

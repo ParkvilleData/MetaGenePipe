@@ -13,13 +13,15 @@ task diamond_task {
         Int diamondRunMinutes
         Int diamondRunMem
         File genesAlignmentOutput
+	File database
 	String outputDir
         String sampleName
+	String workingDir
 
         command {
-                module load diamond
+		module load diamond/0.9.10
 		
-		diamond blastp -p 30 -f 5 -d /data/cephfs/punim0256/metaGenPipe/phase4testing/pipelineCreation_02092019/kegg/kegg.dmnd -q '${genesAlignmentOutput}' -o '${sampleName}'.xml.out
+		/usr/bin/time -v diamond blastp --max-target-seqs 1 -p 30 -f 5 -d '${database}' -q '${genesAlignmentOutput}' -o '${sampleName}'.xml.out
 
         }
         runtime {
