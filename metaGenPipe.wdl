@@ -12,6 +12,8 @@ import "./tasks/diamond.wdl" as diamondTask
 import "./tasks/fastqc.wdl" as fastqcTask
 import "./tasks/flash.wdl" as flashTask  
 import "./tasks/hostremoval.wdl" as hostRemovalTask
+import "./tasks/idba.wdl" as idbaTask
+import "./tasks/blast.wdl" as blastTask
 import "./tasks/interleave.wdl" as interLeaveTask
 import "./tasks/megahit.wdl" as megahitTask  
 import "./tasks/collation.wdl" as collationTask
@@ -27,12 +29,18 @@ String outputDir
 String outputFileName
 String scriptsDirectory
 String workingDir
+String removeMouseSequence
+String removalSequence
+String ntDatabase
+Int numOfHits
+File bparser
 File kolist
 File koFormattedFile
 File keggSpeciesFile
 File DB
 File taxRankFile
 File fullLineageFile
+File blast
 
    scatter (sample in inputSamples) {
 
@@ -61,11 +69,34 @@ File fullLineageFile
 	}
 
 	 call hostRemovalTask.hostremoval_task {
-            Int hostRemovalRunThreads
-            Int hostRemovalRunMinutes
-            Int hostRemovalRunMem
+	    Int hostRemovalRunThreads
+	    Int hostRemovalRunMinutes
+	    Int hostRemovalRunMem 
 
-            input: flashMergedFastq=interleave_task.flashMergedFastq,sampleName=sample[0],outputDir=outputDir,workingDir=workingDir
+            input: flashMergedFastq=interleave_task.flashMergedFastq,sampleName=sample[0],outputDir=outputDir,workingDir=workingDir,removalSequence=removeMouseSequence
+        }
+
+	call hostRemovalTask.hostremoval_task as sequence_removal_task {
+
+            input: flashMergedFastq=interleave_task.flashMergedFastq,sampleName=sample[0],outputDir=outputDir,workingDir=workingDir,removalSequence=removalSequence
+        }
+
+	call idbaTask.idba_task {
+	   Int idbaRunThreads
+	   Int idbaRunMinutes
+	   Int idbaRunMem
+
+	   input: sampleName=sample[0],cleanFastq=sequence_removal_task.hostRemovalArray[0]
+	
+	}
+
+	call blastTask.blast_task {
+           Int blastRunThreads
+           Int blastRunMinutes
+           Int blastRunMem
+
+           input: numOfHits=numOfHits,blast=blast,sampleName=sample[0],scriptsDirectory=scriptsDirectory,database=ntDatabase,inputScaffolds=idba_task.scaffoldFasta,numOfHits=numOfHits,bparser=bparser,workingDir=workingDir
+
         }
 
 	call megahitTask.megahit_task {
@@ -117,7 +148,7 @@ File fullLineageFile
             Int copyOutputRunMinutes
             Int copyOutputRunMem
 
-	     input: outputDir=outputDir,all_level_table=xmlparser_task.outputArray[0],gene_count_table=xmlparser_task.outputArray[1],level_one=xmlparser_task.outputArray[2],level_two=xmlparser_task.outputArray[3],level_three=xmlparser_task.outputArray[4],workingDir=workingDir
+	     input: outputDir=outputDir,all_level_table=xmlparser_task.outputArray[0],gene_count_table=xmlparser_task.outputArray[1],level_one=xmlparser_task.outputArray[2],level_two=xmlparser_task.outputArray[3],level_three=xmlparser_task.outputArray[4],workingDir=workingDir,scaffoldsParsed=blast_task.parsedOutput
  	}
 }
 ## end of worklfow metaGenPipe
