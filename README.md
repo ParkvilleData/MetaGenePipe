@@ -9,10 +9,9 @@ Different phases of development are proposed for this project. First, benchmarki
 
 ## How to Use:
 
-
 ### Step 1: `Clone the git repository to a directory on your cluster`
 ```
-metagenepipe:~$ git clone git@gitlab.unimelb.edu.au:bshaban/rnaseqgatk.git .
+bash:~$ git clone git@gitlab.unimelb.edu.au:bshaban/rnaseqgatk.git .
 ```
 
 ### Step 2: `Open input.txt and update with your samples. The file format is as follows.`
@@ -27,16 +26,19 @@ mockpos_S52     /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFil
 
 ```
 
-NOTE: The spaces between the sampleID and reads are tabs. There can be no whitespaces at the end of each line or else the pipeline will fail.
-Use the complete path to the files to avoid any missed files.
+**NOTE: The spaces between the sampleID and reads are tabs. There can be no whitespaces at the end of each line or else the pipeline will fail.
+Use the complete path to the files to avoid any missed files.**
 
-Step 3:
+### Step 3:
 Copy your sample files to the path you used in the input.txt file. There is a folder called "fastqFiles" which can be used. 
+```
+bash:~$ cp *.fastq <metagenepipe_path>/fastqFiles/
+```
 
-Step 4: 
+### Step 4: 
+```
 Edit metaGenePipe.json (config file) and update the workingDir variable to reflect your working directory.
 
-`
 {
 
 "##_GLBOAL_VARS#": "global",
@@ -51,23 +53,23 @@ Edit metaGenePipe.json (config file) and update the workingDir variable to refle
   
   "metaGenPipe.kolist": "ko.sorted.txt",
   
-`
+```
 
-metaGenePipe.workingDir should be the only variable you will have to edit to run the pipeline. You may edit the job submission resource requests further down the json config file to fine tune the pipeline to your needs.
+**NOTE: metaGenePipe.workingDir should be the only variable you will have to edit to run the pipeline. You may edit the job submission resource requests further down the json config file to fine tune the pipeline to your needs.**
 
-Step 5:
-Ensure that Java is installed. Since this pipeline is made to only be run on the UniMelb cluster, Spartan, Java is already installed. To load Java, you can use
+### Step 5:
+**Ensure that Java is installed. Since this pipeline is made to only be run on the UniMelb cluster, Spartan, Java is already installed. To load Java, you can use**
 
-`
-module load Java
-`
+```
+bash:~$ module load Java
+```
 
-Step 6:
-To run the pipeline use this command
+### Step 6:
+To run the pipeline use the command below in the directory where the cromwell jar file is found
 
-`
-java -Dconfig.file=./cromslurm.conf -jar cromwell-45.1.jar run metaGenPipe.wdl -i metaGenPipe.json
-`
+```
+bash:~$ java -Dconfig.file=./cromslurm.conf -jar cromwell-45.1.jar run metaGenPipe.wdl -i metaGenPipe.json
+```
 
 Creating your own database
 You may create your own database by obtaining a protein dataset in fasta format. You will need to create a diamond database, and this can be done using the following commands.
