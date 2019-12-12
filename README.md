@@ -95,9 +95,7 @@ bash:~$ diamond makedb --in nr.faa -d nr
 
 ` If you would like access to the kegg database, send an email to bshaban@unimelb.edu.au and he may be able to see if you're eligble to use it. `
 
-**NOTE**
-
-Some reference files have not been added due to be kegg reference files. These must be obtained separately with authorisation
+**NOTE: Some reference files have not been added due to be kegg reference files. These must be obtained separately with authorisation**
 
 ## References for software used
 
