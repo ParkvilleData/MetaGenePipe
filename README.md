@@ -27,8 +27,7 @@ mockpos_S52     /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFil
 
 ```
 
-**NOTE: The spaces between the sampleID and reads are tabs. There can be no whitespaces at the end of each line or else the pipeline will fail.
-Use the complete path to the files to avoid any missed files.**
+**NOTE: The spaces between the sampleID and reads are tabs. There can be no whitespaces at the end of each line or else the pipeline will fail. Use the complete path to the files to avoid any missed files.**
 
 ### Step 3: `Copy your sample files to the path you used in the input.txt file. There is a folder called "fastqFiles" which can be used.` 
 ```
@@ -56,7 +55,7 @@ bash:~$ cp *.fastq <metagenepipe_path>/fastqFiles/
   
 ```
 
-**NOTE: Change all paths to reflect where you are running thepipeline **
+**NOTE: Change all paths to reflect where you are running thepipeline**
 
 ### Step 5: `Load java module`
 **Ensure that Java is installed. Since this pipeline is made to only be run on the UniMelb cluster, Spartan, Java is already installed. To load Java, you can use**
@@ -80,7 +79,7 @@ bash:~$ module load diamond
 bash:~$ diamond makedb --in nr.faa -d nr
 ```
 
-** NOTE: nr.faa is a protein fasta file **
+**NOTE: nr.faa is a protein fasta file**
 
 `Copy the resultant .dmnd file to the kegg/ directory.`
 
@@ -96,7 +95,7 @@ bash:~$ diamond makedb --in nr.faa -d nr
 
 ` If you would like access to the kegg database, send an email to bshaban@unimelb.edu.au and he may be able to see if you're eligble to use it. `
 
-** NOTE **
+**NOTE**
 
 Some reference files have not been added due to be kegg reference files. These must be obtained separately with authorisation
 
