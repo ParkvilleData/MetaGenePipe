@@ -30,15 +30,13 @@ mockpos_S52     /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFil
 **NOTE: The spaces between the sampleID and reads are tabs. There can be no whitespaces at the end of each line or else the pipeline will fail.
 Use the complete path to the files to avoid any missed files.**
 
-### Step 3:
-Copy your sample files to the path you used in the input.txt file. There is a folder called "fastqFiles" which can be used. 
+### Step 3: `Copy your sample files to the path you used in the input.txt file. There is a folder called "fastqFiles" which can be used.` 
 ```
 bash:~$ cp *.fastq <metagenepipe_path>/fastqFiles/
 ```
 
-### Step 4: 
+### Step 4: `Edit metaGenePipe.json (config file) and update the workingDir variable to reflect your working directory.`
 ```
-Edit metaGenePipe.json (config file) and update the workingDir variable to reflect your working directory.
 
 {
 
@@ -58,15 +56,14 @@ Edit metaGenePipe.json (config file) and update the workingDir variable to refle
 
 **NOTE: metaGenePipe.workingDir should be the only variable you will have to edit to run the pipeline. You may edit the job submission resource requests further down the json config file to fine tune the pipeline to your needs.**
 
-### Step 5:
+### Step 5: `Load java module`
 **Ensure that Java is installed. Since this pipeline is made to only be run on the UniMelb cluster, Spartan, Java is already installed. To load Java, you can use**
 
 ```
 bash:~$ module load Java
 ```
 
-### Step 6:
-To run the pipeline use the command below in the directory where the cromwell jar file is found
+### Step 6: `To run the pipeline use the command below in the directory where the cromwell jar file is found`
 
 ```
 bash:~$ java -Dconfig.file=./cromslurm.conf -jar cromwell-45.1.jar run metaGenPipe.wdl -i metaGenPipe.json
