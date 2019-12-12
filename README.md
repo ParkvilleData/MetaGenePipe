@@ -9,22 +9,26 @@ Different phases of development are proposed for this project. First, benchmarki
 
 ## How to Use:
 
+
+###Step 1:
 ```
-Step 1:
 Clone the git repository to a directory on your cluster
+
+metagenepipe:~$ git clone git@gitlab.unimelb.edu.au:bshaban/rnaseqgatk.git .
 ```
-Step 2: 
+
+###Step 2: 
 Open input.txt and update with your samples. The file format is as follows.
-`
+````
 SampleID    Read1FQ Read2FQ
-`
+
 e.g.
-`
+
 head input.txt
 mockpos_S50     /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFiles/mockpos_S50_100k_R1.fasta    /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFiles/mockpos_S50_100k_R2.fasta
 mockpos_S52     /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFiles/mockpos_S52_100k_R1.fastq    /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFiles/mockpos_S52_100k_R2.fastq
 
-`
+```
 
 NOTE: The spaces between the sampleID and reads are tabs. There can be no whitespaces at the end of each line or else the pipeline will fail.
 Use the complete path to the files to avoid any missed files.
