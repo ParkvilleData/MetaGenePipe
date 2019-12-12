@@ -52,9 +52,11 @@ bash:~$ cp *.fastq <metagenepipe_path>/fastqFiles/
   
   "metaGenPipe.kolist": "ko.sorted.txt",
   
+  }
+  
 ```
 
-**NOTE: metaGenePipe.workingDir should be the only variable you will have to edit to run the pipeline. You may edit the job submission resource requests further down the json config file to fine tune the pipeline to your needs.**
+**NOTE: Change all paths to reflect where you are running thepipeline **
 
 ### Step 5: `Load java module`
 **Ensure that Java is installed. Since this pipeline is made to only be run on the UniMelb cluster, Spartan, Java is already installed. To load Java, you can use**
@@ -69,20 +71,22 @@ bash:~$ module load Java
 bash:~$ java -Dconfig.file=./cromslurm.conf -jar cromwell-45.1.jar run metaGenPipe.wdl -i metaGenPipe.json
 ```
 
-Creating your own database
+## Creating your own database
 You may create your own database by obtaining a protein dataset in fasta format. You will need to create a diamond database, and this can be done using the following commands.
 
-1) module load diamond
+```
+bash:~$ module load diamond
 
-2) diamond makedb --in nr.faa -d nr
+bash:~$ diamond makedb --in nr.faa -d nr
 
-3) Copy the resultant .dmnd file to the kegg/ directory.
+bash:~$ Copy the resultant .dmnd file to the kegg/ directory.
 
-4) Update the json config file and update the .DB variable to be the database you wish to align against
+bash:~$ Update the json config file and update the .DB variable to be the database you wish to align against
 
 `
 "metaGenPipe.DB": "kegg/kegg.dmnd",
 `
+```
 
 Troubleshooting tips:
 1) The pipeline has been set up to run against the swissprot database. We have supplied sample fastq files consisting of 100,000 reads so the pipeline can be tested.
