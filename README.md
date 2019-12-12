@@ -91,14 +91,21 @@ Some reference files have not been added due to be kegg reference files. These m
 
 References for software used
 
-1) Andrews S. (2010). FastQC: a quality control tool for high throughput sequence data. Available online at: http://www.bioinformatics.babraham.ac.uk/projects/fastqc
+* Andrews S. (2010). FastQC: a quality control tool for high throughput sequence data. Available online at: http://www.bioinformatics.babraham.ac.uk/projects/fastqc
 
-2) FLASH: Fast length adjustment of short reads to improve genome assemblies. T. Magoc and S. Salzberg. Bioinformatics 27:21 (2011), 2957-63.
+* FLASH: Fast length adjustment of short reads to improve genome assemblies. T. Magoc and S. Salzberg. Bioinformatics 27:21 (2011), 2957-63.
 
-3) Deconseq: Schmieder R and Edwards R: Fast identification and removal of sequence contamination from genomic and metagenomic datasets. PLoS ONE 2011, 6:e17288. [PMID: 21408061]
+* Deconseq: Schmieder R and Edwards R: Fast identification and removal of sequence contamination from genomic and metagenomic datasets. PLoS ONE 2011, 6:e17288. [PMID: 21408061]
 
-4) Prodigal: prokaryotic gene recognition and translation initiation site identification: Doug Hyatt, Gwo-Liang Chen,1 Philip F LoCascio,1 Miriam L Land,1,3 Frank W Larimer,1,2 and Loren J Hauser1,3
+* Prodigal: prokaryotic gene recognition and translation initiation site identification: Doug Hyatt, Gwo-Liang Chen,1 Philip F LoCascio,1 Miriam L Land,1,3 Frank W Larimer,1,2 and Loren J Hauser1,3
 
-5) Buchfink B, Xie C, Huson DH, "Fast and sensitive protein alignment using DIAMOND", Nature Methods 12, 59-60 (2015). doi:10.1038/nmeth.3176
+* Buchfink B, Xie C, Huson DH, "Fast and sensitive protein alignment using DIAMOND", Nature Methods 12, 59-60 (2015). doi:10.1038/nmeth.3176
 
-6) Li H. and Durbin R. (2010) Fast and accurate long-read alignment with Burrows-Wheeler transform. Bioinformatics, 26, 589-595. [PMID: 20080505]
+* Li H. and Durbin R. (2010) Fast and accurate long-read alignment with Burrows-Wheeler transform. Bioinformatics, 26, 589-595. [PMID: 20080505]
+
+*  Camacho C. et al. (2009) "BLAST+: architecture and applications"
+*  Altschul S.F. et al. (1997) "Gapped BLAST and PSI-BLAST: a new generation of protein database search programs"
+*  Altschul S.F. et al. (1990) "Basic local alignment search tool"
+
+
+
