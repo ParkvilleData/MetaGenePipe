@@ -1,4 +1,4 @@
-![Image](../blob/master/logo/mgp_logo_cut.png?raw=true)
+![Image](https://gitlab.unimelb.edu.au/bshaban/metaGenePipe/blob/master/logo/mgp_logo_cut.png)
 
 MetaGenePipe developed by Bobbie shaban from Melbourne Integrative Genomics.
 
