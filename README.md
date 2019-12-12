@@ -10,15 +10,12 @@ Different phases of development are proposed for this project. First, benchmarki
 ## How to Use:
 
 
-###Step 1:
+### Step 1: `Clone the git repository to a directory on your cluster`
 ```
-`Clone the git repository to a directory on your cluster`
-
 metagenepipe:~$ git clone git@gitlab.unimelb.edu.au:bshaban/rnaseqgatk.git .
 ```
 
-###Step 2: 
-`Open input.txt and update with your samples. The file format is as follows.`
+### Step 2: `Open input.txt and update with your samples. The file format is as follows.`
 ````
 SampleID    Read1FQ Read2FQ
 
