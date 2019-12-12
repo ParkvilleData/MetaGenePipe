@@ -6,6 +6,7 @@ Microorganisms including bacteria, viruses, archaea, fungi are ubiquitous in our
 With Dr Kim-Anh Lê Cao (MIG School of Maths and Stats), we are developing MetaGenePipe, an efficient and flexible metagenomics bioinformatics pipeline. We have implemented new features to identify novel genes to enable the microbiology community to fully capitalize on these costly data and extract relevant biological knowledge. MetaGenePipe has been developed in consultation with Australian Researchers to ensure our pipeline can answer various biological questions.
 Different phases of development are proposed for this project. First, benchmarking on mock microbial communities to help choose the best bioinformatics tools in the pipeline, second, a command-line deployment release (beta), third, a user-friendly web interface for data upload and analysis, fourth, hands-on workshops to disseminate such tool.
 
+What makes MetaGenePipe different? Not only does MetaGenePipe create an OTU table for known organisms it also creates an estimation of novel organisms found within your samples. MetaGenePipe can also be tailored to find viruses, bacteria, plants or fungi with minimal changes.
 
 ## How to Use:
 
