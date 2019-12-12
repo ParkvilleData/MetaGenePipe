@@ -80,7 +80,7 @@ bash:~$ module load diamond
 bash:~$ diamond makedb --in nr.faa -d nr
 ```
 
-** NOTE: nr.faa is a protein fasta file
+** NOTE: nr.faa is a protein fasta file **
 
 `Copy the resultant .dmnd file to the kegg/ directory.`
 
@@ -91,16 +91,16 @@ bash:~$ diamond makedb --in nr.faa -d nr
 ```
 
 
-Troubleshooting tips:
-1) The pipeline has been set up to run against the swissprot database. We have supplied sample fastq files consisting of 100,000 reads so the pipeline can be tested.
+## Troubleshooting tips:
+` The pipeline has been set up to run against the swissprot database. We have supplied sample fastq files consisting of 100,000 reads so the pipeline can be tested.`
 
-2) If you would like access to the kegg database, send an email to bshaban@unimelb.edu.au and he may be able to see if you're eligble to use it.
+` If you would like access to the kegg database, send an email to bshaban@unimelb.edu.au and he may be able to see if you're eligble to use it. `
 
 *** NOTE ****
 
 Some reference files have not been added due to be kegg reference files. These must be obtained separately with authorisation
 
-References for software used
+## References for software used
 
 * Andrews S. (2010). FastQC: a quality control tool for high throughput sequence data. Available online at: http://www.bioinformatics.babraham.ac.uk/projects/fastqc
 
