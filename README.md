@@ -16,7 +16,7 @@ What makes MetaGenePipe different? Not only does MetaGenePipe create an OTU tabl
 
 ### Step 1: `Clone the git repository to a directory on your cluster`
 ```
-bash:~$ git clone git@gitlab.unimelb.edu.au:bshaban/rnaseqgatk.git .
+bash:~$ git clone https://gitlab.unimelb.edu.au/bshaban/metaGenePipe.git .
 ```
 
 ### Step 2: `Open input.txt and update with your samples. The file format is as follows.`
