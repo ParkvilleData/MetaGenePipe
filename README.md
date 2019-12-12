@@ -1,6 +1,6 @@
 ![Image](../logo/mgp_logo_cut.png?raw=true)
 
-MetaGenePipe developed by Bobbie shaban from Melbourne Integrative Genomics.
+## MetaGenePipe developed by Bobbie shaban from Melbourne Integrative Genomics.##
 
 Microorganisms including bacteria, viruses, archaea, fungi are ubiquitous in our environment. The study of microorganisms and their full genomes has been enabled through advances in culture independent techniques and high-throughput sequencing technologies. Whole genome metagenomics shotgun sequencing (WGS) empowers researchers to study biological functions of microorganisms, and how their presence affect human disease or a specific ecosystem. However, advanced and novel bioinformatics techniques are required to process the data into a suitable format. There is no standardised bioinformatics framework a microbiologist can use effectively.
 With Dr Kim-Anh Lê Cao (MIG School of Maths and Stats), we are developing MetaGenePipe, an efficient and flexible metagenomics bioinformatics pipeline. We have implemented new features to identify novel genes to enable the microbiology community to fully capitalize on these costly data and extract relevant biological knowledge. MetaGenePipe has been developed in consultation with Australian Researchers to ensure our pipeline can answer various biological questions.
