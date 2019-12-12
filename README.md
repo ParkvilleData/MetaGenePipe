@@ -15,7 +15,8 @@ bash:~$ git clone git@gitlab.unimelb.edu.au:bshaban/rnaseqgatk.git .
 ```
 
 ### Step 2: `Open input.txt and update with your samples. The file format is as follows.`
-````
+
+```
 SampleID    Read1FQ Read2FQ
 
 e.g.
