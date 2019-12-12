@@ -8,6 +8,10 @@ Different phases of development are proposed for this project. First, benchmarki
 
 What makes MetaGenePipe different? Not only does MetaGenePipe create an OTU table for known organisms it also creates an estimation of novel organisms found within your samples. MetaGenePipe can also be tailored to find viruses, bacteria, plants or fungi with minimal changes.
 
+## MetaGenePipe workflow
+
+![Image](../logo/mgp.png?raw=true)
+
 ## How to Use:
 
 ### Step 1: `Clone the git repository to a directory on your cluster`
