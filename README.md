@@ -78,15 +78,18 @@ You may create your own database by obtaining a protein dataset in fasta format.
 bash:~$ module load diamond
 
 bash:~$ diamond makedb --in nr.faa -d nr
-
-bash:~$ Copy the resultant .dmnd file to the kegg/ directory.
-
-bash:~$ Update the json config file and update the .DB variable to be the database you wish to align against
-
-`
-"metaGenPipe.DB": "kegg/kegg.dmnd",
-`
 ```
+
+** NOTE: nr.faa is a protein fasta file
+
+`Copy the resultant .dmnd file to the kegg/ directory.`
+
+`Update the json config file and update the .DB variable to be the database you wish to align against`
+
+```
+"metaGenPipe.DB": "kegg/kegg.dmnd",
+```
+
 
 Troubleshooting tips:
 1) The pipeline has been set up to run against the swissprot database. We have supplied sample fastq files consisting of 100,000 reads so the pipeline can be tested.
