@@ -14,7 +14,7 @@ Different phases of development are proposed for this project. First, benchmarki
 
 ## MetaGenePipe workflow
 
-![Image](../logo/MegaGenePipe_workFlow_V1.png?raw=true)
+![Image](../logo/MegaGenePipe_workFlow_V1.1.png?raw=true)
 
 ## Is MetaGenePipe for you?
 ** Expected output **
