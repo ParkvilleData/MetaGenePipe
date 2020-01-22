@@ -128,8 +128,9 @@ bash:~$ diamond makedb --in nr.faa -d nr
 
 ## References for software used
 
-[1]: Detection of Toscana virus from an adult traveler returning to Australia with encephalitis. Katherine E. Arden  Claire Heney  Babak Shaban  Graeme R. Nimmo  Michael D. Nissen  Theo P. Sloots  Ian M. Mackay.https://doi.org/10.1002/jmv.24839
-[2]: An atypical parvovirus drives chronic tubulointerstitial nephropathy and kidney fibrosis. B Roediger, Q Lee, S Tikoo, JCA Cobbin, JM Henderson, M Jormakka, Babak Shaban. Cell 175 (2), 530-543. e24
+* [1]: Detection of Toscana virus from an adult traveler returning to Australia with encephalitis. Katherine E. Arden  Claire Heney  Babak Shaban  Graeme R. Nimmo  Michael D. Nissen  Theo P. Sloots  Ian M. Mackay.https://doi.org/10.1002/jmv.24839
+
+* [2]: An atypical parvovirus drives chronic tubulointerstitial nephropathy and kidney fibrosis. B Roediger, Q Lee, S Tikoo, JCA Cobbin, JM Henderson, M Jormakka, Babak Shaban. Cell 175 (2), 530-543. e24
 
 * Andrews S. (2010). FastQC: a quality control tool for high throughput sequence data. Available online at: http://www.bioinformatics.babraham.ac.uk/projects/fastqc
 
