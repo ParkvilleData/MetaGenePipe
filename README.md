@@ -14,10 +14,14 @@ What makes MetaGenePipe different? Not only does MetaGenePipe create an OTU tabl
 
 ## How to Use:
 
+### Prestep: Sign up for University of Melbourne Gitlab account. If you are unable to clone the repository email bobbie: bshaban@unimelb.edu.au
+
 ### Step 1: `Clone the git repository to a directory on your cluster`
 ```
-bash:~$ git clone git@gitlab.unimelb.edu.au:bshaban/rnaseqgatk.git .
+bash:~$ git clone https://gitlab.unimelb.edu.au/bshaban/metaGenePipe.git .
 ```
+
+** Ensure you have the correct permissions to run the pipeline. If you are unsure you can send an email to your HPC System Administrator
 
 ### Step 2: `Open input.txt and update with your samples. The file format is as follows.`
 
@@ -60,7 +64,8 @@ bash:~$ cp *.fastq <metagenepipe_path>/fastqFiles/
   
 ```
 
-**NOTE: Change all paths to reflect where you are running thepipeline**
+**NOTE: Change all paths to reflect where you are running the pipeline and change create the output directory you set in the config above **
+**NOTE: The working directory you set has to be the directory you cloned the repository into**
 
 ### Step 5: `Load java module`
 **Ensure that Java is installed. Since this pipeline is made to only be run on the UniMelb cluster, Spartan, Java is already installed. To load Java, you can use**
@@ -70,6 +75,10 @@ bash:~$ module load Java
 ```
 
 ### Step 6: `To run the pipeline use the command below in the directory where the cromwell jar file is found`
+
+**NOTE: Before running the pipeline change the cromslurm.conf file to reflect the correct partition you have permission to submit to**
+
+#### the line you have change is: String rt_queue = "mig-gpu"
 
 ```
 bash:~$ java -Dconfig.file=./cromslurm.conf -jar cromwell-45.1.jar run metaGenPipe.wdl -i metaGenPipe.json
