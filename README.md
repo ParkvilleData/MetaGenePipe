@@ -11,13 +11,14 @@ Developed at the University of Melbourne in conjunction with Melbourne Integrati
  
 Different phases of development are proposed for this project. First, benchmarking on mock microbial communities to help choose the best bioinformatics tools in the pipeline, second, a command-line deployment release (beta), third, a user-friendly web interface for data upload and analysis, fourth, hands-on workshops to disseminate such tool.
  
-[1]: Detection of Toscana virus from an adult traveler returning to Australia with encephalitis. Katherine E. Arden  Claire Heney  Babak Shaban  Graeme R. Nimmo  Michael D. Nissen  Theo P. Sloots  Ian M. Mackay.https://doi.org/10.1002/jmv.24839
-[2]: An atypical parvovirus drives chronic tubulointerstitial nephropathy and kidney fibrosis. B Roediger, Q Lee, S Tikoo, JCA Cobbin, JM Henderson, M Jormakka, Babak Shaban. Cell 175 (2), 530-543. e24
- 
 
 ## MetaGenePipe workflow
 
 ![Image](../logo/MegaGenePipe_workFlow_V1.png?raw=true)
+
+## Is MetaGenePipe for you?
+** Expected output **
+
 
 ## How to Use:
 
@@ -119,6 +120,9 @@ bash:~$ diamond makedb --in nr.faa -d nr
 **NOTE: Some reference files have not been added due to be kegg reference files. These must be obtained separately with authorisation**
 
 ## References for software used
+
+[1]: Detection of Toscana virus from an adult traveler returning to Australia with encephalitis. Katherine E. Arden  Claire Heney  Babak Shaban  Graeme R. Nimmo  Michael D. Nissen  Theo P. Sloots  Ian M. Mackay.https://doi.org/10.1002/jmv.24839
+[2]: An atypical parvovirus drives chronic tubulointerstitial nephropathy and kidney fibrosis. B Roediger, Q Lee, S Tikoo, JCA Cobbin, JM Henderson, M Jormakka, Babak Shaban. Cell 175 (2), 530-543. e24
 
 * Andrews S. (2010). FastQC: a quality control tool for high throughput sequence data. Available online at: http://www.bioinformatics.babraham.ac.uk/projects/fastqc
 
