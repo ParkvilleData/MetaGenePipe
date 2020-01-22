@@ -19,6 +19,13 @@ Different phases of development are proposed for this project. First, benchmarki
 ## Is MetaGenePipe for you?
 ** Expected output **
 
+*  OTU Table
+*  Taxanomic Profile
+*  Level 1, 2, 3 Brite Counts
+*  Gene count table (raw)
+*  Fastqc sequence output
+*  Function counts (raw)
+*  Fasta file of potentially novel sequences and blast of the sequences (tsv)
 
 ## How to Use:
 
