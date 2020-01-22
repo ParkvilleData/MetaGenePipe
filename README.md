@@ -3,14 +3,21 @@
 # MetaGenePipe developed by Bobbie shaban from Melbourne Integrative Genomics.
 
 Microorganisms including bacteria, viruses, archaea, fungi are ubiquitous in our environment. The study of microorganisms and their full genomes has been enabled through advances in culture independent techniques and high-throughput sequencing technologies. Whole genome metagenomics shotgun sequencing (WGS) empowers researchers to study biological functions of microorganisms, and how their presence affect human disease or a specific ecosystem. However, advanced and novel bioinformatics techniques are required to process the data into a suitable format. There is no standardised bioinformatics framework a microbiologist can use effectively.
-With Dr Kim-Anh Lê Cao (MIG School of Maths and Stats), we are developing MetaGenePipe, an efficient and flexible metagenomics bioinformatics pipeline. We have implemented new features to identify novel genes to enable the microbiology community to fully capitalize on these costly data and extract relevant biological knowledge. MetaGenePipe has been developed in consultation with Australian Researchers to ensure our pipeline can answer various biological questions.
-Different phases of development are proposed for this project. First, benchmarking on mock microbial communities to help choose the best bioinformatics tools in the pipeline, second, a command-line deployment release (beta), third, a user-friendly web interface for data upload and analysis, fourth, hands-on workshops to disseminate such tool.
+With Dr Kim-Anh Lê Cao (MIG School of Maths and Stats), we are developing MetaGenePipe.,
 
-What makes MetaGenePipe different? Not only does MetaGenePipe create an OTU table for known organisms it also creates an estimation of novel organisms found within your samples. MetaGenePipe can also be tailored to find viruses, bacteria, plants or fungi with minimal changes.
+MetaGenePipe is an efficient, flexible and scalable metagenomics bioinformatics pipeline uses the latest bioinformatics software and databases to create an accurate characterisation of microbiome samples and produces output that is familiar and can be ported to other applications for further downstream analysis. The current software list includes the latest versions Deconseq, IDBA, MegaHIT, Prodigal, Diamond and BLAST and the current databases include KEGG and Swissprot. The “genomic discovery” portion of the pipeline has been used with success to find novel viruses from environmental samples. [1] [2]
+ 
+Developed at the University of Melbourne in conjunction with Melbourne Integrative Genomics, not only does MetaGenePipe create an OTU table for known organisms it also creates an estimation of novel organisms found within your samples and to the best our knowledge MetaGenePipe is the only pipeline to do this. Most modern metagenomic software including MG-RAST and Kraken automates taxomonimc classification of bacterial sequences within environmental samples. MetaGenePipe not only performs taxonomic classifications but also discovers potentially novel sequences, assembles them and then reports the results to the user. MetaGenePipe can also be tailored to find viruses, bacteria, plants, archaea, vertebrates, invertebrates or fungi with minimal changes.
+ 
+Different phases of development are proposed for this project. First, benchmarking on mock microbial communities to help choose the best bioinformatics tools in the pipeline, second, a command-line deployment release (beta), third, a user-friendly web interface for data upload and analysis, fourth, hands-on workshops to disseminate such tool.
+ 
+[1]: Detection of Toscana virus from an adult traveler returning to Australia with encephalitis. Katherine E. Arden  Claire Heney  Babak Shaban  Graeme R. Nimmo  Michael D. Nissen  Theo P. Sloots  Ian M. Mackay.https://doi.org/10.1002/jmv.24839
+[2]: An atypical parvovirus drives chronic tubulointerstitial nephropathy and kidney fibrosis. B Roediger, Q Lee, S Tikoo, JCA Cobbin, JM Henderson, M Jormakka, Babak Shaban. Cell 175 (2), 530-543. e24
+ 
 
 ## MetaGenePipe workflow
 
-![Image](../logo/mgp.png?raw=true)
+![Image](../logo/MegaGenePipe_workFlow_V1.png?raw=true)
 
 ## How to Use:
 
