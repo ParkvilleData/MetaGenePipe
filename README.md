@@ -14,14 +14,14 @@ Different phases of development are proposed for this project. First, benchmarki
 
 ## MetaGenePipe workflow
 
-![Image](../logo/MegaGenePipe_workFlow_V1.1.png?raw=true)
+![Image](../logo/MegaGenePipe.jpeg?raw=true)
 
 ## Is MetaGenePipe for you?
 ** Expected output **
 
 *  OTU Table
 *  Taxanomic Profile
-*  Level 1, 2, 3 Brite Counts
+*  Level A, B, C Brite Hierarchy Counts:  (https://www.genome.jp/kegg/kegg3b.html)
 *  Gene count table (raw)
 *  Fastqc sequence output
 *  Function counts (raw)
