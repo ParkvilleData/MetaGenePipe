@@ -17,7 +17,7 @@ task megahit_task {
 	File deconseqReadFile
 
         command {
-		/usr/bin/time -v '${workingDir}'/bin/mh/mh/megahit -t 16 -r '${deconseqReadFile}' 	
+		/usr/bin/time -v '${workingDir}'/bin/mh/mh/megahit -t '${megaHitRunThreads}' -r '${deconseqReadFile}' 	
         }
         runtime {
                 runtime_minutes: '${megaHitRunMinutes}'

@@ -16,11 +16,12 @@ task hostremoval_task {
 	String outputDir
         String sampleName
 	String workingDir
+	String removalSequence
 
         command {
 		module load Perl/5.26.2-intel-2018.u4
 
-		/usr/bin/time -v perl '${workingDir}'/bin/dqc/deconseq.pl -dbs mm1,mm2,mm3,mm4,mm5,mm6 -i 70 -c 70 -f '${flashMergedFastq}'
+		/usr/bin/time -v perl '${workingDir}'/bin/dqc/deconseq.pl -dbs '${removalSequence}' -i 70 -c 70 -f '${flashMergedFastq}'
         }
         runtime {
                 runtime_minutes: '${hostRemovalRunMinutes}'

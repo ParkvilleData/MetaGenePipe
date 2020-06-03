@@ -19,9 +19,10 @@ task copyoutput_task {
 	File level_one
 	File level_two
 	File level_three
+	Array[File] scaffoldsParsed
 
         command {
-		/usr/bin/time -v cp '${all_level_table}'  '${gene_count_table}'  '${level_one}'  '${level_two}'  '${level_three}' '${workingDir}'/'${outputDir}'
+		/usr/bin/time -v cp '${all_level_table}'  '${gene_count_table}'  '${level_one}'  '${level_two}'  '${level_three}' '${sep=' ' scaffoldsParsed}' '${workingDir}'/'${outputDir}' 
         }
         runtime {
                 runtime_minutes: '${copyOutputRunMinutes}'
