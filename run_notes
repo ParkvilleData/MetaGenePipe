@@ -1,0 +1,9 @@
+Update input.new.txt
+update MetaGenePipe.json paths to current paths
+
+module load Java
+java -Dconfig.file=./cromslurm.conf -jar cromwell-45.1.jar run metaGenPipe.wdl -i metaGenPipe.json
+
+
+#copying application to gitlab dir
+rsync -av --exclude 'db/fastqFiles/output/womtool-45.1.jar/cromwell-executions/cromwell-workflow-logs/bparser/run_notes'./ /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/

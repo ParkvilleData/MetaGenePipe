@@ -21,7 +21,7 @@ task hostremoval_task {
         command {
 		module load Perl/5.26.2-intel-2018.u4
 
-		/usr/bin/time -v perl '${workingDir}'/bin/dqc/deconseq.pl -dbs '${removalSequence}' -i 70 -c 70 -f '${flashMergedFastq}'
+		/usr/bin/time -v perl '${workingDir}'/bin/dqc/deconseq.pl -dbs '${removalSequence}' -i 70 -c 70 -f '${flashMergedFastq}' -id ${sampleName}
         }
         runtime {
                 runtime_minutes: '${hostRemovalRunMinutes}'
@@ -29,6 +29,6 @@ task hostremoval_task {
                 mem: '${hostRemovalRunMem}'
         }
         output {
-		Array[File] hostRemovalArray = glob("*.fq")
+		File hostRemovalOutput = "${sampleName}_clean.fq"
         }        
 }

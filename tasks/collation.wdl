@@ -20,7 +20,7 @@ task collation_task {
         command {
 		#remove quotes from xml for processing
 		#/usr/bin/time -v sed 's/\&quot;//g' '${inputXML}' | sed 's/\&//g' | sed 's/\\/ /g' > '${outputDir}'/'${sampleName}'.xml
-		/usr/bin/time -v sed 's/\&quot;//g' '${inputXML}' | sed 's/\&//g' > '${workingDir}'/'${outputDir}'/'${sampleName}'.xml
+		/usr/bin/time -v sed 's/\&quot;//g' '${inputXML}' | sed 's/\&//g' > "${sampleName}".xml
 		#Doesn't like ^A
 		#ugly but will work for now
         }
@@ -31,6 +31,7 @@ task collation_task {
         }
         output {
 		String scatterCompleteFlag = "complete"
-		# No output needed here as all xml output will be put in a dirctory for further processing
+		File collationOutput = "${sampleName}.xml"
         }        
+	
 }

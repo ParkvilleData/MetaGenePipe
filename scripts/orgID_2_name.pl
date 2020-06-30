@@ -21,13 +21,14 @@ use Cwd qw(getcwd);
 my $tax_rank = shift;
 my $full_lineage_dump = shift;
 my $outputDir = shift;
+my $domFiles = shift;
 
 #chdir($outputDir);
+#my @diamondTabOutputs = split(';', $domFiles);
 my @diamondTabOutputs = glob("$outputDir/*.domTable.txt");
 
 my $array_size=@diamondTabOutputs;
-my $dir = getcwd();
-if($array_size==0) {print Dumper(@diamondTabOutputs); die print "Can't find diamond tab output: $array_size $dir\n"};
+if($array_size==0) {print Dumper(@diamondTabOutputs); die print "Can't find diamond tab output: $array_size $outputDir\n"};
 
 #global hash variables
 my %orgHash;

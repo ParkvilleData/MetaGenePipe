@@ -49,7 +49,11 @@ File blast
 	    Int fastqcRunMinutes
 	    Int fastqcRunMem
 
-            input: inputFastqRead1=sample[1],inputFastqRead2=sample[2],sampleName=sample[0],outputDir=outputDir,workingDir=workingDir
+            input: inputFastqRead1=sample[1],
+		   inputFastqRead2=sample[2],
+		   sampleName=sample[0],
+		   outputDir=outputDir,
+	     	   workingDir=workingDir
 	}
 
 	call flashTask.flash_task {
@@ -57,7 +61,11 @@ File blast
 	    Int flashRunMinutes
 	    Int flashRunMem
 
-            input: inputFastqRead1=sample[1],inputFastqRead2=sample[2],sampleName=sample[0],outputDir=outputDir,workingDir=workingDir
+            input: inputFastqRead1=sample[1],
+		   inputFastqRead2=sample[2],
+		   sampleName=sample[0],
+		   outputDir=outputDir,
+		   workingDir=workingDir
 	}
 
 	call interLeaveTask.interleave_task {
@@ -65,7 +73,12 @@ File blast
             Int interLeaveRunMinutes
             Int interLeaveRunMem		
 
-	    input: flashNotCombined1=flash_task.flashArray[1], flashNotCombined2=flash_task.flashArray[2], flashExtended=flash_task.flashArray[0], sampleName=sample[0], outputDir=outputDir,workingDir=workingDir
+	    input: flashNotCombined1=flash_task.flashArray[1], 
+		   flashNotCombined2=flash_task.flashArray[2], 
+		   flashExtended=flash_task.flashArray[0], 
+		   sampleName=sample[0], 
+		   outputDir=outputDir,
+		   workingDir=workingDir
 	}
 
 	 call hostRemovalTask.hostremoval_task {
@@ -73,12 +86,19 @@ File blast
 	    Int hostRemovalRunMinutes
 	    Int hostRemovalRunMem 
 
-            input: flashMergedFastq=interleave_task.flashMergedFastq,sampleName=sample[0],outputDir=outputDir,workingDir=workingDir,removalSequence=removeMouseSequence
+            input: flashMergedFastq=interleave_task.flashMergedFastq,
+		   sampleName=sample[0],outputDir=outputDir,
+		   workingDir=workingDir,
+		   removalSequence=removeMouseSequence
         }
 
 	call hostRemovalTask.hostremoval_task as sequence_removal_task {
 
-            input: flashMergedFastq=interleave_task.flashMergedFastq,sampleName=sample[0],outputDir=outputDir,workingDir=workingDir,removalSequence=removalSequence
+            input: flashMergedFastq=interleave_task.flashMergedFastq,
+		   sampleName=sample[0],
+		   outputDir=outputDir,
+		   workingDir=workingDir,
+		   removalSequence=removalSequence
         }
 
 	call idbaTask.idba_task {
@@ -86,7 +106,8 @@ File blast
 	   Int idbaRunMinutes
 	   Int idbaRunMem
 
-	   input: sampleName=sample[0],cleanFastq=sequence_removal_task.hostRemovalArray[0]
+	   input: sampleName=sample[0],
+		  cleanFastq=sequence_removal_task.hostRemovalOutput
 	
 	}
 
@@ -95,7 +116,15 @@ File blast
            Int blastRunMinutes
            Int blastRunMem
 
-           input: numOfHits=numOfHits,blast=blast,sampleName=sample[0],scriptsDirectory=scriptsDirectory,database=ntDatabase,inputScaffolds=idba_task.scaffoldFasta,numOfHits=numOfHits,bparser=bparser,workingDir=workingDir
+           input: numOfHits=numOfHits,
+		  blast=blast,
+		  sampleName=sample[0],
+		  scriptsDirectory=scriptsDirectory,
+		  database=ntDatabase,
+		  inputScaffolds=idba_task.scaffoldFasta,
+		  numOfHits=numOfHits,
+		  bparser=bparser,
+		  workingDir=workingDir
 
         }
 
@@ -104,7 +133,10 @@ File blast
             Int megaHitRunMinutes
             Int megaHitRunMem
 
-	    input: sampleName=sample[0],outputDir=outputDir,deconseqReadFile=hostremoval_task.hostRemovalArray[0],workingDir=workingDir	
+	    input: sampleName=sample[0],
+		   outputDir=outputDir,
+		   deconseqReadFile=hostremoval_task.hostRemovalOutput,
+		   workingDir=workingDir	
 
 	}
 
@@ -113,7 +145,10 @@ File blast
             Int genePredictionRunMinutes
             Int genePredictionRunMem
 
-            input: sampleName=sample[0],outputDir=outputDir,megahitOutputTranscripts=megahit_task.megahitArray[0],workingDir=workingDir
+            input: sampleName=sample[0],
+		   outputDir=outputDir,
+		   megahitOutputTranscripts=megahit_task.megahitOutput,
+		   workingDir=workingDir
 
         }
 	
@@ -122,7 +157,10 @@ File blast
             Int diamondRunMinutes
             Int diamondRunMem
 
-            input: database=DB,sampleName=sample[0],outputDir=outputDir,genesAlignmentOutput=geneprediction_task.proteinAlignmentOutput,workingDir=workingDir
+            input: database=DB,sampleName=sample[0],
+		   outputDir=outputDir,
+		   genesAlignmentOutput=geneprediction_task.proteinAlignmentOutput,
+		   workingDir=workingDir
         }
 		
 	call collationTask.collation_task {
@@ -130,7 +168,10 @@ File blast
             Int collationRunMinutes
             Int collationRunMem
 
-            input: sampleName=sample[0],outputDir=outputDir,inputXML=diamond_task.diamondOutput,workingDir=workingDir
+            input: sampleName=sample[0],
+		   outputDir=outputDir,
+		   inputXML=diamond_task.diamondOutput,
+		   workingDir=workingDir
         }
    }
 	
@@ -140,16 +181,38 @@ File blast
             Int xmlParserRunMinutes
             Int xmlParserRunMem
 
-            input: outputDir=outputDir,taxRankFile=taxRankFile,fullLineageFile=fullLineageFile,scriptsDirectory=scriptsDirectory,koFormattedFile=koFormattedFile,keggSpeciesFile=keggSpeciesFile,outputFileName=outputFileName,scatterCompleteFlag=collation_task.scatterCompleteFlag,workingDir=workingDir
+            input: outputDir=outputDir,
+		scatterCompleteFlag=collation_task.scatterCompleteFlag,
+		taxRankFile=taxRankFile,
+		fullLineageFile=fullLineageFile,
+		scriptsDirectory=scriptsDirectory,
+		koFormattedFile=koFormattedFile,
+		keggSpeciesFile=keggSpeciesFile,
+		outputFileName=outputFileName,
+		workingDir=workingDir,
+		collationArray = collation_task.collationOutput
         }
 
-	call copyOutputTask.copyoutput_task {
-	    Int copyOutputRunThreads
-            Int copyOutputRunMinutes
-            Int copyOutputRunMem
+	output {
 
-	     input: outputDir=outputDir,all_level_table=xmlparser_task.outputArray[0],gene_count_table=xmlparser_task.outputArray[1],level_one=xmlparser_task.outputArray[2],level_two=xmlparser_task.outputArray[3],level_three=xmlparser_task.outputArray[4],workingDir=workingDir,scaffoldsParsed=blast_task.parsedOutput
- 	}
+		################## Capture workflow output ##########################
+		Array[Array[File]] flashArray = flash_task.flashArray
+		Array[File] hostRemovalArray = hostremoval_task.hostRemovalOutput
+		Array[File] idbaAssembly = idba_task.scaffoldFasta
+		Array[File] blastArray = blast_task.parsedOutput
+		Array[File] megaHitArray = megahit_task.megahitOutput
+		Array[File] genesArray = geneprediction_task.genesAlignmentOutput
+		Array[File] proteinArray = geneprediction_task.proteinAlignmentOutput
+		Array[File] nucleotideArray = geneprediction_task.nucleotiedGenesOutput
+		Array[File] potentialGenesArray = geneprediction_task.potentialGenesAlignmentOutput
+		Array[File] diamondArray = diamond_task.diamondOutput
+                Array[File] collationOutput = collation_task.collationOutput
+
+			  
+
+		
+
+	}
 }
 ## end of worklfow metaGenPipe
 

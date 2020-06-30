@@ -21,7 +21,7 @@ task fastqc_task {
         command {
                 module load fastqc
 		
-                /usr/bin/time -v fastqc -t '${fastqcRunThreads}' '${inputFastqRead1}' '${inputFastqRead2}' -o '${workingDir}'/'${outputDir}'
+                /usr/bin/time -v fastqc -t '${fastqcRunThreads}' '${inputFastqRead1}' '${inputFastqRead2}' -o "${outputDir}"
         }
         runtime {
                 runtime_minutes: '${fastqcRunMinutes}'

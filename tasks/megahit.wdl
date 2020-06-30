@@ -18,6 +18,7 @@ task megahit_task {
 
         command {
 		/usr/bin/time -v '${workingDir}'/bin/mh/mh/megahit -t '${megaHitRunThreads}' -r '${deconseqReadFile}' 	
+		cp ./megahit_out/final.contigs.fa ${sampleName}.final.contigs.fa
         }
         runtime {
                 runtime_minutes: '${megaHitRunMinutes}'
@@ -25,7 +26,7 @@ task megahit_task {
                 mem: '${megaHitRunMem}'
         }
         output {
-                Array[File] megahitArray = glob("./megahit_out/final.contigs.fa")
+               File megahitOutput = "${sampleName}.final.contigs.fa"
         }
 }
 

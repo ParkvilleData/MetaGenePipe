@@ -15,7 +15,11 @@ my $outputFileName = shift;
 my $analysisType = shift;
 my $koFormatFile = shift;
 my $speciesFile = shift;
-my @xmlArray = glob "$outputDir/*.xml";
+my $xmlFiles = shift;
+
+print "$xmlFiles\n";
+
+my @xmlArray = split(';', $xmlFiles); 
 
 my @geneArray; 
 my @sampleArray;
@@ -31,7 +35,6 @@ my %keggToFunction;
 
 #create hash for tables for quick usage
 &create_species_hash;
-#&create_function_hash;
 
 #main function
 &main;
@@ -189,7 +192,7 @@ sub print_all_table{
 	 #print Dumper(%temp_all_level_table_hash);
 
          my $file = "Functional.table.counts.txt";
-         open(my $fileHandle, '>', $file) or die "Could not open file '$file' $!";
+         open(my $fileHandle, '>', $outputDir."/".$file) or die "Could not open file '$file' $!";
 
 	#foreach my $hashLevel (@levelArray){
 	my @roleArray_all_table = &ret_role_array($sampleNameArray_sub, $megaLevelHash_sub, "level4");
@@ -276,6 +279,8 @@ sub print_level_table{
 	my @levelArray=('level1', 'level2', 'level3');
 	@sArray=&ret_sample_array($sampleNameArray_sub);
 
+	print Dumper(@levelArray);
+
 		foreach my $hashLevel (@levelArray){
 		#open files for printing 
 		#samplename => level => key #go trhough samples
@@ -289,8 +294,9 @@ sub print_level_table{
                 my @uniqArray=&uniq(@roleArray);
 		#print Dumper(@uniqArray);
 		
+		print "$hashLevel\n";
 		my $file = "$hashLevel.counts.txt";
-		open(my $fileHandle, '>', $file) or die "Could not open file '$file' $!";	
+		open(my $fileHandle, '>', $outputDir."/".$file) or die "Could not open file '$file' $!";	
 
 		my $title = "Sample\t";
                 foreach my $sub (@{$sampleNameArray_sub}){
@@ -344,7 +350,6 @@ sub create_kegg_hash{
 		push(@{ $keggHash{$splitKoFile[0]} }, @splitKoFile);
         }
 
-	#print Dumper(%keggHash);
 }
 
 sub main{
@@ -352,10 +357,13 @@ sub main{
 # find all xml files in directory
 
 	if(!@xmlArray){ die "There are no xml files currently in the folder for processing\n"; }
+
+	
 	foreach my $xmlFile (@xmlArray){
 
 	my $dom = XML::LibXML->load_xml(location => $xmlFile);
-	open(my $fh, ">", "$xmlFile.domTable.txt") or die "Can't open $xmlFile.domTable.txt for writing: debug - main fucntion\n";
+	my $xmlBase = basename($xmlFile);
+	open(my $fh, ">", "$outputDir/$xmlBase.domTable.txt") or die "Can't open $xmlFile.domTable.txt for writing: debug - main fucntion\n";
 	print $fh "Query ID\tKegg ID\tDescription of Hit\n";
 
 		#takes xml output from diamond and parses into simple Query - ID - description file
@@ -427,7 +435,7 @@ sub main{
 	#Print out the table!!!!!!!
 	my $geneCountTable=$outputFileName;
 	
- 	open(my $geneCountTableFH, ">", $geneCountTable) or die "CAn't open $geneCountTable for writing\n";
+ 	open(my $geneCountTableFH, ">", $outputDir."/".$geneCountTable) or die "CAn't open $geneCountTable for writing\n";
 
 	 #headers
 	 print $geneCountTableFH "Gene/Sample\t";

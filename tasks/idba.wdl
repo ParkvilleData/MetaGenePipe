@@ -19,8 +19,8 @@ task idba_task {
 		module load IDBA 
 
 		fq2fa --paired '${cleanFastq}' clean.fa
-		idba_ud -r clean.fa --num_threads '${idbaRunThreads}' 
-		mv ./out/scaffold.fa '${sampleName}'.scaffold.fa	
+		idba_ud -l clean.fa --num_threads '${idbaRunThreads}' 
+		mv ./out/contig.fa '${sampleName}'.scaffold.fa	
         }
         runtime {
                 runtime_minutes: '${idbaRunMinutes}'
