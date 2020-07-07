@@ -1,7 +1,7 @@
 {
 "##_GLBOAL_VARS#": "global",
-  "metaGenPipe.workingDir": "/data/cephfs/punim0256/MGP_ComEnc_011119/",
-  "metaGenPipe.outputDir": "/data/cephfs/punim0256/MGP_ComEnc_011119/output",
+  "metaGenPipe.workingDir": "/data/cephfs/punim1224/mar/metaGenePipe/",
+  "metaGenPipe.outputDir": "/data/cephfs/punim1224/mar/metaGenePipe/output",
   "metaGenPipe.inputSamplesFile": "i.txt",
   "metaGenPipe.outputFileName": "geneCountTable.txt",
   "metaGenPipe.kolist": "ko.sorted.txt",
