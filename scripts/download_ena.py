@@ -50,7 +50,7 @@ def process_row(row):
     if local_path.is_file():
         print(f"{local_path} already downloaded.")
 
-        if args.validate_checksum:
+        if args.validate:
             md5 = hashlib.md5(local_path).hexdigest()
             if md5 == row['fastq_md5']:
                 return
