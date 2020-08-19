@@ -1,22 +1,21 @@
 task megahit_task {
 	File megahit
 	File deconseqReadFile
-        Int MEH_threads
-        Int MEH_minutes
-        Int MEH_mem
+        Int MES_threads
+        Int MES_minutes
+        Int MES_mem
         String baseName
 
         command {
-		megahit -t '${MEH_threads}' -r '${deconseqReadFile}' 	
-		cp ./megahit_out/final.contigs.fa ${sampleName}.final.contigs.fa
+		metaspades  	
         }
         runtime {
-                runtime_minutes: '${MEH_minutes}'
-                cpus: '${MEH_threads}'
-                mem: '${MEH_mem}'
+                runtime_minutes: '${MES_minutes}'
+                cpus: '${MES_threads}'
+                mem: '${MES_mem}'
         }
         output {
-               File megahitOutput = "${sampleName}.final.contigs.fa"
+               File metaspadesOutput = "${sampleName}.final.contigs.fa"
         }
     meta {
         author: "Mar Quiroga"

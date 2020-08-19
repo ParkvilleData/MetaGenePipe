@@ -1,22 +1,10 @@
-############################################
-#
-# metaGenPipe blast WDL function
-# Bobbie Shaban	
-# Should be reusable inbetween tasks
-# Collates all output into human readable form
-#
-##########################################
-
-
 task blast_task {
-	Int blastRunThreads
-        Int blastRunMinutes
+	Int BLST_threads
+        Int BLST_minutes
         Int blastRunMem
 	Int numOfHits
 	String database
-	String sampleName
-	String scriptsDirectory
-	String workingDir
+	String baseName
 	File blast
 	File bparser
 	File inputScaffolds
@@ -27,15 +15,28 @@ task blast_task {
 		#module load BLAST
 
 		#remove quotes from xml for processing
-		/usr/bin/time -v '${blast}' -db '${database}' -num_threads '${blastRunThreads}' -query '${inputScaffolds}' -out '${sampleName}'.scaffold.out -num_descriptions '${numOfHits}' -num_alignments 5
-		/usr/bin/time -v perl '${bparser}' '${sampleName}'.scaffold.out '${numOfHits}' '${sampleName}'.scaffold.parsed  
+		'${blast}' -db '${database}' -num_threads '${BLST_threads}' -query '${inputScaffolds}' -out '${sampleName}'.scaffold.out -num_descriptions '${numOfHits}' -num_alignments 5
+		perl '${bparser}' '${sampleName}'.scaffold.out '${numOfHits}' '${sampleName}'.scaffold.parsed  
         }
         runtime {
-                runtime_minutes: '${blastRunMinutes}'
-                cpus: '${blastRunThreads}'
-                mem: '${blastRunMem}'
+                runtime_minutes: '${BLST_minutes}'
+                cpus: '${BLST_threads}'
+                mem: '${BLST_mem}'
         }
         output {
 		File parsedOutput = "${sampleName}.scaffold.parsed"	
         }        
+
+    meta {
+        author: "Bobbie Shaban"
+        email: "bshaban@unimelb.edu.au"
+        description: "<DESCRIPTION>"
+    }
+    parameter_meta {
+        # Inputs:
+        forwardReads: "itype:fastq: Forward reads in read pair"
+        reverseReads: "itype:fastq: Reverse reads in read pair"
+        # Outputs:
+        fastqcArray: "otype:glob: All the zip files output"
+    }
 }

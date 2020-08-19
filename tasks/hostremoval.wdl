@@ -9,26 +9,39 @@
 
 
 task hostremoval_task {
-	Int hostRemovalRunThreads
-        Int hostRemovalRunMinutes
-        Int hostRemovalRunMem
+	Int HRM_threads
+        Int HRM_minutes
+        Int HRM_mem
+	Int identityPercent
+	Int coverage
 	File flashMergedFastq
-	String outputDir
-        String sampleName
-	String workingDir
+	File deconseq
+        String baseName
 	String removalSequence
 
         command {
 		module load Perl/5.26.2-intel-2018.u4
 
-		/usr/bin/time -v perl '${workingDir}'/bin/dqc/deconseq.pl -dbs '${removalSequence}' -i 70 -c 70 -f '${flashMergedFastq}' -id ${sampleName}
+		perl '${deconseq}'/bin/dqc/deconseq.pl -dbs '${removalSequence}' -i '${percentIdentity}' -c '${coverage}' -f '${flashMergedFastq}' -id ${sampleName}
         }
         runtime {
-                runtime_minutes: '${hostRemovalRunMinutes}'
-                cpus: '${hostRemovalRunThreads}'
-                mem: '${hostRemovalRunMem}'
+                runtime_minutes: '${HRM_minutes}'
+                cpus: '${HRM_threads}'
+                mem: '${HRM_mem}'
         }
         output {
 		File hostRemovalOutput = "${sampleName}_clean.fq"
         }        
+    meta {
+        author: "Bobbie Shaban"
+        email: "bshaban@unimelb.edu.au"
+        description: "<DESCRIPTION>"
+    }
+    parameter_meta {
+        # Inputs:
+        forwardReads: "itype:fastq: Forward reads in read pair"
+        reverseReads: "itype:fastq: Reverse reads in read pair"
+        # Outputs:
+        fastqcArray: "otype:glob: All the zip files output"
+    }
 }

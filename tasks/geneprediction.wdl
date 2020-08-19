@@ -1,32 +1,20 @@
-############################################
-#
-# metaGenPipe genePrediction WDL function
-# Bobbie Shaban	
-# Should be reusable inbetween tasks
-# Performs genePrediction of genes
-# will attempt to be reusable
-##########################################
-
-
 task geneprediction_task {
-	Int genePredictionRunThreads
-        Int genePredictionRunMinutes
-        Int genePredictionRunMem
+	Int GEP_threads
+        Int GEP_minutes
+        Int GEP_mem
         File megahitOutputTranscripts
-	String outputDir
-        String sampleName
-	String workingDir
+        String baseName
 
         command {
                 module load prodigal
 		
-		/usr/bin/time -v prodigal -i '${megahitOutputTranscripts}' -o '${sampleName}'.prodgial.genes.fa -a '${sampleName}'.prodigal.proteins.fa -d '${sampleName}'.prodigal.nucl.genes.fa -s '${sampleName}'.prodigal.potential_genes.fa
+		prodigal -i '${megahitOutputTranscripts}' -o '${sampleName}'.prodgial.genes.fa -a '${sampleName}'.prodigal.proteins.fa -d '${sampleName}'.prodigal.nucl.genes.fa -s '${sampleName}'.prodigal.potential_genes.fa
 
         }
         runtime {
-                runtime_minutes: '${genePredictionRunMinutes}'
-                cpus: '${genePredictionRunThreads}'
-                mem: '${genePredictionRunMem}'
+                runtime_minutes: '${GEP_minutes}'
+                cpus: '${GEP_threads}'
+                mem: '${GEP_mem}'
         }
         output {
 		File genesAlignmentOutput = "${sampleName}.prodgial.genes.fa"
@@ -34,4 +22,17 @@ task geneprediction_task {
 		File nucleotiedGenesOutput = "${sampleName}.prodigal.nucl.genes.fa"
 		File potentialGenesAlignmentOutput = "${sampleName}.prodigal.potential_genes.fa"
         }        
+
+    meta {
+        author: "Bobbie Shaban"
+        email: "bshaban@unimelb.edu.au"
+        description: "<DESCRIPTION>"
+    }
+    parameter_meta {
+        # Inputs:
+        forwardReads: "itype:fastq: Forward reads in read pair"
+        reverseReads: "itype:fastq: Reverse reads in read pair"
+        # Outputs:
+        fastqcArray: "otype:glob: All the zip files output"
+    }
 }

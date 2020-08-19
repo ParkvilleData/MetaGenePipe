@@ -9,24 +9,22 @@
 
 
 task flash_task {
-	Int flashRunThreads
-        Int flashRunMinutes
-        Int flashRunMem
-        File inputFastqRead1
-	File inputFastqRead2
-	String outputDir
+	Int FLA_threads
+        Int FLA_minutes
+        Int FLA_mem
+        File forwardReads
+	File reverseReads
         String sampleName
-	String workingDir
 
         command {
                 module load FLASH
 		
-		/usr/bin/time -v flash -t 16 -o '${sampleName}' '${inputFastqRead1}'  '${inputFastqRead2}'
+		flash -t '${FLA_threads}' -o '${sampleName}' '${forwardReads}'  '${reverseReads}'
         }
         runtime {
-                runtime_minutes: '${flashRunMinutes}'
-                cpus: '${flashRunThreads}'
-                mem: '${flashRunMem}'
+                runtime_minutes: '${FLA_minutes}'
+                cpus: '${FLA_threads}'
+                mem: '${FLA_mem}'
         }
         output {
 		Array[File] flashArray = glob("*.fastq")
