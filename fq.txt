@@ -1,2 +1,0 @@
-CSM5FZ3N	/data/cephfs/punim0256/MGP_ComEnc_011119/fastqFiles/readsa-1.fq	/data/cephfs/punim0256/MGP_ComEnc_011119/fastqFiles/readsa-2.fq
-
