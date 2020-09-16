@@ -6,8 +6,6 @@ task multiqc_task {
         String outputPrefix
 
         command {
-                module load MultiQC
-
                 for file in ${sep=' ' fastqcArray}; do
                         cp $file .
                 done
@@ -20,9 +18,8 @@ task multiqc_task {
                 mem: '${MQC_mem}'
         }
         output {
-                File multiqcArray = "${outputPrefix}.mqc_report.html"
+                File multiqcHTML = "${outputPrefix}.mqc_report.html"
         }
-     
 
     meta {
         author: "Bobbie Shaban"

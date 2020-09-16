@@ -1,4 +1,6 @@
-task trimmomatic_pe_task {
+task trimmomatic_task {
+	File forwardReads
+	File reverseReads
 	Int TRIM_threads
 	Int TRIM_minutes
 	Int TRIM_mem
@@ -7,9 +9,8 @@ task trimmomatic_pe_task {
 	String EndType
 	String outputPrefix
 	String truseq_pe_adapter
-	File forwardReads
-	File reverseReads
-	File trimmomatic
+	String? trueseq_se_adapter
+	String trimmomatic
 
 	### Note add leading and trailing as input params
 
@@ -18,8 +19,8 @@ task trimmomatic_pe_task {
 
 		echo "Trimming sample .";
 
- 		java -jar ${trimmomatic} \
-		${EndType} -threads ${PET_threads} -phred${Phred} \
+ 		${trimmomatic} \
+		${EndType} -threads ${TRIM_threads} -phred${Phred} \
 		${forwardReads} ${reverseReads} \
 		${outputPrefix}_R1.fwd.fq.gz ${outputPrefix}.fwd.unpaired.fq.gz \
 		${outputPrefix}_R2.rev.fq.gz ${outputPrefix}.rev.unpaired.fq.gz \
@@ -35,9 +36,9 @@ task trimmomatic_pe_task {
 		File outRevUnpaired="${outputPrefix}.rev.unpaired.fq.gz"
 	}
 	runtime {
-                runtime_minutes: '${PET_minutes}'
-                cpus: '${PET_threads}'
-                mem: '${PET_mem}'
+                runtime_minutes: '${TRIM_minutes}'
+                cpus: '${TRIM_threads}'
+                mem: '${TRIM_mem}'
         }
 	meta {
                 author: "Bobbie Shaban"

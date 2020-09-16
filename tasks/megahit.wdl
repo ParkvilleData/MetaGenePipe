@@ -1,14 +1,17 @@
 task megahit_task {
-	File megahit
-	File deconseqReadFile
+	File trimmedReadsFwdComb
+	File trimmedReadsRevComb
         Int MEH_threads
         Int MEH_minutes
         Int MEH_mem
-        String baseName
+	String outputPrefix
+	String forwardRead = basename(trimmedReadsFwdComb)
+	String reverseRead = basename(trimmedReadsRevComb)
 
         command {
-		megahit -t '${MEH_threads}' -r '${deconseqReadFile}' 	
-		cp ./megahit_out/final.contigs.fa ${sampleName}.final.contigs.fa
+		module load megahit/1.2.9-python-2.7.16
+		megahit -t ${MEH_threads} -1 ${trimmedReadsFwdComb} -2 ${trimmedReadsRevComb}  	
+		cp ./megahit_out/final.contigs.fa ${outputPrefix}.megahit.final.contigs.fa
         }
         runtime {
                 runtime_minutes: '${MEH_minutes}'
@@ -16,7 +19,7 @@ task megahit_task {
                 mem: '${MEH_mem}'
         }
         output {
-               File megahitOutput = "${sampleName}.final.contigs.fa"
+               File megahitOutput = "${outputPrefix}.megahit.final.contigs.fa"
         }
     meta {
         author: "Mar Quiroga"

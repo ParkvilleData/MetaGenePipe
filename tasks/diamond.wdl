@@ -9,27 +9,27 @@
 
 
 task diamond_task {
-	Int diamondRunThreads
-        Int diamondRunMinutes
-        Int diamondRunMem
+	Int DIM_threads
+        Int DIM_minutes
+        Int DIM_mem
+	Int maxTargetSeqs
+	Int outputType
         File genesAlignmentOutput
-	File database
-	String outputDir
-        String sampleName
-	String workingDir
+	File DB
+        String outputPrefix
+	String mode
+	String blastMode
 
         command {
-		module load diamond/0.9.10
-		
-		/usr/bin/time -v diamond blastp --max-target-seqs 1 -p 30 -f 5 -d '${database}' -q '${genesAlignmentOutput}' -o '${sampleName}'.xml.out
+		diamond ${blastMode} --max-target-seqs ${maxTargetSeqs} -p ${mode} -f ${outputType} -d ${DB} -q ${genesAlignmentOutput} -o ${outputPrefix}.xml.out
 
         }
         runtime {
-                runtime_minutes: '${diamondRunMinutes}'
-                cpus: '${diamondRunThreads}'
-                mem: '${diamondRunMem}'
+                runtime_minutes: '${DIM_minutes}'
+                cpus: '${DIM_threads}'
+                mem: '${DIM_mem}'
         }
         output {
-		File diamondOutput = "${sampleName}.xml.out" 
+		File diamondOutput = "${outputPrefix}.xml.out" 
         }        
 }

@@ -9,27 +9,32 @@
 
 
 task interleave_task {
-	Int interLeaveRunThreads
-        Int interLeaveRunMinutes
-        Int interLeaveRunMem
-        File flashNotCombined1
-	File flashNotCombined2
-	File flashExtended
-	String outputDir
-        String sampleName
-	String workingDir
+	Boolean flashBoolean
+	File? hostRemovalFlash
+	File hostRemovalFwd
+	File hostRemovalRev
+	File interleaveShell
+	Int ILE_threads
+        Int ILE_minutes
+        Int ILE_mem
+        String outputPrefix
 
         command {
-		/usr/bin/time -v sh /data/cephfs/punim0256/MGP_ComEnc_011119/scripts/interleave_fastq.sh '${flashNotCombined1}' '${flashNotCombined2}' > ${sampleName}.interLeaved.fastq
-		/usr/bin/time -v cat ${sampleName}.interLeaved.fastq '${flashExtended}' > ${sampleName}.merged.fastq
+		if [[ ${hostRemovalFwd} =~ "gz" ]]; then
+		    gunzip -c ${hostRemovalFwd} > forwardReads.fastq
+		    gunzip -c ${hostRemovalRev} > reverseReads.fastq
+		    sh ${interleaveShell} forwardReads.fastq reverseReads.fastq > ${outputPrefix}.interLeaved.fastq
+		else
+			sh ${interleaveShell} ${hostRemovalFwd} ${hostRemovalRev} > ${outputPrefix}.interLeaved.fastq
+		fi
         }
         runtime {
-                runtime_minutes: '${interLeaveRunMinutes}'
-                cpus: '${interLeaveRunThreads}'
-                mem: '${interLeaveRunMem}'
+                runtime_minutes: '${ILE_minutes}'
+                cpus: '${ILE_threads}'
+                mem: '${ILE_mem}'
         }
         output {
-		File interLeavedFile = "${sampleName}.interLeaved.fastq"
-		File flashMergedFastq = "${sampleName}.merged.fastq"
+		File interLeavedFile = "${outputPrefix}.interLeaved.fastq"
+		#File flashMergedFastq = "${outputPrefix}.merged.fastq"
         }        
 }

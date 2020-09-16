@@ -2,23 +2,24 @@ task idba_task {
 	Int IDBA_threads
         Int IDBA_minutes
         Int IDBA_mem
-	File cleanFastq
-        String sampleName
+	File trimmedReadsFwdComb
+	File trimmedReadsRevComb
+        String outputPrefix
 
         command {
 		module load IDBA 
 
-		fq2fa --paired '${cleanFastq}' clean.fa
+		fq2fa --merge ${trimmedReadsFwdComb} ${trimmedReadsRevComb} clean.fa
 		idba_ud -l clean.fa --num_threads '${IDBA_threads}' 
-		mv ./out/contig.fa '${sampleName}'.scaffold.fa	
+		mv ./out/contig.fa '${outputPrefix}'.scaffold.fa	
         }
         runtime {
-                runtime_minutes: '${IDBA_inutes}'
+                runtime_minutes: '${IDBA_minutes}'
                 cpus: '${IDBA_threads}'
                 mem: '${IDBA_mem}'
         }
         output {
-		File scaffoldFasta = "${sampleName}.scaffold.fa"
+		File scaffoldFasta = "${outputPrefix}.scaffold.fa"
         }        
 
 	meta {

@@ -12,17 +12,17 @@ task hostremoval_task {
 	Int HRM_threads
         Int HRM_minutes
         Int HRM_mem
-	Int identityPercent
+	Int identityPercentage
 	Int coverage
-	File flashMergedFastq
-	File deconseq
-        String baseName
+	String interleavedSequence
+        String outputPrefix
 	String removalSequence
+	String sampleName
+
 
         command {
-		module load Perl/5.26.2-intel-2018.u4
-
-		perl '${deconseq}'/bin/dqc/deconseq.pl -dbs '${removalSequence}' -i '${percentIdentity}' -c '${coverage}' -f '${flashMergedFastq}' -id ${sampleName}
+		perl /data/gpfs/projects/punim0256/MDAP/verbdap_dev/bin/dqc/deconseq.pl -threads ${HRM_threads}  -dbs ${removalSequence} -i ${identityPercentage} -c ${coverage} -f ${interleavedSequence} -id ${sampleName}
+		reformat.sh in=${sampleName}_clean.fq out1=${sampleName}_R1.fastq out2=${sampleName}_R2.fastq	
         }
         runtime {
                 runtime_minutes: '${HRM_minutes}'
@@ -30,7 +30,8 @@ task hostremoval_task {
                 mem: '${HRM_mem}'
         }
         output {
-		File hostRemovalOutput = "${sampleName}_clean.fq"
+		File hostRemovedFwdReads = "${sampleName}_R1.fastq"
+		File hostRemovedRevReads = "${sampleName}_R2.fastq"
         }        
     meta {
         author: "Bobbie Shaban"

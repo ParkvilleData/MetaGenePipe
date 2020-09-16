@@ -1,13 +1,13 @@
-task megahit_task {
-	File megahit
-	File deconseqReadFile
+task metaspades_task {
+	File trimmedReadsFwdComb
+        File trimmedReadsRevComb
         Int MES_threads
         Int MES_minutes
         Int MES_mem
-        String baseName
+        String outputPrefix
 
         command {
-		metaspades  	
+		#metaspades  	
         }
         runtime {
                 runtime_minutes: '${MES_minutes}'
@@ -15,7 +15,7 @@ task megahit_task {
                 mem: '${MES_mem}'
         }
         output {
-               File metaspadesOutput = "${sampleName}.final.contigs.fa"
+               File metaspadesOutput = "${outputPrefix}.metaspades.final.contigs.fa"
         }
     meta {
         author: "Mar Quiroga"

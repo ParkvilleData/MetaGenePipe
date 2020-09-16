@@ -17,9 +17,9 @@ task flash_task {
         String sampleName
 
         command {
-                module load FLASH
-		
-		flash -t '${FLA_threads}' -o '${sampleName}' '${forwardReads}'  '${reverseReads}'
+		#module load flash/2.2.00
+		#module load flash/1.2.11;
+		flash -t ${FLA_threads} -o ${sampleName} ${forwardReads} ${reverseReads}
         }
         runtime {
                 runtime_minutes: '${FLA_minutes}'
@@ -27,6 +27,6 @@ task flash_task {
                 mem: '${FLA_mem}'
         }
         output {
-		Array[File] flashArray = glob("*.fastq")
+		File extendedFrags = "${sampleName}.extendedFrags.fastq"
         }        
 }

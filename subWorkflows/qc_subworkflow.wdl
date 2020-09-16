@@ -1,7 +1,7 @@
 import "./tasks/fastqc.wdl" as fastqcTask
 import "./tasks/flash.wdl" as flashTask  
 import "./tasks/multiqc.wdl" as multiqcTask
-#import "./tasks/mergedataset.wdl mergeDataset_task
+import "./tasks/trimmomatic.wdl" as trimTask
 
 workflow qc_subworkflow {
     meta {
@@ -28,6 +28,15 @@ String sampleName
 		forwardReads = forwardReads,
 		reverseReads = reverseReads
 	}
+
+	call trimTask.trimmomatic_task {
+        input:
+            forwardReads = forwardReads,
+            reverseReads  = reverseReads,
+            outputPrefix = sampleName,
+            forwardReads = forwardReads,
+            reverseReads = reverseReads
+        }
 	
 	## if flash boolean is true merge reads
 	if( flashBoolean ) {
@@ -40,6 +49,11 @@ String sampleName
 
 	output {
 		Array[File] fastqcArray = fastqc_task.fastqcArray
+		File? flashExtFrags = flash_task.extendedFrags
+		File trimmedFwdReads = trimmomatic_task.outFwdPaired 
+		File trimmedRevReads = trimmomatic_task.outRevPaired
+		File trimmedFwdUnpaired = trimmomatic_task.outFwdUnpaired
+		File trimmedRevUnpaired = trimmomatic_task.outRevUnpaired
 	}
 
 }

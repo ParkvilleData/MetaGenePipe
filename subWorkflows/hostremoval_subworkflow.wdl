@@ -1,5 +1,5 @@
-import interleave
-import deconseq
+import "./tasks/interleave.wdl" as interleaveTask
+import "./tasks/hostremoval.wdl" as hostremovalTask
 
 workflow hostremoval_subworkflow {
  meta {
@@ -14,30 +14,41 @@ workflow hostremoval_subworkflow {
         Output1: "otype:<TYPE>: <DESCRIPTION>"
     }
 
-	call interLeaveTask.interleave_task {
 
-	    input: flashNotCombined1=flash_task.flashArray[1], 
-		   flashNotCombined2=flash_task.flashArray[2], 
-		   flashExtended=flash_task.flashArray[0], 
-		   sampleName=sample[0], 
-		   outputDir=outputDir,
-		   workingDir=workingDir
+File? hostRemovalFlash
+File? hostRemovalFwd
+File? hostRemovalRev
+Boolean flashBoolean
+File interleaveShell
+Int identityPercentage
+Int coverage
+String outputPrefix
+String removalSequence
+String sampleName
+
+	call interleaveTask.interleave_task {
+	    input: 
+		flashBoolean = flashBoolean,
+		outputPrefix = outputPrefix,
+		interleaveShell = interleaveShell,
+		hostRemovalFlash = hostRemovalFlash,
+		hostRemovalFwd = hostRemovalFwd,
+		hostRemovalRev = hostRemovalRev
 	}
 
-	 call hostRemovalTask.hostremoval_task {
-
-            input: flashMergedFastq=interleave_task.flashMergedFastq,
-		   sampleName=sample[0],outputDir=outputDir,
-		   workingDir=workingDir,
-		   removalSequence=removeMouseSequence
+	 call hostremovalTask.hostremoval_task {
+            input: 
+		removalSequence = removalSequence,
+		outputPrefix = outputPrefix,
+		interleavedSequence = interleave_task.interLeavedFile,
+		sampleName=sampleName,
+		coverage=coverage,
+		identityPercentage=identityPercentage
         }
 
-	call hostRemovalTask.hostremoval_task as sequence_removal_task {
 
-            input: flashMergedFastq=interleave_task.flashMergedFastq,
-		   sampleName=sample[0],
-		   outputDir=outputDir,
-		   workingDir=workingDir,
-		   removalSequence=removalSequence
-        }
+	output {
+	    File hostRemovedFwdReads = hostremoval_task.hostRemovedFwdReads
+	    File hostRemovedRevReads = hostremoval_task.hostRemovedRevReads
+	}
 }

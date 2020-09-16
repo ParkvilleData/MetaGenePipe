@@ -1,8 +1,19 @@
-import diamond
-import prodigal
-import collation_task
+import "./tasks/diamond.wdl" as diamondTask
+import "./tasks/prodigal.wdl" as prodigalTask
+import "./tasks/collation.wdl" as collationTask
 
 workflow geneprediction_subworkflow {
+
+### Imported files #####
+File DB
+File? megahitScaffolds
+Int maxTargetSeqs
+Int outputType
+String outputPrefix
+String mode
+String blastMode
+
+
  meta {
         author: "Bobbie Shaban"
         email: "bshaban@unimelb.edu.au"
@@ -15,28 +26,38 @@ workflow geneprediction_subworkflow {
         Output1: "otype:<TYPE>: <DESCRIPTION>"
     }
 
-	call genePredictionTask.geneprediction_task {
+	call prodigalTask.prodigal_task {
 
-            input: sampleName=sample[0],
-		   outputDir=outputDir,
-		   megahitOutputTranscripts=megahit_task.megahitOutput,
-		   workingDir=workingDir
-
+            input: 
+		outputPrefix=outputPrefix,
+		megahitScaffolds=megahitScaffolds
         }
 	
 	 call diamondTask.diamond_task {
 
-            input: database=DB,sampleName=sample[0],
-		   outputDir=outputDir,
-		   genesAlignmentOutput=geneprediction_task.proteinAlignmentOutput,
-		   workingDir=workingDir
-        }
+            input: 
+		DB=DB,
+		outputPrefix=outputPrefix,
+		maxTargetSeqs=maxTargetSeqs,
+		mode=mode,
+		outputType=outputType,
+		blastMode=blastMode,
+		genesAlignmentOutput=prodigal_task.proteinAlignmentOutput,        }
 		
 	call collationTask.collation_task {
 
-            input: sampleName=sample[0],
-		   outputDir=outputDir,
-		   inputXML=diamond_task.diamondOutput,
-		   workingDir=workingDir
+            input: 
+		outputPrefix=outputPrefix,
+		inputXML=diamond_task.diamondOutput
         }
+
+	output {
+		 File collationOutput = collation_task.collationOutput
+		 File diamondOutput = diamond_task.diamondOutput
+		 File proteinAlignmentOutput = prodigal_task.proteinAlignmentOutput 
+                 File nucleotideGenesOutput = prodigal_task.nucleotideGenesOutput 
+                 File potentialGenesAlignmentOutput = prodigal_task.potentialGenesAlignmentOutput
+		 File genesAlignmentOutput = prodigal_task.genesAlignmentOutput
+
+	}
 }

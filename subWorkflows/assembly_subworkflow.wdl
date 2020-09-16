@@ -1,6 +1,7 @@
-import idba
-import megahit
-import metaspades
+import "./tasks/idba.wdl" as idbaTask
+import "./tasks/megahit.wdl" as megahitTask
+import "./tasks/metaspades.wdl" as metaspadesTask
+import "./tasks/blast.wdl" as blastTask
 
 workflow assembly_subworkflow {
  meta {
@@ -15,38 +16,60 @@ workflow assembly_subworkflow {
         Output1: "otype:<TYPE>: <DESCRIPTION>"
     }
 
-##IMPORT boolean variables
-Boolean IDBArun = true
+### input variables
+Boolean idbaBoolean
+Boolean megahitBoolean
+Boolean metaspadesBoolean
+Boolean blastBoolean
+File trimmedReadsFwdComb 
+File trimmedReadsRevComb
+Int numOfHits
+String outputPrefix
+String bparser
+String database
 
-  if(IDBA) {
+  if(idbaBoolean) {
     call idbaTask.idba_task {
+	input: 
+	    outputPrefix=outputPrefix,
+	    trimmedReadsFwdComb = trimmedReadsFwdComb,
+	    trimmedReadsRevComb = trimmedReadsRevComb
+    }
+  }
 
-	   input: sampleName=sample[0],
-		  cleanFastq=sequence_removal_task.hostRemovalOutput
-	
+   if(megahitBoolean){
+     call megahitTask.megahit_task {
+	input: 
+	    outputPrefix=outputPrefix,
+            trimmedReadsFwdComb = trimmedReadsFwdComb,
+            trimmedReadsRevComb = trimmedReadsRevComb
 	}
-}
-
-    call megahitTask.megahit_task {
-
-	    input: sampleName=sample[0],
-		   outputDir=outputDir,
-		   deconseqReadFile=hostremoval_task.hostRemovalOutput,
-		   workingDir=workingDir	
-	}
-
-    call blastTask.blast_task {
-
-           input: numOfHits=numOfHits,
-		  blast=blast,
-		  sampleName=sample[0],
-		  scriptsDirectory=scriptsDirectory,
-		  database=ntDatabase,
-		  inputScaffolds=idba_task.scaffoldFasta,
-		  numOfHits=numOfHits,
-		  bparser=bparser,
-		  workingDir=workingDir
-
     }
 
+   if(metaspadesBoolean){
+     call metaspadesTask.metaspades_task {
+	input:	
+	    outputPrefix=outputPrefix,
+            trimmedReadsFwdComb = trimmedReadsFwdComb,
+            trimmedReadsRevComb = trimmedReadsRevComb
+	}
+   }
+
+    if(blastBoolean) {
+    	call blastTask.blast_task {
+	 input:
+	    outputPrefix=outputPrefix,
+	    bparser = bparser,
+	    numOfHits = numOfHits,
+	    database = database,
+	    inputScaffolds = megahit_task.megahitOutput 
+        }
+    }
+
+    output {
+	File? megahitScaffolds = megahit_task.megahitOutput
+	File? megahitOutput = megahit_task.megahitOutput
+	File? parsedBlast = blast_task.parsedOutput
+	File? blastOutput = blast_task.blastOutput
+    }
 }
