@@ -7,12 +7,13 @@ task merge_task {
 	Int MGS_threads
         Int MGS_minutes
         Int MGS_mem
-	Int mergeArray = length(readsToMergeFwd)
-	Int hostMergeArray = length(hostRemFwdReads)
+	Int mergeArray = length(select_all(readsToMergeFwd))
+	Int hostMergeArray = length(select_all(hostRemFwdReads))
         String outputPrefix
 
         command {
-		if [[ hostMergeArray != 0 ]]
+
+		if [[ ${hostMergeArray} > 0 ]]
 		then
 			cat ${sep = ' ' hostRemFwdReads} > ${outputPrefix}.combined.trimmed_R1.fastq
                         cat ${sep = ' ' hostRemRevReads} > ${outputPrefix}.combined.trimmed_R2.fastq

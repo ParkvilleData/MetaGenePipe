@@ -7,8 +7,6 @@ task idba_task {
         String outputPrefix
 
         command {
-		module load IDBA 
-
 		fq2fa --merge ${trimmedReadsFwdComb} ${trimmedReadsRevComb} clean.fa
 		idba_ud -l clean.fa --num_threads '${IDBA_threads}' 
 		mv ./out/contig.fa '${outputPrefix}'.scaffold.fa	

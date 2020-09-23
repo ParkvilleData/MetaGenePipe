@@ -17,8 +17,6 @@ task flash_task {
         String sampleName
 
         command {
-		#module load flash/2.2.00
-		#module load flash/1.2.11;
 		flash -t ${FLA_threads} -o ${sampleName} ${forwardReads} ${reverseReads}
         }
         runtime {

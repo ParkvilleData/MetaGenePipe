@@ -6,8 +6,6 @@ task alignment_task {
         String baseName
 
         command {
-                module load prodigal
-		
 		prodigal -i '${megahitOutputTranscripts}' -o '${baseName}'.prodgial.genes.fa -a '${sampleName}'.prodigal.proteins.fa -d '${sampleName}'.prodigal.nucl.genes.fa -s '${sampleName}'.prodigal.potential_genes.fa
 
         }

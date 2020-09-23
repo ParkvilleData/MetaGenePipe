@@ -1,2 +1,2 @@
-SRR5808831	./fastqFiles/2-2_r1.fastq.gz	./fastqFiles/2-2_r2.fastq.gz
+SRR5808831	./fastqFiles/1-2_r1.fastq.gz	./fastqFiles/1-2_r2.fastq.gz
 SRR5808882	./fastqFiles/1-1_r1.fastq.gz	./fastqFiles/1-1_r2.fastq.gz

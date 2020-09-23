@@ -9,7 +9,6 @@ task megahit_task {
 	String reverseRead = basename(trimmedReadsRevComb)
 
         command {
-		module load megahit/1.2.9-python-2.7.16
 		megahit -t ${MEH_threads} -1 ${trimmedReadsFwdComb} -2 ${trimmedReadsRevComb}  	
 		cp ./megahit_out/final.contigs.fa ${outputPrefix}.megahit.final.contigs.fa
         }

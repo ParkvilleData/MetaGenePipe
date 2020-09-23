@@ -15,8 +15,6 @@ task trimmomatic_task {
 	### Note add leading and trailing as input params
 
 	command {
-		module load Java
-
 		echo "Trimming sample .";
 
  		${trimmomatic} \
