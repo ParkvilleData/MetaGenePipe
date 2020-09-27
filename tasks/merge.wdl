@@ -30,8 +30,8 @@ task merge_task {
         output {
 		File? flashReadsFwdComb = "${outputPrefix}.combined.flash_R1.fastq"
 		File? flashReadsRevComb = "${outputPrefix}.combined.flash_R2.fastq"
-		File trimmedReadsFwdComb = "${outputPrefix}.combined.trimmed_R1.fastq"
-		File trimmedReadsRevComb = "${outputPrefix}.combined.trimmed_R2.fastq"
+		File trimmedReadsFwd = "${outputPrefix}.combined.trimmed_R1.fastq"
+		File trimmedReadsRev = "${outputPrefix}.combined.trimmed_R2.fastq"
         }        
     meta {
         author: "Bobbie Shaban"

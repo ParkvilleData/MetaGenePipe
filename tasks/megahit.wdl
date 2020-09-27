@@ -1,16 +1,19 @@
 task megahit_task {
-	File trimmedReadsFwdComb
-	File trimmedReadsRevComb
+	File trimmedReadsFwd
+	File trimmedReadsRev
         Int MEH_threads
         Int MEH_minutes
         Int MEH_mem
-	String outputPrefix
-	String forwardRead = basename(trimmedReadsFwdComb)
-	String reverseRead = basename(trimmedReadsRevComb)
+	String? outputPrefix
+	String sample = basename(trimmedReadsFwd, ".gz")
+	String sampleFastq = basename(sample, ".fq")
+	String sampleName = basename(sampleFastq, ".fastq") 
+	String preset
+	#String reverseRead = basename(trimmedReadsRev)
 
         command {
-		megahit -t ${MEH_threads} -1 ${trimmedReadsFwdComb} -2 ${trimmedReadsRevComb}  	
-		cp ./megahit_out/final.contigs.fa ${outputPrefix}.megahit.final.contigs.fa
+		megahit -t ${MEH_threads} --presets ${preset} -1 ${trimmedReadsFwd} -2 ${trimmedReadsRev}  	
+		cp ./megahit_out/final.contigs.fa ${sampleName}.megahit.final.contigs.fa
         }
         runtime {
                 runtime_minutes: '${MEH_minutes}'
@@ -18,7 +21,7 @@ task megahit_task {
                 mem: '${MEH_mem}'
         }
         output {
-               File megahitOutput = "${outputPrefix}.megahit.final.contigs.fa"
+               File assemblyOutput = "${sampleName}.megahit.final.contigs.fa"
         }
     meta {
         author: "Mar Quiroga"

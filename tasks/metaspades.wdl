@@ -1,10 +1,10 @@
 task metaspades_task {
-	File trimmedReadsFwdComb
-        File trimmedReadsRevComb
+	File trimmedReadsFwd
+        File trimmedReadsRev
         Int MES_threads
         Int MES_minutes
         Int MES_mem
-        String outputPrefix
+        String? outputPrefix
 
         command {
 		#metaspades  	

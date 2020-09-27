@@ -2,12 +2,12 @@ task idba_task {
 	Int IDBA_threads
         Int IDBA_minutes
         Int IDBA_mem
-	File trimmedReadsFwdComb
-	File trimmedReadsRevComb
-        String outputPrefix
+	File trimmedReadsFwd
+	File trimmedReadsRev
+        String? outputPrefix
 
         command {
-		fq2fa --merge ${trimmedReadsFwdComb} ${trimmedReadsRevComb} clean.fa
+		fq2fa --merge ${trimmedReadsFwd} ${trimmedReadsRev} clean.fa
 		idba_ud -l clean.fa --num_threads '${IDBA_threads}' 
 		mv ./out/contig.fa '${outputPrefix}'.scaffold.fa	
         }

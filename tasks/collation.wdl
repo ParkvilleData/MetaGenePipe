@@ -13,11 +13,12 @@ task collation_task {
         Int COL_minutes
         Int COL_mem
         File inputXML
-        String outputPrefix
+	String? outputPrefix
+        String? sampleName = if defined(outputPrefix) then outputPrefix else basename(inputXML)
 
         command {
 		#remove quotes from xml for processing
-		sed 's/\&quot;//g' ${inputXML} | sed 's/\&//g' > ${outputPrefix}.xml
+		sed 's/\&quot;//g' ${inputXML} | sed 's/\&//g' > ${sampleName}.xml
         }
         runtime {
                 runtime_minutes: '${COL_minutes}'
@@ -25,7 +26,7 @@ task collation_task {
                 mem: '${COL_mem}'
         }
         output {
-		File collationOutput = "${outputPrefix}.xml"
+		File collationOutput = "${sampleName}.xml"
         }        
 	
 }

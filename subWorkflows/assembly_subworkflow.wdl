@@ -21,19 +21,20 @@ Boolean idbaBoolean
 Boolean megahitBoolean
 Boolean metaspadesBoolean
 Boolean blastBoolean
-File trimmedReadsFwdComb 
-File trimmedReadsRevComb
+File trimmedReadsFwd
+File trimmedReadsRev
 Int numOfHits
-String outputPrefix
+String? outputPrefix
 String bparser
 String database
+String preset
 
   if(idbaBoolean) {
     call idbaTask.idba_task {
 	input: 
 	    outputPrefix=outputPrefix,
-	    trimmedReadsFwdComb = trimmedReadsFwdComb,
-	    trimmedReadsRevComb = trimmedReadsRevComb
+	    trimmedReadsFwd = trimmedReadsFwd,
+	    trimmedReadsRev = trimmedReadsRev
     }
   }
 
@@ -41,8 +42,9 @@ String database
      call megahitTask.megahit_task {
 	input: 
 	    outputPrefix=outputPrefix,
-            trimmedReadsFwdComb = trimmedReadsFwdComb,
-            trimmedReadsRevComb = trimmedReadsRevComb
+	    preset=preset,
+            trimmedReadsFwd = trimmedReadsFwd,
+            trimmedReadsRev = trimmedReadsRev
 	}
     }
 
@@ -50,8 +52,8 @@ String database
      call metaspadesTask.metaspades_task {
 	input:	
 	    outputPrefix=outputPrefix,
-            trimmedReadsFwdComb = trimmedReadsFwdComb,
-            trimmedReadsRevComb = trimmedReadsRevComb
+            trimmedReadsFwd = trimmedReadsFwd,
+            trimmedReadsRev = trimmedReadsRev
 	}
    }
 
@@ -62,13 +64,12 @@ String database
 	    bparser = bparser,
 	    numOfHits = numOfHits,
 	    database = database,
-	    inputScaffolds = megahit_task.megahitOutput 
+	    inputScaffolds = megahit_task.assemblyOutput 
         }
     }
 
     output {
-	File? megahitScaffolds = megahit_task.megahitOutput
-	File? megahitOutput = megahit_task.megahitOutput
+	File? assemblyScaffolds = megahit_task.assemblyOutput
 	File? parsedBlast = blast_task.parsedOutput
 	File? blastOutput = blast_task.blastOutput
     }

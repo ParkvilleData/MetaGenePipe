@@ -45,6 +45,7 @@ String taxRankFile
 String fullLineageFile
 String outputFileName
 String removalSequence
+String preset
 
 ## boolean variables 
 Boolean flashBoolean
@@ -95,6 +96,8 @@ Boolean hostRemovalBoolean
                 outputPrefix = multiQCoutput
         }
 
+	
+	## If merge dataset is set to true
 	if (mergeBoolean) {
 		call mergeTask.merge_task {
 		    input:
@@ -105,33 +108,74 @@ Boolean hostRemovalBoolean
 			hostRemFwdReads = hostremoval_subworkflow.hostRemovedFwdReads,
 			hostRemRevReads = hostremoval_subworkflow.hostRemovedRevReads
         	}
-	}
 
-	call assemblySubWorkflow.assembly_subworkflow {
-		input:
-			idbaBoolean = idbaBoolean,
-			metaspadesBoolean = metaspadesBoolean,
-			megahitBoolean = megahitBoolean,
-			blastBoolean = blastBoolean,
-			trimmedReadsFwdComb = merge_task.trimmedReadsFwdComb,
-			trimmedReadsRevComb = merge_task.trimmedReadsRevComb,	
-			outputPrefix = mergedOutput,
-			numOfHits = numOfHits,
-			bparser = bparser,
-			database = database
-	}
+		call assemblySubWorkflow.assembly_subworkflow {
+                        input:
+                                idbaBoolean = idbaBoolean,
+				preset = preset,
+                                metaspadesBoolean = metaspadesBoolean,
+                                megahitBoolean = megahitBoolean,
+                                blastBoolean = blastBoolean,
+                                trimmedReadsFwd = merge_task.trimmedReadsFwd,
+                                trimmedReadsRev = merge_task.trimmedReadsRev,
+                                numOfHits = numOfHits,
+                                bparser = bparser,
+                                database = database
+                }
 
-	call genepredictionSubWorkflow.geneprediction_subworkflow {
-		input:
-			megahitScaffolds = assembly_subworkflow.megahitScaffolds,
-			outputType=outputType,
-			blastMode=blastMode,
-			maxTargetSeqs=maxTargetSeqs,
-			outputPrefix = mergedOutput,
-			mode=mode,
-			DB=DB
-	}
+                call genepredictionSubWorkflow.geneprediction_subworkflow {
+                        input:
+                                assemblyScaffolds = assembly_subworkflow.assemblyScaffolds,
+                                outputType=outputType,
+                                blastMode=blastMode,
+                                maxTargetSeqs=maxTargetSeqs,
+                                outputPrefix = mergedOutput,
+                                mode=mode,
+                                DB=DB
+                }
+	} ## end merge dataset
 
+
+	## if merge dataset is set to false: Includes scatter but same tasks
+	if(!mergeBoolean) {
+
+	   ## check to see if the input is hostremoved or regular
+	   Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
+
+	   #Array[File?] fwdReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedFwdReads else qc_subworkflow.trimmedFwdReads
+	   #Array[File?] revReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedRevReads else qc_subworkflow.trimmedRevReads 
+	   #Array[Pair[Int, String]] zipped = zip(xs, ys) 
+	   #Array[Pair[File?, File?]] pairReads =  if defined(mergeArrayLength) then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads) 
+	   Array[Pair[File, File]] pairReads = zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
+	   Array[Pair[File?, File?]] pairReads2 = zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads)
+	  
+	   
+	   scatter (reads in pairReads) {
+		call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
+			input:
+				idbaBoolean = idbaBoolean,
+				preset = preset,
+				metaspadesBoolean = metaspadesBoolean,
+				megahitBoolean = megahitBoolean,
+				blastBoolean = blastBoolean,
+				trimmedReadsFwd = reads.left,
+				trimmedReadsRev = reads.right,	
+				numOfHits = numOfHits,
+				bparser = bparser,
+				database = database
+		}
+
+		call genepredictionSubWorkflow.geneprediction_subworkflow as nonMergedGenePrediction {
+			input:
+				assemblyScaffolds = nonMergedAssembly.assemblyScaffolds,
+				outputType=outputType,
+				blastMode=blastMode,
+				maxTargetSeqs=maxTargetSeqs,
+				mode=mode,
+				DB=DB
+		}
+	    } ## end scatter
+	} ## end don't merge datasets
 
 
 	if (taxonBoolean) {
@@ -160,21 +204,34 @@ Boolean hostRemovalBoolean
 		## Removed for now add later if output required
 		Array[File?] flashArray = qc_subworkflow.flashExtFrags
 		File? flashReadsRevComb = merge_task.flashReadsRevComb
-		File? trimmedReadsFwdComb = merge_task.trimmedReadsFwdComb
-		File? trimmedReadsRevComb = merge_task.trimmedReadsRevComb 
+		File? trimmedReadsFwd = merge_task.trimmedReadsFwd
+		File? trimmedReadsRev = merge_task.trimmedReadsRev 
 
 		## Assembly output
-		File? megahitOutput = assembly_subworkflow.megahitOutput
+		File? assemblyScaffolds = assembly_subworkflow.assemblyScaffolds
 		File? parsedBlast = assembly_subworkflow.parsedBlast
 		File? blastOutput = assembly_subworkflow.blastOutput
 
+		## Non merged Assembly
+		Array[File?]? assemblyScaffoldsArray = nonMergedAssembly.assemblyScaffolds
+                Array[File?]? parsedBlastArray = nonMergedAssembly.parsedBlast
+                Array[File?]? blastOutputArray = nonMergedAssembly.blastOutput
+
 		## geneprediction output
-		File collationOutput = geneprediction_subworkflow.collationOutput
-		File diamondOutput = geneprediction_subworkflow.diamondOutput
-		File proteinAlignmentOutput = geneprediction_subworkflow.proteinAlignmentOutput
-		File nucleotideGenesOutput = geneprediction_subworkflow.nucleotideGenesOutput
-		File potentialGenesAlignmentOutput = geneprediction_subworkflow.potentialGenesAlignmentOutput
-		File genesAlignmentOutput = geneprediction_subworkflow.genesAlignmentOutput
+		File? collationOutput = geneprediction_subworkflow.collationOutput
+		File? diamondOutput = geneprediction_subworkflow.diamondOutput
+		File? proteinAlignmentOutput = geneprediction_subworkflow.proteinAlignmentOutput
+		File? nucleotideGenesOutput = geneprediction_subworkflow.nucleotideGenesOutput
+		File? potentialGenesAlignmentOutput = geneprediction_subworkflow.potentialGenesAlignmentOutput
+		File? genesAlignmentOutput = geneprediction_subworkflow.genesAlignmentOutput
+
+		## Non merged gene prediction
+		Array[File]? collationOutputArray = nonMergedGenePrediction.collationOutput
+                Array[File]? diamondOutputArray = nonMergedGenePrediction.diamondOutput
+                Array[File]? proteinAlignmentOutputArray = nonMergedGenePrediction.proteinAlignmentOutput
+                Array[File]? nucleotideGenesOutputArray = nonMergedGenePrediction.nucleotideGenesOutput
+                Array[File]? potentialGenesAlignmentOutputArray = nonMergedGenePrediction.potentialGenesAlignmentOutput
+                Array[File]? genesAlignmentOutputArray = nonMergedGenePrediction.genesAlignmentOutput
 
 		## Taxonomy output
 		File? functionalTable = taxonclass_task.functionalTable

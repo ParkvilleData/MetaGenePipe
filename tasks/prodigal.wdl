@@ -2,11 +2,12 @@ task prodigal_task {
 	Int GEP_threads
         Int GEP_minutes
         Int GEP_mem
-        File megahitScaffolds
-	String outputPrefix
+        File assemblyScaffolds
+	String? outputPrefix
+	String? sampleName = if defined(outputPrefix) then outputPrefix else basename(assemblyScaffolds)
 
         command {
-		prodigal -i ${megahitScaffolds} -o ${outputPrefix}.prodgial.genes.fa -a ${outputPrefix}.prodigal.proteins.fa -d ${outputPrefix}.prodigal.nucl.genes.fa -s ${outputPrefix}.prodigal.potential_genes.fa
+		prodigal -i ${assemblyScaffolds} -o ${sampleName}.prodgial.genes.fa -a ${sampleName}.prodigal.proteins.fa -d ${sampleName}.prodigal.nucl.genes.fa -s ${sampleName}.prodigal.potential_genes.fa
 
         }
         runtime {
@@ -15,10 +16,10 @@ task prodigal_task {
                 mem: '${GEP_mem}'
         }
         output {
-		File genesAlignmentOutput = "${outputPrefix}.prodgial.genes.fa"
-		File proteinAlignmentOutput = "${outputPrefix}.prodigal.proteins.fa"
-		File nucleotideGenesOutput = "${outputPrefix}.prodigal.nucl.genes.fa"
-		File potentialGenesAlignmentOutput = "${outputPrefix}.prodigal.potential_genes.fa"
+		File genesAlignmentOutput = "${sampleName}.prodgial.genes.fa"
+		File proteinAlignmentOutput = "${sampleName}.prodigal.proteins.fa"
+		File nucleotideGenesOutput = "${sampleName}.prodigal.nucl.genes.fa"
+		File potentialGenesAlignmentOutput = "${sampleName}.prodigal.potential_genes.fa"
         }        
 
     meta {

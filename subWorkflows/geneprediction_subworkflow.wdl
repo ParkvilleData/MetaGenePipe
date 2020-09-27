@@ -6,10 +6,10 @@ workflow geneprediction_subworkflow {
 
 ### Imported files #####
 File DB
-File? megahitScaffolds
+File? assemblyScaffolds
 Int maxTargetSeqs
 Int outputType
-String outputPrefix
+String? outputPrefix
 String mode
 String blastMode
 
@@ -30,7 +30,7 @@ String blastMode
 
             input: 
 		outputPrefix=outputPrefix,
-		megahitScaffolds=megahitScaffolds
+		assemblyScaffolds=assemblyScaffolds
         }
 	
 	 call diamondTask.diamond_task {
