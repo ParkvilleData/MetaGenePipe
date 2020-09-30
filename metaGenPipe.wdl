@@ -1,218 +1,260 @@
 ## Metagenomics pipeline 15/08/19
-## Bobbie Shaban
+## MDAP Team Verbruggen
 ## 
 ## Melbourne Integrative Genomics
 ## Updated on 02/09/19
 ## Metagenomics pipeline as per phase 4 testing notes
 
 
-##import of tasks from individual wdl files
-import "./tasks/geneprediction.wdl" as genePredictionTask
-import "./tasks/diamond.wdl" as diamondTask  
-import "./tasks/fastqc.wdl" as fastqcTask
-import "./tasks/flash.wdl" as flashTask  
-import "./tasks/hostremoval.wdl" as hostRemovalTask
-import "./tasks/idba.wdl" as idbaTask
-import "./tasks/blast.wdl" as blastTask
-import "./tasks/interleave.wdl" as interLeaveTask
-import "./tasks/megahit.wdl" as megahitTask  
-import "./tasks/collation.wdl" as collationTask
-import "./tasks/xml_parser.wdl" as xmlParserTask
-import "./tasks/copyoutput.wdl" as copyOutputTask
+## import subworkflows
+import "./subWorkflows/qc_subworkflow.wdl" as qcSubWorkflow
+import "./subWorkflows/hostremoval_subworkflow.wdl" as hostRemovalSubWorkflow
+import "./subWorkflows/assembly_subworkflow.wdl" as assemblySubWorkflow
+import "./subWorkflows/geneprediction_subworkflow.wdl" as genepredictionSubWorkflow
+
+## import tasks
+import "./tasks/multiqc.wdl" as multiqcTask
+import "./tasks/merge.wdl" as mergeTask
+import "./tasks/taxon_class.wdl" as taxonTask
 
 workflow metaGenPipe {
 
-#global variables for wdl workflow
+## global variables for wdl workflow
+## input files
 File inputSamplesFile
+File xml_parser
+File orgID_2_name
+File interleaveShell
 Array[Array[File]] inputSamples = read_tsv(inputSamplesFile)
-String outputDir
-String outputFileName
-String scriptsDirectory
-String workingDir
-String removeMouseSequence
-String removalSequence
-String ntDatabase
 Int numOfHits
-File bparser
-File kolist
-File koFormattedFile
-File keggSpeciesFile
-File DB
-File taxRankFile
-File fullLineageFile
-File blast
+Int maxTargetSeqs
+Int outputType
+Int identityPercentage
+Int coverage
+String multiQCoutput
+String mergedOutput
+String bparser
+String database
+String DB
+String mode
+String blastMode
+String koFormattedFile
+String keggSpeciesFile
+String taxRankFile
+String fullLineageFile
+String outputFileName
+String removalSequence
+String preset
+
+## boolean variables 
+Boolean flashBoolean
+Boolean mergeBoolean
+Boolean megahitBoolean
+Boolean idbaBoolean
+Boolean metaspadesBoolean
+Boolean blastBoolean
+Boolean taxonBoolean
+Boolean hostRemovalBoolean
 
    scatter (sample in inputSamples) {
 
-	call fastqcTask.fastqc_task {
-	    Int fastqcRunThreads 
-	    Int fastqcRunMinutes
-	    Int fastqcRunMem
-
-            input: inputFastqRead1=sample[1],
-		   inputFastqRead2=sample[2],
-		   sampleName=sample[0],
-		   outputDir=outputDir,
-	     	   workingDir=workingDir
+	call qcSubWorkflow.qc_subworkflow {
+	input:
+		forwardReads = sample[1],
+		reverseReads = sample[2],
+		flashBoolean = flashBoolean,
+		sampleName = sample[0]
 	}
 
-	call flashTask.flash_task {
-	    Int flashRunThreads 
-	    Int flashRunMinutes
-	    Int flashRunMem
-
-            input: inputFastqRead1=sample[1],
-		   inputFastqRead2=sample[2],
-		   sampleName=sample[0],
-		   outputDir=outputDir,
-		   workingDir=workingDir
-	}
-
-	call interLeaveTask.interleave_task {
-	    Int interLeaveRunThreads
-            Int interLeaveRunMinutes
-            Int interLeaveRunMem		
-
-	    input: flashNotCombined1=flash_task.flashArray[1], 
-		   flashNotCombined2=flash_task.flashArray[2], 
-		   flashExtended=flash_task.flashArray[0], 
-		   sampleName=sample[0], 
-		   outputDir=outputDir,
-		   workingDir=workingDir
-	}
-
-	 call hostRemovalTask.hostremoval_task {
-	    Int hostRemovalRunThreads
-	    Int hostRemovalRunMinutes
-	    Int hostRemovalRunMem 
-
-            input: flashMergedFastq=interleave_task.flashMergedFastq,
-		   sampleName=sample[0],outputDir=outputDir,
-		   workingDir=workingDir,
-		   removalSequence=removeMouseSequence
-        }
-
-	call hostRemovalTask.hostremoval_task as sequence_removal_task {
-
-            input: flashMergedFastq=interleave_task.flashMergedFastq,
-		   sampleName=sample[0],
-		   outputDir=outputDir,
-		   workingDir=workingDir,
-		   removalSequence=removalSequence
-        }
-
-	call idbaTask.idba_task {
-	   Int idbaRunThreads
-	   Int idbaRunMinutes
-	   Int idbaRunMem
-
-	   input: sampleName=sample[0],
-		  cleanFastq=sequence_removal_task.hostRemovalOutput
-	
-	}
-
-	call blastTask.blast_task {
-           Int blastRunThreads
-           Int blastRunMinutes
-           Int blastRunMem
-
-           input: numOfHits=numOfHits,
-		  blast=blast,
-		  sampleName=sample[0],
-		  scriptsDirectory=scriptsDirectory,
-		  database=ntDatabase,
-		  inputScaffolds=idba_task.scaffoldFasta,
-		  numOfHits=numOfHits,
-		  bparser=bparser,
-		  workingDir=workingDir
-
-        }
-
-	call megahitTask.megahit_task {
-	    Int megaHitRunThreads
-            Int megaHitRunMinutes
-            Int megaHitRunMem
-
-	    input: sampleName=sample[0],
-		   outputDir=outputDir,
-		   deconseqReadFile=hostremoval_task.hostRemovalOutput,
-		   workingDir=workingDir	
-
-	}
-
-	call genePredictionTask.geneprediction_task {
-            Int genePredictionRunThreads
-            Int genePredictionRunMinutes
-            Int genePredictionRunMem
-
-            input: sampleName=sample[0],
-		   outputDir=outputDir,
-		   megahitOutputTranscripts=megahit_task.megahitOutput,
-		   workingDir=workingDir
-
-        }
-	
-	 call diamondTask.diamond_task {
-            Int diamondRunThreads
-            Int diamondRunMinutes
-            Int diamondRunMem
-
-            input: database=DB,sampleName=sample[0],
-		   outputDir=outputDir,
-		   genesAlignmentOutput=geneprediction_task.proteinAlignmentOutput,
-		   workingDir=workingDir
-        }
-		
-	call collationTask.collation_task {
-            Int collationRunThreads
-            Int collationRunMinutes
-            Int collationRunMem
-
-            input: sampleName=sample[0],
-		   outputDir=outputDir,
-		   inputXML=diamond_task.diamondOutput,
-		   workingDir=workingDir
+	## host removal before merge if chosen
+        ## set array for host removal processing
+        if (hostRemovalBoolean) {
+                call hostRemovalSubWorkflow.hostremoval_subworkflow {
+                        input:
+                            flashBoolean = flashBoolean,
+                            interleaveShell = interleaveShell,
+                            identityPercentage = identityPercentage,
+                            removalSequence = removalSequence,
+                            coverage = coverage,
+                            outputPrefix = mergedOutput,
+                            hostRemovalFlash = qc_subworkflow.flashExtFrags,
+			    sampleName = sample[0],
+                            hostRemovalFwd = qc_subworkflow.trimmedFwdReads,
+                            hostRemovalRev = qc_subworkflow.trimmedRevReads
+                }
         }
    }
-	
-	#end of scatter
-	call xmlParserTask.xmlparser_task {
-            Int xmlParserRunThreads
-            Int xmlParserRunMinutes
-            Int xmlParserRunMem
+   ## end qc subworkflow
 
-            input: outputDir=outputDir,
-		scatterCompleteFlag=collation_task.scatterCompleteFlag,
-		taxRankFile=taxRankFile,
-		fullLineageFile=fullLineageFile,
-		scriptsDirectory=scriptsDirectory,
-		koFormattedFile=koFormattedFile,
-		keggSpeciesFile=keggSpeciesFile,
-		outputFileName=outputFileName,
-		workingDir=workingDir,
-		collationArray = collation_task.collationOutput
+	Array[File] mQCArray = flatten(qc_subworkflow.fastqcArray)   
+
+	## call multiqc after the qc workflow on all fastqc output
+	call multiqcTask.multiqc_task {
+            input:
+                fastqcArray = mQCArray,
+                outputPrefix = multiQCoutput
         }
 
+	
+	## If merge dataset is set to true
+	if (mergeBoolean) {
+		call mergeTask.merge_task {
+		    input:
+			outputPrefix = mergedOutput,
+			readsToMergeFlash = qc_subworkflow.flashExtFrags,
+			readsToMergeFwd = qc_subworkflow.trimmedFwdReads,
+			readsToMergeRev = qc_subworkflow.trimmedRevReads,
+			hostRemFwdReads = hostremoval_subworkflow.hostRemovedFwdReads,
+			hostRemRevReads = hostremoval_subworkflow.hostRemovedRevReads
+        	}
+
+		call assemblySubWorkflow.assembly_subworkflow {
+                        input:
+                                idbaBoolean = idbaBoolean,
+				preset = preset,
+                                metaspadesBoolean = metaspadesBoolean,
+                                megahitBoolean = megahitBoolean,
+                                blastBoolean = blastBoolean,
+                                trimmedReadsFwd = merge_task.trimmedReadsFwd,
+                                trimmedReadsRev = merge_task.trimmedReadsRev,
+                                numOfHits = numOfHits,
+                                bparser = bparser,
+                                database = database
+                }
+
+                call genepredictionSubWorkflow.geneprediction_subworkflow {
+                        input:
+                                assemblyScaffolds = assembly_subworkflow.assemblyScaffolds,
+                                outputType=outputType,
+                                blastMode=blastMode,
+                                maxTargetSeqs=maxTargetSeqs,
+                                outputPrefix = mergedOutput,
+                                mode=mode,
+                                DB=DB
+                }
+	} ## end merge dataset
+
+
+	## if merge dataset is set to false: Includes scatter but same tasks
+	if(!mergeBoolean) {
+
+	   ## check to see if the input is hostremoved or regular
+	   Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
+
+	   #Array[File?] fwdReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedFwdReads else qc_subworkflow.trimmedFwdReads
+	   #Array[File?] revReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedRevReads else qc_subworkflow.trimmedRevReads 
+	   #Array[Pair[Int, String]] zipped = zip(xs, ys) 
+	   #Array[Pair[File?, File?]] pairReads =  if defined(mergeArrayLength) then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads) 
+	   Array[Pair[File, File]] pairReads = zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
+	   Array[Pair[File?, File?]] pairReads2 = zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads)
+	  
+	   
+	   scatter (reads in pairReads) {
+		call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
+			input:
+				idbaBoolean = idbaBoolean,
+				preset = preset,
+				metaspadesBoolean = metaspadesBoolean,
+				megahitBoolean = megahitBoolean,
+				blastBoolean = blastBoolean,
+				trimmedReadsFwd = reads.left,
+				trimmedReadsRev = reads.right,	
+				numOfHits = numOfHits,
+				bparser = bparser,
+				database = database
+		}
+
+		call genepredictionSubWorkflow.geneprediction_subworkflow as nonMergedGenePrediction {
+			input:
+				assemblyScaffolds = nonMergedAssembly.assemblyScaffolds,
+				outputType=outputType,
+				blastMode=blastMode,
+				maxTargetSeqs=maxTargetSeqs,
+				mode=mode,
+				DB=DB
+		}
+	    } ## end scatter
+	} ## end don't merge datasets
+
+
+	if (taxonBoolean) {
+		call taxonTask.taxonclass_task{		
+			input:
+				collationArray=geneprediction_subworkflow.collationOutput,
+				xml_parser=xml_parser,
+				orgID_2_name=orgID_2_name,
+				koFormattedFile=koFormattedFile,
+				keggSpeciesFile=keggSpeciesFile,
+				outputFileName=outputFileName,
+				taxRankFile=taxRankFile,
+				fullLineageFile=fullLineageFile			
+		}
+	}
+
 	output {
+		### QC output
+		Array[Array[File]] fastqcArray = qc_subworkflow.fastqcArray
+		File multiqcHTML = multiqc_task.multiqcHTML
+		Array[File] trimmedFwdReadsArray = qc_subworkflow.trimmedFwdReads
+                Array[File] trimmedRevReadsArray = qc_subworkflow.trimmedRevReads
+                Array[File] trimmedFwdUnpairedArray = qc_subworkflow.trimmedFwdUnpaired
+                Array[File] trimmedRevUnpairedArray = qc_subworkflow.trimmedRevUnpaired
 
-		################## Capture workflow output ##########################
-		Array[Array[File]] flashArray = flash_task.flashArray
-		Array[File] hostRemovalArray = hostremoval_task.hostRemovalOutput
-		Array[File] idbaAssembly = idba_task.scaffoldFasta
-		Array[File] blastArray = blast_task.parsedOutput
-		Array[File] megaHitArray = megahit_task.megahitOutput
-		Array[File] genesArray = geneprediction_task.genesAlignmentOutput
-		Array[File] proteinArray = geneprediction_task.proteinAlignmentOutput
-		Array[File] nucleotideArray = geneprediction_task.nucleotiedGenesOutput
-		Array[File] potentialGenesArray = geneprediction_task.potentialGenesAlignmentOutput
-		Array[File] diamondArray = diamond_task.diamondOutput
-                Array[File] collationOutput = collation_task.collationOutput
+		## Removed for now add later if output required
+		Array[File?] flashArray = qc_subworkflow.flashExtFrags
+		File? flashReadsRevComb = merge_task.flashReadsRevComb
+		File? trimmedReadsFwd = merge_task.trimmedReadsFwd
+		File? trimmedReadsRev = merge_task.trimmedReadsRev 
 
-			  
+		## Assembly output
+		File? assemblyScaffolds = assembly_subworkflow.assemblyScaffolds
+		File? parsedBlast = assembly_subworkflow.parsedBlast
+		File? blastOutput = assembly_subworkflow.blastOutput
 
-		
+		## Non merged Assembly
+		Array[File?]? assemblyScaffoldsArray = nonMergedAssembly.assemblyScaffolds
+                Array[File?]? parsedBlastArray = nonMergedAssembly.parsedBlast
+                Array[File?]? blastOutputArray = nonMergedAssembly.blastOutput
+
+		## geneprediction output
+		File? collationOutput = geneprediction_subworkflow.collationOutput
+		File? diamondOutput = geneprediction_subworkflow.diamondOutput
+		File? proteinAlignmentOutput = geneprediction_subworkflow.proteinAlignmentOutput
+		File? nucleotideGenesOutput = geneprediction_subworkflow.nucleotideGenesOutput
+		File? potentialGenesAlignmentOutput = geneprediction_subworkflow.potentialGenesAlignmentOutput
+		File? genesAlignmentOutput = geneprediction_subworkflow.genesAlignmentOutput
+
+		## Non merged gene prediction
+		Array[File]? collationOutputArray = nonMergedGenePrediction.collationOutput
+                Array[File]? diamondOutputArray = nonMergedGenePrediction.diamondOutput
+                Array[File]? proteinAlignmentOutputArray = nonMergedGenePrediction.proteinAlignmentOutput
+                Array[File]? nucleotideGenesOutputArray = nonMergedGenePrediction.nucleotideGenesOutput
+                Array[File]? potentialGenesAlignmentOutputArray = nonMergedGenePrediction.potentialGenesAlignmentOutput
+                Array[File]? genesAlignmentOutputArray = nonMergedGenePrediction.genesAlignmentOutput
+
+		## Taxonomy output
+		File? functionalTable = taxonclass_task.functionalTable
+                File? geneCounts =  taxonclass_task.geneCounts
+                File? level1Brite = taxonclass_task.level1Brite
+                File? level2Brite = taxonclass_task.level2Brite
+                File? level3Brite = taxonclass_task.level3Brite
+                File? mergedXml = taxonclass_task.mergedXml
+                File? OTU = taxonclass_task.OTU
 
 	}
+
+	meta {
+		author: "Bobbie Shaban"
+		email: "babak.shaban@unimelb.edu.au"
+		description: "<DESCRIPTION>"
+	}
+	parameter_meta {
+		# Inputs:
+		Input1: "itype:<TYPE>: <DESCRIPTION>"
+		# Outputs:
+		Output1: "otype:<TYPE>: <DESCRIPTION>"
+	}
+
 }
 ## end of worklfow metaGenPipe
 

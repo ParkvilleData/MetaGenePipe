@@ -1,33 +1,35 @@
-############################################
-#
-# metaGenPipe idba WDL function
-# Bobbie Shaban	
-# Should be reusable inbetween tasks
-# Performs assembly on samples
-#
-##########################################
-
-
 task idba_task {
-	Int idbaRunThreads
-        Int idbaRunMinutes
-        Int idbaRunMem
-	File cleanFastq
-        String sampleName
+	Int IDBA_threads
+        Int IDBA_minutes
+        Int IDBA_mem
+	File trimmedReadsFwd
+	File trimmedReadsRev
+        String? outputPrefix
 
         command {
-		module load IDBA 
-
-		fq2fa --paired '${cleanFastq}' clean.fa
-		idba_ud -l clean.fa --num_threads '${idbaRunThreads}' 
-		mv ./out/contig.fa '${sampleName}'.scaffold.fa	
+		fq2fa --merge ${trimmedReadsFwd} ${trimmedReadsRev} clean.fa
+		idba_ud -l clean.fa --num_threads '${IDBA_threads}' 
+		mv ./out/contig.fa '${outputPrefix}'.scaffold.fa	
         }
         runtime {
-                runtime_minutes: '${idbaRunMinutes}'
-                cpus: '${idbaRunThreads}'
-                mem: '${idbaRunMem}'
+                runtime_minutes: '${IDBA_minutes}'
+                cpus: '${IDBA_threads}'
+                mem: '${IDBA_mem}'
         }
         output {
-		File scaffoldFasta = "${sampleName}.scaffold.fa"
+		File scaffoldFasta = "${outputPrefix}.scaffold.fa"
         }        
+
+	meta {
+        author: "Mar Quiroga"
+        email: "mar.quiroga@unimelb.edu.au"
+        description: "<DESCRIPTION>"
+    }
+    parameter_meta {
+        # Inputs:
+        forwardReads: "itype:fastq: Forward reads in read pair"
+        reverseReads: "itype:fastq: Reverse reads in read pair"
+        # Outputs:
+        fastqcArray: "otype:glob: All the zip files output"
+    }	
 }

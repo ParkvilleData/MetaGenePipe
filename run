@@ -1,0 +1,1 @@
+ python scripts/inputArgMaker.v.1.0.4.py -o input.txt -d ./fastqFiles/ -ml 50 -ph 33 -lb reads -sm reads -pl illumina -f fastq -p true

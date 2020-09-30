@@ -1,1 +1,2 @@
-reads	./fastqFiles/readsa_1.fastq	./fastqFiles/readsa_2.fastq
+SRR5808831	./fastqFiles/readsa-1.fq	./fastqFiles/readsa-2.fq
+SRR5808882	./fastqFiles/readsb-1.fq	./fastqFiles/readsb-2.fq

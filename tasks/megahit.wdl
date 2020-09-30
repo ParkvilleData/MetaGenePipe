@@ -1,32 +1,41 @@
-############################################
-#
-# metaGenPipe MegaHit WDL function
-# Bobbie Shaban
-# Should be reusable inbetween tasks
-# Performs assembly on reads
-#
-##########################################
-
 task megahit_task {
-        Int megaHitRunThreads
-        Int megaHitRunMinutes
-        Int megaHitRunMem
-        String outputDir
-        String sampleName
-	String workingDir
-	File deconseqReadFile
+	File trimmedReadsFwd
+	File trimmedReadsRev
+        Int MEH_threads
+        Int MEH_minutes
+        Int MEH_mem
+	String? outputPrefix
+	String sample = basename(trimmedReadsFwd, ".gz")
+	String sampleFastq = basename(sample, ".fq")
+	String sampleName = basename(sampleFastq, ".fastq") 
+	String preset
+	#String reverseRead = basename(trimmedReadsRev)
 
         command {
-		/usr/bin/time -v '${workingDir}'/bin/mh/mh/megahit -t '${megaHitRunThreads}' -r '${deconseqReadFile}' 	
-		cp ./megahit_out/final.contigs.fa ${sampleName}.final.contigs.fa
+		megahit -t ${MEH_threads} --presets ${preset} -1 ${trimmedReadsFwd} -2 ${trimmedReadsRev}  	
+		cp ./megahit_out/final.contigs.fa ${sampleName}.megahit.final.contigs.fa
         }
         runtime {
-                runtime_minutes: '${megaHitRunMinutes}'
-                cpus: '${megaHitRunThreads}'
-                mem: '${megaHitRunMem}'
+                runtime_minutes: '${MEH_minutes}'
+                cpus: '${MEH_threads}'
+                mem: '${MEH_mem}'
         }
         output {
-               File megahitOutput = "${sampleName}.final.contigs.fa"
+               File assemblyOutput = "${sampleName}.megahit.final.contigs.fa"
         }
+    meta {
+        author: "Mar Quiroga"
+        email: "mar.quiroga@unimelb.edu.au"
+	author: "Bobbie Shaban"
+        email: "bshaban@unimelb.edu.au"
+        description: "<DESCRIPTION>"
+    }
+    parameter_meta {
+        # Inputs:
+        forwardReads: "itype:fastq: Forward reads in read pair"
+        reverseReads: "itype:fastq: Reverse reads in read pair"
+        # Outputs:
+        fastqcArray: "otype:glob: All the zip files output"
+    }
 }
 
