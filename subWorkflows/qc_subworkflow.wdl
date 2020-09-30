@@ -2,6 +2,7 @@ import "./tasks/fastqc.wdl" as fastqcTask
 import "./tasks/flash.wdl" as flashTask  
 import "./tasks/multiqc.wdl" as multiqcTask
 import "./tasks/trimmomatic.wdl" as trimTask
+#import "./tasks/trim_galore.wdl" as trimgaloreTask
 
 workflow qc_subworkflow {
     meta {
@@ -37,6 +38,12 @@ String sampleName
             forwardReads = forwardReads,
             reverseReads = reverseReads
         }
+
+	#call trimgaloreTask.trim_galore_task{
+	#input:
+	#    forwardReads = forwardReads,
+	#    reverseReads = reverseReads,
+	#}
 	
 	## if flash boolean is true merge reads
 	if( flashBoolean ) {

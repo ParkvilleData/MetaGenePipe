@@ -1,0 +1,2088 @@
+# Sequence Data: seqnum=1;seqlen=369;seqhdr="k119_26 flag=1 multi=3.0000 len=369"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	66	-	-69.08	-39.70	-29.38	GTG	None	None	-7.00	-17.97	-0.06	0.394
+1	81	-	-43.10	-34.14	-8.97	ATG	TTA	14bp	-0.77	-6.05	2.20	0.407
+1	132	-	-32.14	-13.06	-19.07	GTG	TTA	11bp	2.24	-16.91	-0.06	0.409
+1	144	-	-30.53	-11.41	-19.11	ATG	None	None	-7.00	-9.96	2.20	0.410
+1	165	-	-25.94	-6.14	-19.80	GTG	None	None	-7.00	-8.38	-0.06	0.424
+1	171	-	-22.56	-5.70	-16.86	ATG	None	None	-7.00	-7.70	2.20	0.421
+1	213	-	-13.15	5.40	-18.55	ATG	None	None	-7.00	-13.75	2.20	0.404
+1	225	-	-7.88	13.05	-20.93	GTG	AAAA	8bp	5.26	-26.13	-0.06	0.404
+1	231	-	-3.65	15.53	-19.18	ATG	TTA	14bp	-0.77	-20.61	2.20	0.407
+1	291	-	10.98	32.93	-21.95	GTG	None	None	-7.00	-14.89	-0.06	0.419
+1	303	-	3.30	39.72	-36.41	TTG	None	None	-7.00	-23.99	-5.42	0.422
+1	363	-	48.20	61.03	-12.83	GTG	None	None	-7.00	-5.76	-0.06	0.449
+1	369	-	65.05	63.44	1.61	Edge	None	None	0.00	0.00	1.61	0.444
+
+129	218	-	-72.44	-7.01	-65.44	TTG	None	None	-20.13	-29.22	-15.58	0.389
+
+1	138	+	-16.58	-19.30	2.72	Edge	None	None	0.00	0.00	3.22	0.413
+
+14	193	+	-69.81	-51.41	-18.40	TTG	None	None	-9.89	-0.35	-7.66	0.428
+38	193	+	-61.74	-41.35	-20.40	TTG	None	None	-11.44	0.41	-8.86	0.423
+41	193	+	-52.30	-41.83	-10.47	ATG	None	None	-11.67	0.38	1.32	0.425
+53	193	+	-80.39	-38.69	-41.70	TTG	None	None	-12.69	-18.69	-9.83	0.433
+80	193	+	-65.17	-33.54	-31.62	ATG	None	None	-15.77	-16.33	0.98	0.439
+
+297	368	-	-25.06	-27.78	2.72	Edge	None	None	0.00	0.00	3.22	0.542
+
+190	369	+	-67.67	-48.51	-19.17	ATG	None	None	-7.00	-10.02	2.20	0.467
+253	369	+	-62.41	-38.95	-23.46	TTG	None	None	-7.00	-6.68	-5.42	0.556
+
+# Sequence Data: seqnum=2;seqlen=309;seqhdr="k119_39 flag=1 multi=4.0000 len=309"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	105	+	-25.47	-28.19	2.72	Edge	None	None	0.00	0.00	3.22	0.476
+
+102	191	-	-102.70	-33.62	-69.08	ATG	None	None	-20.13	-49.22	0.77	0.456
+
+113	232	-	-52.78	-38.49	-14.28	ATG	None	None	-14.97	0.15	1.03	0.483
+
+151	249	-	-64.23	-38.43	-25.80	ATG	None	None	-18.24	-7.91	0.85	0.505
+151	264	-	-70.08	-44.31	-25.76	ATG	None	None	-15.77	-10.47	0.98	0.500
+151	279	-	-89.46	-48.04	-41.42	ATG	None	None	-13.90	-28.14	1.11	0.481
+151	294	-	-75.99	-53.73	-22.26	ATG	None	None	-12.42	-10.59	1.24	0.479
+151	306	-	-82.95	-55.41	-27.54	TTG	None	None	-11.44	-6.73	-8.86	0.462
+151	309	-	-50.99	-53.71	2.72	Edge	None	None	0.00	0.00	3.22	0.459
+
+2	307	+	42.48	40.87	1.61	Edge	None	None	0.00	0.00	1.61	0.467
+41	307	+	6.68	30.05	-23.37	TTG	None	None	-7.00	-10.94	-5.42	0.457
+56	307	+	5.67	24.77	-19.10	ATG	None	None	-7.00	-14.30	2.20	0.444
+65	307	+	-3.69	21.27	-24.96	TTG	None	None	-7.00	-12.53	-5.42	0.440
+122	307	+	-17.63	1.46	-19.09	TTG	None	None	-7.00	-6.66	-5.42	0.468
+161	307	+	-42.91	-14.53	-28.38	GTG	None	None	-7.00	-16.96	-0.06	0.483
+173	307	+	-45.82	-19.72	-26.10	ATG	None	None	-7.00	-16.95	2.20	0.467
+194	307	+	-49.48	-24.69	-24.79	TTG	None	None	-7.00	-8.02	-5.42	0.465
+203	307	+	-56.94	-26.83	-30.11	TTG	None	None	-7.00	-13.33	-5.42	0.457
+209	307	+	-63.92	-29.61	-34.31	GTG	None	None	-7.00	-22.90	-0.06	0.444
+215	307	+	-49.20	-31.88	-17.32	ATG	None	None	-7.00	-8.17	2.20	0.430
+236	307	+	-61.07	-35.58	-25.49	TTG	None	None	-7.00	-8.72	-5.42	0.431
+
+249	308	+	-44.71	-14.96	-29.75	TTG	None	None	-7.00	-12.97	-5.42	0.383
+
+# Sequence Data: seqnum=3;seqlen=366;seqhdr="k119_27 flag=1 multi=8.0000 len=366"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	181	-	-15.13	2.31	-17.44	TTG	None	None	-7.00	-5.01	-5.42	0.511
+2	274	-	8.71	24.19	-15.48	ATG	None	None	-7.00	-10.68	2.20	0.495
+2	364	-	-0.59	-1.70	1.11	Edge	None	None	0.00	0.00	1.61	0.496
+
+261	365	-	-41.29	-44.01	2.72	Edge	None	None	0.00	0.00	3.22	0.476
+
+# Sequence Data: seqnum=4;seqlen=374;seqhdr="k119_40 flag=1 multi=4.0000 len=374"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	181	-	-3.75	3.78	-7.53	ATG	TTA	13bp	-0.77	-8.96	2.20	0.344
+2	190	-	-12.31	4.23	-16.55	ATG	None	None	-7.00	-11.75	2.20	0.344
+2	259	-	-7.86	10.90	-18.76	TTG	None	None	-7.00	-6.33	-5.42	0.349
+2	316	-	11.34	31.12	-19.78	GTG	None	None	-7.00	-12.71	-0.06	0.343
+2	373	-	25.75	24.14	1.61	Edge	None	None	0.00	0.00	1.61	0.363
+
+3	101	+	-27.86	-30.58	2.72	Edge	None	None	0.00	0.00	3.22	0.374
+9	101	+	-77.20	-29.99	-47.21	TTG	None	None	-19.45	-12.19	-15.07	0.366
+
+2	136	+	-23.44	-26.16	2.72	Edge	None	None	0.00	0.00	3.22	0.370
+
+187	279	-	-87.22	-27.31	-59.91	ATG	None	None	-19.45	-40.75	0.79	0.344
+
+108	197	+	-67.55	-13.94	-53.61	TTG	None	None	-20.13	-17.40	-15.58	0.278
+
+# Sequence Data: seqnum=5;seqlen=325;seqhdr="k119_41 flag=1 multi=3.0000 len=325"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	106	-	-43.21	-24.18	-19.04	GTG	None	None	-7.00	-7.62	-0.06	0.371
+2	124	-	-46.09	-32.55	-13.54	GTG	None	None	-7.00	-2.13	-0.06	0.407
+
+36	158	-	-62.87	-12.57	-50.30	TTG	None	None	-14.59	-23.91	-11.30	0.423
+36	224	-	-52.69	-21.85	-30.84	TTG	None	None	-9.41	-13.64	-7.29	0.455
+36	236	-	-37.10	-15.34	-21.76	ATG	None	None	-8.84	-14.16	1.74	0.453
+36	290	-	-43.26	-22.40	-20.86	TTG	None	None	-7.00	-7.93	-5.42	0.447
+36	323	-	-29.18	-31.90	2.72	Edge	None	None	0.00	0.00	3.22	0.451
+
+3	137	+	5.11	1.89	3.22	Edge	None	None	0.00	3.22	0.00	0.415
+9	137	+	-21.73	-0.20	-21.52	ATG	None	None	-13.90	-8.24	1.11	0.411
+
+253	324	-	-24.78	-27.50	2.72	Edge	None	None	0.00	0.00	3.22	0.431
+
+181	297	+	-49.66	-28.40	-21.27	ATG	None	None	-15.36	-6.41	1.00	0.479
+
+150	323	+	8.46	21.71	-13.26	TTG	None	None	-7.00	-0.83	-5.42	0.460
+261	323	+	-19.48	-6.59	-12.89	ATG	None	None	-7.00	-3.74	2.20	0.429
+
+# Sequence Data: seqnum=6;seqlen=495;seqhdr="k119_28 flag=1 multi=6.0000 len=495"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	85	-	-27.18	-5.87	-21.30	ATG	None	None	-7.00	-12.15	2.20	0.464
+2	97	-	-28.84	-7.39	-21.45	TTG	None	None	-7.00	-4.67	-5.42	0.448
+2	148	-	-1.94	5.49	-7.43	GTG	None	None	-7.00	-0.36	-0.06	0.469
+2	190	-	-7.39	11.42	-18.81	TTG	None	None	-7.00	-6.38	-5.42	0.481
+2	226	-	4.99	24.14	-19.15	ATG	None	None	-7.00	-14.35	2.20	0.449
+
+3	74	+	-9.14	-11.86	2.72	Edge	None	None	0.00	0.00	3.22	0.500
+
+82	201	-	-74.76	-25.15	-49.60	TTG	None	None	-14.97	-22.55	-11.59	0.458
+
+263	379	-	-26.22	1.64	-27.85	GTG	None	None	-15.36	-12.36	-0.13	0.359
+263	388	-	-39.11	4.16	-43.27	TTG	None	None	-14.24	-18.01	-11.02	0.349
+263	400	-	-0.35	3.89	-4.24	TTG	TTAA	11bp	5.42	0.38	-10.04	0.333
+263	448	-	-45.87	-8.22	-37.65	TTG	None	None	-9.57	-20.18	-7.41	0.328
+263	478	-	-30.45	-16.65	-13.80	GTG	None	None	-8.22	-5.01	-0.07	0.352
+263	493	-	-18.01	-20.73	2.72	Edge	None	None	0.00	0.00	3.22	0.351
+
+363	461	-	-29.06	-3.41	-25.65	ATG	None	None	-18.24	-7.76	0.85	0.333
+
+2	415	+	8.39	5.17	3.22	Edge	None	None	0.00	0.00	3.22	0.415
+179	415	+	-65.44	-31.64	-33.80	GTG	None	None	-7.48	-25.75	-0.06	0.363
+203	415	+	-37.73	-32.05	-5.69	ATG	TTAA	7bp	8.05	-15.09	1.85	0.371
+248	415	+	-53.78	-29.58	-24.20	ATG	None	None	-10.61	-14.55	1.45	0.363
+290	415	+	-47.36	-19.25	-28.12	ATG	None	None	-14.24	-14.46	1.08	0.357
+317	415	+	-33.78	-17.18	-16.60	ATG	AAAA	6bp	2.02	-18.96	0.85	0.354
+
+412	495	-	-18.24	-20.96	2.72	Edge	None	None	0.00	0.00	3.22	0.345
+
+431	493	+	-15.49	-15.53	0.04	TTG	AAAA	9bp	5.26	4.56	-5.42	0.381
+
+# Sequence Data: seqnum=7;seqlen=305;seqhdr="k119_42 flag=1 multi=4.0000 len=305"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+28	153	-	-79.67	-46.70	-32.97	ATG	None	None	-14.24	-19.31	1.08	0.460
+28	168	-	-71.86	-45.16	-26.70	ATG	None	None	-12.69	-14.73	1.22	0.454
+28	237	-	-70.77	-49.93	-20.84	GTG	None	None	-8.46	-11.81	-0.07	0.486
+28	291	-	-63.49	-53.83	-9.66	ATG	None	None	-7.00	-4.36	2.20	0.489
+28	303	-	-47.38	-50.10	2.72	Edge	None	None	0.00	0.00	3.22	0.486
+
+182	304	-	-68.49	-71.21	2.72	Edge	None	None	0.00	0.00	3.22	0.520
+
+134	253	+	-51.89	-28.14	-23.76	GTG	None	None	-14.97	-8.16	-0.13	0.525
+152	253	+	-61.77	-23.24	-38.53	ATG	None	None	-17.69	-21.22	0.87	0.520
+
+1	303	+	49.61	48.00	1.61	Edge	None	None	0.00	0.00	1.61	0.502
+10	303	+	33.50	47.76	-14.27	GTG	None	None	-7.00	-7.21	-0.06	0.503
+22	303	+	28.21	43.34	-15.13	GTG	None	None	-7.00	-8.06	-0.06	0.496
+46	303	+	19.61	33.96	-14.35	ATG	None	None	-7.00	-9.55	2.20	0.484
+55	303	+	11.25	30.41	-19.16	ATG	None	None	-7.00	-14.36	2.20	0.486
+82	303	+	7.28	20.29	-13.00	ATG	None	None	-7.00	-8.20	2.20	0.495
+127	303	+	-11.40	12.31	-23.71	TTG	None	None	-7.00	-11.29	-5.42	0.503
+139	303	+	-17.46	4.77	-22.23	TTG	None	None	-7.00	-9.80	-5.42	0.509
+154	303	+	-12.19	3.68	-15.88	GTG	None	None	-7.00	-8.81	-0.06	0.513
+199	303	+	-42.17	-11.06	-31.10	TTG	None	None	-7.00	-14.33	-5.42	0.533
+244	303	+	-56.90	-23.97	-32.93	ATG	None	None	-7.00	-23.78	2.20	0.483
+
+# Sequence Data: seqnum=8;seqlen=363;seqhdr="k119_43 flag=1 multi=4.0000 len=363"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+65	163	-	-72.82	-2.47	-70.35	TTG	None	None	-18.24	-37.49	-14.12	0.404
+
+156	245	-	-75.54	-2.11	-73.43	TTG	None	None	-20.13	-37.22	-15.58	0.378
+156	266	-	-56.66	-0.69	-55.97	TTG	None	None	-16.21	-26.71	-12.55	0.378
+156	362	-	12.15	8.93	3.22	Edge	None	None	0.00	0.00	3.22	0.382
+
+3	362	+	14.22	12.61	1.61	Edge	None	None	0.00	0.00	1.61	0.394
+93	362	+	4.67	17.98	-13.31	GTG	TTA	11bp	2.24	-15.50	-0.06	0.393
+120	362	+	-4.58	8.11	-12.69	GTG	None	None	-7.00	-5.62	-0.06	0.395
+123	362	+	-2.96	8.67	-11.63	GTG	None	None	-7.00	-4.57	-0.06	0.392
+177	362	+	-24.58	6.06	-30.64	TTG	None	None	-7.00	-18.21	-5.42	0.382
+246	362	+	1.18	14.74	-13.55	ATG	None	None	-7.00	-8.75	2.20	0.376
+267	362	+	-18.80	4.72	-23.53	TTG	None	None	-7.00	-11.10	-5.42	0.375
+282	362	+	-18.62	-2.66	-15.96	GTG	None	None	-7.00	-4.55	-0.06	0.383
+
+# Sequence Data: seqnum=9;seqlen=668;seqhdr="k119_29 flag=1 multi=5.0000 len=668"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	189	-	-48.44	-24.55	-23.89	GTG	None	None	-7.00	-12.48	-0.06	0.476
+
+78	209	-	-53.58	-30.25	-23.32	TTG	None	None	-13.57	1.26	-10.51	0.530
+78	218	-	-49.13	-32.37	-16.76	GTG	None	None	-12.69	-3.46	-0.11	0.525
+78	239	-	-45.84	-28.45	-17.39	ATG	None	None	-11.01	-7.28	1.40	0.506
+78	284	-	-44.92	-30.15	-14.77	TTG	AAAA	6bp	4.29	-11.92	-6.65	0.507
+
+331	507	-	-55.78	-40.18	-15.60	ATG	None	None	-10.06	-6.57	1.53	0.452
+331	522	-	-58.39	-42.69	-15.70	GTG	None	None	-9.26	-5.86	-0.08	0.443
+331	546	-	-53.52	-42.90	-10.62	TTG	None	None	-8.22	4.47	-6.37	0.435
+
+380	484	-	-69.73	-20.41	-49.32	GTG	None	None	-17.17	-31.51	-0.15	0.486
+
+393	503	-	-76.42	-25.31	-51.11	TTG	None	None	-16.21	-21.85	-12.55	0.468
+393	530	-	-65.04	-25.84	-39.19	TTG	None	None	-12.97	-15.68	-10.04	0.435
+393	563	-	-58.68	-30.27	-28.41	ATG	None	None	-10.42	-18.97	1.48	0.450
+393	584	-	-61.50	-36.46	-25.04	TTG	None	None	-9.26	-8.10	-7.17	0.443
+393	611	-	-48.23	-38.58	-9.65	ATG	None	None	-8.11	-2.95	1.90	0.443
+393	626	-	-47.47	-33.15	-14.32	ATG	None	None	-7.58	-8.28	2.04	0.440
+393	632	-	-50.46	-31.49	-18.97	TTG	None	None	-7.39	-5.36	-5.72	0.438
+393	635	-	-52.67	-32.01	-20.66	TTG	None	None	-7.30	-7.21	-5.65	0.436
+393	668	-	-31.63	-34.35	2.72	Edge	None	None	0.00	0.00	3.22	0.438
+
+1	666	+	100.05	98.44	1.61	Edge	None	None	0.00	0.00	1.61	0.459
+46	666	+	98.94	97.74	1.19	TTG	AAAA	7bp	5.26	1.36	-5.42	0.465
+124	666	+	50.51	64.75	-14.24	TTG	None	None	-7.00	-1.81	-5.42	0.468
+133	666	+	47.24	62.67	-15.43	ATG	None	None	-7.00	-10.63	2.20	0.468
+145	666	+	36.48	57.56	-21.08	GTG	None	None	-7.00	-14.01	-0.06	0.467
+172	666	+	19.80	41.59	-21.79	TTG	None	None	-7.00	-9.37	-5.42	0.463
+238	666	+	21.52	32.25	-10.73	ATG	None	None	-7.00	-5.93	2.20	0.452
+241	666	+	35.15	32.21	2.94	ATG	TTA	12bp	2.24	-1.50	2.20	0.453
+259	666	+	14.61	27.69	-13.08	GTG	None	None	-7.00	-6.02	-0.06	0.451
+310	666	+	-9.75	6.34	-16.09	ATG	None	None	-7.00	-11.29	2.20	0.445
+460	666	+	-69.43	-40.61	-28.82	ATG	None	None	-7.00	-19.67	2.20	0.440
+
+# Sequence Data: seqnum=10;seqlen=304;seqhdr="k119_44 flag=1 multi=2.0000 len=304"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	62	-	-19.18	-1.29	-17.90	ATG	None	None	-7.00	-8.74	2.20	0.167
+3	92	-	2.64	3.70	-1.06	ATG	None	None	-7.00	3.74	2.20	0.267
+3	140	-	-17.09	0.10	-17.19	TTG	None	None	-7.00	-4.76	-5.42	0.319
+
+10	102	-	-6.37	-8.43	2.06	ATG	TTA	12bp	0.81	0.96	0.79	0.323
+
+53	304	-	-65.63	-68.35	2.72	Edge	None	None	0.00	0.00	3.22	0.484
+
+57	173	+	-67.01	-42.71	-24.31	TTG	TTAA	12bp	4.58	-16.49	-11.89	0.453
+81	173	+	-81.85	-33.57	-48.28	TTG	None	None	-19.45	-13.26	-15.07	0.462
+
+184	303	-	-15.38	-18.10	2.72	Edge	None	None	0.00	0.00	3.22	0.508
+
+177	275	+	-95.36	-43.30	-52.07	ATG	None	None	-18.24	-34.18	0.85	0.545
+
+35	304	+	19.47	23.29	-3.82	ATG	None	None	-7.00	0.98	2.20	0.459
+68	304	+	30.14	27.79	2.36	TTG	TTAA	11bp	10.04	-2.26	-5.42	0.494
+71	304	+	23.99	28.25	-4.26	TTG	TTA	15bp	-0.77	1.93	-5.42	0.496
+101	304	+	18.98	34.14	-15.16	ATG	None	None	-7.00	-10.35	2.20	0.490
+155	304	+	-0.48	8.57	-9.06	ATG	None	None	-7.00	-4.26	2.20	0.513
+242	304	+	-42.72	-18.06	-24.66	TTG	None	None	-7.00	-7.88	-5.42	0.492
+
+# Sequence Data: seqnum=11;seqlen=318;seqhdr="k119_30 flag=1 multi=4.0000 len=318"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+10	117	-	-17.93	-0.87	-17.05	GTG	None	None	-16.68	0.27	-0.14	0.556
+10	129	-	-58.08	2.60	-60.69	TTG	None	None	-14.97	-34.13	-11.59	0.575
+10	246	-	-33.67	-18.05	-15.63	GTG	None	None	-7.48	-7.58	-0.06	0.582
+
+1	66	+	-29.80	-32.52	2.72	Edge	None	None	0.00	0.00	3.22	0.545
+
+77	214	-	-21.24	8.37	-29.62	TTG	None	None	-12.97	-6.60	-10.04	0.601
+77	316	-	-7.40	-10.12	2.72	Edge	None	None	0.00	0.00	3.22	0.562
+
+2	94	+	-31.78	-34.50	2.72	Edge	None	None	0.00	0.00	3.22	0.581
+
+201	317	-	-36.41	-39.13	2.72	Edge	None	None	0.00	0.00	3.22	0.496
+
+232	318	+	-3.19	8.42	-11.61	GTG	None	None	-7.00	-4.54	-0.06	0.494
+259	318	+	-19.99	0.51	-20.50	GTG	None	None	-7.00	-13.44	-0.06	0.450
+
+# Sequence Data: seqnum=12;seqlen=315;seqhdr="k119_31 flag=1 multi=3.0000 len=315"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	67	-	-12.73	-8.79	-3.94	ATG	TTAA	7bp	9.58	-11.38	2.20	0.439
+
+1	78	+	-6.73	-9.44	2.72	Edge	None	None	0.00	0.00	3.22	0.397
+
+# Sequence Data: seqnum=13;seqlen=311;seqhdr="k119_32 flag=1 multi=3.0000 len=311"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	82	-	0.74	7.33	-6.59	GTG	None	None	-7.00	0.47	-0.06	0.432
+
+51	146	-	-44.61	3.50	-48.11	TTG	None	None	-18.83	-14.70	-14.58	0.458
+
+139	252	-	-28.48	4.55	-33.03	GTG	None	None	-15.77	-17.12	-0.14	0.535
+139	309	-	5.72	2.50	3.22	Edge	None	None	0.00	0.00	3.22	0.462
+
+# Sequence Data: seqnum=14;seqlen=834;seqhdr="k119_45 flag=1 multi=8.0000 len=834"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	69	+	-17.28	-20.00	2.72	Edge	None	None	0.00	0.00	3.22	0.565
+
+79	240	-	9.59	1.55	8.04	ATG	TTAA	7bp	6.10	0.55	1.40	0.370
+79	258	-	-11.14	5.21	-16.35	TTG	None	None	-9.89	1.20	-7.66	0.361
+79	369	-	13.21	18.17	-4.96	ATG	TTA	12bp	2.24	-9.41	2.20	0.368
+79	432	-	-1.15	10.97	-12.12	TTG	None	None	-7.00	0.31	-5.42	0.376
+
+2	277	+	-39.54	-42.26	2.72	Edge	None	None	0.00	0.00	3.22	0.399
+26	277	+	-56.81	-32.56	-24.25	GTG	None	None	-7.03	-16.66	-0.06	0.389
+92	277	+	-39.55	-19.85	-19.70	ATG	None	None	-9.57	-11.24	1.61	0.366
+116	277	+	-46.93	-16.76	-30.17	TTG	None	None	-11.01	-10.13	-8.53	0.377
+119	277	+	-17.61	-17.25	-0.37	ATG	AAAA	6bp	3.28	-4.52	1.37	0.377
+137	277	+	-52.50	-25.50	-27.01	ATG	None	None	-12.69	-15.03	1.22	0.383
+149	277	+	-46.97	-17.17	-29.81	GTG	None	None	-13.90	-15.29	-0.12	0.372
+164	277	+	-51.32	-6.06	-45.26	TTG	None	None	-15.77	-16.78	-12.22	0.377
+176	277	+	-44.75	-8.88	-35.87	ATG	None	None	-17.69	-18.56	0.87	0.382
+
+320	409	-	-34.19	-4.68	-29.50	GTG	None	None	-20.13	-8.70	-0.17	0.422
+
+184	384	+	-8.58	-4.12	-4.46	TTG	TTA	13bp	-0.97	3.86	-6.85	0.388
+190	384	+	-18.54	-3.98	-14.56	GTG	None	None	-9.12	-4.86	-0.08	0.379
+274	384	+	-38.89	-4.02	-34.87	TTG	None	None	-16.21	-5.60	-12.55	0.378
+280	384	+	-50.82	-4.34	-46.48	ATG	None	None	-17.17	-29.72	0.90	0.390
+295	384	+	-10.39	-0.18	-10.20	ATG	TTA	14bp	-2.22	-8.25	0.77	0.389
+
+415	507	+	-16.98	-1.59	-15.39	ATG	AAAA	10bp	1.89	-17.58	0.79	0.452
+
+626	793	-	-55.90	-36.85	-19.05	TTG	None	None	-10.61	0.28	-8.22	0.440
+
+633	731	-	-89.56	-51.58	-37.98	TTG	TTA	14bp	-2.01	-21.35	-14.12	0.434
+633	758	-	-107.80	-55.68	-52.12	TTG	None	None	-14.24	-26.36	-11.02	0.421
+633	806	-	-95.49	-69.92	-25.57	ATG	None	None	-10.24	-16.34	1.51	0.448
+633	809	-	-89.93	-69.43	-20.50	TTG	None	None	-10.06	-2.15	-7.79	0.441
+633	833	-	-64.78	-67.50	2.72	Edge	None	None	0.00	0.00	3.22	0.423
+
+453	641	+	-64.66	-34.68	-29.98	TTG	None	None	-9.41	-12.78	-7.29	0.455
+483	641	+	-55.13	-23.19	-31.94	TTG	None	None	-11.22	-11.53	-8.69	0.428
+489	641	+	-58.44	-23.12	-35.32	TTG	None	None	-11.67	-14.11	-9.04	0.431
+495	641	+	-43.21	-22.60	-20.61	ATG	None	None	-12.16	-9.22	1.27	0.435
+528	641	+	-66.97	-25.08	-41.89	TTG	None	None	-15.77	-13.40	-12.22	0.456
+546	641	+	-59.33	-25.25	-34.08	ATG	None	None	-18.83	-15.57	0.82	0.500
+
+491	748	+	4.44	22.08	-17.64	GTG	None	None	-7.00	-10.58	-0.06	0.434
+524	748	+	-6.09	16.52	-22.61	ATG	None	None	-7.89	-16.68	1.96	0.444
+557	748	+	-6.38	8.80	-15.19	ATG	None	None	-9.26	-7.59	1.67	0.469
+566	748	+	-17.85	5.28	-23.12	TTG	None	None	-9.73	-5.86	-7.53	0.459
+623	748	+	-34.83	-7.75	-27.09	GTG	None	None	-14.24	-12.23	-0.12	0.413
+638	748	+	-57.98	-8.07	-49.91	TTG	None	None	-16.21	-20.64	-12.55	0.423
+656	748	+	-32.13	-9.62	-22.51	ATG	None	None	-19.45	-3.35	0.79	0.419
+
+678	833	+	-39.81	-15.16	-24.65	TTG	None	None	-7.00	-7.87	-5.42	0.429
+693	833	+	-33.39	-15.94	-17.45	GTG	None	None	-7.00	-6.04	-0.06	0.433
+699	833	+	-35.94	-11.65	-24.29	TTG	None	None	-7.00	-7.51	-5.42	0.430
+738	833	+	-26.99	1.54	-28.52	TTG	None	None	-7.00	-16.10	-5.42	0.396
+765	833	+	-6.05	1.20	-7.25	GTG	None	None	-7.00	-0.19	-0.06	0.435
+
+# Sequence Data: seqnum=15;seqlen=403;seqhdr="k119_33 flag=1 multi=5.0000 len=403"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	78	-	-6.26	10.51	-16.77	TTG	None	None	-7.00	-4.34	-5.42	0.615
+
+306	401	-	-56.01	-58.73	2.72	Edge	None	None	0.00	0.00	3.22	0.479
+
+329	403	-	-23.79	-26.51	2.72	Edge	None	None	0.00	0.00	3.22	0.413
+
+251	343	+	-16.91	1.01	-17.93	GTG	None	None	-19.45	1.70	-0.17	0.538
+
+340	402	+	-16.22	-4.64	-11.59	GTG	TTAA	7bp	9.58	-16.76	-0.06	0.444
+
+# Sequence Data: seqnum=16;seqlen=348;seqhdr="k119_46 flag=1 multi=3.0000 len=348"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+15	134	-	-28.16	5.03	-33.19	ATG	None	None	-14.97	-19.26	1.03	0.350
+15	170	-	-30.57	-5.94	-24.63	GTG	None	None	-11.44	-12.59	-0.10	0.365
+15	203	-	-9.37	1.10	-10.48	ATG	None	None	-9.41	-2.70	1.64	0.365
+
+1	117	+	-15.40	-18.12	2.72	Edge	None	None	0.00	0.00	3.22	0.299
+
+3	227	+	-56.10	-58.82	2.72	Edge	None	None	0.00	0.00	3.22	0.351
+30	227	+	-49.85	-55.23	5.38	ATG	TTAA	7bp	7.48	-3.31	1.72	0.379
+
+224	319	-	-68.82	4.67	-73.49	TTG	None	None	-18.83	-40.08	-14.58	0.354
+224	346	-	7.23	4.01	3.22	Edge	None	None	0.00	0.00	3.22	0.382
+
+145	234	+	-76.11	-1.73	-74.38	TTG	None	None	-20.13	-38.17	-15.58	0.367
+
+280	348	-	-20.44	-23.16	2.72	Edge	None	None	0.00	0.00	3.22	0.435
+
+# Sequence Data: seqnum=17;seqlen=363;seqhdr="k119_34 flag=1 multi=4.0000 len=363"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	82	-	-40.61	-27.16	-13.45	ATG	None	None	-7.00	-4.30	2.20	0.444
+
+3	104	-	-16.76	3.31	-20.07	GTG	None	None	-7.00	-13.00	-0.06	0.451
+3	143	-	6.01	16.33	-10.32	ATG	TTA	13bp	-0.77	-11.75	2.20	0.454
+3	194	-	-11.27	15.11	-26.38	GTG	None	None	-7.00	-19.32	-0.06	0.438
+3	215	-	-3.99	11.30	-15.28	TTG	None	None	-7.00	-2.85	-5.42	0.423
+3	233	-	-5.07	12.11	-17.18	TTG	None	None	-7.00	-4.75	-5.42	0.416
+3	254	-	-25.28	-5.73	-19.55	ATG	None	None	-7.00	-10.40	2.20	0.409
+3	275	-	-13.65	-6.68	-6.97	TTG	TTAA	7bp	9.58	-6.78	-5.42	0.399
+3	362	-	18.35	16.74	1.61	Edge	None	None	0.00	0.00	1.61	0.394
+
+1	69	+	-19.47	-22.19	2.72	Edge	None	None	0.00	0.00	3.22	0.435
+
+105	257	+	-50.93	-31.20	-19.73	ATG	None	None	-11.67	-8.88	1.32	0.373
+120	257	+	-62.37	-25.99	-36.38	ATG	None	None	-12.97	-24.10	1.19	0.362
+
+164	286	+	-22.33	3.02	-25.35	TTG	None	None	-14.59	0.54	-11.30	0.358
+
+290	361	-	-21.93	-24.65	2.72	Edge	None	None	0.00	0.00	3.22	0.375
+
+270	362	+	10.76	8.09	2.67	TTG	TTAA	12bp	10.04	-1.94	-5.42	0.376
+294	362	+	-4.84	1.47	-6.31	TTG	TTAA	7bp	9.58	-10.47	-5.42	0.362
+
+# Sequence Data: seqnum=18;seqlen=314;seqhdr="k119_47 flag=1 multi=3.0000 len=314"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	77	-	-25.66	-12.21	-13.45	ATG	None	None	-7.00	-4.30	2.20	0.373
+
+179	271	-	-43.60	-20.01	-23.60	ATG	TTA	15bp	-2.14	-21.75	0.79	0.484
+179	313	-	-24.77	-27.49	2.72	Edge	None	None	0.00	0.00	3.22	0.474
+
+61	189	+	-68.78	-51.85	-16.93	GTG	None	None	-13.90	-2.42	-0.12	0.450
+100	189	+	-78.01	-34.81	-43.21	ATG	None	None	-20.13	-23.35	0.77	0.411
+
+247	312	+	-33.78	-13.39	-20.39	GTG	None	None	-7.00	-8.97	-0.06	0.424
+
+3	314	+	56.62	55.01	1.61	Edge	None	None	0.00	0.00	1.61	0.442
+18	314	+	36.15	47.75	-11.60	ATG	None	None	-7.00	-6.80	2.20	0.438
+36	314	+	23.77	41.88	-18.11	TTG	None	None	-7.00	-5.68	-5.42	0.441
+39	314	+	27.09	41.34	-14.25	ATG	None	None	-7.00	-9.45	2.20	0.442
+123	314	+	1.59	9.75	-8.15	ATG	TTA	15bp	-0.77	-9.58	2.20	0.474
+129	314	+	-5.96	8.08	-14.03	GTG	None	None	-7.00	-6.97	-0.06	0.484
+162	314	+	-25.03	-7.98	-17.05	ATG	None	None	-7.00	-7.90	2.20	0.471
+237	314	+	-53.93	-36.23	-17.71	ATG	None	None	-7.00	-8.55	2.20	0.436
+
+# Sequence Data: seqnum=19;seqlen=514;seqhdr="k119_35 flag=1 multi=6.0000 len=514"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	106	+	-3.70	-6.42	2.72	Edge	None	None	0.00	0.00	3.22	0.381
+8	106	+	-30.05	-1.72	-28.32	GTG	None	None	-18.24	-9.43	-0.16	0.364
+11	106	+	-45.05	-1.41	-43.64	TTG	None	None	-18.83	-9.73	-14.58	0.354
+
+194	358	-	-26.67	9.45	-36.12	ATG	None	None	-10.81	-26.74	1.43	0.412
+194	373	-	-9.49	6.29	-15.78	TTG	TTA	15bp	-1.09	-7.03	-7.66	0.433
+194	412	-	-29.14	-7.21	-21.93	ATG	None	None	-8.11	-15.23	1.90	0.447
+194	481	-	-34.49	-19.26	-15.23	TTG	None	None	-7.00	-2.31	-5.42	0.476
+194	499	-	-30.43	-17.16	-13.27	GTG	None	None	-7.00	-5.70	-0.06	0.471
+194	514	-	-14.41	-17.13	2.72	Edge	None	None	0.00	0.00	3.22	0.480
+
+221	325	+	-75.84	-32.21	-43.63	TTG	None	None	-17.17	-12.67	-13.29	0.429
+
+355	501	-	-2.92	7.84	-10.76	ATG	None	None	-12.16	0.13	1.27	0.537
+355	513	-	13.43	10.21	3.22	Edge	None	None	0.00	3.22	0.00	0.553
+
+376	513	+	-46.53	-18.23	-28.30	GTG	None	None	-7.00	-16.89	-0.06	0.543
+418	513	+	-30.67	-8.24	-22.43	ATG	None	None	-7.00	-13.27	2.20	0.542
+439	513	+	-28.49	-5.01	-23.48	ATG	None	None	-7.00	-14.33	2.20	0.507
+448	513	+	-22.57	-4.23	-18.34	GTG	None	None	-7.00	-6.93	-0.06	0.515
+
+# Sequence Data: seqnum=20;seqlen=416;seqhdr="k119_48 flag=1 multi=3.0000 len=416"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	63	-	-52.18	-43.85	-8.33	ATG	TTA	14bp	-0.77	-5.41	2.20	0.508
+1	66	-	-62.28	-43.73	-18.54	ATG	TTA	11bp	2.24	-18.64	2.20	0.500
+1	117	-	-51.36	-19.56	-31.80	TTG	None	None	-7.00	-15.03	-5.42	0.521
+1	120	-	-45.49	-19.40	-26.09	ATG	None	None	-7.00	-16.94	2.20	0.517
+1	180	-	-20.18	-1.99	-18.19	ATG	None	None	-7.00	-9.03	2.20	0.561
+1	213	-	-21.79	3.26	-25.06	TTG	None	None	-7.00	-12.63	-5.42	0.535
+1	261	-	-6.57	16.98	-23.55	ATG	None	None	-7.00	-18.75	2.20	0.521
+1	267	-	3.50	19.10	-15.61	ATG	None	None	-7.00	-10.81	2.20	0.524
+1	294	-	17.18	28.15	-10.97	ATG	None	None	-7.00	-6.17	2.20	0.534
+1	297	-	16.46	28.09	-11.63	GTG	None	None	-7.00	-4.57	-0.06	0.532
+1	339	-	22.87	44.50	-21.63	ATG	TTA	11bp	2.24	-26.08	2.20	0.528
+1	381	-	25.93	58.28	-32.35	TTG	None	None	-7.00	-19.92	-5.42	0.530
+1	414	-	70.51	68.90	1.61	Edge	None	None	0.00	0.00	1.61	0.539
+
+2	88	+	-23.71	-26.43	2.72	Edge	None	None	0.00	0.00	3.22	0.437
+
+107	202	+	-73.48	-27.72	-45.76	TTG	None	None	-18.83	-11.85	-14.58	0.573
+
+218	415	-	-52.10	-54.82	2.72	Edge	None	None	0.00	0.00	3.22	0.540
+
+1	258	+	-51.03	-53.75	2.72	Edge	None	None	0.00	0.00	3.22	0.516
+
+336	416	-	-43.14	-45.85	2.72	Edge	None	None	0.00	0.00	3.22	0.568
+
+233	415	+	-46.20	-32.98	-13.21	TTG	None	None	-7.00	3.56	-5.42	0.557
+239	415	+	-42.91	-23.11	-19.80	TTG	None	None	-7.00	-3.03	-5.42	0.559
+266	415	+	-33.51	-17.08	-16.43	ATG	None	None	-7.00	-7.28	2.20	0.567
+314	415	+	-10.73	-5.81	-4.92	TTG	AAAA	10bp	5.26	-0.40	-5.42	0.598
+338	415	+	-30.12	-18.28	-11.84	ATG	None	None	-7.00	-2.69	2.20	0.590
+353	415	+	-36.71	-12.65	-24.06	ATG	None	None	-7.00	-14.91	2.20	0.587
+
+# Sequence Data: seqnum=21;seqlen=402;seqhdr="k119_52 flag=1 multi=7.0000 len=402"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+16	186	-	-59.18	-42.58	-16.60	TTG	None	None	-10.42	2.39	-8.07	0.468
+
+24	131	-	-74.79	-44.79	-30.01	ATG	None	None	-16.68	-13.76	0.93	0.481
+
+1	66	+	-29.31	-32.03	2.72	Edge	None	None	0.00	0.00	3.22	0.470
+
+190	291	-	-72.70	-23.70	-49.00	TTG	None	None	-17.69	-17.12	-13.70	0.471
+190	303	-	-73.49	-28.44	-45.05	ATG	None	None	-15.77	-29.76	0.98	0.465
+
+194	322	-	-64.49	-40.21	-24.28	ATG	None	None	-13.90	-11.00	1.11	0.457
+194	358	-	-61.54	-29.90	-31.64	ATG	None	None	-10.81	-21.76	1.43	0.479
+194	385	-	-41.82	-26.16	-15.65	ATG	None	None	-9.26	-7.55	1.67	0.458
+194	397	-	-37.92	-23.80	-14.12	GTG	None	None	-8.71	-4.84	-0.07	0.475
+194	400	-	-26.02	-28.74	2.72	Edge	None	None	0.00	0.00	3.22	0.478
+
+300	401	-	-17.41	-20.13	2.72	Edge	None	None	0.00	0.00	3.22	0.480
+
+2	400	+	57.43	55.82	1.61	Edge	None	None	0.00	0.00	1.61	0.476
+38	400	+	48.77	57.80	-9.03	GTG	None	None	-7.00	-1.97	-0.06	0.477
+80	400	+	19.12	42.22	-23.10	GTG	None	None	-7.00	-16.04	-0.06	0.474
+98	400	+	16.02	34.83	-18.81	ATG	None	None	-7.00	-14.01	2.20	0.472
+221	400	+	-22.53	-1.84	-20.69	ATG	None	None	-7.00	-11.54	2.20	0.483
+227	400	+	-30.45	-3.91	-26.54	ATG	None	None	-7.00	-17.39	2.20	0.477
+242	400	+	-34.84	-10.51	-24.33	ATG	None	None	-7.00	-15.18	2.20	0.478
+
+327	401	+	-52.17	-36.05	-16.12	GTG	None	None	-7.00	-4.71	-0.06	0.507
+333	401	+	-58.13	-35.26	-22.87	GTG	None	None	-7.00	-11.46	-0.06	0.478
+
+# Sequence Data: seqnum=22;seqlen=307;seqhdr="k119_49 flag=1 multi=6.0000 len=307"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	121	-	-46.90	-22.67	-24.23	TTG	None	None	-7.00	-7.46	-5.42	0.458
+2	163	-	-37.94	-22.72	-15.22	ATG	None	None	-7.00	-6.07	2.20	0.463
+
+21	176	-	-70.00	-34.08	-35.92	GTG	None	None	-11.44	-23.88	-0.10	0.462
+
+236	307	-	-15.80	-18.52	2.72	Edge	None	None	0.00	0.00	3.22	0.417
+
+108	269	+	-62.75	-52.43	-10.31	ATG	None	None	-11.01	-0.20	1.40	0.438
+132	269	+	-50.16	-54.28	4.12	ATG	AAAA	8bp	2.84	0.59	1.19	0.435
+162	269	+	-61.62	-48.45	-13.17	ATG	TTA	11bp	0.94	-14.53	0.93	0.435
+
+2	307	+	50.28	48.67	1.61	Edge	None	None	0.00	0.00	1.61	0.444
+5	307	+	31.10	49.53	-18.43	TTG	None	None	-7.00	-6.00	-5.42	0.442
+8	307	+	38.95	48.98	-10.03	ATG	None	None	-7.00	-5.23	2.20	0.443
+17	307	+	29.23	45.00	-15.77	GTG	None	None	-7.00	-8.71	-0.06	0.443
+32	307	+	40.74	41.18	-0.44	GTG	TTAA	7bp	9.58	-9.97	-0.06	0.446
+152	307	+	-34.52	-1.49	-33.03	TTG	None	None	-7.00	-16.25	-5.42	0.429
+155	307	+	-26.98	-0.50	-26.48	TTG	None	None	-7.00	-9.70	-5.42	0.431
+
+# Sequence Data: seqnum=23;seqlen=525;seqhdr="k119_53 flag=1 multi=3.0000 len=525"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	78	-	-46.95	-23.63	-23.32	TTG	None	None	-7.00	-6.54	-5.42	0.487
+1	123	-	-51.61	-30.68	-20.93	TTG	None	None	-7.00	-4.15	-5.42	0.488
+
+2	82	-	-31.62	-5.89	-25.73	ATG	None	None	-7.00	-16.58	2.20	0.469
+2	181	-	9.80	6.81	2.98	GTG	AAAA	5bp	5.26	-2.22	-0.06	0.456
+2	274	-	1.48	20.10	-18.62	TTG	None	None	-7.00	-6.19	-5.42	0.443
+
+1	99	+	-15.78	-18.50	2.72	Edge	None	None	0.00	0.00	3.22	0.475
+
+2	172	+	-0.58	-3.30	2.72	Edge	None	None	0.00	0.00	3.22	0.468
+
+96	194	+	-112.50	-36.93	-75.58	TTG	None	None	-18.24	-42.72	-14.12	0.404
+
+337	492	-	-69.30	-55.07	-14.23	ATG	None	None	-11.44	-3.63	1.35	0.462
+337	495	-	-79.73	-54.59	-25.14	TTG	None	None	-11.22	-4.73	-8.69	0.453
+
+363	506	+	-56.78	-39.98	-16.80	GTG	None	None	-12.42	-3.78	-0.11	0.431
+372	506	+	-71.94	-41.17	-30.77	ATG	None	None	-13.26	-18.17	1.16	0.422
+384	506	+	-66.30	-31.94	-34.36	GTG	None	None	-14.59	-19.15	-0.13	0.415
+
+191	523	+	49.38	33.68	15.70	ATG	TTAA	12bp	10.04	3.46	2.20	0.429
+215	523	+	25.97	29.86	-3.89	ATG	None	None	-7.00	0.92	2.20	0.447
+278	523	+	22.92	36.94	-14.02	TTG	None	None	-7.00	-1.59	-5.42	0.427
+437	523	+	-28.76	-18.24	-10.52	GTG	None	None	-7.00	0.89	-0.06	0.391
+
+# Sequence Data: seqnum=24;seqlen=412;seqhdr="k119_50 flag=1 multi=6.0000 len=412"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	84	-	-31.02	-5.98	-25.04	TTG	None	None	-7.00	-8.27	-5.42	0.381
+1	126	-	-35.41	-15.40	-20.01	TTG	None	None	-7.00	-3.24	-5.42	0.357
+
+3	74	-	-66.47	-42.14	-24.33	TTG	None	None	-7.00	-7.55	-5.42	0.375
+
+1	90	+	-15.06	-17.78	2.72	Edge	None	None	0.00	0.00	3.22	0.378
+
+3	134	+	-1.14	-3.86	2.72	Edge	None	None	0.00	0.00	3.22	0.356
+24	134	+	-31.94	-4.29	-27.65	GTG	None	None	-16.21	-10.80	-0.14	0.306
+
+200	340	-	-57.66	-43.29	-14.37	ATG	None	None	-12.69	-2.40	1.22	0.518
+200	343	-	-54.99	-43.19	-11.80	ATG	None	None	-12.42	-0.12	1.24	0.514
+
+207	404	+	-7.23	10.91	-18.14	ATG	None	None	-8.98	-10.88	1.72	0.500
+237	404	+	-24.82	3.64	-28.46	TTG	None	None	-10.61	-9.63	-8.22	0.488
+249	404	+	-3.63	-0.14	-3.48	ATG	TTA	14bp	-1.26	-3.07	1.35	0.481
+267	404	+	-28.68	-3.14	-25.55	GTG	None	None	-12.97	-11.96	-0.11	0.442
+300	404	+	-42.40	-11.55	-30.85	TTG	None	None	-17.17	0.11	-13.29	0.419
+
+# Sequence Data: seqnum=25;seqlen=485;seqhdr="k119_54 flag=1 multi=4.0000 len=485"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+8	169	-	-38.62	-19.99	-18.63	GTG	None	None	-11.01	-7.03	-0.09	0.494
+
+76	177	-	-78.43	-35.89	-42.54	TTG	None	None	-17.69	-10.66	-13.70	0.500
+76	195	-	-107.17	-41.51	-65.65	TTG	None	None	-14.97	-38.60	-11.59	0.492
+76	207	-	-62.68	-47.33	-15.35	GTG	None	None	-13.57	-1.16	-0.12	0.508
+
+179	400	-	-51.50	-32.30	-19.20	TTG	None	None	-8.00	-4.51	-6.19	0.514
+
+273	380	+	-70.10	-45.79	-24.31	ATG	None	None	-16.68	-8.06	0.93	0.546
+
+407	484	-	-6.19	-8.91	2.72	Edge	None	None	0.00	0.00	3.22	0.526
+
+2	484	+	66.96	65.35	1.61	Edge	None	None	0.00	0.00	1.61	0.511
+47	484	+	48.61	54.45	-5.84	ATG	None	None	-7.00	-1.04	2.20	0.511
+59	484	+	37.96	49.59	-11.63	ATG	None	None	-7.00	-6.83	2.20	0.514
+71	484	+	27.08	48.99	-21.91	TTG	None	None	-7.00	-9.48	-5.42	0.514
+128	484	+	20.60	26.21	-5.60	TTG	AAAA	7bp	5.26	-5.44	-5.42	0.510
+158	484	+	-18.07	13.33	-31.39	TTG	None	None	-7.00	-18.97	-5.42	0.520
+257	484	+	-36.46	-9.33	-27.13	ATG	None	None	-7.00	-17.98	2.20	0.531
+263	484	+	-38.96	-8.22	-30.74	ATG	None	None	-7.00	-21.59	2.20	0.536
+278	484	+	-30.86	-15.83	-15.03	ATG	None	None	-7.00	-5.88	2.20	0.536
+
+417	485	+	-34.04	-20.47	-13.57	ATG	None	None	-7.00	-4.42	2.20	0.551
+
+# Sequence Data: seqnum=26;seqlen=459;seqhdr="k119_51 flag=1 multi=2.0000 len=459"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	119	-	-22.69	-2.63	-20.06	TTG	None	None	-7.00	-3.28	-5.42	0.316
+3	149	-	-40.59	-17.42	-23.17	TTG	None	None	-7.00	-6.40	-5.42	0.320
+3	173	-	-26.51	-11.45	-15.06	TTG	None	None	-7.00	1.72	-5.42	0.351
+3	197	-	-25.90	-14.13	-11.77	ATG	None	None	-7.00	-2.62	2.20	0.359
+3	230	-	-26.02	-13.64	-12.38	GTG	None	None	-7.00	-0.96	-0.06	0.364
+3	233	-	-35.27	-13.75	-21.53	TTG	None	None	-7.00	-4.75	-5.42	0.368
+3	251	-	-52.12	-19.63	-32.49	TTG	None	None	-7.00	-15.72	-5.42	0.361
+
+74	163	-	-52.22	-3.28	-48.94	GTG	None	None	-20.13	-28.14	-0.17	0.356
+
+136	285	-	-23.49	9.99	-33.48	GTG	None	None	-11.91	-21.47	-0.10	0.440
+
+83	199	+	-21.55	-24.78	3.23	ATG	AAAA	10bp	2.40	0.32	1.00	0.410
+92	199	+	-29.54	-24.82	-4.72	GTG	TTA	15bp	-1.84	-2.24	-0.14	0.407
+
+258	359	-	-46.69	1.84	-48.54	ATG	None	None	-17.69	-31.72	0.87	0.500
+258	407	-	-61.03	-20.26	-40.77	GTG	None	None	-11.91	-28.26	-0.10	0.507
+258	419	-	-41.66	-20.20	-21.46	TTG	None	None	-11.01	-1.42	-8.53	0.481
+258	458	-	-22.82	-25.54	2.72	Edge	None	None	0.00	0.00	3.22	0.458
+
+352	459	-	-28.10	-30.82	2.72	Edge	None	None	0.00	0.00	3.22	0.407
+
+296	394	+	-113.21	-39.73	-73.49	TTG	None	None	-18.24	-40.62	-14.12	0.465
+299	394	+	-71.58	-39.63	-31.95	GTG	AAAA	6bp	1.96	-33.24	-0.16	0.469
+
+1	459	+	8.11	6.51	1.61	Edge	None	None	0.00	0.00	1.61	0.403
+7	459	+	-12.48	6.15	-18.63	TTG	None	None	-7.00	-6.20	-5.42	0.402
+58	459	+	-26.42	-3.22	-23.19	ATG	None	None	-7.00	-14.04	2.20	0.418
+103	459	+	-10.74	7.48	-18.22	ATG	None	None	-7.00	-13.42	2.20	0.426
+262	459	+	-34.06	-17.13	-16.93	ATG	None	None	-7.00	-7.78	2.20	0.460
+265	459	+	-43.43	-17.61	-25.82	GTG	None	None	-7.00	-14.41	-0.06	0.462
+268	459	+	-30.37	-17.11	-13.26	GTG	None	None	-7.00	-1.85	-0.06	0.458
+313	459	+	-24.71	-7.30	-17.42	ATG	None	None	-7.00	-8.27	2.20	0.429
+382	459	+	-5.32	9.68	-15.00	ATG	None	None	-7.00	-10.20	2.20	0.423
+391	459	+	-11.03	8.50	-19.53	TTG	None	None	-7.00	-7.10	-5.42	0.391
+
+# Sequence Data: seqnum=27;seqlen=1154;seqhdr="k119_36 flag=1 multi=10.0000 len=1154"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	86	-	-20.61	-2.53	-18.08	ATG	None	None	-7.00	-8.93	2.20	0.310
+
+47	139	+	-4.68	-2.30	-2.38	GTG	TTAA	6bp	3.45	-5.16	-0.17	0.355
+
+295	429	-	-64.14	-28.56	-35.58	ATG	None	None	-13.26	-22.98	1.16	0.393
+295	483	-	-48.70	-38.76	-9.94	ATG	None	None	-9.41	-1.67	1.64	0.407
+295	519	-	-37.36	-40.21	2.85	ATG	AAAA	5bp	4.67	-3.28	1.96	0.391
+295	525	-	-58.92	-39.22	-19.70	ATG	None	None	-7.68	-13.53	2.01	0.390
+295	531	-	-53.13	-38.81	-14.33	ATG	None	None	-7.48	-8.41	2.06	0.384
+
+213	305	+	-54.69	-4.51	-50.18	TTG	None	None	-19.45	-15.16	-15.07	0.430
+
+318	476	-	-44.24	-32.30	-11.95	GTG	None	None	-11.22	-0.13	-0.10	0.415
+
+347	460	+	-16.83	-0.85	-15.98	GTG	None	None	-15.77	0.43	-0.14	0.439
+
+615	740	-	-68.38	-27.28	-41.10	TTG	None	None	-14.24	-15.34	-11.02	0.389
+615	752	-	-38.18	-27.60	-10.58	TTG	TTA	15bp	-1.43	1.39	-10.04	0.370
+
+703	798	-	-65.27	-25.14	-40.13	TTG	None	None	-18.83	-6.23	-14.58	0.396
+
+1	1059	+	47.02	43.80	3.22	Edge	None	None	0.00	0.00	3.22	0.409
+286	1059	+	47.63	59.83	-12.20	ATG	None	None	-7.00	-7.39	2.20	0.413
+331	1059	+	44.30	58.43	-14.12	TTG	None	None	-7.00	-1.70	-5.42	0.420
+442	1059	+	63.62	82.36	-18.73	TTG	None	None	-7.00	-6.31	-5.42	0.422
+457	1059	+	66.77	85.49	-18.71	GTG	None	None	-7.00	-11.65	-0.06	0.420
+460	1059	+	80.08	85.52	-5.43	ATG	None	None	-7.00	-0.63	2.20	0.418
+538	1059	+	55.15	71.95	-16.80	GTG	None	None	-7.00	-9.73	-0.06	0.435
+586	1059	+	40.42	60.69	-20.27	TTG	None	None	-7.00	-7.84	-5.42	0.437
+631	1059	+	27.80	43.56	-15.76	GTG	None	None	-7.00	-8.69	-0.06	0.434
+640	1059	+	17.27	39.56	-22.29	TTG	None	None	-7.00	-9.86	-5.42	0.431
+763	1059	+	-7.16	11.31	-18.47	TTG	None	None	-7.00	-6.04	-5.42	0.455
+784	1059	+	-1.28	4.96	-6.23	ATG	None	None	-7.00	-1.43	2.20	0.467
+793	1059	+	-9.30	0.99	-10.29	ATG	None	None	-7.00	-5.49	2.20	0.461
+802	1059	+	-15.48	-1.06	-14.41	ATG	None	None	-7.00	-9.11	2.20	0.457
+829	1059	+	-23.59	-8.70	-14.88	ATG	None	None	-7.68	-8.71	2.01	0.455
+847	1059	+	-42.06	-18.16	-23.90	TTG	None	None	-8.34	-8.60	-6.46	0.451
+877	1059	+	-66.14	-32.05	-34.09	TTG	None	None	-9.73	-16.33	-7.53	0.454
+883	1059	+	-60.65	-36.49	-24.16	GTG	None	None	-10.06	-13.51	-0.09	0.463
+892	1059	+	-67.13	-38.26	-28.87	TTG	None	None	-10.61	-9.54	-8.22	0.446
+898	1059	+	-56.18	-42.70	-13.49	GTG	None	None	-11.01	-1.88	-0.09	0.457
+925	1059	+	-80.23	-55.05	-25.18	ATG	None	None	-13.26	-12.58	1.16	0.459
+931	1059	+	-82.62	-57.35	-25.27	GTG	None	None	-13.90	-10.76	-0.12	0.465
+943	1059	+	-87.23	-62.61	-24.62	GTG	None	None	-15.36	-8.63	-0.13	0.453
+961	1059	+	-124.96	-71.53	-53.43	ATG	None	None	-18.24	-35.54	0.85	0.455
+
+941	1066	+	-63.08	-41.22	-21.86	GTG	None	None	-14.24	-7.00	-0.12	0.444
+
+1084	1152	+	-24.44	-5.45	-19.00	TTG	TTA	13bp	-0.77	-8.45	-5.42	0.420
+
+# Sequence Data: seqnum=28;seqlen=336;seqhdr="k119_55 flag=1 multi=4.0000 len=336"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	90	-	-45.23	-19.09	-26.14	ATG	None	None	-7.00	-16.99	2.20	0.433
+
+2	61	-	-46.85	-23.96	-22.89	TTG	None	None	-7.00	-6.12	-5.42	0.450
+
+93	182	-	-41.14	-16.06	-25.07	GTG	None	None	-20.13	-4.27	-0.17	0.456
+
+166	288	-	-83.31	-36.30	-47.00	TTG	None	None	-14.59	-20.61	-11.30	0.512
+
+198	335	-	-22.31	-25.03	2.72	Edge	None	None	0.00	0.00	3.22	0.514
+
+78	236	+	-19.35	9.13	-28.48	TTG	TTA	13bp	-1.24	-18.56	-8.69	0.472
+81	236	+	-7.12	8.65	-15.77	ATG	None	None	-11.44	-5.67	1.35	0.474
+
+170	334	+	-10.56	5.63	-16.19	ATG	None	None	-7.00	-11.39	2.20	0.509
+212	334	+	5.31	7.25	-1.94	ATG	TTA	11bp	2.24	-6.38	2.20	0.528
+272	334	+	-33.05	-7.33	-25.72	GTG	None	None	-7.00	-14.31	-0.06	0.492
+
+# Sequence Data: seqnum=29;seqlen=326;seqhdr="k119_37 flag=1 multi=3.0000 len=326"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	80	-	-50.90	-25.93	-24.97	TTG	None	None	-7.00	-8.19	-5.42	0.449
+3	119	-	-73.09	-43.31	-29.78	TTG	None	None	-7.00	-13.01	-5.42	0.462
+3	137	-	-63.63	-49.14	-14.49	GTG	None	None	-7.00	-3.07	-0.06	0.459
+3	245	-	-92.19	-73.42	-18.77	ATG	None	None	-7.00	-9.62	2.20	0.444
+
+2	76	+	-9.53	-12.25	2.72	Edge	None	None	0.00	0.00	3.22	0.440
+
+242	325	-	-12.57	-15.29	2.72	Edge	None	None	0.00	0.00	3.22	0.417
+
+170	289	+	-56.68	-31.69	-24.99	TTG	None	None	-14.97	2.06	-11.59	0.458
+
+1	324	+	38.28	36.67	1.61	Edge	None	None	0.00	0.00	1.61	0.441
+46	324	+	9.89	29.60	-19.72	ATG	None	None	-7.00	-14.92	2.20	0.427
+196	324	+	-28.60	-5.74	-22.86	ATG	None	None	-7.00	-13.71	2.20	0.450
+244	324	+	-32.36	-22.84	-9.52	ATG	TTA	15bp	-0.77	-6.60	2.20	0.420
+
+228	326	+	-14.67	-15.46	0.78	ATG	AAAA	8bp	5.26	-2.33	2.20	0.444
+249	326	+	-36.60	-15.75	-20.85	TTG	None	None	-7.00	-4.07	-5.42	0.436
+
+# Sequence Data: seqnum=30;seqlen=444;seqhdr="k119_38 flag=1 multi=3.0000 len=444"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	96	-	-69.31	-56.22	-13.09	ATG	None	None	-7.00	-3.94	2.20	0.354
+1	144	-	-62.50	-37.63	-24.87	TTG	None	None	-7.00	-8.09	-5.42	0.396
+1	171	-	-36.17	-23.29	-12.88	ATG	None	None	-7.00	-3.73	2.20	0.421
+1	180	-	-21.39	-18.54	-2.86	GTG	TTA	12bp	2.24	-0.69	-0.06	0.439
+1	264	-	-3.03	7.84	-10.87	ATG	None	None	-7.00	-6.07	2.20	0.455
+1	276	-	-8.26	11.87	-20.13	ATG	None	None	-7.00	-15.32	2.20	0.453
+1	282	-	-6.92	15.51	-22.43	TTG	None	None	-7.00	-10.00	-5.42	0.454
+1	297	-	8.13	22.47	-14.34	GTG	None	None	-7.00	-7.28	-0.06	0.455
+1	378	-	35.05	50.51	-15.46	ATG	None	None	-7.00	-10.66	2.20	0.463
+1	444	-	76.98	75.37	1.61	Edge	None	None	0.00	1.61	0.00	0.455
+
+3	74	+	-13.21	-15.93	2.72	Edge	None	None	0.00	0.00	3.22	0.347
+
+88	195	+	-38.03	-41.34	3.31	ATG	AAAA	7bp	2.21	0.68	0.93	0.481
+
+192	374	-	-103.71	-76.11	-27.60	TTG	None	None	-9.73	-9.84	-7.53	0.497
+
+84	221	+	-78.39	-57.92	-20.47	GTG	None	None	-12.97	-6.89	-0.11	0.486
+111	221	+	-97.21	-58.12	-39.08	TTG	None	None	-16.21	-9.82	-12.55	0.486
+
+205	321	+	-76.85	-45.88	-30.97	GTG	None	None	-15.36	-14.98	-0.13	0.538
+
+346	444	+	-25.07	-5.70	-19.37	ATG	None	None	-7.00	-10.22	2.20	0.404
+
+# Sequence Data: seqnum=31;seqlen=511;seqhdr="k119_56 flag=1 multi=3.0000 len=511"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	95	-	-6.34	2.56	-8.90	ATG	None	None	-7.00	-4.10	2.20	0.484
+
+2	97	+	-19.02	-21.74	2.72	Edge	None	None	0.00	0.00	3.22	0.490
+
+132	224	-	-36.05	1.25	-37.30	TTG	None	None	-19.45	-2.78	-15.07	0.398
+132	227	-	-21.67	0.79	-22.46	TTG	TTA	15bp	-2.07	-5.81	-14.58	0.385
+132	365	-	-44.69	-28.96	-15.73	TTG	None	None	-7.58	-1.78	-5.87	0.449
+132	374	-	-56.72	-35.04	-21.68	TTG	None	None	-7.30	-8.24	-5.65	0.449
+
+172	288	-	-45.88	0.20	-46.07	TTG	None	None	-15.36	-18.82	-11.89	0.462
+
+49	393	+	-51.61	-41.53	-10.09	GTG	None	None	-7.00	-2.52	-0.06	0.426
+73	393	+	-59.90	-47.52	-12.38	TTG	None	None	-7.00	0.55	-5.42	0.421
+157	393	+	-53.17	-44.74	-8.42	ATG	TTA	15bp	-0.82	-9.16	2.06	0.460
+175	393	+	-61.73	-45.91	-15.82	TTG	None	None	-8.11	-0.93	-6.28	0.479
+208	393	+	-60.95	-43.87	-17.08	GTG	None	None	-9.57	-6.93	-0.08	0.468
+
+395	511	-	-32.51	-35.23	2.72	Edge	None	None	0.00	0.00	3.22	0.325
+
+435	509	-	-31.77	-34.49	2.72	Edge	None	None	0.00	0.00	3.22	0.373
+
+218	451	+	-0.79	13.41	-14.21	GTG	None	None	-7.58	-6.56	-0.07	0.427
+245	451	+	10.67	13.90	-3.23	ATG	None	None	-8.58	3.56	1.80	0.425
+269	451	+	4.78	13.70	-8.92	GTG	None	None	-9.73	0.89	-0.08	0.421
+293	451	+	-1.53	8.55	-10.08	GTG	None	None	-11.22	1.24	-0.10	0.428
+353	451	+	-53.10	-14.64	-38.46	GTG	None	None	-18.24	-19.56	-0.16	0.354
+356	451	+	-65.47	-14.66	-50.81	ATG	None	None	-18.83	-32.30	0.82	0.344
+359	451	+	-50.38	-15.15	-35.23	GTG	None	None	-19.45	-15.11	-0.17	0.344
+
+# Sequence Data: seqnum=32;seqlen=321;seqhdr="k119_13 flag=1 multi=4.0000 len=321"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	70	-	-50.80	-32.61	-18.18	ATG	None	None	-7.00	-9.03	2.20	0.551
+2	85	-	-53.12	-29.10	-24.02	TTG	None	None	-7.00	-7.24	-5.42	0.512
+
+3	74	-	-48.96	-29.28	-19.68	ATG	None	None	-7.00	-10.53	2.20	0.542
+3	89	-	-34.85	-25.76	-9.08	ATG	None	None	-7.00	0.07	2.20	0.494
+3	104	-	-41.12	-17.08	-24.05	TTG	None	None	-7.00	-7.27	-5.42	0.490
+3	107	-	-34.48	-16.92	-17.56	ATG	None	None	-7.00	-8.41	2.20	0.476
+3	122	-	-32.67	-9.51	-23.16	GTG	None	None	-7.00	-11.75	-0.06	0.475
+3	191	-	-13.03	4.83	-17.86	TTG	None	None	-7.00	-5.44	-5.42	0.466
+3	227	-	20.14	20.29	-0.16	ATG	None	None	-7.00	4.65	2.20	0.444
+3	263	-	11.55	25.74	-14.19	GTG	AAAA	9bp	5.26	-19.39	-0.06	0.437
+3	269	-	8.88	28.42	-19.54	TTG	None	None	-7.00	-7.11	-5.42	0.438
+3	320	-	46.58	44.97	1.61	Edge	None	None	0.00	1.61	0.00	0.434
+
+3	98	+	-15.36	-18.08	2.72	Edge	None	None	0.00	0.00	3.22	0.510
+
+113	214	-	-18.68	-2.91	-15.77	ATG	None	None	-17.69	1.54	0.87	0.431
+
+125	229	+	-51.45	-17.93	-33.52	TTG	None	None	-17.17	-2.56	-13.29	0.410
+
+238	321	-	-32.62	-35.34	2.72	Edge	None	None	0.00	0.00	3.22	0.393
+
+# Sequence Data: seqnum=33;seqlen=307;seqhdr="k119_0 flag=1 multi=3.0000 len=307"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	75	-	-20.76	-5.36	-15.40	GTG	None	None	-7.00	-3.98	-0.06	0.507
+1	120	-	-41.78	-28.44	-13.35	GTG	None	None	-7.00	-1.93	-0.06	0.517
+1	138	-	-51.60	-24.24	-27.36	TTG	None	None	-7.00	-10.58	-5.42	0.493
+1	174	-	-53.08	-24.98	-28.10	ATG	None	None	-7.00	-18.95	2.20	0.489
+1	213	-	-37.44	-10.50	-26.94	TTG	None	None	-7.00	-10.16	-5.42	0.484
+1	246	-	-37.26	-12.33	-24.93	GTG	None	None	-7.00	-13.52	-0.06	0.476
+1	297	-	-28.01	-10.59	-17.41	GTG	None	None	-7.00	-6.00	-0.06	0.475
+1	306	-	-10.85	-11.96	1.11	Edge	None	None	0.00	0.00	1.61	0.471
+
+3	113	+	-40.79	-43.51	2.72	Edge	None	None	0.00	0.00	3.22	0.514
+
+122	259	+	-41.71	-31.28	-10.43	TTG	TTA	14bp	-1.43	1.54	-10.04	0.442
+131	259	+	-71.42	-31.28	-40.13	TTG	None	None	-13.90	-14.98	-10.76	0.450
+146	259	+	-52.67	-28.36	-24.31	GTG	None	None	-15.77	-7.90	-0.14	0.474
+
+1	306	+	32.20	30.59	1.61	Edge	None	None	0.00	0.00	1.61	0.471
+13	306	+	21.43	34.46	-13.03	GTG	None	None	-7.00	-5.97	-0.06	0.469
+49	306	+	-2.43	23.40	-25.83	TTG	None	None	-7.00	-13.40	-5.42	0.465
+166	306	+	-39.25	-1.84	-37.41	ATG	None	None	-7.00	-28.26	2.20	0.447
+
+# Sequence Data: seqnum=34;seqlen=326;seqhdr="k119_57 flag=1 multi=2.0000 len=326"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	158	-	-35.14	-17.15	-17.99	GTG	None	None	-7.00	-6.57	-0.06	0.429
+3	182	-	-28.11	-12.64	-15.47	GTG	None	None	-7.00	-4.06	-0.06	0.428
+
+115	222	-	-41.20	-17.01	-24.19	GTG	None	None	-16.68	-6.87	-0.14	0.463
+
+235	324	-	-36.06	-38.78	2.72	Edge	None	None	0.00	0.00	3.22	0.433
+
+261	326	-	-42.95	-45.67	2.72	Edge	None	None	0.00	0.00	3.22	0.455
+
+3	296	+	31.70	28.48	3.22	Edge	None	None	0.00	0.00	3.22	0.446
+9	296	+	18.84	27.53	-8.69	ATG	None	None	-7.00	-3.89	2.20	0.448
+27	296	+	3.76	20.46	-16.71	TTG	None	None	-7.00	-4.28	-5.42	0.444
+60	296	+	-11.71	6.76	-18.47	GTG	None	None	-7.48	-10.92	-0.06	0.460
+69	296	+	-10.84	3.15	-13.99	ATG	None	None	-7.78	-8.19	1.98	0.456
+177	296	+	-70.80	-24.85	-45.95	TTG	None	None	-14.97	-18.90	-11.59	0.475
+
+# Sequence Data: seqnum=35;seqlen=332;seqhdr="k119_14 flag=1 multi=3.0000 len=332"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	75	-	-56.02	-31.75	-24.27	TTG	None	None	-7.00	-7.49	-5.42	0.467
+1	120	-	-30.10	-17.86	-12.24	ATG	None	None	-7.00	-3.09	2.20	0.458
+1	141	-	-32.66	-12.50	-20.16	ATG	None	None	-7.00	-11.01	2.20	0.461
+1	201	-	-23.92	-1.01	-22.91	ATG	None	None	-7.00	-13.76	2.20	0.478
+1	210	-	-7.22	0.71	-7.93	ATG	None	None	-7.00	-3.13	2.20	0.476
+1	222	-	-26.96	4.66	-31.62	TTG	None	None	-7.00	-19.19	-5.42	0.477
+1	234	-	-19.14	8.26	-27.39	TTG	None	None	-7.00	-14.97	-5.42	0.470
+1	330	-	-4.65	-5.76	1.11	Edge	None	None	0.00	0.00	1.61	0.476
+
+2	82	+	-20.92	-23.64	2.72	Edge	None	None	0.00	0.00	3.22	0.481
+
+3	95	+	-45.43	-48.15	2.72	Edge	None	None	0.00	0.00	3.22	0.484
+
+99	212	+	-47.35	-25.09	-22.26	GTG	None	None	-15.77	-5.85	-0.14	0.474
+
+122	277	+	-83.80	-58.80	-25.00	TTG	None	None	-11.44	-4.20	-8.86	0.494
+
+1	315	+	20.49	17.27	3.22	Edge	None	None	0.00	0.00	3.22	0.479
+67	315	+	4.64	26.18	-21.54	ATG	None	None	-7.12	-16.59	2.17	0.470
+
+# Sequence Data: seqnum=36;seqlen=311;seqhdr="k119_58 flag=1 multi=3.0000 len=311"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	66	-	-48.09	-28.41	-19.67	ATG	None	None	-7.00	-10.52	2.20	0.515
+1	69	-	-57.56	-27.91	-29.65	TTG	None	None	-7.00	-12.87	-5.42	0.507
+
+2	73	-	-53.10	-33.10	-20.00	ATG	None	None	-7.00	-10.85	2.20	0.528
+2	100	-	-38.84	-19.68	-19.17	TTG	TTA	14bp	-0.77	-8.62	-5.42	0.525
+2	166	-	-13.47	0.84	-14.30	GTG	None	None	-7.00	-7.24	-0.06	0.503
+2	286	-	23.25	43.21	-19.95	GTG	None	None	-7.00	-12.89	-0.06	0.502
+2	307	-	40.55	52.76	-12.21	ATG	None	None	-7.00	-7.41	2.20	0.507
+2	310	-	54.46	52.85	1.61	Edge	None	None	0.00	0.00	1.61	0.508
+
+66	215	-	-66.71	-35.48	-31.23	GTG	None	None	-11.91	-18.72	-0.10	0.500
+
+148	243	-	-125.92	-43.29	-82.63	TTG	None	None	-18.83	-48.73	-14.58	0.469
+148	303	-	-92.41	-70.84	-21.57	GTG	None	None	-11.44	-9.53	-0.10	0.506
+148	309	-	-68.32	-71.04	2.72	Edge	None	None	0.00	0.00	3.22	0.506
+
+231	311	-	-44.23	-46.94	2.72	Edge	None	None	0.00	0.00	3.22	0.506
+
+33	236	+	-69.78	-48.81	-20.97	GTG	None	None	-8.71	-11.68	-0.07	0.500
+42	236	+	-70.31	-42.90	-27.41	TTG	None	None	-9.12	-10.73	-7.06	0.497
+51	236	+	-63.80	-42.65	-21.15	ATG	None	None	-9.57	-12.69	1.61	0.489
+72	236	+	-48.62	-37.35	-11.28	ATG	None	None	-10.81	-1.39	1.43	0.491
+81	236	+	-73.49	-40.40	-33.09	TTG	None	None	-11.44	-12.28	-8.86	0.481
+105	236	+	-78.31	-39.34	-38.97	TTG	None	None	-13.57	-14.39	-10.51	0.477
+108	236	+	-62.13	-39.08	-23.05	GTG	None	None	-13.90	-8.54	-0.12	0.481
+
+130	309	+	-65.22	-53.63	-11.59	GTG	AAAA	10bp	5.26	-12.44	-0.06	0.494
+
+2	310	+	-75.77	-76.87	1.11	Edge	None	None	0.00	0.00	1.61	0.508
+5	310	+	-88.91	-71.99	-16.91	GTG	None	None	-7.00	-5.50	-0.06	0.507
+17	310	+	-89.72	-74.59	-15.13	ATG	None	None	-7.00	-5.98	2.20	0.497
+
+# Sequence Data: seqnum=37;seqlen=301;seqhdr="k119_15 flag=1 multi=2.0000 len=301"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	63	-	-30.32	-2.56	-27.76	TTG	None	None	-7.00	-10.99	-5.42	0.381
+1	123	-	-5.83	13.35	-19.19	TTG	None	None	-7.00	-6.76	-5.42	0.463
+1	147	-	1.56	15.22	-13.66	GTG	None	None	-7.00	-6.60	-0.06	0.469
+1	168	-	0.45	4.57	-4.11	TTG	TTAA	7bp	9.58	-8.28	-5.42	0.452
+1	213	-	-2.88	8.71	-11.59	GTG	None	None	-7.00	-4.53	-0.06	0.455
+1	228	-	-6.61	12.45	-19.06	TTG	None	None	-7.00	-6.63	-5.42	0.456
+1	282	-	-3.19	13.07	-16.27	TTG	None	None	-7.00	-3.84	-5.42	0.454
+1	291	-	-4.67	13.72	-18.39	TTG	None	None	-7.00	-5.97	-5.42	0.450
+1	300	-	18.97	17.36	1.61	Edge	None	None	0.00	0.00	1.61	0.440
+
+114	215	-	-74.22	-34.43	-39.80	TTG	None	None	-17.69	-7.92	-13.70	0.412
+
+222	299	-	-12.24	-14.96	2.72	Edge	None	None	0.00	0.00	3.22	0.385
+
+71	238	+	-83.06	-52.46	-30.60	TTG	None	None	-10.61	-11.27	-8.22	0.470
+89	238	+	-67.66	-40.80	-26.87	TTG	None	None	-11.91	-5.23	-9.22	0.460
+
+1	300	+	4.70	3.09	1.61	Edge	None	None	0.00	0.00	1.61	0.443
+25	300	+	-16.74	-0.25	-16.50	GTG	None	None	-7.00	-5.08	-0.06	0.453
+124	300	+	-16.01	11.43	-27.45	ATG	None	None	-7.00	-22.65	2.20	0.424
+
+# Sequence Data: seqnum=38;seqlen=318;seqhdr="k119_59 flag=1 multi=2.0000 len=318"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	115	-	-4.12	13.04	-17.15	GTG	None	None	-7.00	-10.09	-0.06	0.588
+2	145	-	-25.28	-2.45	-22.83	GTG	None	None	-7.00	-11.41	-0.06	0.590
+2	151	-	-18.23	0.08	-18.30	GTG	None	None	-7.00	-11.24	-0.06	0.593
+2	157	-	-24.13	1.08	-25.21	TTG	None	None	-7.00	-12.79	-5.42	0.583
+2	316	-	-4.19	-5.30	1.11	Edge	None	None	0.00	0.00	1.61	0.562
+
+3	86	+	-30.36	-33.08	2.72	Edge	None	None	0.00	0.00	3.22	0.595
+
+198	317	-	-38.64	-41.36	2.72	Edge	None	None	0.00	0.00	3.22	0.533
+
+1	204	+	-102.66	-105.38	2.72	Edge	None	None	0.00	3.22	0.00	0.569
+
+123	239	+	-47.21	-19.31	-27.91	TTG	None	None	-15.36	-0.16	-11.89	0.513
+
+2	316	+	-4.46	-7.18	2.72	Edge	None	None	0.00	0.00	3.22	0.559
+83	316	+	5.61	9.09	-3.48	ATG	TTA	11bp	2.07	-7.59	2.04	0.543
+125	316	+	0.93	16.20	-15.27	GTG	None	None	-9.26	-5.92	-0.08	0.552
+
+243	317	+	-43.34	-13.61	-29.72	TTG	None	None	-7.00	-12.94	-5.42	0.600
+
+232	318	+	-65.32	-50.65	-14.67	GTG	None	None	-7.00	-3.26	-0.06	0.575
+
+# Sequence Data: seqnum=39;seqlen=453;seqhdr="k119_16 flag=1 multi=4.0000 len=453"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	64	-	-47.05	-22.47	-24.58	GTG	None	None	-7.00	-13.17	-0.06	0.365
+2	190	-	8.79	3.46	5.33	ATG	TTAA	11bp	10.04	-6.91	2.20	0.455
+2	277	-	-8.44	20.08	-28.52	GTG	None	None	-7.00	-21.45	-0.06	0.453
+2	289	-	3.96	21.62	-17.66	GTG	None	None	-7.00	-10.60	-0.06	0.458
+2	355	-	5.16	22.08	-16.92	ATG	None	None	-7.00	-12.12	2.20	0.460
+2	361	-	12.57	20.83	-8.26	ATG	None	None	-7.00	-3.46	2.20	0.458
+2	364	-	0.60	21.37	-20.77	TTG	None	None	-7.00	-8.34	-5.42	0.457
+2	418	-	17.69	27.50	-9.80	ATG	None	None	-7.00	-5.00	2.20	0.458
+2	445	-	22.56	35.59	-13.03	GTG	None	None	-7.00	-5.97	-0.06	0.453
+2	451	-	38.37	36.76	1.61	Edge	None	None	0.00	0.00	1.61	0.456
+
+49	183	+	-58.59	-29.54	-29.04	TTG	None	None	-13.26	-5.01	-10.27	0.474
+
+244	336	-	-93.50	-21.61	-71.89	TTG	None	None	-19.45	-36.87	-15.07	0.484
+
+177	344	+	-65.03	-47.89	-17.14	TTG	None	None	-10.61	2.19	-8.22	0.464
+180	344	+	-70.87	-47.43	-23.44	TTG	None	None	-10.81	-3.76	-8.37	0.467
+
+206	451	+	-0.57	1.50	-2.06	ATG	None	None	-7.00	2.74	2.20	0.459
+221	451	+	-5.63	1.79	-7.42	ATG	None	None	-7.00	-2.62	2.20	0.450
+236	451	+	-14.10	0.69	-14.79	ATG	None	None	-7.00	-9.99	2.20	0.463
+290	451	+	-8.59	9.15	-17.74	ATG	None	None	-7.00	-12.94	2.20	0.444
+
+# Sequence Data: seqnum=40;seqlen=319;seqhdr="k119_60 flag=1 multi=3.0000 len=319"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	92	-	-36.29	-2.79	-33.50	ATG	None	None	-20.13	-13.64	0.77	0.467
+
+43	138	-	-58.23	3.83	-62.05	TTG	None	None	-18.83	-28.65	-14.58	0.427
+
+125	220	-	-37.17	0.33	-37.51	TTG	TTA	12bp	0.83	-23.76	-14.58	0.490
+
+2	151	+	-27.90	-30.62	2.72	Edge	None	None	0.00	0.00	3.22	0.467
+23	151	+	-63.06	-25.24	-37.82	GTG	None	None	-13.90	-23.30	-0.12	0.442
+38	151	+	-63.95	-25.47	-38.48	GTG	None	None	-15.77	-22.07	-0.14	0.447
+53	151	+	-67.94	-29.35	-38.58	GTG	None	None	-18.24	-19.69	-0.16	0.444
+
+165	254	-	-82.70	-35.39	-47.31	ATG	None	None	-20.13	-27.45	0.77	0.478
+165	263	-	-61.05	-39.68	-21.37	ATG	None	None	-18.24	-3.47	0.85	0.465
+
+169	279	-	-41.47	3.17	-44.65	TTG	None	None	-16.21	-15.88	-12.55	0.468
+169	294	-	-14.58	8.46	-23.04	GTG	None	None	-14.24	-8.68	-0.12	0.444
+169	318	-	9.72	6.51	3.22	Edge	None	None	0.00	0.00	3.22	0.440
+
+114	212	+	-60.11	-22.67	-37.44	GTG	None	None	-18.24	-18.55	-0.16	0.505
+
+1	318	+	-16.33	-17.44	1.11	Edge	None	None	0.00	0.00	1.61	0.462
+76	318	+	-23.90	-14.05	-9.85	GTG	AAAA	8bp	5.26	-10.70	-0.06	0.465
+112	318	+	-27.71	-12.03	-15.67	ATG	None	None	-7.00	-6.52	2.20	0.464
+142	318	+	-39.97	-15.08	-24.89	TTG	TTA	14bp	-0.77	-14.35	-5.42	0.463
+160	318	+	-50.98	-22.58	-28.40	TTG	None	None	-7.00	-11.62	-5.42	0.440
+202	318	+	-54.29	-24.20	-30.09	ATG	None	None	-7.00	-20.94	2.20	0.427
+220	318	+	-47.51	-26.55	-20.96	ATG	None	None	-7.00	-11.81	2.20	0.424
+
+# Sequence Data: seqnum=41;seqlen=303;seqhdr="k119_17 flag=1 multi=3.0000 len=303"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	120	-	-22.00	2.64	-24.65	TTG	TTA	12bp	2.24	-21.47	-5.42	0.408
+1	303	-	-16.24	-17.35	1.11	Edge	None	None	0.00	0.00	1.61	0.449
+
+3	83	-	-18.88	-9.18	-9.70	ATG	None	None	-7.00	-0.55	2.20	0.383
+
+1	66	+	-6.86	-9.58	2.72	Edge	None	None	0.00	0.00	3.22	0.439
+
+84	212	-	-85.62	-32.36	-53.26	TTG	None	None	-13.90	-28.10	-10.76	0.496
+84	218	-	-57.96	-33.45	-24.51	TTG	None	None	-13.26	-0.48	-10.27	0.489
+
+125	244	-	-69.38	-31.27	-38.11	GTG	None	None	-14.97	-22.52	-0.13	0.508
+125	247	-	-45.64	-31.48	-14.16	GTG	None	None	-14.59	1.06	-0.13	0.512
+125	250	-	-75.71	-31.58	-44.13	TTG	None	None	-14.24	-18.37	-11.02	0.508
+
+59	301	+	-2.01	9.31	-11.32	GTG	None	None	-7.00	-4.26	-0.06	0.457
+89	301	+	-2.08	5.25	-7.34	GTG	None	None	-7.00	-0.27	-0.06	0.484
+107	301	+	-9.41	4.89	-14.30	TTG	None	None	-7.00	-1.87	-5.42	0.492
+167	301	+	-12.45	11.37	-23.81	TTG	None	None	-7.00	-11.39	-5.42	0.489
+179	301	+	-5.52	9.52	-15.04	GTG	None	None	-7.00	-7.98	-0.06	0.480
+188	301	+	-23.90	7.93	-31.84	TTG	None	None	-7.00	-19.41	-5.42	0.482
+212	301	+	-10.21	0.05	-10.26	ATG	None	None	-7.00	-5.46	2.20	0.444
+
+# Sequence Data: seqnum=42;seqlen=339;seqhdr="k119_61 flag=1 multi=3.0000 len=339"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	100	-	-10.78	-17.60	6.82	ATG	AAAA	9bp	5.26	3.70	2.20	0.394
+
+3	74	+	-12.87	-15.58	2.72	Edge	None	None	0.00	0.00	3.22	0.444
+
+129	299	-	-61.04	-27.13	-33.91	ATG	None	None	-10.42	-24.47	1.48	0.287
+129	326	-	-45.83	-23.81	-22.02	TTG	None	None	-8.98	-5.59	-6.95	0.308
+129	338	-	-21.34	-24.06	2.72	Edge	None	None	0.00	0.00	3.22	0.305
+
+199	339	-	-13.10	-15.82	2.72	Edge	None	None	0.00	3.22	0.00	0.333
+
+2	214	+	12.26	9.04	3.22	Edge	None	None	0.00	0.00	3.22	0.310
+17	214	+	-5.66	9.29	-14.96	GTG	None	None	-8.98	-5.90	-0.08	0.283
+
+226	339	+	1.30	10.04	-8.74	ATG	None	None	-7.00	-3.94	2.20	0.342
+265	339	+	2.88	5.68	-2.80	ATG	None	None	-7.00	2.00	2.20	0.427
+
+# Sequence Data: seqnum=43;seqlen=308;seqhdr="k119_18 flag=1 multi=3.0000 len=308"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	61	-	-38.80	-19.12	-19.68	GTG	None	None	-7.00	-8.27	-0.06	0.450
+
+45	140	-	-59.71	-21.90	-37.81	TTG	None	None	-18.83	-3.90	-14.58	0.562
+
+3	92	+	-10.27	-12.99	2.72	Edge	None	None	0.00	0.00	3.22	0.444
+
+203	307	-	-43.90	-46.62	2.72	Edge	None	None	0.00	0.00	3.22	0.543
+
+219	308	-	-18.13	-20.85	2.72	Edge	None	None	0.00	0.00	3.22	0.600
+
+1	285	+	42.56	39.34	3.22	Edge	None	None	0.00	0.00	3.22	0.544
+7	285	+	30.08	39.01	-8.92	ATG	None	None	-7.00	-4.12	2.20	0.541
+145	285	+	-36.22	0.44	-36.66	GTG	None	None	-12.69	-23.87	-0.11	0.553
+175	285	+	-85.47	-14.91	-70.56	TTG	None	None	-16.21	-41.29	-12.55	0.586
+
+195	296	+	-109.99	-49.84	-60.15	TTG	None	None	-17.69	-28.27	-13.70	0.549
+
+# Sequence Data: seqnum=44;seqlen=1318;seqhdr="k119_1 flag=1 multi=10.0000 len=1318"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+16	231	-	-2.83	7.48	-10.32	GTG	None	None	-8.22	-2.02	-0.07	0.444
+16	276	-	6.86	21.49	-14.63	TTG	None	None	-7.00	-2.21	-5.42	0.456
+
+1	96	+	-9.88	-12.60	2.72	Edge	None	None	0.00	0.00	3.22	0.219
+
+264	359	-	-27.23	-3.50	-23.73	GTG	None	None	-18.83	-4.24	-0.16	0.531
+264	413	-	-11.83	7.83	-19.66	ATG	None	None	-11.91	-9.04	1.30	0.480
+264	416	-	-16.32	8.31	-24.64	TTG	None	None	-11.67	-3.93	-9.04	0.477
+264	431	-	-27.36	4.86	-32.21	TTG	None	None	-10.61	-13.38	-8.22	0.476
+264	434	-	-31.36	5.01	-36.37	ATG	None	None	-10.42	-27.43	1.48	0.480
+264	455	-	-21.84	5.17	-27.01	TTG	None	None	-9.26	-10.57	-7.17	0.500
+
+119	295	+	-70.15	-50.62	-19.53	GTG	None	None	-10.06	-8.88	-0.09	0.525
+125	295	+	-71.41	-45.71	-25.69	GTG	None	None	-10.42	-14.68	-0.09	0.520
+140	295	+	-58.39	-40.55	-17.83	GTG	None	None	-11.44	-5.79	-0.10	0.500
+176	295	+	-51.18	-29.51	-21.67	ATG	None	None	-14.97	-7.23	1.03	0.475
+
+135	302	+	-86.83	-54.58	-32.25	TTG	None	None	-10.61	-12.92	-8.22	0.506
+159	302	+	-74.37	-38.41	-35.96	ATG	None	None	-12.42	-24.29	1.24	0.458
+171	302	+	-58.82	-34.11	-24.71	GTG	None	None	-13.57	-10.52	-0.12	0.477
+
+413	529	-	-29.25	1.15	-30.40	TTG	None	None	-15.36	-3.15	-11.89	0.521
+
+477	566	-	-85.38	-45.95	-39.43	TTG	None	None	-20.13	-3.22	-15.58	0.444
+477	602	-	-91.68	-40.21	-51.46	GTG	None	None	-14.24	-36.61	-0.12	0.468
+477	641	-	-72.16	-49.72	-22.45	GTG	None	None	-10.81	-11.05	-0.09	0.491
+477	644	-	-63.65	-49.93	-13.72	GTG	None	None	-10.61	-2.51	-0.09	0.494
+477	674	-	-88.48	-59.90	-28.58	TTG	None	None	-8.98	-12.15	-6.95	0.505
+477	701	-	-82.07	-66.05	-16.02	GTG	None	None	-7.89	-7.56	-0.07	0.507
+
+493	582	-	-96.27	-27.73	-68.54	TTG	None	None	-20.13	-32.33	-15.58	0.444
+493	654	-	-42.33	-4.90	-37.43	TTG	None	None	-11.01	-17.39	-8.53	0.488
+493	660	-	-40.19	-0.49	-39.70	TTG	None	None	-10.61	-20.37	-8.22	0.488
+493	699	-	-12.25	9.18	-21.43	GTG	None	None	-8.58	-12.77	-0.07	0.502
+493	708	-	-13.58	14.77	-28.35	TTG	None	None	-8.22	-13.76	-6.37	0.491
+493	720	-	12.79	21.81	-9.02	GTG	None	None	-7.78	-1.17	-0.07	0.491
+493	780	-	6.38	25.89	-19.51	ATG	None	None	-7.00	-14.71	2.20	0.497
+493	786	-	18.84	29.30	-10.46	GTG	None	None	-7.00	-3.40	-0.06	0.497
+493	813	-	31.88	28.75	3.13	ATG	TTA	13bp	-0.77	1.70	2.20	0.502
+493	843	-	20.51	31.35	-10.84	GTG	None	None	-7.00	-3.77	-0.06	0.496
+493	861	-	12.43	30.23	-17.80	TTG	None	None	-7.00	-5.38	-5.42	0.496
+493	918	-	8.70	18.18	-9.48	GTG	None	None	-7.00	-2.41	-0.06	0.505
+
+533	628	+	-65.12	-35.95	-29.17	ATG	None	None	-18.83	-10.66	0.82	0.479
+
+629	736	-	-66.94	-33.80	-33.14	ATG	None	None	-16.68	-16.89	0.93	0.519
+629	763	-	-64.51	-39.03	-25.48	ATG	None	None	-13.26	-12.88	1.16	0.519
+629	967	-	-111.99	-97.00	-14.99	TTG	None	None	-7.00	-2.06	-5.42	0.516
+629	1003	-	-130.44	-115.49	-14.95	ATG	None	None	-7.00	-9.65	2.20	0.512
+
+774	866	-	-89.47	-25.15	-64.31	ATG	None	None	-19.45	-45.15	0.79	0.473
+774	887	-	-49.44	-20.41	-29.03	ATG	None	None	-15.77	-13.73	0.98	0.509
+774	929	-	-35.88	-15.95	-19.94	ATG	None	None	-11.44	-9.34	1.35	0.526
+774	938	-	-40.62	-13.67	-26.95	TTG	None	None	-10.81	-7.27	-8.37	0.515
+774	1007	-	-1.67	1.90	-3.56	GTG	None	None	-7.58	4.08	-0.07	0.509
+774	1010	-	-6.52	1.40	-7.92	GTG	TTA	14bp	-0.82	-7.03	-0.06	0.515
+774	1031	-	-3.38	6.67	-10.05	GTG	None	None	-7.00	-2.98	-0.06	0.516
+774	1073	-	-0.60	13.21	-13.81	TTG	None	None	-7.00	-1.38	-5.42	0.503
+774	1076	-	8.08	13.42	-5.34	ATG	None	None	-7.00	-0.54	2.20	0.502
+
+741	914	+	-69.97	-39.51	-30.46	TTG	None	None	-10.24	-11.79	-7.93	0.523
+762	914	+	-51.70	-30.54	-21.17	ATG	None	None	-11.67	-10.31	1.32	0.516
+
+1089	1190	-	-52.35	-28.61	-23.74	TTG	TTA	15bp	-1.95	-7.60	-13.70	0.500
+
+1232	1318	-	-9.12	-11.84	2.72	Edge	None	None	0.00	0.00	3.22	0.460
+
+397	1317	+	16.58	20.20	-3.62	ATG	AAAA	9bp	5.26	-11.08	2.20	0.485
+586	1317	+	4.67	19.04	-14.37	TTG	None	None	-7.00	-1.94	-5.42	0.485
+625	1317	+	4.53	17.64	-13.10	GTG	None	None	-7.00	-6.04	-0.06	0.483
+787	1317	+	11.87	26.59	-14.72	ATG	None	None	-7.00	-9.92	2.20	0.471
+847	1317	+	12.81	27.83	-15.02	ATG	None	None	-7.00	-10.22	2.20	0.469
+886	1317	+	6.17	19.09	-12.92	ATG	None	None	-7.00	-8.12	2.20	0.463
+898	1317	+	18.46	32.05	-13.59	GTG	None	None	-7.00	-6.53	-0.06	0.462
+967	1317	+	27.41	28.79	-1.38	ATG	AAAA	7bp	5.26	-8.84	2.20	0.447
+970	1317	+	26.71	28.70	-1.99	TTG	AAAA	10bp	5.26	-1.83	-5.42	0.448
+1075	1317	+	24.18	36.55	-12.36	ATG	None	None	-7.00	-7.56	2.20	0.432
+1135	1317	+	5.41	16.12	-10.71	GTG	None	None	-7.00	-3.64	-0.06	0.415
+1246	1317	+	-35.75	-26.81	-8.94	TTG	AAAA	8bp	5.26	-4.43	-5.42	0.486
+
+# Sequence Data: seqnum=45;seqlen=367;seqhdr="k119_19 flag=1 multi=4.0000 len=367"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	104	-	-12.06	12.16	-24.22	GTG	None	None	-7.00	-17.16	-0.06	0.373
+3	116	-	0.92	14.22	-13.29	ATG	None	None	-7.00	-8.49	2.20	0.360
+3	125	-	2.97	16.92	-13.95	ATG	None	None	-7.00	-9.15	2.20	0.366
+3	137	-	8.66	16.96	-8.31	TTG	TTA	15bp	-0.77	-2.11	-5.42	0.378
+3	224	-	2.45	13.60	-11.16	TTG	AAAA	9bp	5.26	-10.99	-5.42	0.387
+3	275	-	7.45	14.57	-7.12	ATG	None	None	-7.00	-2.32	2.20	0.377
+
+2	73	+	-10.14	-12.86	2.72	Edge	None	None	0.00	0.00	3.22	0.361
+
+3	155	+	-24.96	-27.68	2.72	Edge	None	None	0.00	0.00	3.22	0.373
+39	155	+	-51.13	-23.79	-27.34	ATG	None	None	-15.36	-12.49	1.00	0.393
+
+131	256	+	-13.77	-0.70	-13.07	GTG	None	None	-14.24	1.79	-0.12	0.397
+
+259	366	-	-5.11	-7.83	2.72	Edge	None	None	0.00	0.00	3.22	0.333
+
+288	365	-	-16.46	-19.18	2.72	Edge	None	None	0.00	0.00	3.22	0.359
+
+183	329	+	-31.53	0.04	-31.57	ATG	None	None	-12.16	-20.67	1.27	0.293
+186	329	+	-19.33	-0.07	-19.26	ATG	None	None	-12.42	-7.58	1.24	0.292
+213	329	+	-19.29	-0.29	-19.00	ATG	None	None	-15.36	-4.14	1.00	0.282
+240	329	+	-24.87	0.67	-25.54	TTG	TTA	11bp	0.78	-10.74	-15.58	0.267
+
+# Sequence Data: seqnum=46;seqlen=305;seqhdr="k119_2 flag=1 multi=2.0000 len=305"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	95	-	-19.27	-3.65	-15.62	ATG	None	None	-7.00	-6.47	2.20	0.452
+
+73	192	+	-74.43	-39.90	-34.53	ATG	None	None	-14.97	-20.10	1.03	0.450
+
+237	305	-	-15.87	-18.59	2.72	Edge	None	None	0.00	0.00	3.22	0.391
+
+26	304	+	19.04	27.13	-8.10	GTG	None	None	-7.00	-1.03	-0.06	0.409
+56	304	+	3.31	19.53	-16.22	ATG	None	None	-7.00	-11.42	2.20	0.410
+86	304	+	-1.52	6.98	-8.49	ATG	None	None	-7.00	-3.69	2.20	0.402
+113	304	+	-8.88	2.13	-11.01	GTG	None	None	-7.00	-3.95	-0.06	0.406
+167	304	+	-15.68	-3.93	-11.75	ATG	None	None	-7.00	-2.60	2.20	0.406
+170	304	+	-19.78	-4.42	-15.36	GTG	None	None	-7.00	-3.94	-0.06	0.407
+
+# Sequence Data: seqnum=47;seqlen=314;seqhdr="k119_20 flag=1 multi=3.0000 len=314"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+29	184	-	-17.80	4.59	-22.40	TTG	None	None	-11.44	-2.09	-8.86	0.308
+
+123	221	+	-45.41	-18.49	-26.93	GTG	None	None	-18.24	-8.03	-0.16	0.354
+126	221	+	-51.12	-18.27	-32.84	GTG	None	None	-18.83	-13.36	-0.16	0.344
+
+2	313	+	20.55	18.94	1.61	Edge	None	None	0.00	0.00	1.61	0.321
+110	313	+	8.15	18.20	-10.05	ATG	None	None	-7.00	-5.25	2.20	0.343
+143	313	+	-14.41	12.82	-27.23	TTG	None	None	-7.00	-14.80	-5.42	0.327
+167	313	+	-12.52	8.83	-21.35	TTG	TTA	14bp	-0.77	-15.15	-5.42	0.340
+185	313	+	-11.74	8.06	-19.80	TTG	None	None	-7.00	-7.37	-5.42	0.326
+209	313	+	-20.99	-2.93	-18.06	TTG	None	None	-7.00	-1.28	-5.42	0.343
+
+# Sequence Data: seqnum=48;seqlen=324;seqhdr="k119_21 flag=1 multi=3.0000 len=324"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	130	-	-8.30	9.40	-17.70	ATG	None	None	-7.00	-12.90	2.20	0.512
+
+2	322	+	-10.69	-11.80	1.11	Edge	None	None	0.00	0.00	1.61	0.458
+35	322	+	-28.61	-5.09	-23.52	ATG	None	None	-7.00	-14.37	2.20	0.448
+104	322	+	-35.51	-14.67	-20.84	ATG	None	None	-7.00	-11.69	2.20	0.406
+116	322	+	-40.53	-16.71	-23.81	ATG	None	None	-7.00	-14.66	2.20	0.420
+209	322	+	-23.48	-15.51	-7.97	ATG	None	None	-7.00	1.18	2.20	0.447
+
+144	323	+	-15.27	8.75	-24.02	ATG	None	None	-7.00	-19.22	2.20	0.417
+150	323	+	-11.38	8.25	-19.63	ATG	None	None	-7.00	-14.83	2.20	0.414
+153	323	+	-12.27	7.76	-20.04	GTG	None	None	-7.00	-12.97	-0.06	0.415
+177	323	+	10.21	8.53	1.67	ATG	TTA	14bp	-0.77	0.24	2.20	0.429
+213	323	+	-4.97	4.75	-9.72	GTG	None	None	-7.00	-2.66	-0.06	0.441
+219	323	+	-8.78	1.12	-9.90	GTG	None	None	-7.00	-2.83	-0.06	0.429
+237	323	+	-18.75	-0.31	-18.44	ATG	None	None	-7.00	-9.29	2.20	0.402
+243	323	+	-11.09	-2.30	-8.79	TTG	AAAA	9bp	5.26	-4.28	-5.42	0.407
+
+# Sequence Data: seqnum=49;seqlen=946;seqhdr="k119_62 flag=1 multi=4.0000 len=946"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	207	-	-30.09	-17.66	-12.43	ATG	None	None	-7.00	-3.28	2.20	0.507
+1	264	-	-48.29	-28.77	-19.51	TTG	None	None	-7.00	-2.74	-5.42	0.515
+1	342	-	-46.42	-41.07	-5.35	ATG	None	None	-7.00	3.81	2.20	0.500
+
+96	200	-	-52.37	-22.49	-29.88	ATG	None	None	-17.17	-13.11	0.90	0.524
+96	239	-	-52.89	-23.92	-28.97	ATG	None	None	-12.42	-17.30	1.24	0.521
+96	308	-	-48.22	-39.58	-8.64	ATG	None	None	-8.34	-1.65	1.85	0.507
+96	311	-	-50.02	-39.58	-10.45	GTG	None	None	-8.22	-1.65	-0.07	0.514
+96	320	-	-49.52	-39.17	-10.35	ATG	None	None	-7.89	-3.92	1.96	0.516
+96	332	-	-46.65	-39.17	-7.48	TTG	TTA	14bp	-0.82	-0.36	-5.79	0.511
+96	359	-	-41.84	-40.62	-1.22	ATG	None	None	-7.00	4.08	2.20	0.489
+
+47	154	+	-67.42	-35.89	-31.54	ATG	None	None	-16.68	-15.28	0.93	0.472
+
+167	262	-	-76.46	-36.39	-40.08	GTG	None	None	-18.83	-20.59	-0.16	0.531
+
+1	363	+	43.74	40.52	3.22	Edge	None	None	0.00	0.00	3.22	0.485
+25	363	+	42.14	50.25	-8.10	ATG	None	None	-7.00	-3.30	2.20	0.475
+88	363	+	8.72	29.95	-21.22	TTG	None	None	-7.00	-8.80	-5.42	0.486
+199	363	+	-39.85	-12.40	-27.45	ATG	None	None	-10.81	-17.57	1.43	0.461
+238	363	+	-54.27	-26.51	-27.76	ATG	None	None	-14.24	-14.11	1.08	0.444
+
+404	616	-	-72.21	-47.35	-24.85	ATG	None	None	-8.34	-17.86	1.85	0.455
+404	622	-	-54.43	-44.63	-9.79	TTG	TTA	11bp	1.94	-4.95	-6.28	0.457
+404	667	-	-61.64	-44.81	-16.83	ATG	None	None	-7.00	-11.53	2.20	0.451
+404	874	-	-8.81	4.73	-13.54	ATG	None	None	-7.00	-8.74	2.20	0.459
+404	907	-	-22.27	6.68	-28.96	TTG	None	None	-7.00	-16.53	-5.42	0.458
+404	946	-	12.21	9.00	3.22	Edge	None	None	0.00	0.00	3.22	0.455
+
+433	555	-	-80.59	-32.80	-47.79	TTG	None	None	-14.59	-21.40	-11.30	0.472
+433	579	-	-63.64	-40.28	-23.36	GTG	None	None	-12.16	-10.59	-0.10	0.463
+
+639	755	-	-77.65	-30.56	-47.10	TTG	None	None	-15.36	-19.34	-11.89	0.479
+
+846	935	-	-7.40	-10.14	2.74	GTG	TTAA	6bp	3.34	0.08	-0.17	0.400
+
+375	944	+	90.07	77.80	12.27	ATG	TTAA	11bp	10.04	0.03	2.20	0.446
+462	944	+	31.25	43.71	-12.46	TTG	None	None	-7.00	-0.03	-5.42	0.455
+498	944	+	20.40	32.65	-12.25	TTG	None	None	-7.00	0.18	-5.42	0.454
+507	944	+	6.33	28.88	-22.54	TTG	None	None	-7.00	-10.12	-5.42	0.454
+582	944	+	9.73	26.14	-16.41	ATG	None	None	-7.00	-11.61	2.20	0.452
+606	944	+	9.03	24.68	-15.66	ATG	None	None	-7.00	-10.85	2.20	0.457
+615	944	+	7.90	21.92	-14.02	ATG	None	None	-7.00	-9.22	2.20	0.458
+648	944	+	-7.47	10.55	-18.02	TTG	None	None	-7.00	-5.59	-5.42	0.461
+735	944	+	-43.89	-14.75	-29.14	TTG	None	None	-7.00	-12.37	-5.42	0.443
+771	944	+	-52.82	-25.94	-26.88	TTG	None	None	-7.00	-10.10	-5.42	0.437
+783	944	+	-53.60	-26.26	-27.34	GTG	None	None	-7.00	-15.93	-0.06	0.451
+
+853	945	+	-111.44	-18.53	-92.91	TTG	None	None	-19.45	-57.89	-15.07	0.409
+
+# Sequence Data: seqnum=50;seqlen=382;seqhdr="k119_3 flag=1 multi=3.0000 len=382"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	63	-	-55.54	-28.51	-27.03	TTG	None	None	-7.00	-10.25	-5.42	0.460
+1	162	-	-19.77	-1.51	-18.26	GTG	None	None	-7.00	-6.85	-0.06	0.475
+1	213	-	-0.69	11.37	-12.06	GTG	None	None	-7.00	-5.00	-0.06	0.465
+1	300	-	-9.11	19.76	-28.86	GTG	None	None	-7.00	-21.80	-0.06	0.420
+1	339	-	35.66	29.59	6.06	ATG	TTAA	9bp	9.58	-5.72	2.20	0.416
+1	348	-	21.63	31.65	-10.02	TTG	None	None	-7.00	2.41	-5.42	0.411
+
+2	79	+	-27.59	-30.30	2.72	Edge	None	None	0.00	0.00	3.22	0.449
+
+1	249	+	-47.46	-50.18	2.72	Edge	None	None	0.00	0.00	3.22	0.458
+7	249	+	-60.29	-50.32	-9.97	ATG	None	None	-7.30	-4.29	2.11	0.457
+52	249	+	-63.50	-47.26	-16.24	ATG	None	None	-8.98	-8.48	1.72	0.465
+103	249	+	-58.11	-33.48	-24.63	GTG	None	None	-12.16	-11.87	-0.10	0.456
+
+284	382	-	-36.14	-38.86	2.72	Edge	None	None	0.00	0.00	3.22	0.313
+
+# Sequence Data: seqnum=51;seqlen=340;seqhdr="k119_22 flag=1 multi=3.0000 len=340"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	96	-	-15.92	3.48	-19.41	TTG	TTA	14bp	-0.77	-13.21	-5.42	0.531
+1	117	-	-18.98	-0.41	-18.57	ATG	None	None	-7.00	-9.42	2.20	0.530
+1	177	-	-23.34	-7.18	-16.16	GTG	None	None	-7.00	-4.74	-0.06	0.520
+
+3	101	-	-56.52	-36.05	-20.47	TTG	None	None	-7.00	-3.69	-5.42	0.535
+
+35	175	-	-9.59	1.48	-11.06	GTG	None	None	-12.69	1.73	-0.11	0.532
+35	217	-	-14.50	2.55	-17.06	GTG	None	None	-9.73	-7.25	-0.08	0.519
+35	235	-	-22.48	3.09	-25.57	TTG	None	None	-8.84	-9.88	-6.85	0.507
+
+3	71	+	-13.76	-16.48	2.72	Edge	None	None	0.00	0.00	3.22	0.507
+
+37	138	+	-55.26	-18.14	-37.12	ATG	None	None	-17.69	-19.81	0.87	0.539
+
+220	318	-	-43.75	1.82	-45.57	TTG	None	None	-18.24	-13.21	-14.12	0.475
+220	324	-	-24.37	3.85	-28.22	GTG	None	None	-17.17	-10.91	-0.15	0.476
+220	339	-	-7.76	-10.48	2.72	Edge	None	None	0.00	0.00	3.22	0.483
+
+275	340	-	-20.29	-23.00	2.72	Edge	None	None	0.00	0.00	3.22	0.485
+
+# Sequence Data: seqnum=52;seqlen=328;seqhdr="k119_63 flag=1 multi=5.0000 len=328"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	93	-	-53.57	-30.46	-23.11	GTG	None	None	-7.00	-11.70	-0.06	0.613
+
+3	221	-	10.59	30.28	-19.69	GTG	None	None	-7.00	-12.63	-0.06	0.571
+3	269	-	2.67	30.28	-27.60	TTG	None	None	-7.00	-15.17	-5.42	0.554
+3	326	-	14.37	12.76	1.61	Edge	None	None	0.00	0.00	1.61	0.549
+
+113	205	-	-65.05	-21.30	-43.75	ATG	None	None	-19.45	-24.59	0.79	0.559
+113	217	-	-74.76	-35.36	-39.40	GTG	None	None	-17.17	-21.59	-0.15	0.571
+113	223	-	-92.94	-35.34	-57.60	TTG	None	None	-16.21	-28.33	-12.55	0.559
+113	295	-	-65.91	-50.19	-15.72	ATG	None	None	-9.73	-7.08	1.59	0.541
+113	304	-	-77.90	-50.09	-27.80	TTG	None	None	-9.26	-10.87	-7.17	0.542
+113	328	-	-49.68	-52.40	2.72	Edge	None	None	0.00	0.00	3.22	0.528
+
+196	318	-	-79.14	-56.03	-23.11	ATG	None	None	-14.59	-9.08	1.06	0.520
+196	327	-	-58.37	-61.09	2.72	Edge	None	None	0.00	0.00	3.22	0.515
+
+3	326	+	11.94	10.33	1.61	Edge	None	None	0.00	0.00	1.61	0.549
+15	326	+	3.11	13.91	-10.80	ATG	None	None	-7.00	-6.00	2.20	0.548
+18	326	+	-5.43	13.75	-19.18	ATG	None	None	-7.00	-14.38	2.20	0.550
+24	326	+	-10.64	11.63	-22.26	GTG	None	None	-7.00	-15.20	-0.06	0.551
+54	326	+	-27.02	2.23	-29.24	TTG	None	None	-7.00	-16.81	-5.42	0.535
+87	326	+	-31.39	-4.55	-26.84	ATG	None	None	-7.00	-17.69	2.20	0.533
+171	326	+	-13.77	2.49	-16.26	GTG	None	None	-7.00	-9.19	-0.06	0.519
+207	326	+	-1.04	8.17	-9.22	GTG	None	None	-7.00	-2.16	-0.06	0.517
+225	326	+	-4.64	14.18	-18.82	ATG	None	None	-7.00	-14.02	2.20	0.500
+243	326	+	-6.98	5.18	-12.16	ATG	None	None	-7.00	-7.36	2.20	0.488
+249	326	+	-12.76	1.63	-14.40	ATG	None	None	-7.00	-9.60	2.20	0.500
+
+2	328	+	-64.47	-65.58	1.11	Edge	None	None	0.00	0.00	1.61	0.550
+5	328	+	-87.65	-64.67	-22.98	TTG	None	None	-7.00	-6.20	-5.42	0.549
+77	328	+	-75.14	-51.87	-23.27	ATG	None	None	-7.00	-14.12	2.20	0.536
+
+# Sequence Data: seqnum=53;seqlen=309;seqhdr="k119_4 flag=1 multi=2.0000 len=309"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	100	-	-0.48	7.03	-7.51	GTG	TTA	15bp	-0.77	-6.68	-0.06	0.434
+
+66	158	-	-81.00	-14.80	-66.20	TTG	AAAA	9bp	1.89	-52.52	-15.07	0.323
+66	176	-	-51.60	-14.03	-37.57	GTG	None	None	-16.21	-20.71	-0.14	0.324
+66	224	-	-40.66	-2.75	-37.91	TTG	None	None	-11.22	-17.49	-8.69	0.358
+66	239	-	-15.36	2.25	-17.61	ATG	None	None	-10.24	-8.88	1.51	0.368
+66	242	-	-23.20	2.74	-25.94	TTG	None	None	-10.06	-8.08	-7.79	0.362
+66	251	-	-9.24	6.61	-15.85	GTG	None	None	-9.57	-6.20	-0.08	0.360
+66	278	-	-9.61	16.59	-26.20	ATG	None	None	-8.34	-19.71	1.85	0.366
+66	308	-	13.53	10.32	3.22	Edge	None	None	0.00	0.00	3.22	0.374
+
+2	85	+	-27.98	-30.69	2.72	Edge	None	None	0.00	0.00	3.22	0.429
+
+97	186	-	-82.59	-25.22	-57.36	TTG	None	None	-20.13	-21.15	-15.58	0.356
+97	189	-	-62.31	-25.92	-36.39	GTG	None	None	-19.45	-16.27	-0.17	0.376
+97	201	-	-54.52	-21.39	-33.13	TTG	None	None	-17.17	-2.17	-13.29	0.381
+
+51	146	+	-64.55	-14.31	-50.24	TTG	None	None	-18.83	-16.33	-14.58	0.312
+
+205	306	-	-41.08	-12.76	-28.32	ATG	None	None	-17.69	-11.00	0.87	0.382
+205	309	-	-8.43	-11.15	2.72	Edge	None	None	0.00	0.00	3.22	0.381
+
+146	280	+	-49.68	-25.12	-24.56	ATG	None	None	-13.26	-11.96	1.16	0.400
+
+# Sequence Data: seqnum=54;seqlen=340;seqhdr="k119_5 flag=1 multi=3.0000 len=340"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	74	-	-30.31	-15.17	-15.14	ATG	None	None	-7.00	-5.99	2.20	0.528
+3	80	-	-35.54	-12.26	-23.28	GTG	None	None	-7.00	-11.87	-0.06	0.538
+3	152	-	5.36	14.82	-9.46	ATG	None	None	-7.00	-4.66	2.20	0.580
+3	155	-	-12.19	15.30	-27.49	TTG	None	None	-7.00	-15.07	-5.42	0.582
+3	194	-	14.97	26.93	-11.96	ATG	None	None	-7.00	-7.16	2.20	0.531
+
+2	67	+	-30.51	-33.23	2.72	Edge	None	None	0.00	0.00	3.22	0.515
+
+214	324	-	-20.72	6.46	-27.18	GTG	AAAA	8bp	2.27	-29.31	-0.14	0.532
+214	339	-	15.42	12.20	3.22	Edge	None	None	0.00	0.00	3.22	0.516
+
+1	252	+	-24.86	-27.57	2.72	Edge	None	None	0.00	0.00	3.22	0.512
+94	252	+	-47.51	-19.83	-27.68	GTG	None	None	-11.22	-15.86	-0.10	0.503
+115	252	+	-37.13	-16.00	-21.13	GTG	None	None	-12.97	-7.55	-0.11	0.464
+118	252	+	-35.99	-16.03	-19.96	ATG	None	None	-13.26	-7.36	1.16	0.459
+
+146	307	+	-88.04	-44.17	-43.87	TTG	None	None	-11.01	-23.83	-8.53	0.463
+158	307	+	-81.88	-40.82	-41.06	TTG	None	None	-11.91	-19.43	-9.22	0.460
+
+# Sequence Data: seqnum=55;seqlen=746;seqhdr="k119_23 flag=1 multi=9.0000 len=746"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	173	-	-65.39	-31.81	-33.58	TTG	None	None	-7.00	-16.81	-5.42	0.363
+3	212	-	-49.77	-38.93	-10.84	ATG	None	None	-7.00	-1.69	2.20	0.410
+
+49	171	-	-84.31	-28.55	-55.77	GTG	None	None	-14.59	-40.55	-0.13	0.374
+
+53	157	-	-48.53	-17.43	-31.10	ATG	None	None	-17.17	-14.33	0.90	0.390
+53	202	-	-62.62	-27.25	-35.36	TTG	None	None	-11.91	-13.73	-9.22	0.440
+53	229	-	-54.44	-33.17	-21.27	TTG	None	None	-10.06	-2.92	-7.79	0.452
+53	289	-	-63.89	-41.23	-22.66	TTG	None	None	-7.48	-8.88	-5.79	0.439
+
+235	423	-	-47.48	-26.15	-21.34	GTG	None	None	-9.41	-11.34	-0.08	0.423
+
+36	284	+	25.45	33.74	-8.29	ATG	None	None	-7.12	-3.34	2.17	0.426
+96	284	+	1.71	17.83	-16.12	TTG	None	None	-9.41	0.58	-7.29	0.466
+105	284	+	-17.69	13.84	-31.52	TTG	None	None	-9.89	-13.97	-7.66	0.467
+111	284	+	-10.48	14.12	-24.60	TTG	None	None	-10.24	-6.43	-7.93	0.460
+117	284	+	-4.93	13.68	-18.61	TTG	None	None	-10.61	0.22	-8.22	0.458
+141	284	+	-15.86	5.26	-21.12	TTG	None	None	-12.42	0.92	-9.62	0.479
+159	284	+	-19.72	-5.22	-14.49	GTG	None	None	-14.24	0.37	-0.12	0.492
+
+205	294	+	-87.22	-32.16	-55.06	GTG	None	None	-20.13	-34.26	-0.17	0.433
+
+371	493	-	-53.08	-40.61	-12.48	TTG	TTA	14bp	-1.61	0.93	-11.30	0.480
+
+352	471	+	-71.23	-34.71	-36.52	TTG	AAAA	8bp	2.46	-26.89	-11.59	0.467
+
+546	653	-	-64.01	-20.00	-44.01	TTG	None	None	-16.68	-13.92	-12.91	0.361
+546	674	-	-54.68	-19.58	-35.10	TTG	None	None	-13.90	-9.94	-10.76	0.395
+
+563	724	-	-49.63	-37.39	-12.24	GTG	None	None	-11.01	-0.63	-0.09	0.432
+
+577	726	-	-32.76	-13.67	-19.09	ATG	None	None	-11.91	-7.97	1.30	0.433
+577	744	-	-20.99	-23.71	2.72	Edge	None	None	0.00	0.00	3.22	0.458
+
+278	598	+	12.24	29.25	-17.01	ATG	None	None	-7.00	-12.21	2.20	0.430
+305	598	+	18.50	24.89	-6.39	GTG	None	None	-7.00	0.67	-0.06	0.442
+335	598	+	4.50	17.25	-12.75	ATG	None	None	-7.00	-7.95	2.20	0.432
+377	598	+	2.48	10.60	-8.12	TTG	TTA	11bp	1.97	-3.90	-6.19	0.428
+383	598	+	2.81	7.42	-4.61	ATG	None	None	-8.22	1.74	1.88	0.435
+458	598	+	-26.60	0.60	-27.20	GTG	None	None	-12.69	-14.41	-0.11	0.433
+503	598	+	-69.88	-12.06	-57.81	GTG	None	None	-18.83	-38.33	-0.16	0.354
+
+591	704	+	-9.77	5.81	-15.59	GTG	None	None	-15.77	0.32	-0.14	0.474
+
+598	744	+	2.42	14.25	-11.83	ATG	None	None	-7.00	-7.03	2.20	0.476
+646	744	+	-8.87	12.93	-21.81	TTG	None	None	-7.00	-9.38	-5.42	0.525
+
+# Sequence Data: seqnum=56;seqlen=305;seqhdr="k119_6 flag=1 multi=3.0000 len=305"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	81	-	-51.95	-17.96	-33.98	TTG	None	None	-7.00	-17.21	-5.42	0.481
+1	120	-	-55.73	-20.20	-35.53	TTG	None	None	-7.00	-18.75	-5.42	0.492
+1	129	-	-51.31	-25.55	-25.76	GTG	None	None	-7.00	-14.34	-0.06	0.512
+
+2	211	-	-53.30	-44.57	-8.73	GTG	AAAA	8bp	5.26	-9.58	-0.06	0.533
+2	232	-	-65.10	-40.77	-24.33	TTG	None	None	-7.00	-7.55	-5.42	0.515
+2	268	-	-72.63	-44.36	-28.27	TTG	None	None	-7.00	-11.49	-5.42	0.509
+2	304	-	-56.40	-57.51	1.11	Edge	None	None	0.00	0.00	1.61	0.518
+
+1	93	+	-28.28	-31.00	2.72	Edge	None	None	0.00	0.00	3.22	0.495
+
+139	249	-	-61.64	-30.31	-31.33	ATG	None	None	-16.21	-15.57	0.95	0.505
+139	252	-	-64.53	-29.82	-34.71	TTG	None	None	-15.77	-6.22	-12.22	0.500
+
+90	185	+	-68.51	-41.85	-26.66	GTG	None	None	-18.83	-7.17	-0.16	0.552
+93	185	+	-67.73	-41.89	-25.84	ATG	None	None	-19.45	-6.68	0.79	0.548
+
+2	304	+	57.17	55.56	1.61	Edge	None	None	0.00	0.00	1.61	0.518
+5	304	+	43.91	54.95	-11.04	ATG	None	None	-7.00	-6.24	2.20	0.517
+68	304	+	9.03	35.86	-26.83	ATG	None	None	-7.00	-22.03	2.20	0.523
+74	304	+	9.85	31.40	-21.54	TTG	None	None	-7.00	-9.12	-5.42	0.524
+95	304	+	4.92	22.20	-17.28	GTG	None	None	-7.00	-10.22	-0.06	0.529
+113	304	+	-2.15	15.17	-17.32	GTG	None	None	-7.00	-10.25	-0.06	0.536
+167	304	+	-37.25	-12.39	-24.86	GTG	None	None	-7.00	-13.45	-0.06	0.507
+191	304	+	-46.62	-20.56	-26.05	TTG	None	None	-7.00	-9.28	-5.42	0.491
+
+222	305	+	-42.52	-18.63	-23.89	TTG	None	None	-7.00	-7.11	-5.42	0.500
+
+# Sequence Data: seqnum=57;seqlen=322;seqhdr="k119_24 flag=1 multi=4.0000 len=322"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	61	-	-51.91	-31.77	-20.14	TTG	None	None	-7.00	-3.36	-5.42	0.483
+
+3	137	-	9.16	13.01	-3.86	TTG	TTAA	9bp	9.58	-8.02	-5.42	0.489
+
+58	159	-	-73.45	-19.14	-54.31	GTG	None	None	-17.69	-35.98	-0.15	0.471
+58	213	-	-44.12	-21.20	-22.92	GTG	None	None	-11.44	-10.88	-0.10	0.519
+
+3	71	+	-14.77	-17.49	2.72	Edge	None	None	0.00	0.00	3.22	0.493
+
+68	178	-	-84.66	-23.21	-61.44	TTG	None	None	-16.21	-32.17	-12.55	0.514
+
+2	184	+	-49.87	-52.59	2.72	Edge	None	None	0.00	0.00	3.22	0.508
+
+99	200	+	-69.56	-38.09	-31.47	ATG	None	None	-17.69	-14.15	0.87	0.500
+
+181	282	+	-32.52	1.52	-34.04	GTG	None	None	-17.69	-16.21	-0.15	0.500
+
+# Sequence Data: seqnum=58;seqlen=349;seqhdr="k119_7 flag=1 multi=3.0000 len=349"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	75	+	-1.32	-4.04	2.72	Edge	None	None	0.00	0.00	3.22	0.280
+
+170	286	-	-20.02	-19.04	-0.98	GTG	AAAA	9bp	2.40	-2.75	-0.13	0.462
+170	313	-	-43.03	-23.99	-19.04	ATG	None	None	-12.42	-7.36	1.24	0.444
+
+82	207	+	-12.27	4.09	-16.36	TTG	TTAA	6bp	4.72	-10.06	-11.02	0.365
+103	207	+	-25.26	4.23	-29.49	ATG	None	None	-17.17	-13.22	0.90	0.352
+
+153	347	+	-0.37	13.11	-13.48	ATG	None	None	-7.00	-8.68	2.20	0.431
+162	347	+	-11.27	12.12	-23.39	TTG	None	None	-7.00	-10.96	-5.42	0.435
+186	347	+	-6.16	4.07	-10.23	TTG	TTA	13bp	-0.77	-4.03	-5.42	0.432
+204	347	+	9.25	10.34	-1.09	GTG	TTA	11bp	2.24	-3.27	-0.06	0.444
+210	347	+	-7.89	7.00	-14.90	TTG	None	None	-7.00	-2.47	-5.42	0.435
+
+# Sequence Data: seqnum=59;seqlen=381;seqhdr="k119_25 flag=1 multi=3.0000 len=381"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	179	-	-4.37	23.53	-27.90	ATG	None	None	-7.00	-23.10	2.20	0.452
+3	380	-	-27.28	-28.39	1.11	Edge	None	None	0.00	0.00	1.61	0.434
+
+2	88	+	-14.65	-17.37	2.72	Edge	None	None	0.00	0.00	3.22	0.448
+
+3	92	+	-21.24	-23.96	2.72	Edge	None	None	0.00	0.00	3.22	0.456
+
+163	288	+	-62.80	-35.93	-26.87	ATG	None	None	-14.24	-13.21	1.08	0.460
+178	288	+	-53.45	-22.06	-31.39	ATG	None	None	-16.21	-15.63	0.95	0.459
+
+# Sequence Data: seqnum=60;seqlen=1338;seqhdr="k119_8 flag=1 multi=8.0000 len=1338"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	411	-	51.79	41.48	10.31	ATG	AAAA	5bp	5.26	2.85	2.20	0.406
+
+113	211	+	-55.10	-31.53	-23.57	ATG	None	None	-18.24	-5.68	0.85	0.424
+116	211	+	-55.35	-32.02	-23.33	GTG	None	None	-18.83	-3.84	-0.16	0.427
+
+1	237	+	-9.76	-12.48	2.72	Edge	None	None	0.00	0.00	3.22	0.392
+4	237	+	-23.37	-13.15	-10.22	ATG	None	None	-7.58	-4.17	2.04	0.393
+13	237	+	-29.07	-15.44	-13.63	GTG	None	None	-7.89	-5.17	-0.07	0.396
+94	237	+	-44.48	-11.01	-33.46	GTG	None	None	-12.42	-20.44	-0.11	0.396
+
+257	355	-	-63.69	-36.39	-27.29	ATG	None	None	-18.24	-9.40	0.85	0.455
+
+241	366	+	-51.73	-26.13	-25.59	TTG	None	None	-14.24	0.16	-11.02	0.444
+262	366	+	-49.29	-20.63	-28.66	GTG	None	None	-17.17	-10.85	-0.15	0.457
+
+414	602	-	-4.89	6.89	-11.78	GTG	None	None	-9.41	-2.28	-0.08	0.328
+414	614	-	-10.27	1.53	-11.80	ATG	None	None	-8.84	-4.70	1.74	0.343
+
+383	484	+	-27.24	-9.23	-18.01	GTG	None	None	-17.69	0.33	-0.15	0.265
+
+529	777	-	-71.14	-38.45	-32.70	TTG	None	None	-7.12	-19.57	-5.51	0.369
+
+699	806	-	-54.44	-37.74	-16.69	ATG	None	None	-16.68	-0.44	0.93	0.370
+
+737	856	-	-50.59	-50.24	-0.34	ATG	TTA	12bp	1.05	-1.92	1.03	0.333
+737	925	-	-85.70	-60.79	-24.91	TTG	None	None	-9.41	-7.70	-7.29	0.328
+
+656	748	+	-39.84	-20.37	-19.46	ATG	None	None	-19.45	-0.30	0.79	0.366
+
+1115	1252	+	-13.44	-21.80	8.36	GTG	TTAA	9bp	5.18	3.80	-0.11	0.399
+1118	1252	+	-26.43	-21.48	-4.95	TTG	TTAA	12bp	5.30	0.52	-10.27	0.393
+1127	1252	+	-36.32	-16.08	-20.25	GTG	None	None	-14.24	-5.39	-0.12	0.405
+
+505	1275	+	74.41	61.79	12.62	ATG	AAAA	10bp	5.26	5.16	2.20	0.349
+547	1275	+	54.71	65.08	-10.37	TTG	TTA	15bp	-0.77	-4.17	-5.42	0.354
+613	1275	+	61.34	70.03	-8.69	ATG	None	None	-7.00	-3.89	2.20	0.342
+640	1275	+	55.79	65.78	-9.99	GTG	None	None	-7.00	-2.92	-0.06	0.344
+694	1275	+	42.40	44.27	-1.87	TTG	AAAA	8bp	5.26	-1.71	-5.42	0.342
+727	1275	+	22.00	33.40	-11.39	TTG	None	None	-7.00	1.04	-5.42	0.335
+745	1275	+	25.49	29.04	-3.55	TTG	AAAA	10bp	5.26	-3.38	-5.42	0.335
+772	1275	+	19.58	24.15	-4.57	TTG	AAAA	5bp	5.26	-4.40	-5.42	0.341
+781	1275	+	14.53	21.64	-7.11	TTG	None	None	-7.00	5.31	-5.42	0.341
+829	1275	+	6.04	9.12	-3.08	ATG	None	None	-7.00	1.72	2.20	0.331
+1003	1275	+	-32.40	-21.65	-10.75	ATG	None	None	-7.00	-5.45	2.20	0.337
+1009	1275	+	-32.39	-23.13	-9.26	ATG	None	None	-7.00	-3.96	2.20	0.341
+1015	1275	+	-38.51	-25.49	-13.02	GTG	None	None	-7.00	-5.46	-0.06	0.341
+1063	1275	+	-63.88	-39.09	-24.80	TTG	None	None	-8.34	-9.50	-6.46	0.357
+
+# Sequence Data: seqnum=61;seqlen=326;seqhdr="k119_9 flag=1 multi=4.0000 len=326"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	157	-	-42.62	-22.73	-19.89	ATG	None	None	-7.00	-10.74	2.20	0.506
+
+3	122	-	-8.96	9.95	-18.91	GTG	None	None	-7.00	-11.85	-0.06	0.533
+
+64	180	-	-17.53	2.64	-20.17	GTG	None	None	-15.36	-4.68	-0.13	0.504
+
+28	144	+	-37.97	-13.46	-24.51	GTG	None	None	-15.36	-8.52	-0.13	0.496
+
+162	326	-	-36.91	-39.63	2.72	Edge	None	None	0.00	0.00	3.22	0.509
+
+217	321	-	-35.23	5.98	-41.22	TTG	None	None	-17.17	-10.76	-13.29	0.495
+217	324	-	4.27	1.05	3.22	Edge	None	None	0.00	0.00	3.22	0.491
+
+156	245	+	-86.91	-36.00	-50.92	ATG	None	None	-20.13	-31.06	0.77	0.511
+
+251	325	-	-50.19	-52.90	2.72	Edge	None	None	0.00	0.00	3.22	0.520
+
+211	309	+	-46.31	-19.01	-27.30	ATG	None	None	-18.24	-9.41	0.85	0.495
+
+# Sequence Data: seqnum=62;seqlen=304;seqhdr="k119_10 flag=1 multi=3.0000 len=304"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	183	-	2.43	19.23	-16.80	TTG	None	None	-7.00	-4.38	-5.42	0.596
+
+3	74	-	-63.55	-31.03	-32.52	GTG	None	None	-7.00	-21.11	-0.06	0.639
+3	80	-	-48.36	-31.24	-17.13	ATG	TTA	15bp	-0.77	-14.21	2.20	0.615
+
+3	98	+	-26.64	-29.36	2.72	Edge	None	None	0.00	0.00	3.22	0.615
+
+2	202	+	-48.97	-51.69	2.72	Edge	None	None	0.00	0.00	3.22	0.572
+80	202	+	-69.63	-19.85	-49.78	TTG	None	None	-14.59	-23.39	-11.30	0.537
+101	202	+	-62.35	-13.72	-48.63	GTG	None	None	-17.69	-30.29	-0.15	0.529
+
+1	210	+	-19.80	-22.52	2.72	Edge	None	None	0.00	0.00	3.22	0.562
+19	210	+	-34.79	-16.78	-18.02	GTG	None	None	-9.26	-8.17	-0.08	0.542
+67	210	+	-83.62	-32.81	-50.81	TTG	None	None	-12.42	-28.28	-9.62	0.521
+82	210	+	-61.00	-36.27	-24.73	GTG	None	None	-13.90	-10.21	-0.12	0.527
+
+207	296	-	-58.25	-26.96	-31.29	GTG	None	None	-20.13	-10.49	-0.17	0.356
+207	302	-	-23.18	-25.90	2.72	Edge	None	None	0.00	0.00	3.22	0.365
+
+232	303	-	-16.83	-19.55	2.72	Edge	None	None	0.00	0.00	3.22	0.389
+
+223	303	+	5.62	1.62	3.99	GTG	TTAA	12bp	10.04	-5.98	-0.06	0.370
+
+# Sequence Data: seqnum=63;seqlen=302;seqhdr="k119_11 flag=1 multi=4.0000 len=302"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	72	-	-32.07	-8.09	-23.98	TTG	None	None	-7.00	-7.20	-5.42	0.403
+1	81	-	-27.13	-4.82	-22.31	ATG	None	None	-7.00	-13.16	2.20	0.395
+1	114	-	-2.68	10.09	-12.76	TTG	TTA	13bp	-0.77	-6.57	-5.42	0.412
+1	150	-	1.22	21.44	-20.23	TTG	None	None	-7.00	-7.80	-5.42	0.400
+1	237	-	-11.90	17.14	-29.04	TTG	None	None	-7.00	-16.61	-5.42	0.414
+1	282	-	17.23	28.34	-11.11	ATG	None	None	-7.00	-6.31	2.20	0.429
+1	300	-	30.56	28.95	1.61	Edge	None	None	0.00	0.00	1.61	0.423
+
+6	107	-	-44.43	-19.07	-25.36	GTG	None	None	-17.69	-7.02	-0.15	0.412
+6	110	-	-56.97	-19.17	-37.80	TTG	None	None	-17.17	-6.84	-13.29	0.419
+6	122	-	-46.46	-22.81	-23.64	GTG	None	None	-15.36	-7.65	-0.13	0.402
+
+147	245	-	-54.13	-31.97	-22.15	ATG	None	None	-18.24	-4.26	0.85	0.424
+147	263	-	-78.32	-36.55	-41.77	ATG	None	None	-15.36	-26.92	1.00	0.453
+
+197	298	+	-62.87	-19.36	-43.50	TTG	None	None	-17.69	-11.62	-13.70	0.461
+
+1	300	+	-0.47	-1.57	1.11	Edge	None	None	0.00	0.00	1.61	0.423
+46	300	+	-19.86	-3.79	-16.07	ATG	None	None	-7.00	-6.92	2.20	0.431
+76	300	+	-21.23	-4.32	-16.90	GTG	None	None	-7.00	-5.49	-0.06	0.436
+154	300	+	-7.85	11.74	-19.60	ATG	None	None	-7.00	-14.79	2.20	0.456
+169	300	+	-2.04	11.10	-13.15	ATG	None	None	-7.00	-8.35	2.20	0.439
+
+# Sequence Data: seqnum=64;seqlen=369;seqhdr="k119_12 flag=1 multi=4.0000 len=369"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	61	-	-43.71	-28.52	-15.19	GTG	None	None	-7.00	-3.78	-0.06	0.467
+2	226	-	19.15	35.09	-15.93	ATG	None	None	-7.00	-11.13	2.20	0.529
+2	229	-	19.98	35.18	-15.21	ATG	None	None	-7.00	-10.41	2.20	0.526
+2	253	-	44.09	44.24	-0.14	GTG	AAAA	5bp	5.26	-5.34	-0.06	0.532
+2	367	-	38.16	36.55	1.61	Edge	None	None	0.00	0.00	1.61	0.549
+
+25	126	-	-88.47	-39.20	-49.27	ATG	None	None	-17.69	-31.96	0.87	0.490
+
+229	324	-	-68.93	-2.47	-66.46	GTG	None	None	-18.83	-46.97	-0.16	0.542
+229	336	-	-75.35	-2.38	-72.97	TTG	None	None	-16.68	-42.88	-12.91	0.546
+229	369	-	-7.59	-10.31	2.72	Edge	None	None	0.00	0.00	3.22	0.567
+
+246	368	-	-51.06	-53.78	2.72	Edge	None	None	0.00	0.00	3.22	0.569
+
+136	315	+	-85.04	-61.11	-23.93	GTG	None	None	-9.89	-13.46	-0.08	0.550
+202	315	+	-83.55	-46.85	-36.70	GTG	None	None	-15.77	-20.29	-0.14	0.544
+
+# Sequence Data: seqnum=65;seqlen=389;seqhdr="k119_64 flag=1 multi=3.0000 len=389"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	86	-	-52.34	-37.42	-14.92	ATG	None	None	-7.00	-5.77	2.20	0.452
+3	170	-	-34.13	-18.48	-15.65	ATG	None	None	-7.00	-6.49	2.20	0.417
+3	182	-	-36.84	-14.33	-22.51	TTG	None	None	-7.00	-5.73	-5.42	0.400
+3	197	-	-46.18	-9.07	-37.11	TTG	None	None	-7.00	-20.33	-5.42	0.410
+3	317	-	0.19	29.89	-29.71	GTG	None	None	-7.00	-22.64	-0.06	0.422
+3	344	-	38.29	42.23	-3.95	GTG	AAAA	10bp	5.26	-9.14	-0.06	0.430
+3	362	-	33.64	52.89	-19.24	TTG	None	None	-7.00	-6.82	-5.42	0.425
+3	377	-	40.90	58.59	-17.69	TTG	None	None	-7.00	-5.26	-5.42	0.419
+3	389	-	61.32	59.71	1.61	Edge	None	None	0.00	0.00	1.61	0.419
+
+319	387	-	-29.93	-32.64	2.72	Edge	None	None	0.00	0.00	3.22	0.406
+
+300	389	+	-46.39	-33.34	-13.05	GTG	None	None	-7.00	-1.64	-0.06	0.411
+
+# Sequence Data: seqnum=66;seqlen=342;seqhdr="k119_65 flag=1 multi=3.0000 len=342"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+28	192	-	-13.98	-14.37	0.39	ATG	TTA	11bp	1.45	-1.99	1.43	0.418
+28	204	-	-11.20	-13.04	1.84	ATG	AAAA	5bp	3.66	-2.85	1.53	0.412
+28	225	-	-52.15	-26.43	-25.72	GTG	None	None	-8.98	-16.17	-0.08	0.434
+28	270	-	-32.78	-20.29	-12.49	ATG	None	None	-7.30	-6.81	2.11	0.465
+28	294	-	-22.49	-25.24	2.75	ATG	TTA	11bp	2.24	-1.20	2.20	0.476
+28	297	-	-52.13	-24.70	-27.43	TTG	None	None	-7.00	-14.51	-5.42	0.474
+
+92	337	-	-80.45	-68.92	-11.53	ATG	None	None	-7.21	-5.97	2.14	0.508
+92	340	-	-66.11	-68.83	2.72	Edge	None	None	0.00	0.00	3.22	0.510
+
+1	342	+	49.40	47.79	1.61	Edge	None	None	0.00	0.00	1.61	0.477
+31	342	+	32.75	44.23	-11.48	ATG	None	None	-7.00	-6.68	2.20	0.478
+121	342	+	-2.55	19.06	-21.60	ATG	None	None	-7.00	-16.80	2.20	0.523
+136	342	+	-5.99	15.32	-21.30	ATG	None	None	-7.00	-16.50	2.20	0.531
+193	342	+	-41.07	-6.29	-34.78	TTG	None	None	-7.00	-18.00	-5.42	0.533
+
+# Sequence Data: seqnum=67;seqlen=347;seqhdr="k119_66 flag=1 multi=4.0000 len=347"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	91	-	-44.63	-22.88	-21.75	TTG	None	None	-7.00	-4.97	-5.42	0.433
+2	118	-	-47.03	-33.10	-13.93	ATG	None	None	-7.00	-4.78	2.20	0.436
+
+3	71	-	-50.52	-20.94	-29.58	ATG	None	None	-7.00	-20.43	2.20	0.435
+3	80	-	-31.78	-15.91	-15.87	ATG	None	None	-7.00	-6.72	2.20	0.436
+3	188	-	4.45	21.19	-16.74	GTG	None	None	-7.00	-9.68	-0.06	0.446
+3	212	-	27.23	31.93	-4.71	ATG	AAAA	5bp	5.26	-12.17	2.20	0.457
+3	230	-	21.79	33.29	-11.50	GTG	None	None	-7.00	-4.43	-0.06	0.461
+3	299	-	-4.50	26.37	-30.87	GTG	None	None	-7.00	-23.81	-0.06	0.471
+3	338	-	0.07	18.22	-18.16	TTG	None	None	-7.00	-5.73	-5.42	0.491
+3	347	-	20.06	18.45	1.61	Edge	None	None	0.00	0.00	1.61	0.493
+
+1	75	+	-16.43	-19.14	2.72	Edge	None	None	0.00	0.00	3.22	0.427
+
+245	346	-	-10.71	-13.43	2.72	Edge	None	None	0.00	0.00	3.22	0.569
+
+280	345	-	-16.34	-19.05	2.72	Edge	None	None	0.00	0.00	3.22	0.606
+
+79	345	+	-67.32	-55.69	-11.62	ATG	None	None	-7.00	-2.47	2.20	0.509
+85	345	+	-91.79	-58.42	-33.37	TTG	None	None	-7.00	-16.59	-5.42	0.506
+127	345	+	-60.96	-42.66	-18.30	TTG	None	None	-7.00	-1.52	-5.42	0.516
+148	345	+	-74.72	-44.07	-30.64	TTG	None	None	-7.00	-13.87	-5.42	0.530
+
+3	347	+	-10.58	-11.69	1.11	Edge	None	None	0.00	0.00	1.61	0.493
+51	347	+	-37.70	-8.85	-28.85	TTG	None	None	-7.00	-12.07	-5.42	0.498
+111	347	+	-18.29	-0.70	-17.59	ATG	None	None	-7.00	-8.44	2.20	0.515
+204	347	+	-19.83	3.95	-23.77	ATG	None	None	-7.00	-18.97	2.20	0.542
+261	347	+	-31.29	-8.28	-23.02	ATG	None	None	-7.00	-13.86	2.20	0.598
+
+# Sequence Data: seqnum=68;seqlen=571;seqhdr="k119_67 flag=1 multi=6.0000 len=571"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+23	154	-	-53.78	-37.38	-16.39	ATG	None	None	-13.57	-3.46	1.14	0.364
+
+39	176	-	-90.77	-56.93	-33.84	GTG	None	None	-12.97	-20.26	-0.11	0.399
+39	197	-	-74.93	-52.73	-22.20	ATG	None	None	-11.22	-11.85	1.37	0.403
+39	410	-	-7.98	14.26	-22.25	TTG	None	None	-7.00	-9.82	-5.42	0.417
+39	446	-	4.59	28.94	-24.35	TTG	None	None	-7.00	-11.93	-5.42	0.424
+39	506	-	16.46	44.56	-28.10	GTG	None	None	-7.00	-21.03	-0.06	0.423
+39	533	-	55.76	56.90	-1.14	GTG	AAAA	10bp	5.26	-6.34	-0.06	0.428
+39	551	-	48.45	67.55	-19.10	TTG	None	None	-7.00	-6.67	-5.42	0.425
+39	566	-	57.17	73.25	-16.08	TTG	None	None	-7.00	-3.65	-5.42	0.420
+39	569	-	78.13	74.91	3.22	Edge	None	None	0.00	0.00	3.22	0.422
+
+33	230	+	-43.92	-38.96	-4.96	TTG	TTAA	10bp	7.48	-4.98	-6.95	0.409
+45	230	+	-31.51	-25.42	-6.09	TTG	TTA	15bp	-1.05	2.88	-7.41	0.425
+
+188	349	+	-73.91	-52.09	-21.82	TTG	None	None	-11.01	-1.78	-8.53	0.463
+227	349	+	-69.71	-42.64	-27.07	GTG	None	None	-14.59	-11.86	-0.13	0.455
+
+389	559	+	-76.85	-45.56	-31.30	TTG	None	None	-10.42	-12.30	-8.07	0.427
+
+472	570	+	-50.57	-26.60	-23.96	TTG	None	None	-7.00	-7.18	-5.42	0.414
+
+# Sequence Data: seqnum=69;seqlen=415;seqhdr="k119_68 flag=1 multi=9.0000 len=415"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	61	-	-13.79	0.42	-14.21	ATG	None	None	-7.00	-9.41	2.20	0.433
+2	103	-	-4.35	6.02	-10.38	ATG	None	None	-7.00	-5.57	2.20	0.451
+
+188	286	-	-58.48	-26.03	-32.45	GTG	None	None	-18.24	-13.55	-0.16	0.394
+
+3	371	+	27.23	24.01	3.22	Edge	None	None	0.00	0.00	3.22	0.417
+81	371	+	-2.30	15.54	-17.84	ATG	None	None	-7.00	-13.04	2.20	0.405
+120	371	+	11.75	24.23	-12.48	ATG	None	None	-7.03	-7.64	2.19	0.393
+276	371	+	-81.89	-16.81	-65.08	ATG	None	None	-18.83	-46.57	0.82	0.323
+
+# Sequence Data: seqnum=70;seqlen=341;seqhdr="k119_69 flag=1 multi=4.0000 len=341"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	100	-	-35.70	-19.91	-15.79	ATG	None	None	-7.00	-6.64	2.20	0.475
+2	118	-	-47.39	-19.98	-27.41	TTG	None	None	-7.00	-10.64	-5.42	0.453
+2	139	-	-39.85	-20.19	-19.66	GTG	None	None	-7.00	-8.25	-0.06	0.442
+2	145	-	-30.68	-19.87	-10.80	ATG	None	None	-7.00	-1.65	2.20	0.444
+2	166	-	-39.15	-23.62	-15.53	ATG	None	None	-7.00	-6.38	2.20	0.442
+2	172	-	-39.80	-21.72	-18.08	ATG	None	None	-7.00	-8.93	2.20	0.444
+2	175	-	-51.59	-21.23	-30.35	TTG	None	None	-7.00	-13.58	-5.42	0.437
+2	226	-	-48.72	-32.09	-16.64	ATG	None	None	-7.00	-7.49	2.20	0.471
+
+3	155	-	-16.62	-3.06	-13.56	ATG	None	None	-7.00	-4.41	2.20	0.451
+3	245	-	-46.62	-14.15	-32.48	ATG	None	None	-7.00	-23.33	2.20	0.457
+3	260	-	-38.13	-16.65	-21.48	ATG	None	None	-7.00	-12.33	2.20	0.461
+
+1	66	+	-42.95	-45.67	2.72	Edge	None	None	0.00	0.00	3.22	0.455
+
+257	340	-	-14.13	-16.85	2.72	Edge	None	None	0.00	0.00	3.22	0.488
+
+271	339	-	-18.33	-21.05	2.72	Edge	None	None	0.00	0.00	3.22	0.478
+
+3	341	+	25.92	24.31	1.61	Edge	None	None	0.00	0.00	1.61	0.466
+45	341	+	34.48	40.57	-6.09	GTG	TTA	11bp	2.24	-8.28	-0.06	0.468
+57	341	+	21.09	38.15	-17.06	ATG	None	None	-7.00	-12.26	2.20	0.456
+267	341	+	-49.19	-25.62	-23.57	GTG	None	None	-7.00	-12.16	-0.06	0.493
+273	341	+	-49.25	-29.76	-19.48	ATG	None	None	-7.00	-10.33	2.20	0.478
+
+# Sequence Data: seqnum=71;seqlen=366;seqhdr="k119_70 flag=1 multi=4.0000 len=366"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	134	-	0.18	4.39	-4.21	ATG	None	None	-7.00	0.59	2.20	0.432
+3	182	-	-14.86	10.07	-24.92	TTG	None	None	-7.00	-12.50	-5.42	0.378
+3	245	-	8.33	23.56	-15.23	GTG	AAAA	6bp	5.26	-20.43	-0.06	0.403
+3	305	-	14.84	34.29	-19.45	GTG	None	None	-7.00	-12.38	-0.06	0.413
+
+1	81	+	-28.54	-31.26	2.72	Edge	None	None	0.00	0.00	3.22	0.469
+
+2	136	+	-23.58	-26.30	2.72	Edge	None	None	0.00	0.00	3.22	0.422
+
+3	155	+	-31.19	-33.91	2.72	Edge	None	None	0.00	0.00	3.22	0.399
+
+136	240	+	-54.18	-21.79	-32.39	GTG	None	None	-17.17	-14.58	-0.15	0.362
+
+194	322	+	-52.43	-42.64	-9.79	GTG	None	None	-13.90	4.73	-0.12	0.465
+209	322	+	-83.22	-40.76	-42.46	TTG	None	None	-15.77	-13.97	-12.22	0.447
+
+306	365	+	-53.58	-25.58	-28.01	GTG	None	None	-7.00	-16.59	-0.06	0.450
+
+# Sequence Data: seqnum=72;seqlen=312;seqhdr="k119_71 flag=1 multi=2.0000 len=312"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+3	77	-	-48.17	-26.57	-21.59	ATG	None	None	-7.00	-12.44	2.20	0.440
+3	311	-	-41.98	-43.09	1.11	Edge	None	None	0.00	0.00	1.61	0.447
+
+133	312	-	-38.23	-40.95	2.72	Edge	None	None	0.00	0.00	3.22	0.433
+
+3	311	+	57.52	55.91	1.61	Edge	None	None	0.00	0.00	1.61	0.443
+15	311	+	58.40	52.11	6.29	ATG	TTAA	7bp	9.58	-5.50	2.20	0.448
+33	311	+	30.27	46.68	-16.41	TTG	None	None	-7.00	-3.98	-5.42	0.452
+60	311	+	13.84	37.11	-23.27	TTG	None	None	-7.00	-10.85	-5.42	0.448
+138	311	+	-4.01	3.26	-7.27	ATG	None	None	-7.00	-2.47	2.20	0.443
+162	311	+	-26.07	-3.99	-22.08	GTG	None	None	-7.00	-10.67	-0.06	0.440
+216	311	+	-46.34	-25.60	-20.74	TTG	None	None	-7.00	-3.97	-5.42	0.417
+228	311	+	-56.23	-30.10	-26.13	GTG	None	None	-7.00	-14.72	-0.06	0.429
+
+# Sequence Data: seqnum=73;seqlen=312;seqhdr="k119_72 flag=1 multi=4.0000 len=312"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+1	87	-	-48.21	-30.37	-17.84	ATG	None	None	-7.00	-8.69	2.20	0.460
+
+2	124	-	-42.96	-15.00	-27.96	GTG	None	None	-7.00	-16.54	-0.06	0.439
+2	139	-	-34.19	-5.82	-28.37	TTG	None	None	-7.00	-11.59	-5.42	0.449
+2	157	-	-11.85	5.57	-17.42	ATG	None	None	-7.00	-12.62	2.20	0.474
+2	193	-	-7.39	15.57	-22.96	ATG	None	None	-7.00	-18.16	2.20	0.479
+2	298	-	34.83	46.80	-11.98	ATG	None	None	-7.00	-7.17	2.20	0.475
+2	310	-	43.58	41.97	1.61	Edge	None	None	0.00	0.00	1.61	0.472
+
+96	191	-	-55.03	-15.27	-39.76	GTG	None	None	-18.83	-20.27	-0.16	0.500
+96	236	-	-63.57	-34.08	-29.49	TTG	None	None	-12.69	-6.48	-9.83	0.511
+
+42	242	+	-60.77	-41.61	-19.17	GTG	None	None	-8.84	-9.75	-0.08	0.493
+69	242	+	-50.74	-34.34	-16.40	ATG	None	None	-10.24	-7.16	1.51	0.477
+93	242	+	-69.15	-30.32	-38.83	TTG	None	None	-11.91	-17.20	-9.22	0.500
+
+249	311	+	-23.59	-3.34	-20.25	TTG	None	None	-7.00	-3.47	-5.42	0.429
+
+# Sequence Data: seqnum=74;seqlen=399;seqhdr="k119_73 flag=1 multi=3.0000 len=399"
+# Run Data: version=Prodigal.v2.6.1;run_type=Single;model="Ab initio";gc_cont=43.31;transl_table=11;uses_sd=0
+
+Beg	End	Std	Total	CodPot	StrtSc	Codon	RBSMot	Spacer	RBSScr	UpsScr	TypeScr	GCCont
+
+2	136	-	-61.53	-37.21	-24.32	ATG	None	None	-7.00	-15.17	2.20	0.415
+2	217	-	-69.64	-50.89	-18.76	ATG	None	None	-7.00	-9.61	2.20	0.435
+
+25	120	-	-57.08	-23.36	-33.73	TTG	None	None	-18.83	0.18	-14.58	0.406
+25	141	-	-42.80	-20.37	-22.43	GTG	None	None	-15.36	-6.44	-0.13	0.402
+25	213	-	-69.36	-49.23	-20.13	TTG	None	None	-9.41	-2.93	-7.29	0.439
+
+3	71	+	-34.70	-37.42	2.72	Edge	None	None	0.00	0.00	3.22	0.406
+
+254	397	-	-32.98	-35.70	2.72	Edge	None	None	0.00	0.00	3.22	0.396
+
+315	398	-	-16.69	-19.40	2.72	Edge	None	None	0.00	0.00	3.22	0.381
+
+2	397	+	69.57	67.96	1.61	Edge	None	None	0.00	0.00	1.61	0.414
+11	397	+	54.66	65.42	-10.77	ATG	None	None	-7.00	-5.97	2.20	0.413
+68	397	+	27.77	50.06	-22.29	ATG	None	None	-7.00	-17.49	2.20	0.415
+86	397	+	33.20	44.66	-11.46	ATG	None	None	-7.00	-6.66	2.20	0.423
+92	397	+	25.12	41.98	-16.86	TTG	TTA	14bp	-0.77	-10.66	-5.42	0.425
+95	397	+	27.45	42.31	-14.86	GTG	None	None	-7.00	-7.80	-0.06	0.426
+110	397	+	27.70	35.00	-7.29	ATG	None	None	-7.00	-2.49	2.20	0.424
+170	397	+	-8.26	9.57	-17.83	ATG	None	None	-7.00	-13.03	2.20	0.399
+269	397	+	-25.65	-23.02	-2.63	TTG	TTAA	11bp	10.04	-2.89	-5.42	0.395
+296	397	+	-43.79	-29.70	-14.09	ATG	None	None	-7.00	-4.94	2.20	0.402
+308	397	+	-56.18	-35.07	-21.11	ATG	None	None	-7.00	-11.96	2.20	0.422
+338	397	+	-65.21	-45.74	-19.47	GTG	None	None	-7.00	-8.06	-0.06	0.417
+

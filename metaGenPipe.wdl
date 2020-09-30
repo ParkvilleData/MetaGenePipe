@@ -17,7 +17,6 @@ import "./tasks/multiqc.wdl" as multiqcTask
 import "./tasks/merge.wdl" as mergeTask
 import "./tasks/taxon_class.wdl" as taxonTask
 
-
 workflow metaGenPipe {
 
 ## global variables for wdl workflow

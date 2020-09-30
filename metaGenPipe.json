@@ -1,20 +1,6 @@
 {
-"##_GLBOAL_VARS#": "files",
-  "metaGenPipe.inputSamplesFile": "/data/MGP/i.txt",
-  "metaGenPipe.kolist": "/data/MGP/files/ko.sorted.txt",
-  "metaGenPipe.koFormattedFile": "/data/MGP/files/formatted.xml.out",
-  "metaGenPipe.keggSpeciesFile": "/data/MGP/files/eukaryotes.dat",
-  "metaGenPipe.DB": "/data/MGP/kegg/kegg-eukaryotes.dmnd",
-  "metaGenPipe.taxRankFile": "/data/MGP/files/tax_rank",
-  "metaGenPipe.fullLineageFile": "/data/MGP/files/fullnamelineage.dmp",
-  "metaGenPipe.bparser": "/data/MGP/scripts/bparser.pl",
-  "metaGenPipe.xml_parser": "/data/MGP/scripts/xml_parser.function.pl",
-  "metaGenPipe.orgID_2_name": "./scripts/orgID_2_name.pl",
-  "metaGenPipe.database": "/data/MGP/db/swissprot",
-  "metaGenPipe.interleaveShell": "/data/MGP/scripts/interleave_fastq.sh",
 
   "## Boolean list": "True or false for setting optional tasks",
-  "metaGenPipe.nonHPCBoolean": true,
   "metaGenPipe.flashBoolean": false,
   "metaGenPipe.hostRemovalBoolean": false,
   "metaGenPipe.blastBoolean": true,
@@ -24,16 +10,27 @@
   "metaGenPipe.metaspadesBoolean": false,
   "metaGenPipe.idbaBoolean": false,
   "metaGenPipe.megahitBoolean": true,
+
+"##_GLBOAL_VARS#": "files",
+  "metaGenPipe.inputSamplesFile": "./i.txt",
+  "metaGenPipe.bparser": "./scripts/bparser.pl",
+  "metaGenPipe.xml_parser": "./scripts/xml_parser.function.pl",
+  "metaGenPipe.orgID_2_name": "./scripts/orgID_2_name.pl",
+  "metaGenPipe.interleaveShell": "./scripts/interleave_fastq.sh",
   
-  
+  "## required reference files on shared project ##": "Don't need to change",
+  "metaGenPipe.database": "/data/gpfs/datasets/BLAST/db/nt",
+  "metaGenPipe.taxRankFile": "/data/gpfs/projects/punim0639/metaGenPipe/tax_rank",
+  "metaGenPipe.fullLineageFile": "/data/gpfs/projects/punim0639/metaGenPipe/fullnamelineage.dmp",
+  "metaGenPipe.keggSpeciesFile": "/data/gpfs/projects/punim0639/metaGenPipe/eukaryotes.dat",
+  "metaGenPipe.DB": "/data/gpfs/projects/punim0639/databases/metaGenePipe/kegg/kegg-eukaryotes.dmnd",
+  "metaGenPipe.kolist": "/data/gpfs/projects/punim0639/metaGenPipe/ko.sorted.txt",
+  "metaGenPipe.koFormattedFile": "/data/gpfs/projects/punim0639/metaGenPipe/formatted.xml.out",
+
   "## output prefixes": "Multiqc/merged",
   "metaGenPipe.multiQCoutput": "multiQC",
   "## output prefix ##": "If running nonMerged mode leave blank: mergeBoolean variable needs to be true",
-  "metaGenPipe.mergedOutput": "merged",
-
-  "## singularity parameters ##": "For hpc set standalone to false",
-  "metaGenPipe.singularityContainerPath": "/data/MGP/metaGenPipe.01092020.simg",
-  "metaGenPipe.singularityBindPath": "/data/MGP",
+  "metaGenPipe.mergedOutput": "MergeDataset",
 
   "## assembly parameters ###": "megahit",
   "metaGenPipe.qc_subworkflow.trimmomatic_task.trimmomatic": "java -jar /local_build/bin/trimmomatic-0.39.jar",
@@ -42,8 +39,8 @@
     "metaGenPipe.preset": "meta-sensitive",
  
   "## trimmomatic adapters and parameters": "",
-  "metaGenPipe.qc_subworkflow.trimmomatic_task.truseq_pe_adapter":"/data/MGP/adapters/TruSeq3-PE.fa",
-  "metaGenPipe.qc_subworkflow.trimmomatic_task.truseq_se_adapter":"/data/MGP/adapters/TruSeq3-SE.fa",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.truseq_pe_adapter":"./adapters/TruSeq3-PE.fa",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.truseq_se_adapter":"./adapters/TruSeq3-SE.fa",
   "metaGenPipe.qc_subworkflow.trimmomatic_task.Phred": "33",
   "metaGenPipe.qc_subworkflow.trimmomatic_task.EndType": "PE",
   "metaGenPipe.qc_subworkflow.trimmomatic_task.minLength": "50",
@@ -53,7 +50,6 @@
   "metaGenPipe.coverage": 70,
   "metaGenPipe.removalSequence": "mm1,mm2,mm3,mm4,mm5,mm6",
   "metaGenPipe.hostremoval_subworkflow.removalSequence": "mm1,mm2,mm3,mm4,mm5,mm6",
-
 
   "## geneprediction ##": "##Parameters",
   "metaGenPipe.mode": "meta",
