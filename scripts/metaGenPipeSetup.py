@@ -27,7 +27,8 @@ group.add_argument('--batch-count', action='store_true', help='Prints the number
 group.add_argument('--batch', type=int, help='The number of the batch to fetch. Default batch is numbered 0 and other batches are numbered 1, 2, 3...')
 
 #parser.add_argument('--paired', action='store_true', help='Only include paired-end reads.')
-parser.add_argument('--dest', type=str, help='The destination location where the script should create the directory with the files.', default=".")
+parser.add_argument('--inputs', type=str, help='The parent location where the script should create the directory with the input files.', default=".")
+parser.add_argument('--outputs', type=str, help='The parent location where the input files should tell metaGenPipe to send the output files.', default="outputs" )
 parser.add_argument('--scripts', type=str, help='The location of the metaGenPipe scripts.', default="./scripts")
 parser.add_argument('--mf-config', type=str, help='The location of your Mediaflux config file.', default="~/.Arcitecta/mflux.cfg")
 #parser.add_argument('--no-download', action='store_false', help='Flag to not download the files from mediaflux.')
@@ -38,7 +39,17 @@ def check_path_for_file( file_path ):
     if not file_path.exists():
         print("Cannot find file:", file_path)
         sys.exit(1)
-    return str(file_path)
+    return str(file_path.resolve())
+
+
+def get_options( outputs_dir ):
+    # Set up variables so that we can easily put JSON syntax into Python
+    true = True
+    false = False
+    return {
+        "final_workflow_outputs_dir": check_path_for_file( outputs_dir ),
+        "use_relative_output_paths": true
+    }
 
 def get_settings( input_file_path, scripts_path ):
     """ 
@@ -254,13 +265,18 @@ if args.batch < 0 or args.batch > max_batch_number:
 
 batch = study.get('default_batch_runs') if args.batch == 0 else batch_set[args.batch+1]
 
-dest = Path(args.dest)
-directory = dest / f"{study_accession}_{args.batch}"
-directory.mkdir( parents=True, exist_ok=True )
-input_filepath = directory/ f"{study_accession}_{args.batch}.input.txt"
-settings_filepath = directory/ f"{study_accession}_{args.batch}.settings.json"
+inputs_dir = Path(args.inputs) / f"{study_accession}_{args.batch}"
+inputs_dir.mkdir( parents=True, exist_ok=True )
+
+input_filepath = inputs_dir/ f"{study_accession}_{args.batch}.input.txt"
+settings_filepath = inputs_dir/ f"{study_accession}_{args.batch}.settings.json"
+options_filepath  = inputs_dir/ f"{study_accession}_{args.batch}.options.json"
 
 scripts_dir = Path(args.scripts)
+
+outputs_dir = Path(args.outputs) / f"{study_accession}_{args.batch}_outputs"
+outputs_dir.mkdir( parents=True, exist_ok=True )
+
 
 
 ######################################################
@@ -277,14 +293,14 @@ with open(input_filepath, "w") as input_file:
                 # This would be better to use the python mediaflux client: https://gitlab.unimelb.edu.au/resplat-mediaflux/python-mfclient
                 os.system("unimelb-mf-download --mf.config %s --csum-check --out %s /projects/proj-6300_metagenomics_repository_verbruggenmdap-1128.4.294/%s" % (
                     args.mf_config,
-                    directory,
+                    inputs_dir,
                     file['mf_path_str'],
                 ))
         
-        filenames = [Path(file['mf_path_str']).name for file in run['files']]
+        filenames = [str((inputs_dir/Path(file['mf_path_str']).name).resolve()) for file in run['files']]
         filenames_str = "\t".join(filenames)
         input_file.write(f"{run['accession']}\t{filenames_str}\n")
-
+print("Created input file with location of run files:", input_filepath)
 
 
 ######################################################
@@ -293,4 +309,18 @@ with open(input_filepath, "w") as input_file:
 settings = get_settings(input_filepath, scripts_dir)
 with open(settings_filepath, "w") as settings_file:
     json.dump(settings, settings_file, indent=4, sort_keys=False)
+print("Created settings JSON file:", settings_filepath)
 
+######################################################
+#### Write the JSON Options File
+######################################################
+options = get_options(outputs_dir)
+with open(options_filepath, "w") as options_file:
+    json.dump(options, options_file, indent=4, sort_keys=False)
+print("Created options JSON file:", options_filepath)
+print("Outputs of metaGenPipe will be sent to:", outputs_dir)
+print("You can use this command to run this job:")
+print("java -DLOG_MODE=pretty -Dconfig.file=./metaGenPipe.config -jar cromwell-52.jar run metaGenPipe.wdl -i %s -o %s" % (
+    check_path_for_file(settings_filepath),
+    check_path_for_file(options_filepath),
+))
