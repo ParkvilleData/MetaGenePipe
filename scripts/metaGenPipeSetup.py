@@ -22,17 +22,17 @@ def str2bool(v):
 
 parser = argparse.ArgumentParser(description='Script to create input files for metaGenPipe workflow on Spartan and to download the run files from Mediaflux.')
 parser.add_argument("study_accession", help="The accession for the study to be retreived.")
-group = parser.add_mutually_exclusive_group(required=True)
-group.add_argument('--batch-count', action='store_true', help='Prints the number of batches and then quits.')
-group.add_argument('--batch', type=int, help='The number of the batch to fetch. Default batch is numbered 0 and other batches are numbered 1, 2, 3...')
+#group = parser.add_mutually_exclusive_group(required=True)
+parser.add_argument('--batch-count', action='store_true', help='Prints the number of batches and then quits.')
+parser.add_argument('--batch', type=int, help='The number of the batch to fetch. Default batch is numbered 0 and other batches are numbered 1, 2, 3...', default=0)
 
 #parser.add_argument('--paired', action='store_true', help='Only include paired-end reads.')
-parser.add_argument('--inputs', type=str, help='The parent location where the script should create the directory with the input files.', default=".")
-parser.add_argument('--outputs', type=str, help='The parent location where the input files should tell metaGenPipe to send the output files.', default="outputs" )
-parser.add_argument('--scripts', type=str, help='The location of the metaGenPipe scripts.', default="./scripts")
-parser.add_argument('--mf-config', type=str, help='The location of your Mediaflux config file.', default="~/.Arcitecta/mflux.cfg")
+parser.add_argument('--inputs', type=str, help='The parent location where the script should create the directory with the input files. Default: ./inputs', default="inputs")
+parser.add_argument('--outputs', type=str, help='The parent location where the input files should tell metaGenPipe to send the output files. Default: ./outputs', default="outputs" )
+parser.add_argument('--scripts', type=str, help='The location of the metaGenPipe scripts. Default: ./scripts', default="./scripts")
+parser.add_argument('--mf-config', type=str, help='The location of your Mediaflux config file. Default: ~/.Arcitecta/mflux.cfg', default="~/.Arcitecta/mflux.cfg")
 #parser.add_argument('--no-download', action='store_false', help='Flag to not download the files from mediaflux.')
-parser.add_argument("--download", type=str2bool, nargs='?', const=True, default=True, help="Flag to download the files from mediaflux.")
+parser.add_argument("--download", type=str2bool, nargs='?', const=True, default=True, help="Flag to download the files from mediaflux. Default: True")
 
 
 def check_path_for_file( file_path ):
@@ -319,7 +319,7 @@ with open(options_filepath, "w") as options_file:
     json.dump(options, options_file, indent=4, sort_keys=False)
 print("Created options JSON file:", options_filepath)
 print("Outputs of metaGenPipe will be sent to:", outputs_dir)
-print("You can use this command to run this job:")
+print("You can use this command from the root directory of metaGenPipe to run this job:")
 print("java -DLOG_MODE=pretty -Dconfig.file=./metaGenPipe.config -jar cromwell-52.jar run metaGenPipe.wdl -i %s -o %s" % (
     check_path_for_file(settings_filepath),
     check_path_for_file(options_filepath),
