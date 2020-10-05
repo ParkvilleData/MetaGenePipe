@@ -31,6 +31,7 @@ parser.add_argument('--inputs', type=str, help='The parent location where the sc
 parser.add_argument('--outputs', type=str, help='The parent location where the input files should tell metaGenPipe to send the output files. Default: ./outputs', default="outputs" )
 parser.add_argument('--scripts', type=str, help='The location of the metaGenPipe scripts. Default: ./scripts', default="./scripts")
 parser.add_argument('--mf-config', type=str, help='The location of your Mediaflux config file. Default: ~/.Arcitecta/mflux.cfg', default="~/.Arcitecta/mflux.cfg")
+parser.add_argument('--mf-auth', type=str, help="The Mediaflux authentication details, written as 'domain,username,password'. Optional.", default="")
 parser.add_argument("--download", type=str2bool, nargs='?', const=True, default=True, help="Flag to download the files from mediaflux. Default: True")
 parser.add_argument("--options-json", type=str, help="The location of the template options JSON file to use. Default: ./metaGenPipe.options.json", default="./metaGenPipe.options.json")
 parser.add_argument("--input-json", type=str, help="The location of the template input JSON file to use. Default: ./metaGenPipe.json", default="./metaGenPipe.json")
@@ -113,6 +114,7 @@ scripts_dir = Path(args.scripts)
 outputs_dir = Path(args.outputs) / f"{study_accession}_{args.batch}_outputs"
 outputs_dir.mkdir( parents=True, exist_ok=True )
 
+mf_auth_options = f" --mf.auth '{args.mf_auth}' " if len(args.mf_auth) else ""
 
 
 ######################################################
@@ -127,8 +129,9 @@ with open(samples_filepath, "w") as samples_file:
         if args.download:
             for file in run['files']:
                 # This would be better to use the python mediaflux client: https://gitlab.unimelb.edu.au/resplat-mediaflux/python-mfclient
-                os.system("unimelb-mf-download --mf.config %s --csum-check --out %s /projects/proj-6300_metagenomics_repository_verbruggenmdap-1128.4.294/%s" % (
+                os.system("unimelb-mf-download --mf.config %s %s --csum-check --out %s /projects/proj-6300_metagenomics_repository_verbruggenmdap-1128.4.294/%s" % (
                     args.mf_config,
+                    mf_auth_options,
                     inputs_dir,
                     file['mf_path_str'],
                 ))
