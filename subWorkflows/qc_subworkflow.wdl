@@ -22,13 +22,16 @@ workflow qc_subworkflow {
 	File forwardReads
 	File reverseReads
 	String sampleName
+	Boolean trimmomaticBoolean
 
-	# call trimTask.trimmomatic_task {
-	# 	input:
-	# 	forwardReads = forwardReads,
-	# 	reverseReads = reverseReads,
-	# 	outputPrefix = sampleName
-	# }
+	if (trimmomaticBoolean) {
+		call trimTask.trimmomatic_task {
+			input:
+			forwardReads = forwardReads,
+			reverseReads = reverseReads,
+			outputPrefix = sampleName
+		}
+	}
 
 	call trimgaloreTask.trim_galore_task {
 		input:
@@ -58,8 +61,8 @@ workflow qc_subworkflow {
 		File? flashExtFrags = flash_task.extendedFrags
 		File trimmedFwdReads = trim_galore_task.outFwdPaired 
 		File trimmedRevReads = trim_galore_task.outRevPaired
-		# File? trimmedFwdUnpaired = trimmomatic_task.outFwdUnpaired 
-		# File? trimmedRevUnpaired = trimmomatic_task.outRevUnpaired
+		File? trimmedFwdUnpaired = trimmomatic_task.outFwdUnpaired 
+		File? trimmedRevUnpaired = trimmomatic_task.outRevUnpaired
 	}
 
 }

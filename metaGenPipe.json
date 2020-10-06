@@ -10,6 +10,7 @@
   "metaGenPipe.metaspadesBoolean": false,
   "metaGenPipe.idbaBoolean": false,
   "metaGenPipe.megahitBoolean": true,
+  "metaGenPipe.trimmomaticBoolean": false,
 
 "##_GLBOAL_VARS#": "files",
   "metaGenPipe.inputSamplesFile": "./i.txt",

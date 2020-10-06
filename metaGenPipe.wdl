@@ -19,51 +19,53 @@ import "./tasks/taxon_class.wdl" as taxonTask
 
 workflow metaGenPipe {
 
-## global variables for wdl workflow
-## input files
-File inputSamplesFile
-File xml_parser
-File orgID_2_name
-File interleaveShell
-Array[Array[File]] inputSamples = read_tsv(inputSamplesFile)
-Int numOfHits
-Int maxTargetSeqs
-Int outputType
-Int identityPercentage
-Int coverage
-String multiQCoutput
-String mergedOutput
-String bparser
-String database
-String DB
-String mode
-String blastMode
-String koFormattedFile
-String keggSpeciesFile
-String taxRankFile
-String fullLineageFile
-String outputFileName
-String removalSequence
-String preset
+	## global variables for wdl workflow
+	## input files
+	File inputSamplesFile
+	File xml_parser
+	File orgID_2_name
+	File interleaveShell
+	Array[Array[File]] inputSamples = read_tsv(inputSamplesFile)
+	Int numOfHits
+	Int maxTargetSeqs
+	Int outputType
+	Int identityPercentage
+	Int coverage
+	String multiQCoutput
+	String mergedOutput
+	String bparser
+	String database
+	String DB
+	String mode
+	String blastMode
+	String koFormattedFile
+	String keggSpeciesFile
+	String taxRankFile
+	String fullLineageFile
+	String outputFileName
+	String removalSequence
+	String preset
 
-## boolean variables 
-Boolean flashBoolean
-Boolean mergeBoolean
-Boolean megahitBoolean
-Boolean idbaBoolean
-Boolean metaspadesBoolean
-Boolean blastBoolean
-Boolean taxonBoolean
-Boolean hostRemovalBoolean
-
-   scatter (sample in inputSamples) {
-	   
-	    call qcSubWorkflow.qc_subworkflow {
-		   input:
-		   forwardReads = sample[1],
-		   reverseReads = sample[2],
-		   flashBoolean = flashBoolean,
-		   sampleName = sample[0]
+	## boolean variables 
+	Boolean flashBoolean
+	Boolean mergeBoolean
+	Boolean megahitBoolean
+	Boolean idbaBoolean
+	Boolean metaspadesBoolean
+	Boolean blastBoolean
+	Boolean taxonBoolean
+	Boolean hostRemovalBoolean
+	Boolean trimmomaticBoolean
+	
+	scatter (sample in inputSamples) {
+		
+		call qcSubWorkflow.qc_subworkflow {
+			input:
+			forwardReads = sample[1],
+			reverseReads = sample[2],
+			flashBoolean = flashBoolean,
+			sampleName = sample[0],
+			trimmomaticBoolean = trimmomaticBoolean
 		}
 
 		## host removal before merge if chosen
@@ -83,7 +85,7 @@ Boolean hostRemovalBoolean
 				hostRemovalRev = qc_subworkflow.trimmedRevReads
 			}
         }
-   }
+	}
    ## end qc subworkflow
 
 	Array[File] mQCArray = flatten(qc_subworkflow.fastqcArray)   
@@ -195,9 +197,9 @@ Boolean hostRemovalBoolean
 		Array[Array[File]] fastqcArray = qc_subworkflow.fastqcArray
 		File multiqcHTML = multiqc_task.multiqcHTML
 		Array[File] trimmedFwdReadsArray = qc_subworkflow.trimmedFwdReads
-        Array[File] trimmedRevReadsArray = qc_subworkflow.trimmedRevReads
-		Array[File]? trimmedFwdUnpairedArray = qc_subworkflow.trimmedFwdUnpaired
-		Array[File]? trimmedRevUnpairedArray = qc_subworkflow.trimmedRevUnpaired
+		Array[File] trimmedRevReadsArray = qc_subworkflow.trimmedRevReads
+		Array[File?] trimmedFwdUnpairedArray = qc_subworkflow.trimmedFwdUnpaired
+		Array[File?] trimmedRevUnpairedArray = qc_subworkflow.trimmedRevUnpaired
 
 		## Removed for now add later if output required
 		Array[File?] flashArray = qc_subworkflow.flashExtFrags
