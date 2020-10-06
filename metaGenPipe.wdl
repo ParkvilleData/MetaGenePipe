@@ -196,9 +196,7 @@ Boolean hostRemovalBoolean
 		Array[Array[File]] fastqcArray = qc_subworkflow.fastqcArray
 		File multiqcHTML = multiqc_task.multiqcHTML
 		Array[File] trimmedFwdReadsArray = qc_subworkflow.trimmedFwdReads
-                Array[File] trimmedRevReadsArray = qc_subworkflow.trimmedRevReads
-                Array[File] trimmedFwdUnpairedArray = qc_subworkflow.trimmedFwdUnpaired
-                Array[File] trimmedRevUnpairedArray = qc_subworkflow.trimmedRevUnpaired
+        Array[File] trimmedRevReadsArray = qc_subworkflow.trimmedRevReads
 
 		## Removed for now add later if output required
 		Array[File?] flashArray = qc_subworkflow.flashExtFrags
@@ -213,8 +211,8 @@ Boolean hostRemovalBoolean
 
 		## Non merged Assembly
 		Array[File?]? assemblyScaffoldsArray = nonMergedAssembly.assemblyScaffolds
-                Array[File?]? parsedBlastArray = nonMergedAssembly.parsedBlast
-                Array[File?]? blastOutputArray = nonMergedAssembly.blastOutput
+		Array[File?]? parsedBlastArray = nonMergedAssembly.parsedBlast
+		Array[File?]? blastOutputArray = nonMergedAssembly.blastOutput
 
 		## geneprediction output
 		File? collationOutput = geneprediction_subworkflow.collationOutput
@@ -226,20 +224,20 @@ Boolean hostRemovalBoolean
 
 		## Non merged gene prediction
 		Array[File]? collationOutputArray = nonMergedGenePrediction.collationOutput
-                Array[File]? diamondOutputArray = nonMergedGenePrediction.diamondOutput
-                Array[File]? proteinAlignmentOutputArray = nonMergedGenePrediction.proteinAlignmentOutput
-                Array[File]? nucleotideGenesOutputArray = nonMergedGenePrediction.nucleotideGenesOutput
-                Array[File]? potentialGenesAlignmentOutputArray = nonMergedGenePrediction.potentialGenesAlignmentOutput
-                Array[File]? genesAlignmentOutputArray = nonMergedGenePrediction.genesAlignmentOutput
+		Array[File]? diamondOutputArray = nonMergedGenePrediction.diamondOutput
+		Array[File]? proteinAlignmentOutputArray = nonMergedGenePrediction.proteinAlignmentOutput
+		Array[File]? nucleotideGenesOutputArray = nonMergedGenePrediction.nucleotideGenesOutput
+		Array[File]? potentialGenesAlignmentOutputArray = nonMergedGenePrediction.potentialGenesAlignmentOutput
+		Array[File]? genesAlignmentOutputArray = nonMergedGenePrediction.genesAlignmentOutput
 
 		## Taxonomy output
 		File? functionalTable = taxonclass_task.functionalTable
-                File? geneCounts =  taxonclass_task.geneCounts
-                File? level1Brite = taxonclass_task.level1Brite
-                File? level2Brite = taxonclass_task.level2Brite
-                File? level3Brite = taxonclass_task.level3Brite
-                File? mergedXml = taxonclass_task.mergedXml
-                File? OTU = taxonclass_task.OTU
+		File? geneCounts =  taxonclass_task.geneCounts
+		File? level1Brite = taxonclass_task.level1Brite
+		File? level2Brite = taxonclass_task.level2Brite
+		File? level3Brite = taxonclass_task.level3Brite
+		File? mergedXml = taxonclass_task.mergedXml
+		File? OTU = taxonclass_task.OTU
 
 	}
 

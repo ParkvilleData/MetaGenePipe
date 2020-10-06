@@ -5,40 +5,34 @@ task trim_galore_task {
 	Int TRMG_minutes
 	Int TRMG_mem
 	Int minLength
+	String Phred
 	String outputPrefix
 	Int clip_r5
-	## Add trim_galore variables
+	Int clip_r3
 
 	### Note add leading and trailing as input params
 
 	command {
 		echo "Trimming sample .";
-		#trim_galore commands
 
- 		${trimmomatic} \
-		${EndType} -threads ${TRIM_threads} -phred${Phred} \
-		${forwardReads} ${reverseReads} \
-		${outputPrefix}_R1.fwd.fq.gz ${outputPrefix}.fwd.unpaired.fq.gz \
-		${outputPrefix}_R2.rev.fq.gz ${outputPrefix}.rev.unpaired.fq.gz \
-		ILLUMINACLIP:${truseq_pe_adapter}:2:30:10:2 \
-		LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:${minLength};
+		trim_galore --cores ${TRMG_threads} --phred${Phred} --length ${minLength} --quality 30 --basename ${outputPrefix} \ 
+		--clip_R1 ${clip_r5} --clip_R2 ${clip_r5} --three_prime_clip_R1 ${clip_r3} --three_prime_clip_R2 ${clip_r3} \ 
+		--paired ${forwardReads} ${reverseReads}
 
 		echo ".. Done\n";
 	}
 	output {
-		File outFwdPaired="${outputPrefix}_R1.fwd.fq.gz"
-		File outRevPaired="${outputPrefix}_R2.rev.fq.gz"
-		File outFwdUnpaired="${outputPrefix}.fwd.unpaired.fq.gz"
-		File outRevUnpaired="${outputPrefix}.rev.unpaired.fq.gz"
+		File outFwdPaired="${outputPrefix}_val_1.fq.gz"
+		File outRevPaired="${outputPrefix}_val_2.fq.gz"
 	}
 	runtime {
-                runtime_minutes: '${TRIM_minutes}'
-                cpus: '${TRIM_threads}'
-                mem: '${TRIM_mem}'
+                runtime_minutes: '${TRMG_minutes}'
+                cpus: '${TRMG_threads}'
+                mem: '${TRMG_mem}'
         }
 	meta {
-                author: "Bobbie Shaban"
-                email: "bshaban@unimelb.edu.au"
+                author: "Maria del Mar Quiroga"
+                email: "mquiroga@unimelb.edu.au"
                 description: "<DESCRIPTION>"
         }
         parameter_meta {
