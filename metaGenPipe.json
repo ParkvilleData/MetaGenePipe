@@ -39,6 +39,11 @@
     "metaGenPipe.preset": "meta-large",
  
   "## trimmomatic adapters and parameters": "",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.truseq_pe_adapter": "./adapters/TruSeq3-PE.fa",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.truseq_se_adapter": "./adapters/TruSeq3-SE.fa",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.Phred": "33",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.EndType": "PE",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.minLength": "50",
   "metaGenPipe.qc_subworkflow.trim_galore_task.Phred": "33",
   "metaGenPipe.qc_subworkflow.trim_galore_task.minLength": "50",
   "metaGenPipe.qc_subworkflow.trim_galore_task.clip_r5": "10",
@@ -63,6 +68,11 @@
   "metaGenPipe.qc_subworkflow.fastqc_task.FQC_threads": 6,
   "metaGenPipe.qc_subworkflow.fastqc_task.FQC_minutes": 15,
   "metaGenPipe.qc_subworkflow.fastqc_task.FQC_mem": 10000,
+
+  "##_COMMENT_2#": "trimmomatic",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.TRIM_threads": 6,
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.TRIM_minutes": 15,
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.TRIM_mem": 20000,
 
   "##_COMMENT_2#": "trim_galore",
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_threads": 6,

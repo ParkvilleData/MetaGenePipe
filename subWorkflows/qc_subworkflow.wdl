@@ -1,6 +1,7 @@
 import "./tasks/fastqc.wdl" as fastqcTask
 import "./tasks/flash.wdl" as flashTask  
 import "./tasks/multiqc.wdl" as multiqcTask
+# import "./tasks/trimmomatic.wdl" as trimTask
 import "./tasks/trim_galore.wdl" as trimgaloreTask
 
 workflow qc_subworkflow {
@@ -16,18 +17,18 @@ workflow qc_subworkflow {
         Output1: "otype:<TYPE>: <DESCRIPTION>"
     }
 
-#### File inputs
-Boolean flashBoolean
-File forwardReads
-File reverseReads
-String sampleName
+	#### File inputs
+	Boolean flashBoolean
+	File forwardReads
+	File reverseReads
+	String sampleName
 
-	call fastqcTask.fastqc_task {
-	    input:
-		sampleName = sampleName,
-		forwardReads = forwardReads,
-		reverseReads = reverseReads
-	}
+	# call trimTask.trimmomatic_task {
+	# 	input:
+	# 	forwardReads = forwardReads,
+	# 	reverseReads = reverseReads,
+	# 	outputPrefix = sampleName
+	# }
 
 	call trimgaloreTask.trim_galore_task {
 		input:
@@ -35,13 +36,20 @@ String sampleName
 		reverseReads = reverseReads,
 		outputPrefix = sampleName
 	}
+
+	call fastqcTask.fastqc_task {
+	    input:
+		forwardReads = trim_galore_task.outFwdPaired,
+		reverseReads = trim_galore_task.outRevPaired
+	}
 	
 	## if flash boolean is true merge reads
 	if( flashBoolean ) {
 		call flashTask.flash_task {
-       		input: forwardReads=forwardReads,
-			   reverseReads=reverseReads,
-			   sampleName=sampleName
+       		input: 
+			forwardReads=forwardReads,
+			reverseReads=reverseReads,
+			sampleName=sampleName
 		}
 	}
 
@@ -50,6 +58,8 @@ String sampleName
 		File? flashExtFrags = flash_task.extendedFrags
 		File trimmedFwdReads = trim_galore_task.outFwdPaired 
 		File trimmedRevReads = trim_galore_task.outRevPaired
+		# File? trimmedFwdUnpaired = trimmomatic_task.outFwdUnpaired 
+		# File? trimmedRevUnpaired = trimmomatic_task.outRevUnpaired
 	}
 
 }

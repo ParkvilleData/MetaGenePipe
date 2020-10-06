@@ -57,31 +57,31 @@ Boolean taxonBoolean
 Boolean hostRemovalBoolean
 
    scatter (sample in inputSamples) {
+	   
+	    call qcSubWorkflow.qc_subworkflow {
+		   input:
+		   forwardReads = sample[1],
+		   reverseReads = sample[2],
+		   flashBoolean = flashBoolean,
+		   sampleName = sample[0]
+		}
 
-	call qcSubWorkflow.qc_subworkflow {
-	input:
-		forwardReads = sample[1],
-		reverseReads = sample[2],
-		flashBoolean = flashBoolean,
-		sampleName = sample[0]
-	}
-
-	## host removal before merge if chosen
+		## host removal before merge if chosen
         ## set array for host removal processing
         if (hostRemovalBoolean) {
-                call hostRemovalSubWorkflow.hostremoval_subworkflow {
-                        input:
-                            flashBoolean = flashBoolean,
-                            interleaveShell = interleaveShell,
-                            identityPercentage = identityPercentage,
-                            removalSequence = removalSequence,
-                            coverage = coverage,
-                            outputPrefix = mergedOutput,
-                            hostRemovalFlash = qc_subworkflow.flashExtFrags,
-			    sampleName = sample[0],
-                            hostRemovalFwd = qc_subworkflow.trimmedFwdReads,
-                            hostRemovalRev = qc_subworkflow.trimmedRevReads
-                }
+			call hostRemovalSubWorkflow.hostremoval_subworkflow {
+				input:
+				flashBoolean = flashBoolean,
+				interleaveShell = interleaveShell,
+				identityPercentage = identityPercentage,
+				removalSequence = removalSequence,
+				coverage = coverage,
+				outputPrefix = mergedOutput,
+				hostRemovalFlash = qc_subworkflow.flashExtFrags,
+				sampleName = sample[0],
+				hostRemovalFwd = qc_subworkflow.trimmedFwdReads,
+				hostRemovalRev = qc_subworkflow.trimmedRevReads
+			}
         }
    }
    ## end qc subworkflow
@@ -90,10 +90,10 @@ Boolean hostRemovalBoolean
 
 	## call multiqc after the qc workflow on all fastqc output
 	call multiqcTask.multiqc_task {
-            input:
-                fastqcArray = mQCArray,
-                outputPrefix = multiQCoutput
-        }
+		input:
+		fastqcArray = mQCArray,
+		outputPrefix = multiQCoutput
+	}
 
 	
 	## If merge dataset is set to true
@@ -106,52 +106,51 @@ Boolean hostRemovalBoolean
 			readsToMergeRev = qc_subworkflow.trimmedRevReads,
 			hostRemFwdReads = hostremoval_subworkflow.hostRemovedFwdReads,
 			hostRemRevReads = hostremoval_subworkflow.hostRemovedRevReads
-        	}
+        }
 
 		call assemblySubWorkflow.assembly_subworkflow {
-                        input:
-                                idbaBoolean = idbaBoolean,
-				preset = preset,
-                                metaspadesBoolean = metaspadesBoolean,
-                                megahitBoolean = megahitBoolean,
-                                blastBoolean = blastBoolean,
-                                trimmedReadsFwd = merge_task.trimmedReadsFwd,
-                                trimmedReadsRev = merge_task.trimmedReadsRev,
-                                numOfHits = numOfHits,
-                                bparser = bparser,
-                                database = database
-                }
+			input:
+			idbaBoolean = idbaBoolean,
+			preset = preset,
+			metaspadesBoolean = metaspadesBoolean,
+			megahitBoolean = megahitBoolean,
+			blastBoolean = blastBoolean,
+			trimmedReadsFwd = merge_task.trimmedReadsFwd,
+			trimmedReadsRev = merge_task.trimmedReadsRev,
+			numOfHits = numOfHits,
+			bparser = bparser,
+			database = database
+		}
 
-                call genepredictionSubWorkflow.geneprediction_subworkflow {
-                        input:
-                                assemblyScaffolds = assembly_subworkflow.assemblyScaffolds,
-                                outputType=outputType,
-                                blastMode=blastMode,
-                                maxTargetSeqs=maxTargetSeqs,
-                                outputPrefix = mergedOutput,
-                                mode=mode,
-                                DB=DB
-                }
+		call genepredictionSubWorkflow.geneprediction_subworkflow {
+			input:
+			assemblyScaffolds = assembly_subworkflow.assemblyScaffolds,
+			outputType=outputType,
+			blastMode=blastMode,
+			maxTargetSeqs=maxTargetSeqs,
+			outputPrefix = mergedOutput,
+			mode=mode,
+			DB=DB
+		}
 	} ## end merge dataset
 
 
 	## if merge dataset is set to false: Includes scatter but same tasks
 	if(!mergeBoolean) {
+		## check to see if the input is hostremoved or regular
+		Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
 
-	   ## check to see if the input is hostremoved or regular
-	   Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
-
-	   #Array[File?] fwdReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedFwdReads else qc_subworkflow.trimmedFwdReads
-	   #Array[File?] revReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedRevReads else qc_subworkflow.trimmedRevReads 
-	   #Array[Pair[Int, String]] zipped = zip(xs, ys) 
-	   #Array[Pair[File?, File?]] pairReads =  if defined(mergeArrayLength) then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads) 
-	   Array[Pair[File, File]] pairReads = zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
-	   Array[Pair[File?, File?]] pairReads2 = zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads)
+		#Array[File?] fwdReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedFwdReads else qc_subworkflow.trimmedFwdReads
+		#Array[File?] revReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedRevReads else qc_subworkflow.trimmedRevReads 
+		#Array[Pair[Int, String]] zipped = zip(xs, ys) 
+		#Array[Pair[File?, File?]] pairReads =  if defined(mergeArrayLength) then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads) 
+		Array[Pair[File, File]] pairReads = zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
+		Array[Pair[File?, File?]] pairReads2 = zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads)
 	  
-	   
-	   scatter (reads in pairReads) {
-		call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
-			input:
+
+		scatter (reads in pairReads) {
+			call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
+				input:
 				idbaBoolean = idbaBoolean,
 				preset = preset,
 				metaspadesBoolean = metaspadesBoolean,
@@ -162,32 +161,32 @@ Boolean hostRemovalBoolean
 				numOfHits = numOfHits,
 				bparser = bparser,
 				database = database
-		}
+			}
 
-		call genepredictionSubWorkflow.geneprediction_subworkflow as nonMergedGenePrediction {
-			input:
+			call genepredictionSubWorkflow.geneprediction_subworkflow as nonMergedGenePrediction {
+				input:
 				assemblyScaffolds = nonMergedAssembly.assemblyScaffolds,
 				outputType=outputType,
 				blastMode=blastMode,
 				maxTargetSeqs=maxTargetSeqs,
 				mode=mode,
 				DB=DB
-		}
-	    } ## end scatter
+			}
+		} ## end scatter
 	} ## end don't merge datasets
 
 
 	if (taxonBoolean) {
 		call taxonTask.taxonclass_task{		
 			input:
-				collationArray=geneprediction_subworkflow.collationOutput,
-				xml_parser=xml_parser,
-				orgID_2_name=orgID_2_name,
-				koFormattedFile=koFormattedFile,
-				keggSpeciesFile=keggSpeciesFile,
-				outputFileName=outputFileName,
-				taxRankFile=taxRankFile,
-				fullLineageFile=fullLineageFile			
+			collationArray=geneprediction_subworkflow.collationOutput,
+			xml_parser=xml_parser,
+			orgID_2_name=orgID_2_name,
+			koFormattedFile=koFormattedFile,
+			keggSpeciesFile=keggSpeciesFile,
+			outputFileName=outputFileName,
+			taxRankFile=taxRankFile,
+			fullLineageFile=fullLineageFile			
 		}
 	}
 
@@ -197,6 +196,8 @@ Boolean hostRemovalBoolean
 		File multiqcHTML = multiqc_task.multiqcHTML
 		Array[File] trimmedFwdReadsArray = qc_subworkflow.trimmedFwdReads
         Array[File] trimmedRevReadsArray = qc_subworkflow.trimmedRevReads
+		Array[File]? trimmedFwdUnpairedArray = qc_subworkflow.trimmedFwdUnpaired
+		Array[File]? trimmedRevUnpairedArray = qc_subworkflow.trimmedRevUnpaired
 
 		## Removed for now add later if output required
 		Array[File?] flashArray = qc_subworkflow.flashExtFrags
@@ -254,5 +255,4 @@ Boolean hostRemovalBoolean
 	}
 
 }
-## end of worklfow metaGenPipe
-
+## end of workflow metaGenPipe

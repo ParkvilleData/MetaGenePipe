@@ -4,7 +4,6 @@ task fastqc_task {
         Int FQC_mem
         File forwardReads
 	File reverseReads
-        String sampleName
 
         command {
                 fastqc -t ${FQC_threads} ${forwardReads} ${reverseReads} -O $PWD
