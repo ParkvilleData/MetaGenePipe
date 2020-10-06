@@ -26,21 +26,21 @@ task trim_galore_task {
 		File outRevPaired="${outputPrefix}_val_2.fq.gz"
 	}
 	runtime {
-                runtime_minutes: '${TRMG_minutes}'
-                cpus: '${TRMG_threads}'
-                mem: '${TRMG_mem}'
-        }
+		runtime_minutes: '${TRMG_minutes}'
+        cpus: '${TRMG_threads}'
+        mem: '${TRMG_mem}'
+    }
 	meta {
-                author: "Maria del Mar Quiroga"
-                email: "mquiroga@unimelb.edu.au"
-                description: "<DESCRIPTION>"
-        }
-        parameter_meta {
-                # Inputs:
-                Input1: "itype:<TYPE>: <DESCRIPTION>"
-                # Outputs:
-                Output1: "otype:<TYPE>: <DESCRIPTION>"
-        }
+		author: "Maria del Mar Quiroga"
+        email: "mquiroga@unimelb.edu.au"
+        description: "<DESCRIPTION>"
+    }
+    parameter_meta {
+		# Inputs:
+        Input1: "itype:<TYPE>: <DESCRIPTION>"
+        # Outputs:
+        Output1: "otype:<TYPE>: <DESCRIPTION>"
+    }
 }
 
 

@@ -22,18 +22,17 @@ File forwardReads
 File reverseReads
 String sampleName
 
-	call fastqcTask.fastqc_task {
-	    input:
-		sampleName = sampleName,
-		forwardReads = forwardReads,
-		reverseReads = reverseReads
-	}
-
 	call trimgaloreTask.trim_galore_task {
 		input:
 		forwardReads = forwardReads,
 		reverseReads = reverseReads,
 		outputPrefix = sampleName
+	}
+
+	call fastqcTask.fastqc_task {
+	    input:
+		forwardReads = trim_galore_task.outFwdPaired,
+		reverseReads = trim_galore_task.outRevPaired
 	}
 	
 	## if flash boolean is true merge reads
