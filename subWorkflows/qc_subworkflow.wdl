@@ -1,7 +1,7 @@
 import "./tasks/fastqc.wdl" as fastqcTask
 import "./tasks/flash.wdl" as flashTask  
 import "./tasks/multiqc.wdl" as multiqcTask
-# import "./tasks/trimmomatic.wdl" as trimTask
+import "./tasks/trimmomatic.wdl" as trimTask
 import "./tasks/trim_galore.wdl" as trimgaloreTask
 
 workflow qc_subworkflow {
