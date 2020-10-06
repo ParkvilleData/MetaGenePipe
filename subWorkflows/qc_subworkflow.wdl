@@ -1,13 +1,12 @@
 import "./tasks/fastqc.wdl" as fastqcTask
 import "./tasks/flash.wdl" as flashTask  
 import "./tasks/multiqc.wdl" as multiqcTask
-import "./tasks/trimmomatic.wdl" as trimTask
-#import "./tasks/trim_galore.wdl" as trimgaloreTask
+import "./tasks/trim_galore.wdl" as trimgaloreTask
 
 workflow qc_subworkflow {
     meta {
-        author: "Bobbie Shaban"
-        email: "bshaban@unimelb.edu.au"
+        author: "Bobbie Shaban, Mar Quiroga"
+        email: "bshaban@unimelb.edu.au, mquiroga@unimelb.edu.au"
         description: "<DESCRIPTION>"
     }
     parameter_meta {
