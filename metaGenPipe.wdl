@@ -56,6 +56,7 @@ workflow metaGenPipe {
 	Boolean taxonBoolean
 	Boolean hostRemovalBoolean
 	Boolean trimmomaticBoolean
+	Boolean trimGaloreBoolean
 	
 	scatter (sample in inputSamples) {
 		
@@ -65,7 +66,8 @@ workflow metaGenPipe {
 			reverseReads = sample[2],
 			flashBoolean = flashBoolean,
 			sampleName = sample[0],
-			trimmomaticBoolean = trimmomaticBoolean
+			trimmomaticBoolean = trimmomaticBoolean,
+			trimGaloreBoolean = trimGaloreBoolean
 		}
 
 		## host removal before merge if chosen
