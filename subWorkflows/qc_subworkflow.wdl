@@ -45,8 +45,8 @@ workflow qc_subworkflow {
 
 	call fastqcTask.fastqc_task {
 	    input:
-		forwardReads = select_first(trim_galore_task.outFwdPaired, trimmomatic_task.outFwdPaired),
-		reverseReads = select_first(trim_galore_task.outRevPaired, trimmomatic_task.outRevPaired)
+		forwardReads = select_first([trim_galore_task.outFwdPaired, trimmomatic_task.outFwdPaired]),
+		reverseReads = select_first([trim_galore_task.outRevPaired, trimmomatic_task.outRevPaired])
 	}
 	
 	## if flash boolean is true merge reads
@@ -62,8 +62,8 @@ workflow qc_subworkflow {
 	output {
 		Array[File] fastqcArray = fastqc_task.fastqcArray
 		File? flashExtFrags = flash_task.extendedFrags
-		File trimmedFwdReads = select_first(trim_galore_task.outFwdPaired, trimmomatic_task.outFwdPaired)
-		File trimmedRevReads = select_first(trim_galore_task.outRevPaired, trimmomatic_task.outRevPaired)
+		File trimmedFwdReads = select_first([trim_galore_task.outFwdPaired, trimmomatic_task.outFwdPaired])
+		File trimmedRevReads = select_first([trim_galore_task.outRevPaired, trimmomatic_task.outRevPaired])
 		File? trimmedFwdUnpaired = trimmomatic_task.outFwdUnpaired 
 		File? trimmedRevUnpaired = trimmomatic_task.outRevUnpaired
 	}
