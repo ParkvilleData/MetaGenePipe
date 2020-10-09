@@ -77,7 +77,7 @@
   "metaGenPipe.qc_subworkflow.trimmomatic_task.TRIM_mem": 20000,
 
   "##_COMMENT_3#": "trim_galore",
-  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_threads": 6,
+  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_threads": 4,
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 15,
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_mem": 20000,
 
