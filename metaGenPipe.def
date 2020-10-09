@@ -60,7 +60,7 @@ From: ubuntu:18.04
     && tar -xzf deconseq-standalone-0.4.3.tar.gz \
     && rsync -av ./deconseq-standalone-0.4.3/* /local_build/deconseq/ 
 
-    #Instll prodigal 
+    #Install prodigal 
     wget https://github.com/hyattpd/Prodigal/archive/v2.6.1.tar.gz \
     && tar -xzf v2.6.1.tar.gz \
     && cd Prodigal-2.6.1 \
