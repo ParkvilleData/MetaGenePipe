@@ -11,8 +11,9 @@
   "metaGenPipe.metaspadesBoolean": false,
   "metaGenPipe.idbaBoolean": false,
   "metaGenPipe.megahitBoolean": true,
+  "metaGenPipe.readalignBoolean": true,
 
-  "##_GLBOAL_VARS#": "files",
+  "##_GLOBAL_VARS#": "files",
   "metaGenPipe.inputSamplesFile": "./i.txt",
   "metaGenPipe.bparser": "./scripts/bparser.pl",
   "metaGenPipe.xml_parser": "./scripts/xml_parser.function.pl",
@@ -176,7 +177,12 @@
   "metaGenPipe.nonMergedGenePrediction.collation_task.COL_minutes": 10000,
   "metaGenPipe.nonMergedGenePrediction.collation_task.COL_mem": 60000,
 
-  "##_COMMENT_23#": "XML parsing",
+  "##_COMMENT_23#": "Read alignment task ",
+  "metaGenPipe.readalignment_task.BRA_threads": 2,
+  "metaGenPipe.readalignment_task.BRA_minutes": 10000,
+  "metaGenPipe.readalignment_task.BRA_mem": 6000,
+
+  "##_COMMENT_24#": "XML parsing",
   "metaGenPipe.taxonclass_task.XMLP_threads": 2,
   "metaGenPipe.taxonclass_task.XMLP_minutes": 10000,
   "metaGenPipe.taxonclass_task.XMLP_mem": 60000
