@@ -15,6 +15,7 @@ import "./subWorkflows/geneprediction_subworkflow.wdl" as genepredictionSubWorkf
 ## import tasks
 import "./tasks/multiqc.wdl" as multiqcTask
 import "./tasks/merge.wdl" as mergeTask
+import "./tasks/readalignment.wdl" as readalignTask
 import "./tasks/taxon_class.wdl" as taxonTask
 
 workflow metaGenPipe {
@@ -57,6 +58,7 @@ workflow metaGenPipe {
 	Boolean hostRemovalBoolean
 	Boolean trimmomaticBoolean
 	Boolean trimGaloreBoolean
+  	Boolean readalignBoolean
 	
 	scatter (sample in inputSamples) {
 		
@@ -138,20 +140,13 @@ workflow metaGenPipe {
 		}
 	} ## end merge dataset
 
+	## check to see if the input is hostremoved or regular                                                            
+        Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
+
+        Array[Pair[File?, File?]] pairReads = if mergeArrayLength > 0 then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
 
 	## if merge dataset is set to false: Includes scatter but same tasks
 	if(!mergeBoolean) {
-		## check to see if the input is hostremoved or regular
-		Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
-
-		#Array[File?] fwdReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedFwdReads else qc_subworkflow.trimmedFwdReads
-		#Array[File?] revReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedRevReads else qc_subworkflow.trimmedRevReads 
-		#Array[Pair[Int, String]] zipped = zip(xs, ys) 
-		#Array[Pair[File?, File?]] pairReads =  if defined(mergeArrayLength) then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads) 
-		Array[Pair[File, File]] pairReads = zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
-		Array[Pair[File?, File?]] pairReads2 = zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads)
-	  
-
 		scatter (reads in pairReads) {
 			call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
 				input:
@@ -179,6 +174,21 @@ workflow metaGenPipe {
 		} ## end scatter
 	} ## end don't merge datasets
 
+	if (readalignBoolean) {
+
+          if (mergeBoolean) {
+            scatter (reads in pairReads) {
+	            call readalignTask.readalignment_task {
+                        input:
+		      		finalContigs = assembly_subworkflow.assemblyScaffolds,
+                                forwardReads = reads.left,
+		      		reverseReads = reads.right,
+                                sampleName = reads.left
+             	    }
+            }
+          }
+
+        }
 
 	if (taxonBoolean) {
 		call taxonTask.taxonclass_task{		
@@ -234,6 +244,11 @@ workflow metaGenPipe {
 		Array[File]? nucleotideGenesOutputArray = nonMergedGenePrediction.nucleotideGenesOutput
 		Array[File]? potentialGenesAlignmentOutputArray = nonMergedGenePrediction.potentialGenesAlignmentOutput
 		Array[File]? genesAlignmentOutputArray = nonMergedGenePrediction.genesAlignmentOutput
+
+	  	## Read alignment output                                                                                  
+                Array[File?]? sampleSamOutput = readalignment_task.sampleSamOutput
+                Array[File?]? sampleSortedBam = readalignment_task.sampleSortedBam
+	  	Array[File?]? sampleFlagstatText = readalignment_task.sampleFlagstatText
 
 		## Taxonomy output
 		File? functionalTable = taxonclass_task.functionalTable

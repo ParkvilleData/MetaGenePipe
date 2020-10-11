@@ -7,7 +7,7 @@ task prodigal_task {
 	String? sampleName = if defined(outputPrefix) then outputPrefix else basename(assemblyScaffolds)
 
         command {
-		prodigal -i ${assemblyScaffolds} -o ${sampleName}.prodgial.genes.fa -a ${sampleName}.prodigal.proteins.fa -d ${sampleName}.prodigal.nucl.genes.fa -s ${sampleName}.prodigal.potential_genes.fa
+		prodigal -i ${assemblyScaffolds} -o ${sampleName}.prodigal.genes.fa -a ${sampleName}.prodigal.proteins.fa -d ${sampleName}.prodigal.nucl.genes.fa -s ${sampleName}.prodigal.potential_genes.fa
 
         }
         runtime {
@@ -16,7 +16,7 @@ task prodigal_task {
                 mem: '${GEP_mem}'
         }
         output {
-		File genesAlignmentOutput = "${sampleName}.prodgial.genes.fa"
+		File genesAlignmentOutput = "${sampleName}.prodigal.genes.fa"
 		File proteinAlignmentOutput = "${sampleName}.prodigal.proteins.fa"
 		File nucleotideGenesOutput = "${sampleName}.prodigal.nucl.genes.fa"
 		File potentialGenesAlignmentOutput = "${sampleName}.prodigal.potential_genes.fa"
