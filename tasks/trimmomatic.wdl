@@ -8,8 +8,8 @@ task trimmomatic_task {
 	String Phred
 	String EndType
 	String outputPrefix
-	String truseq_pe_adapter
-	String? trueseq_se_adapter
+	File truseq_pe_adapter
+	File? trueseq_se_adapter
 	String trimmomatic
 
 	### Note add leading and trailing as input params
