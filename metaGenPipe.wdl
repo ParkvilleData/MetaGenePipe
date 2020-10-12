@@ -141,14 +141,9 @@ Boolean hostRemovalBoolean
 	   ## check to see if the input is hostremoved or regular
 	   Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
 
-	   #Array[File?] fwdReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedFwdReads else qc_subworkflow.trimmedFwdReads
-	   #Array[File?] revReads = if defined(mergeArrayLength) then hostremoval_subworkflow.hostRemovedRevReads else qc_subworkflow.trimmedRevReads 
-	   #Array[Pair[Int, String]] zipped = zip(xs, ys) 
-	   #Array[Pair[File?, File?]] pairReads =  if defined(mergeArrayLength) then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads) 
 	   Array[Pair[File, File]] pairReads = zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
-	   Array[Pair[File?, File?]] pairReads2 = zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads)
+	   Array[Pair[File?, File?]] pairHostRemReads = zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads)
 	  
-	   
 	   scatter (reads in pairReads) {
 		call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
 			input:
