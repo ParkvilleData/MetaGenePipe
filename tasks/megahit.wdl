@@ -1,9 +1,9 @@
 task megahit_task {
 	File trimmedReadsFwd
 	File trimmedReadsRev
-        Int MEH_threads
-        Int MEH_minutes
-        Int MEH_mem
+    Int MEH_threads
+    Int MEH_minutes
+    Int MEH_mem
 	String? outputPrefix
 	String sample = basename(trimmedReadsFwd, ".gz")
 	String sampleFastq = basename(sample, ".fq")
@@ -12,8 +12,8 @@ task megahit_task {
 	#String reverseRead = basename(trimmedReadsRev)
 
         command {
-		megahit -t ${MEH_threads} --presets ${preset} -1 ${trimmedReadsFwd} -2 ${trimmedReadsRev}  	
-		cp ./megahit_out/final.contigs.fa ${sampleName}.megahit.final.contigs.fa
+		    megahit -t ${MEH_threads} --presets ${preset} -m ${MEH_mem} -1 ${trimmedReadsFwd} -2 ${trimmedReadsRev}  	
+		    cp ./megahit_out/final.contigs.fa ${sampleName}.megahit.final.contigs.fa
         }
         runtime {
                 runtime_minutes: '${MEH_minutes}'
@@ -24,10 +24,8 @@ task megahit_task {
                File assemblyOutput = "${sampleName}.megahit.final.contigs.fa"
         }
     meta {
-        author: "Mar Quiroga"
-        email: "mar.quiroga@unimelb.edu.au"
-	author: "Bobbie Shaban"
-        email: "bshaban@unimelb.edu.au"
+        author: "Bobbie Shaban, Mar Quiroga"
+        email: "bshaban@unimelb.edu.au, mar.quiroga@unimelb.edu.au"
         description: "<DESCRIPTION>"
     }
     parameter_meta {
