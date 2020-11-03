@@ -1,18 +1,15 @@
 task readalignment_task {
-     	File finalContigs
-	File forwardReads
-	File reverseReads
-	Int BRA_threads
+        Map[String, File] Inputmap
+        Int BRA_threads
         Int BRA_minutes
         Int BRA_mem
-	String sampleName
 
-  	String sampleTempName = basename(sampleName)
-        String sampleOutput = sub(sampleTempName,"_R(?!.*_R).*","")
+  	String sampleTempName = basename(Inputmap["left"])
+        String sampleOutput = sub(sampleTempName,"_val(?!.*_val).*","")
 
         command {
-		bowtie2-build ${finalContigs} bowtieContigIndex;
-		bowtie2 -x bowtieContigIndex -1 ${forwardReads} -2 ${reverseReads} -S ${sampleOutput}.sam -p ${BRA_threads};
+		bowtie2-build ${Inputmap["index"]} bowtieContigIndex;
+		bowtie2 -x bowtieContigIndex -1 ${Inputmap["left"]} -2 ${Inputmap["right"]} -S ${sampleOutput}.sam -p ${BRA_threads};
 
 		samtools view -bS ${sampleOutput}.sam | samtools sort > ${sampleOutput}.sorted.bam;
 		samtools flagstat ${sampleOutput}.sorted.bam > ${sampleOutput}.flagstat.txt
@@ -35,10 +32,9 @@ task readalignment_task {
         description: "<DESCRIPTION>"
     }
     parameter_meta {
-        # Inputs:
-        forwardReads: "itype:fastq: Forward reads in read pair"
-        reverseReads: "itype:fastq: Reverse reads in read pair"
-        # Outputs:
-        fastqcArray: "otype:glob: All the zip files output"
+        # Inputs:                                                              
+        Input1: "itype:<TYPE>: <DESCRIPTION>"
+        # Outputs:                                                             
+        Output1: "otype:<TYPE>: <DESCRIPTION>"
     }
 }

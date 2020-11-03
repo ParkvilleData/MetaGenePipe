@@ -15,6 +15,7 @@ import "./subWorkflows/geneprediction_subworkflow.wdl" as genepredictionSubWorkf
 ## import tasks
 import "./tasks/multiqc.wdl" as multiqcTask
 import "./tasks/merge.wdl" as mergeTask
+import "./tasks/matching_contigs_reads.wdl" as matchingTask
 import "./tasks/readalignment.wdl" as readalignTask
 import "./tasks/taxon_class.wdl" as taxonTask
 
@@ -174,21 +175,31 @@ workflow metaGenPipe {
 		} ## end scatter
 	} ## end don't merge datasets
 
-	if (readalignBoolean) {
 
-          if (mergeBoolean) {
-            scatter (reads in pairReads) {
-	            call readalignTask.readalignment_task {
-                        input:
-		      		finalContigs = assembly_subworkflow.assemblyScaffolds,
-                                forwardReads = reads.left,
-		      		reverseReads = reads.right,
-                                sampleName = reads.left
-             	    }
-            }
+        ## matching of contigs and reads before read alignment                 
+        scatter (reads in pairReads) {
+          call matchingTask.matching_contigs_reads_task {
+                input:
+                merged_Contigs = assembly_subworkflow.assemblyScaffolds,
+                non_merged_Contigs = nonMergedAssembly.assemblyScaffolds,
+                forwardReads = reads.left,
+                reverseReads = reads.right,
+                merge_opt = mergeBoolean
           }
+        }
+
+        ## read alignment task                                                 
+        if (readalignBoolean) {
+
+             scatter (matchmap in matching_contigs_reads_task.matchedclr) {
+                 call readalignTask.readalignment_task {
+                       input:
+                       Inputmap = matchmap
+                 }
+             }
 
         }
+
 
 	if (taxonBoolean) {
 		call taxonTask.taxonclass_task{		
