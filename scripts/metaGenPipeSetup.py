@@ -7,6 +7,26 @@ import sys
 import os
 import json
 
+from mfclient import mfclient
+
+class EnvDefault(argparse.Action):
+    """
+    Sets a default value for argparse from an environment variable.
+
+    https://stackoverflow.com/a/10551190
+    """
+    def __init__(self, envvar, required=True, default=None, **kwargs):
+        if not default and envvar:
+            if envvar in os.environ:
+                default = os.environ[envvar]
+        if required and default:
+            required = False
+        super(EnvDefault, self).__init__(default=default, required=required, 
+                                         **kwargs)
+
+    def __call__(self, parser, namespace, values, option_string=None):
+        setattr(namespace, self.dest, values)
+
 
 def str2bool(v):
     """ https://stackoverflow.com/a/43357954 """
@@ -31,10 +51,68 @@ parser.add_argument('--inputs', type=str, help='The parent location where the sc
 parser.add_argument('--outputs', type=str, help='The parent location where the input files should tell metaGenPipe to send the output files. Default: ./outputs', default="outputs" )
 parser.add_argument('--scripts', type=str, help='The location of the metaGenPipe scripts. Default: ./scripts', default="./scripts")
 parser.add_argument('--mf-config', type=str, help='The location of your Mediaflux config file. Default: ~/.Arcitecta/mflux.cfg', default="~/.Arcitecta/mflux.cfg")
-parser.add_argument('--mf-auth', type=str, help="The Mediaflux authentication details, written as 'domain,username,password'. Optional.", default="")
+parser.add_argument('--mf-user', type=str, help="The user for your Mediaflux account. Optional.", default="")
+parser.add_argument('--mf-token', type=str, help="The authentication token for your Mediaflux account. This requires a token with at least a 'participant-a' project role and the IP address you are using needs to be allowed. Optional.", default="")
+parser.add_argument(
+    '--mma-token', 
+    type=str, 
+    action=EnvDefault, 
+    envvar='MMA_TOKEN', 
+    help="The authentication token for logging in to the Melbourne Metagenomic Archive. Can be set with the MMA_TOKEN environment variable.", 
+    default="",
+)
 parser.add_argument("--download", type=str2bool, nargs='?', const=True, default=True, help="Flag to download the files from mediaflux. Default: True")
 parser.add_argument("--options-json", type=str, help="The location of the template options JSON file to use. Default: ./metaGenPipe.options.json", default="./metaGenPipe.options.json")
 parser.add_argument("--input-json", type=str, help="The location of the template input JSON file to use. Default: ./metaGenPipe.json", default="./metaGenPipe.json")
+
+def get_asset_metadata(connection, asset_id):
+    """ Gets asset metadata.
+
+    :param connection: Mediaflux server connection object
+    :type connection: mfclient.MFConnection
+    :param asset_id: Asset id
+    :type asset_id: int or str
+    :return: asset metadata XmlElement object
+    :rtype: mfclient.XmlElement
+    """
+    # compose service arguments
+    w = mfclient.XmlStringWriter('args')
+    w.add('id', asset_id)
+
+    # run asset.get service
+    result = connection.execute('asset.get', w.doc_text())
+
+    asset_metadata = result.element('asset')
+    return asset_metadata
+
+
+
+def get_asset_content(connection, asset_id, output_file_path):
+    """ Gets asset metadata.
+
+    :param connection: Mediaflux server connection object
+    :type connection: mfclient.MFConnection
+    :param asset_id: Asset id
+    :type asset_id: int or str
+    :return:
+
+    See https://gitlab.unimelb.edu.au/resplat-mediaflux/python-mfclient/blob/master/examples/manage_asset_with_content.py
+    """
+    # compose service arguments
+    w = mfclient.XmlStringWriter('args')
+    w.add('id', asset_id)
+
+    output = mfclient.MFOutput(path=output_file_path)
+    #print(output, 'output')
+
+    # run asset.get service
+    result = connection.execute('asset.get', w.doc_text(), outputs=[output])
+    #print(result, 'result')
+
+
+    asset_metadata = result.element('asset')
+    return asset_metadata
+
 
 
 def check_path_for_file( file_path ):
@@ -79,14 +157,52 @@ def get_settings( template, samples_filepath, scripts_path ):
 
 args = parser.parse_args()
 
-token = "65781117cf4a4dbfebc172a8e6c8c18bee1c98aa"
+if args.mma_token == "":
+    print("Please give an authentication token for the Melboune Metagenomic Archive either through a command line argument or the MMA_TOKEN environment variable.")
+    sys.exit(1)
+
+
+######################################################
+#### Connect to Mediaflux
+######################################################
+
+# Read config file
+mf_config = dict(user=None, password=None, token=None)
+
+mf_config_path = Path(args.mf_config).expanduser()
+if mf_config_path.exists():
+    with open( mf_config_path, 'r' ) as f:
+        for line in f:
+            components = line.split("=")
+            if len(components) == 2:
+                mf_config[components[0]] = components[1].strip()
+else:
+    print("Cannot find mediaflux config file:", mf_config_path)
+
+# Read command line arguments
+if len( args.mf_token ) > 0:
+    mf_config['token'] = args.mf_token
+
+if len( args.mf_user ) > 0:
+    mf_config['user'] = args.mf_user
+
+# Prompt for values if necessary
+if not mf_config['token']:
+    if not mf_config['user']:
+        mf_config['user'] = input("Enter your Mediaflux user: ") 
+
+    if not mf_config['password']:
+        import getpass
+        mf_config['password'] = getpass.getpass("Enter your Mediaflux password: ")
+
 
 ######################################################
 #### Get info for study from website API
 #### https://mma.robturnbull.com/mma/api/study/
 ######################################################
+
 study_accession = args.study_accession
-study = requests.get(f"https://mma.robturnbull.com/mma/api/study/{study_accession}/" , headers={"Authorization": f"Token {token}" }).json()
+study = requests.get(f"https://mma.robturnbull.com/mma/api/study/{study_accession}/" , headers={"Authorization": f"Token {args.mma_token}" }).json()
 batch_set = study.get('batch_set')
 
 if args.batch_count:
@@ -114,12 +230,11 @@ scripts_dir = Path(args.scripts)
 outputs_dir = Path(args.outputs) / f"{study_accession}_{args.batch}_outputs"
 outputs_dir.mkdir( parents=True, exist_ok=True )
 
-mf_auth_options = f" --mf.auth '{args.mf_auth}' " if len(args.mf_auth) else ""
-
 
 ######################################################
 ### Write the Input File and download the read files
 ######################################################
+
 with open(samples_filepath, "w") as samples_file:
     for run in batch:
         # For now the workflow only uses paired-end reads, so exclude everything else
@@ -128,17 +243,33 @@ with open(samples_filepath, "w") as samples_file:
 
         if args.download:
             for file in run['files']:
-                # This would be better to use the python mediaflux client: https://gitlab.unimelb.edu.au/resplat-mediaflux/python-mfclient
-                os.system("unimelb-mf-download --mf.config %s %s --csum-check --out %s /projects/proj-6300_metagenomics_repository_verbruggenmdap-1128.4.294/%s" % (
-                    args.mf_config,
-                    mf_auth_options,
-                    inputs_dir,
-                    file['mf_path_str'],
-                ))
+                asset_id = "path=/projects/proj-6300_metagenomics_repository_verbruggenmdap-1128.4.294/%s" % file['mf_path_str'] 
+                local_path = inputs_dir/Path(file['mf_path_str']).name
+                print(f"Downloading {asset_id} to {local_path}")
+                try:
+                    with mfclient.MFConnection(
+                        host='mediaflux.researchsoftware.unimelb.edu.au', 
+                        port=443, 
+                        transport='https', 
+                        domain='unimelb',
+                        user=mf_config['user'], 
+                        password=mf_config['password'],
+                        token=mf_config['token'],
+                    ) as cxn:
+                        # print(type(get_asset_metadata(cxn, asset_id)))
+                        # print('token', cxn.token)
+                        get_asset_content( cxn, asset_id, local_path)
+                except mfclient.ExHttpResponse:
+                    print("Cannot access Mediaflux. Please check your Mediaflux settings.")
+                    print("NB. If you use a Mediaflux token, it needs to have at least a 'participant-a' project role and the IP address you are using needs to be allowed.")
+                    sys.exit(1)
+
         
         filenames = [str((inputs_dir/Path(file['mf_path_str']).name).resolve()) for file in run['files']]
         filenames_str = "\t".join(filenames)
         samples_file.write(f"{run['accession']}\t{filenames_str}\n")
+
+
 print("Created input samples text file with location of run files:", samples_filepath)
 
 
@@ -164,3 +295,5 @@ print("java -DLOG_MODE=pretty -Dconfig.file=./metaGenPipe.config -jar cromwell-5
     check_path_for_file(settings_filepath),
     check_path_for_file(options_filepath),
 ))
+
+
