@@ -13,18 +13,17 @@ task readalignment_task {
 
 		samtools view -bS ${sampleOutput}.sam | samtools sort > ${sampleOutput}.sorted.bam;
 		samtools flagstat ${sampleOutput}.sorted.bam > ${sampleOutput}.flagstat.txt
-
-        }
-        runtime {
-                runtime_minutes: '${BRA_minutes}'
-                cpus: '${BRA_threads}'
-                mem: '${BRA_mem}'
-        }
-        output {
+    }
+    runtime {
+        runtime_minutes: '${BRA_minutes}'
+        cpus: '${BRA_threads}'
+        mem: '${BRA_mem}'
+    }
+    output {
 		File sampleSamOutput = "${sampleOutput}.sam"
 		File sampleSortedBam = "${sampleOutput}.sorted.bam"
 		File sampleFlagstatText = "${sampleOutput}.flagstat.txt"
-        }        
+    }        
 
     meta {
         author: "Edoardo Tescari"

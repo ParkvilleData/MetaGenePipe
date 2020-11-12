@@ -199,6 +199,7 @@ workflow metaGenPipe {
              }
 
         }
+    }
 
 
 	if (taxonBoolean) {
@@ -257,8 +258,8 @@ workflow metaGenPipe {
 		Array[File]? genesAlignmentOutputArray = nonMergedGenePrediction.genesAlignmentOutput
 
 	  	## Read alignment output                                                                                  
-                Array[File?]? sampleSamOutput = readalignment_task.sampleSamOutput
-                Array[File?]? sampleSortedBam = readalignment_task.sampleSortedBam
+        Array[File?]? sampleSamOutput = readalignment_task.sampleSamOutput
+        Array[File?]? sampleSortedBam = readalignment_task.sampleSortedBam
 	  	Array[File?]? sampleFlagstatText = readalignment_task.sampleFlagstatText
 
 		## Taxonomy output
