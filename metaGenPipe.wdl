@@ -142,9 +142,9 @@ workflow metaGenPipe {
 	} ## end merge dataset
 
 	## check to see if the input is hostremoved or regular                                                            
-        Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
+    Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
 
-        Array[Pair[File?, File?]] pairReads = if mergeArrayLength > 0 then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
+    Array[Pair[File?, File?]] pairReads = if mergeArrayLength > 0 then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
 
 	## if merge dataset is set to false: Includes scatter but same tasks
 	if(!mergeBoolean) {
@@ -176,31 +176,27 @@ workflow metaGenPipe {
 	} ## end don't merge datasets
 
 
-        ## matching of contigs and reads before read alignment                 
-        scatter (reads in pairReads) {
-          call matchingTask.matching_contigs_reads_task {
-                input:
-                merged_Contigs = assembly_subworkflow.assemblyScaffolds,
-                non_merged_Contigs = nonMergedAssembly.assemblyScaffolds,
-                forwardReads = reads.left,
-                reverseReads = reads.right,
-                merge_opt = mergeBoolean
-          }
-        }
-
-        ## read alignment task                                                 
-        if (readalignBoolean) {
-
-             scatter (matchmap in matching_contigs_reads_task.matchedclr) {
-                 call readalignTask.readalignment_task {
-                       input:
-                       Inputmap = matchmap
-                 }
-             }
-
+    ## matching of contigs and reads before read alignment                 
+    scatter (reads in pairReads) {
+        call matchingTask.matching_contigs_reads_task {
+            input:
+            merged_Contigs = assembly_subworkflow.assemblyScaffolds,
+            non_merged_Contigs = nonMergedAssembly.assemblyScaffolds,
+            forwardReads = reads.left,
+            reverseReads = reads.right,
+            merge_opt = mergeBoolean
         }
     }
 
+    ## read alignment task                                                 
+    if (readalignBoolean) {
+        scatter (matchmap in matching_contigs_reads_task.matchedclr) {
+            call readalignTask.readalignment_task {
+                input:
+                Inputmap = matchmap
+            }
+        }
+    }
 
 	if (taxonBoolean) {
 		call taxonTask.taxonclass_task{		
@@ -270,7 +266,6 @@ workflow metaGenPipe {
 		File? level3Brite = taxonclass_task.level3Brite
 		File? mergedXml = taxonclass_task.mergedXml
 		File? OTU = taxonclass_task.OTU
-
 	}
 
 	meta {
