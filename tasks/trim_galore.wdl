@@ -16,13 +16,15 @@ task trim_galore_task {
 	command {
 		echo "Trimming sample .";
 
-		trim_galore --cores ${TRMG_threads} --phred${Phred} --length ${minLength} --quality ${quality} --basename ${outputPrefix} --clip_R1 ${clip_r5} --clip_R2 ${clip_r5} --three_prime_clip_R1 ${clip_r3} --three_prime_clip_R2 ${clip_r3} --paired ${forwardReads} ${reverseReads}
+		trim_galore --cores ${TRMG_threads} --phred${Phred} --length ${minLength} --quality ${quality} --basename ${outputPrefix} --clip_R1 ${clip_r5} --clip_R2 ${clip_r5} --three_prime_clip_R1 ${clip_r3} --three_prime_clip_R2 ${clip_r3} --paired ${forwardReads} ${reverseReads} --gzip
 
-		echo ".. Done\n";
+		cp ${outputPrefix}_val_1.fq.gz ${outputPrefix}.TG_R1.fq.gz
+		cp ${outputPrefix}_val_2.fq.gz ${outputPrefix}.TG_R2.fq.gz
+
 	}
 	output {
-		File outFwdPaired="${outputPrefix}_val_1.fq.gz"
-		File outRevPaired="${outputPrefix}_val_2.fq.gz"
+		File outFwdPaired="${outputPrefix}.TG_R1.fq.gz"
+		File outRevPaired="${outputPrefix}.TG_R2.fq.gz"
 	}
 	runtime {
 		runtime_minutes: '${TRMG_minutes}'

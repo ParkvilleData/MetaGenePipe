@@ -23,6 +23,7 @@ Boolean metaspadesBoolean
 Boolean blastBoolean
 File trimmedReadsFwd
 File trimmedReadsRev
+File megaGraph
 Int numOfHits
 String? outputPrefix
 String bparser
@@ -43,6 +44,7 @@ String preset
 	input: 
 	    outputPrefix=outputPrefix,
 	    preset=preset,
+	    megaGraph = megaGraph,
             trimmedReadsFwd = trimmedReadsFwd,
             trimmedReadsRev = trimmedReadsRev
 	}
@@ -72,5 +74,7 @@ String preset
 	File? assemblyScaffolds = megahit_task.assemblyOutput
 	File? parsedBlast = blast_task.parsedOutput
 	File? blastOutput = blast_task.blastOutput
+	File? assemblyGraph = megahit_task.assemblyGraph
+	Array[File]? assemblyFastaArray = megahit_task.assemblyFastaArray
     }
 }

@@ -4,10 +4,11 @@ task prodigal_task {
         Int GEP_mem
         File assemblyScaffolds
 	String? outputPrefix
-	String? sampleName = if defined(outputPrefix) then outputPrefix else basename(assemblyScaffolds)
+	String? sampleName = if defined(outputPrefix) then outputPrefix else basename(assemblyScaffolds, ".contigs.fa")
+	String? metaOption
 
         command {
-		prodigal -i ${assemblyScaffolds} -o ${sampleName}.prodigal.genes.fa -a ${sampleName}.prodigal.proteins.fa -d ${sampleName}.prodigal.nucl.genes.fa -s ${sampleName}.prodigal.potential_genes.fa
+		prodigal ${metaOption} -i ${assemblyScaffolds} -o ${sampleName}.prodigal.genes.fa -a ${sampleName}.prodigal.proteins.fa -d ${sampleName}.prodigal.nucl.genes.fa -s ${sampleName}.prodigal.potential_genes.fa
 
         }
         runtime {

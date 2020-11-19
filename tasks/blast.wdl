@@ -7,12 +7,12 @@ task blast_task {
 	Int numOfHits
 	String database
 	String? outputPrefix
-        String? sampleName = if defined(outputPrefix) then outputPrefix else basename(inputScaffolds)
+        String? sampleName = if defined(outputPrefix) then outputPrefix else basename(inputScaffolds, ".contigs.fa")
 
         command {
 		#remove quotes from xml for processing
-		blastn -db ${database} -num_threads ${BLST_threads} -query ${inputScaffolds} -out ${sampleName}.scaffold.out -num_descriptions ${numOfHits} -num_alignments 5
-		perl ${bparser} ${sampleName}.scaffold.out ${numOfHits} ${sampleName}.scaffold.parsed  
+		blastn -db ${database} -num_threads ${BLST_threads} -query ${inputScaffolds} -out ${sampleName}.blast.out -num_descriptions ${numOfHits} -num_alignments 5
+		perl ${bparser} ${sampleName}.blast.out ${numOfHits} ${sampleName}.blast.parsed  
         }
         runtime {
                 runtime_minutes: '${BLST_minutes}'
@@ -20,8 +20,8 @@ task blast_task {
                 mem: '${BLST_mem}'
         }
         output {
-		File blastOutput = "${sampleName}.scaffold.out"
-		File? parsedOutput = "${sampleName}.scaffold.parsed"	
+		File blastOutput = "${sampleName}.blast.out"
+		File? parsedOutput = "${sampleName}.blast.parsed"	
         }        
 
     meta {

@@ -15,11 +15,11 @@ task merge_task {
 
 		if [[ ${hostMergeArray} > 0 ]]
 		then
-			cat ${sep = ' ' hostRemFwdReads} > ${outputPrefix}.combined.trimmed_R1.fastq
-                        cat ${sep = ' ' hostRemRevReads} > ${outputPrefix}.combined.trimmed_R2.fastq
+			cat ${sep = ' ' hostRemFwdReads} > ${outputPrefix}.merged_R1.fastq
+                        cat ${sep = ' ' hostRemRevReads} > ${outputPrefix}.merged_R2.fastq
 		else
-                        cat ${sep = ' ' readsToMergeFwd} > ${outputPrefix}.combined.trimmed_R1.fastq
-                        cat ${sep = ' ' readsToMergeRev} > ${outputPrefix}.combined.trimmed_R2.fastq
+                        cat ${sep = ' ' readsToMergeFwd} > ${outputPrefix}.merged_R1.fastq
+                        cat ${sep = ' ' readsToMergeRev} > ${outputPrefix}.merged_R2.fastq
 		fi
         }
         runtime {
@@ -28,10 +28,10 @@ task merge_task {
                 mem: '${MGS_mem}'
         }
         output {
-		File? flashReadsFwdComb = "${outputPrefix}.combined.flash_R1.fastq"
-		File? flashReadsRevComb = "${outputPrefix}.combined.flash_R2.fastq"
-		File trimmedReadsFwd = "${outputPrefix}.combined.trimmed_R1.fastq"
-		File trimmedReadsRev = "${outputPrefix}.combined.trimmed_R2.fastq"
+		File? flashReadsFwdComb = "${outputPrefix}.flash_R1.fastq"
+		File? flashReadsRevComb = "${outputPrefix}.flash_R2.fastq"
+		File trimmedReadsFwd = "${outputPrefix}.merged_R1.fastq"
+		File trimmedReadsRev = "${outputPrefix}.merged_R2.fastq"
         }        
     meta {
         author: "Bobbie Shaban"

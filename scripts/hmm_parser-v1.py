@@ -39,6 +39,7 @@ def main():
 	parser.add_argument('brite', type=argparse.FileType('r'), help="The brite hierachy level file.")
 	parser.add_argument('hmm_tbls', nargs='+', help='A list of tables from HMMER 3.')
 	parser.add_argument('--consistent-pathways', action='store_true', help='Outputs all the pathways consistently across each output file even if they do not exist at that level.')
+	parser.add_argument('--outprefix', help="The samplename prefix")
 
 	args = parser.parse_args()
 
@@ -69,7 +70,7 @@ def main():
 
 	# Output the counts into text files
 	for level in levels:
-		output_filepath = f"{level}.counts.tsv"
+		output_filepath = f"{level}.{args.outprefix}.counts.tsv"
 
 		print(f"Writing to file {output_filepath}")
 		with open(output_filepath, 'w') as f:

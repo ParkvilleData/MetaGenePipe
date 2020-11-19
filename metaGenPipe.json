@@ -4,7 +4,7 @@
   "metaGenPipe.hostRemovalBoolean": false,
   "metaGenPipe.blastBoolean": true,
   "metaGenPipe.mergeBoolean": true,
-  "metaGenPipe.taxonBoolean": false,
+  "metaGenPipe.taxonBoolean": true,
   "metaGenPipe.trimmomaticBoolean": false,
   "metaGenPipe.trimGaloreBoolean": true,
   "## assembly parameters": "metaspades/idba/megahit",
@@ -12,27 +12,32 @@
   "metaGenPipe.idbaBoolean": false,
   "metaGenPipe.megahitBoolean": true,
   "metaGenPipe.readalignBoolean": true,
+  "metaGenPipe.hmmerBoolean": true,
 
   "##_GLOBAL_VARS#": "files",
   "metaGenPipe.inputSamplesFile": "./i.txt",
   "metaGenPipe.bparser": "./scripts/bparser.pl",
-  "metaGenPipe.xml_parser": "./scripts/xml_parser.function.pl",
-  "metaGenPipe.orgID_2_name": "./scripts/orgID_2_name.pl",
+  "metaGenPipe.xml_parser": "./scripts/xml_parser-v3.py",
+  "metaGenPipe.hmm_parser": "./scripts/hmm_parser-v1.py",
   "metaGenPipe.interleaveShell": "./scripts/interleave_fastq.sh",
+  "metaGenPipe.megaGraph": "./scripts/megaGraph.py",
 
   "## required reference files on shared project ##": "Don't need to change",
   "metaGenPipe.database": "/data/gpfs/datasets/BLAST/db/nt",
   "metaGenPipe.taxRankFile": "/data/gpfs/projects/punim0639/metaGenPipe/tax_rank",
-  "metaGenPipe.fullLineageFile": "/data/gpfs/projects/punim0639/metaGenPipe/fullnamelineage.dmp",
   "metaGenPipe.keggSpeciesFile": "/data/gpfs/projects/punim0639/metaGenPipe/eukaryotes.dat",
   "metaGenPipe.DB": "/data/gpfs/projects/punim0639/databases/metaGenePipe/kegg/kegg-eukaryotes.dmnd",
   "metaGenPipe.kolist": "/data/gpfs/projects/punim0639/metaGenPipe/ko.sorted.txt",
   "metaGenPipe.koFormattedFile": "/data/gpfs/projects/punim0639/metaGenPipe/formatted.xml.out",
+  "metaGenPipe.hmmerDB": "/data/gpfs/projects/punim0639/databases/metaGenePipe/kegg/prokaryotes.hmm",
+  "metaGenPipe.briteList": "/data/gpfs/projects/punim0639/databases/metaGenePipe/taxon/brite.txt",
+  "metaGenPipe.briteJson": "/data/gpfs/projects/punim0639/databases/metaGenePipe/taxon/br08610.json",
+  "metaGenPipe.fullLineageFile": "/data/gpfs/projects/punim0639/metaGenPipe/taxon/fullnamelineage.dmp",
 
   "## output prefixes": "Multiqc/merged",
   "metaGenPipe.multiQCoutput": "multiQC",
   "## output prefix ##": "If running nonMerged mode leave blank: mergeBoolean variable needs to be true",
-  "metaGenPipe.mergedOutput": "MergeDataset",
+  "metaGenPipe.mergedOutput": "Merge",
 
   "## software calls": "trimmomatic etc",
   "metaGenPipe.qc_subworkflow.trimmomatic_task.trimmomatic": "java -jar /local_build/bin/trimmomatic-0.39.jar",
@@ -63,8 +68,9 @@
   "metaGenPipe.maxTargetSeqs": 1,
   "metaGenPipe.blastMode": "blastp",
   "metaGenPipe.outputType": 5,
+  "metaGenPipe.metaOption": "-p meta",
 
-  "metaGenPipe.outputFileName": "geneCountTable.txt",
+  "metaGenPipe.outputFileName": "brite",
   "metaGenPipe.numOfHits": 10,
 
   "##_COMMENT_1#": "fastqc",
@@ -172,6 +178,16 @@
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_minutes": 10000,
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_mem": 60000,
 
+  "##_COMMENT_20a#": "diamond alignment merged",
+  "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_threads": 6,
+  "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_minutes": 10000,
+  "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_mem": 60000,
+
+    "##_COMMENT_19#": "diamond alignment non-merged",
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 6,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 10000,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 60000,
+
   "##_COMMENT_22#": "collation task non-merged",
   "metaGenPipe.nonMergedGenePrediction.collation_task.COL_threads": 2,
   "metaGenPipe.nonMergedGenePrediction.collation_task.COL_minutes": 10000,
@@ -182,9 +198,15 @@
   "metaGenPipe.readalignment_task.BRA_minutes": 10000,
   "metaGenPipe.readalignment_task.BRA_mem": 6000,
 
-  "##_COMMENT_24#": "XML parsing",
-  "metaGenPipe.taxonclass_task.XMLP_threads": 2,
-  "metaGenPipe.taxonclass_task.XMLP_minutes": 10000,
-  "metaGenPipe.taxonclass_task.XMLP_mem": 60000
+  "##_COMMENT_24#": "Taxon classification",
+  "metaGenPipe.hmmer_taxon_task.HTAX_threads": 2,
+  "metaGenPipe.hmmer_taxon_task.HTAX_minutes": 10000,
+  "metaGenPipe.hmmer_taxon_task.HTAX_mem": 60000,
+
+   "##_COMMENT_24#": "Taxon classification",
+  "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 2,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 10000,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 60000
+
 
 }
