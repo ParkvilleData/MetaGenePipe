@@ -36,15 +36,15 @@ String sampleName
 		hostRemovalRev = hostRemovalRev
 	}
 
-	 call hostremovalTask.hostremoval_task {
-            input: 
+	call hostremovalTask.hostremoval_task {
+        input: 
 		removalSequence = removalSequence,
 		outputPrefix = outputPrefix,
 		interleavedSequence = interleave_task.interLeavedFile,
 		sampleName=sampleName,
 		coverage=coverage,
 		identityPercentage=identityPercentage
-        }
+    }
 
 
 	output {

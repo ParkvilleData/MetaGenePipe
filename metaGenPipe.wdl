@@ -52,6 +52,7 @@ workflow metaGenPipe {
 	Boolean flashBoolean
 	Boolean mergeBoolean
 	Boolean megahitBoolean
+	Boolean metahipmerBoolean
 	Boolean idbaBoolean
 	Boolean metaspadesBoolean
 	Boolean blastBoolean
@@ -120,6 +121,7 @@ workflow metaGenPipe {
 			idbaBoolean = idbaBoolean,
 			preset = preset,
 			metaspadesBoolean = metaspadesBoolean,
+			metahipmerBoolean = metahipmerBoolean,
 			megahitBoolean = megahitBoolean,
 			blastBoolean = blastBoolean,
 			trimmedReadsFwd = merge_task.trimmedReadsFwd,
@@ -154,6 +156,7 @@ workflow metaGenPipe {
 				idbaBoolean = idbaBoolean,
 				preset = preset,
 				metaspadesBoolean = metaspadesBoolean,
+				metahipmerBoolean = metahipmerBoolean,
 				megahitBoolean = megahitBoolean,
 				blastBoolean = blastBoolean,
 				trimmedReadsFwd = reads.left,

@@ -26,10 +26,9 @@ workflow geneprediction_subworkflow {
         Output1: "otype:<TYPE>: <DESCRIPTION>"
     }
 	call prodigalTask.prodigal_task {
-
         input: 
-			outputPrefix=outputPrefix,
-			assemblyScaffolds=assemblyScaffolds
+		outputPrefix=outputPrefix,
+		assemblyScaffolds=assemblyScaffolds
     }
 	
 	call diamondTask.diamond_task {

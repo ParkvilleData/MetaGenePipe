@@ -4,25 +4,20 @@ task megahit_task {
     Int MEH_threads
     Int MEH_minutes
     Int MEH_mem
-	String? outputPrefix
-	String sample = basename(trimmedReadsFwd, ".gz")
-	String sampleFastq = basename(sample, ".fq")
-	String sampleName = basename(sampleFastq, ".fastq") 
+	String sampleName = basename(basename(basename(basename(trimmedReadsFwd, ".gz"), ".fq"), ".fastq"), ".trimmed_R1")
 	String preset
-	#String reverseRead = basename(trimmedReadsRev)
-
-        command {
-		    megahit -t ${MEH_threads} --presets ${preset} -m ${MEH_mem} -1 ${trimmedReadsFwd} -2 ${trimmedReadsRev}  	
-		    cp ./megahit_out/final.contigs.fa ${sampleName}.megahit.final.contigs.fa
-        }
-        runtime {
-                runtime_minutes: '${MEH_minutes}'
-                cpus: '${MEH_threads}'
-                mem: '${MEH_mem}'
-        }
-        output {
-               File assemblyOutput = "${sampleName}.megahit.final.contigs.fa"
-        }
+    
+    command {
+		megahit -t ${MEH_threads} --presets ${preset} -m ${MEH_mem} -1 ${trimmedReadsFwd} -2 ${trimmedReadsRev} -o assembly --out-prefix ${sampleName}.megahit
+    }
+    runtime {
+        runtime_minutes: '${MEH_minutes}'
+        cpus: '${MEH_threads}'
+        mem: '${MEH_mem}'
+    }
+    output {
+        File assemblyOutput = "./assembly/${sampleName}.megahit.contigs.fa"
+    }
     meta {
         author: "Bobbie Shaban, Mar Quiroga"
         email: "bshaban@unimelb.edu.au, mar.quiroga@unimelb.edu.au"
