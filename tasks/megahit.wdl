@@ -1,6 +1,7 @@
 task megahit_task {
 	File trimmedReadsFwd
 	File trimmedReadsRev
+    File megaGraph
     Int MEH_threads
     Int MEH_minutes
     Int MEH_mem
