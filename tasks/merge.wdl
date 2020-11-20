@@ -27,10 +27,10 @@ task merge_task {
       mem: '${MGS_mem}'
     }
     output {
-      File? flashReadsFwdComb = "${outputPrefix}.flash_R1.fastq"
-      File? flashReadsRevComb = "${outputPrefix}.flash_R2.fastq"
-      File trimmedReadsFwd = "${outputPrefix}.merged_R1.fastq"
-      File trimmedReadsRev = "${outputPrefix}.merged_R2.fastq"
+      File? flashReadsFwdComb = "${outputPrefix}.flash_R1.fastq.gz"
+      File? flashReadsRevComb = "${outputPrefix}.flash_R2.fastq.gz"
+      File trimmedReadsFwd = "${outputPrefix}.merged_R1.fastq.gz"
+      File trimmedReadsRev = "${outputPrefix}.merged_R2.fastq.gz"
     }        
     meta {
         author: "Bobbie Shaban"
