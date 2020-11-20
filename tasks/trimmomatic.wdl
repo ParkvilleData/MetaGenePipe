@@ -29,7 +29,7 @@ task trimmomatic_task {
 	}
 	output {
 		File outFwdPaired="${outputPrefix}.TT_R1.fq.gz"
-		File outRevPaired="${outputPrefix}.TT_R2.gz"
+		File outRevPaired="${outputPrefix}.TT_R2.fq.gz"
 		File outFwdUnpaired="${outputPrefix}.unpaired_R1.fq.gz"
 		File outRevUnpaired="${outputPrefix}.unpaired_R2.fq.gz"
 	}

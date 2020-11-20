@@ -1,13 +1,12 @@
 task readalignment_task {
-        Map[String, File] Inputmap
-        Int BRA_threads
-        Int BRA_minutes
-        Int BRA_mem
-
+    Map[String, File] Inputmap
+    Int BRA_threads
+    Int BRA_minutes
+    Int BRA_mem
   	String sampleTempName = basename(Inputmap["left"])
-        String sampleOutput = sub(sampleTempName,"_val(?!.*_val).*","")
+    String sampleOutput = sub(sampleTempName,"_val(?!.*_val).*","")
 
-        command {
+    command {
 		bowtie2-build ${Inputmap["index"]} bowtieContigIndex;
 		bowtie2 -x bowtieContigIndex -1 ${Inputmap["left"]} -2 ${Inputmap["right"]} -S ${sampleOutput}.sam -p ${BRA_threads};
 

@@ -30,12 +30,11 @@ String? metaOption
         Output1: "otype:<TYPE>: <DESCRIPTION>"
     }
 	call prodigalTask.prodigal_task {
-
-            input: 
+        input: 
 		outputPrefix=outputPrefix,
 		metaOption=metaOption,
 		assemblyScaffolds=assemblyScaffolds
-        }
+    }
 	
 	#if hmmer boolean = true run hmmer else run diamond
 	if(hmmerBoolean){
