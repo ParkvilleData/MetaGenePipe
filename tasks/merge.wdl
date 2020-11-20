@@ -14,11 +14,11 @@ task merge_task {
     command {
       if [[ ${hostMergeArray} > 0 ]]
         then
-          cat ${sep = ' ' hostRemFwdReads} > ${outputPrefix}.merged_R1.fastq
-          cat ${sep = ' ' hostRemRevReads} > ${outputPrefix}.merged_R2.fastq
+          cat ${sep = ' ' hostRemFwdReads} > ${outputPrefix}.merged_R1.fastq.gz
+          cat ${sep = ' ' hostRemRevReads} > ${outputPrefix}.merged_R2.fastq.gz
         else
-          cat ${sep = ' ' readsToMergeFwd} > ${outputPrefix}.merged_R1.fastq
-          cat ${sep = ' ' readsToMergeRev} > ${outputPrefix}.merged_R2.fastq
+          cat ${sep = ' ' readsToMergeFwd} > ${outputPrefix}.merged_R1.fastq.gz
+          cat ${sep = ' ' readsToMergeRev} > ${outputPrefix}.merged_R2.fastq.gz
       fi
     }
     runtime {
