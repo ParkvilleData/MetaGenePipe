@@ -4,7 +4,7 @@ task metaspades_task {
     Int MES_threads
     Int MES_minutes
     Int MES_mem
-    String sampleName = basename(basename(basename(basename(trimmedReadsFwd, ".gz"), ".fq"), ".fastq"), ".trimmed_R1")
+    String sampleName = basename(basename(basename(basename(basename(trimmedReadsFwd, ".gz"), ".fq"), ".fastq"), ".TG_R1"), "TT_R1")
 
     command {
         metaspades.py -1 ${trimmedReadsFwd} -2 ${trimmedReadsRev} -k 21,33,55,77 -o assembly -t ${MES_threads} -m ${MES_mem}

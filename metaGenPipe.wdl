@@ -18,21 +18,27 @@ import "./tasks/merge.wdl" as mergeTask
 import "./tasks/matching_contigs_reads.wdl" as matchingTask
 import "./tasks/readalignment.wdl" as readalignTask
 import "./tasks/taxon_class.wdl" as taxonTask
+import "./tasks/hmmer_taxon.wdl" as hmmerTaxonTask
 
 workflow metaGenPipe {
 
 	## global variables for wdl workflow
 	## input files
+	Boolean hmmerBoolean
 	File inputSamplesFile
 	File xml_parser
-	File orgID_2_name
+	File hmm_parser
 	File interleaveShell
+	File hmmerDB
+	File megaGraph
 	Array[Array[File]] inputSamples = read_tsv(inputSamplesFile)
 	Int numOfHits
 	Int maxTargetSeqs
 	Int outputType
 	Int identityPercentage
 	Int coverage
+	String briteList
+	String briteJson
 	String multiQCoutput
 	String mergedOutput
 	String bparser
@@ -40,13 +46,10 @@ workflow metaGenPipe {
 	String DB
 	String mode
 	String blastMode
-	String koFormattedFile
-	String keggSpeciesFile
-	String taxRankFile
-	String fullLineageFile
 	String outputFileName
 	String removalSequence
 	String preset
+	String? metaOption
 
 	## boolean variables 
 	Boolean flashBoolean
@@ -118,6 +121,7 @@ workflow metaGenPipe {
 
 		call assemblySubWorkflow.assembly_subworkflow {
 			input:
+			megaGraph = megaGraph,
 			idbaBoolean = idbaBoolean,
 			preset = preset,
 			metaspadesBoolean = metaspadesBoolean,
@@ -133,12 +137,15 @@ workflow metaGenPipe {
 
 		call genepredictionSubWorkflow.geneprediction_subworkflow {
 			input:
+			hmmerDB = hmmerDB,
+			hmmerBoolean = hmmerBoolean,
 			assemblyScaffolds = assembly_subworkflow.assemblyScaffolds,
 			outputType=outputType,
 			blastMode=blastMode,
 			maxTargetSeqs=maxTargetSeqs,
 			outputPrefix = mergedOutput,
 			mode=mode,
+			metaOption=metaOption,
 			DB=DB
 		}
 	} ## end merge dataset
@@ -153,6 +160,7 @@ workflow metaGenPipe {
 		scatter (reads in pairReads) {
 			call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
 				input:
+				megaGraph = megaGraph,
 				idbaBoolean = idbaBoolean,
 				preset = preset,
 				metaspadesBoolean = metaspadesBoolean,
@@ -169,8 +177,11 @@ workflow metaGenPipe {
 			call genepredictionSubWorkflow.geneprediction_subworkflow as nonMergedGenePrediction {
 				input:
 				assemblyScaffolds = nonMergedAssembly.assemblyScaffolds,
+				hmmerDB=hmmerDB,
+				hmmerBoolean=hmmerBoolean,
 				outputType=outputType,
 				blastMode=blastMode,
+				metaOption=metaOption,
 				maxTargetSeqs=maxTargetSeqs,
 				mode=mode,
 				DB=DB
@@ -202,17 +213,30 @@ workflow metaGenPipe {
     }
 
 	if (taxonBoolean) {
-		call taxonTask.taxonclass_task{		
+	    if(mergeBoolean){
+		call hmmerTaxonTask.hmmer_taxon_task {
 			input:
-			collationArray=geneprediction_subworkflow.collationOutput,
-			xml_parser=xml_parser,
-			orgID_2_name=orgID_2_name,
-			koFormattedFile=koFormattedFile,
-			keggSpeciesFile=keggSpeciesFile,
-			outputFileName=outputFileName,
-			taxRankFile=taxRankFile,
-			fullLineageFile=fullLineageFile			
+				hmmerTable=geneprediction_subworkflow.hmmerTable,
+				diamondXML=geneprediction_subworkflow.collationOutput,
+				xml_parser=xml_parser,
+				hmm_parser=hmm_parser,
+				briteList=briteList,
+				briteJson=briteJson,
+				outputFileName=outputFileName
 		}
+	    }
+	    if(!mergeBoolean){
+		call hmmerTaxonTask.hmmer_taxon_task as hmmerMergedTaxon {
+                        input:
+                                hmmerTables=nonMergedGenePrediction.hmmerTable,
+                                diamondXMLs=nonMergedGenePrediction.collationOutput,
+                                xml_parser=xml_parser,
+                                hmm_parser=hmm_parser,
+                                briteList=briteList,
+                                briteJson=briteJson,
+                                outputFileName=outputFileName
+                }
+	    }
 	}
 
 	output {
@@ -234,11 +258,15 @@ workflow metaGenPipe {
 		File? assemblyScaffolds = assembly_subworkflow.assemblyScaffolds
 		File? parsedBlast = assembly_subworkflow.parsedBlast
 		File? blastOutput = assembly_subworkflow.blastOutput
+		File? assemblyGraph = assembly_subworkflow.assemblyGraph
+		Array[File]? assemblyFastaArray = assembly_subworkflow.assemblyFastaArray
 
 		## Non merged Assembly
 		Array[File?]? assemblyScaffoldsArray = nonMergedAssembly.assemblyScaffolds
 		Array[File?]? parsedBlastArray = nonMergedAssembly.parsedBlast
 		Array[File?]? blastOutputArray = nonMergedAssembly.blastOutput
+		Array[File?]? assemblyGraphs = nonMergedAssembly.assemblyGraph
+		Array[Array[File]?]? assemblyFastaArrayNonMerged = nonMergedAssembly.assemblyFastaArray
 
 		## geneprediction output
 		File? collationOutput = geneprediction_subworkflow.collationOutput
@@ -247,28 +275,35 @@ workflow metaGenPipe {
 		File? nucleotideGenesOutput = geneprediction_subworkflow.nucleotideGenesOutput
 		File? potentialGenesAlignmentOutput = geneprediction_subworkflow.potentialGenesAlignmentOutput
 		File? genesAlignmentOutput = geneprediction_subworkflow.genesAlignmentOutput
+		File? hmmerTable = geneprediction_subworkflow.hmmerTable
+                File? hmmerOutput = geneprediction_subworkflow.hmmerOutput
 
 		## Non merged gene prediction
-		Array[File]? collationOutputArray = nonMergedGenePrediction.collationOutput
-		Array[File]? diamondOutputArray = nonMergedGenePrediction.diamondOutput
+		Array[File?]? collationOutputArray = nonMergedGenePrediction.collationOutput
+		Array[File?]? diamondOutputArray = nonMergedGenePrediction.diamondOutput
 		Array[File]? proteinAlignmentOutputArray = nonMergedGenePrediction.proteinAlignmentOutput
 		Array[File]? nucleotideGenesOutputArray = nonMergedGenePrediction.nucleotideGenesOutput
 		Array[File]? potentialGenesAlignmentOutputArray = nonMergedGenePrediction.potentialGenesAlignmentOutput
 		Array[File]? genesAlignmentOutputArray = nonMergedGenePrediction.genesAlignmentOutput
+		Array[File?]? hmmerTableArray = nonMergedGenePrediction.hmmerTable
+                Array[File?]? hmmerOutputArray = nonMergedGenePrediction.hmmerOutput
 
 	  	## Read alignment output                                                                                  
         Array[File?]? sampleSamOutput = readalignment_task.sampleSamOutput
         Array[File?]? sampleSortedBam = readalignment_task.sampleSortedBam
 	  	Array[File?]? sampleFlagstatText = readalignment_task.sampleFlagstatText
 
-		## Taxonomy output
-		File? functionalTable = taxonclass_task.functionalTable
-		File? geneCounts =  taxonclass_task.geneCounts
-		File? level1Brite = taxonclass_task.level1Brite
-		File? level2Brite = taxonclass_task.level2Brite
-		File? level3Brite = taxonclass_task.level3Brite
-		File? mergedXml = taxonclass_task.mergedXml
-		File? OTU = taxonclass_task.OTU
+		## Taxonomy output merged
+		File? level1BriteMerged = hmmer_taxon_task.level1Brite
+		File? level2BriteMerged = hmmer_taxon_task.level2Brite
+		File? level3BriteMerged = hmmer_taxon_task.level3Brite
+		File? OTUMerged = hmmer_taxon_task.OTU
+
+		## Taxonomy output unmerged
+                File? level1Brite = hmmerMergedTaxon.level1Brite
+                File? level2Brite = hmmerMergedTaxon.level2Brite
+                File? level3Brite = hmmerMergedTaxon.level3Brite
+                File? OTU = hmmerMergedTaxon.OTU
 	}
 
 	meta {

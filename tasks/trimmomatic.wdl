@@ -28,10 +28,10 @@ task trimmomatic_task {
 		echo ".. Done\n";
 	}
 	output {
-		File outFwdPaired="${outputPrefix}_R1.fwd.fq.gz"
-		File outRevPaired="${outputPrefix}_R2.rev.fq.gz"
-		File outFwdUnpaired="${outputPrefix}.fwd.unpaired.fq.gz"
-		File outRevUnpaired="${outputPrefix}.rev.unpaired.fq.gz"
+		File outFwdPaired="${outputPrefix}.TT_R1.fq.gz"
+		File outRevPaired="${outputPrefix}.TT_R2.fq.gz"
+		File outFwdUnpaired="${outputPrefix}.unpaired_R1.fq.gz"
+		File outRevUnpaired="${outputPrefix}.unpaired_R2.fq.gz"
 	}
 	runtime {
                 runtime_minutes: '${TRIM_minutes}'

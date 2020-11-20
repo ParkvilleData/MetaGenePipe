@@ -25,6 +25,7 @@ workflow assembly_subworkflow {
     Boolean blastBoolean
     File trimmedReadsFwd
     File trimmedReadsRev
+    File megaGraph
     Int numOfHits
     String? outputPrefix
     String bparser
@@ -80,5 +81,7 @@ workflow assembly_subworkflow {
 	    File assemblyScaffolds = select_first([megahit_task.assemblyOutput, metahipmer_task.assemblyOutput, metaspades_task.assemblyOutput, idba_task.assemblyOutput])
 	    File? parsedBlast = blast_task.parsedOutput
 	    File? blastOutput = blast_task.blastOutput
+	    File? assemblyGraph = megahit_task.assemblyGraph
+	    Array[File]? assemblyFastaArray = megahit_task.assemblyFastaArray
     }
 }

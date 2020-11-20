@@ -4,12 +4,12 @@ task idba_task {
     Int IDBA_mem
 	File trimmedReadsFwd
 	File trimmedReadsRev
-    String? outputPrefix
+    String sampleName = basename(basename(basename(basename(basename(trimmedReadsFwd, ".gz"), ".fq"), ".fastq"), ".TG_R1"), "TT_R1")
 
     command {
 	    fq2fa --merge ${trimmedReadsFwd} ${trimmedReadsRev} clean.fa
 		idba_ud -r clean.fa --num_threads '${IDBA_threads}' -o assembly
-		mv ./assembly/contig.fa ./assembly/'${outputPrefix}'.idba.contig.fa	
+		mv ./assembly/contig.fa ./assembly/'${sampleName}'.idba.contig.fa	
     }
     runtime {
         runtime_minutes: '${IDBA_minutes}'
@@ -17,7 +17,7 @@ task idba_task {
         mem: '${IDBA_mem}'
     }
     output {
-		File assemblyOutput = "./assembly/'${outputPrefix}'.idba.scaffold.fa"
+		File assemblyOutput = "./assembly/'${sampleName}'.idba.contig.fa"
     }        
 	meta {
         author: "Mar Quiroga"

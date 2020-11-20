@@ -4,7 +4,7 @@ task metahipmer_task {
     Int MHM_threads
     Int MHM_minutes
     Int MHM_mem
-	String sampleName = basename(basename(basename(basename(trimmedReadsFwd, ".gz"), ".fq"), ".fastq"), ".trimmed_R1")
+	String sampleName = basename(basename(basename(basename(basename(trimmedReadsFwd, ".gz"), ".fq"), ".fastq"), ".TG_R1"), "TT_R1")
 
     command {
         reformat.sh in1=${trimmedReadsFwd} in2=${trimmedReadsRev} out=reads.fq
