@@ -29,7 +29,6 @@ String? metaOption
         # Outputs:
         Output1: "otype:<TYPE>: <DESCRIPTION>"
     }
-
 	call prodigalTask.prodigal_task {
 
             input: 

@@ -15,6 +15,7 @@ import "./subWorkflows/geneprediction_subworkflow.wdl" as genepredictionSubWorkf
 ## import tasks
 import "./tasks/multiqc.wdl" as multiqcTask
 import "./tasks/merge.wdl" as mergeTask
+import "./tasks/matching_contigs_reads.wdl" as matchingTask
 import "./tasks/readalignment.wdl" as readalignTask
 import "./tasks/taxon_class.wdl" as taxonTask
 import "./tasks/hmmer_taxon.wdl" as hmmerTaxonTask
@@ -148,9 +149,9 @@ workflow metaGenPipe {
 	} ## end merge dataset
 
 	## check to see if the input is hostremoved or regular                                                            
-        Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
+    Int mergeArrayLength = length(select_all( hostremoval_subworkflow.hostRemovedFwdReads))
 
-        Array[Pair[File?, File?]] pairReads = if mergeArrayLength > 0 then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
+    Array[Pair[File?, File?]] pairReads = if mergeArrayLength > 0 then zip(hostremoval_subworkflow.hostRemovedFwdReads, hostremoval_subworkflow.hostRemovedRevReads) else zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
 
 	## if merge dataset is set to false: Includes scatter but same tasks
 	if(!mergeBoolean) {
@@ -185,20 +186,28 @@ workflow metaGenPipe {
 		} ## end scatter
 	} ## end don't merge datasets
 
-	if (readalignBoolean) {
 
-          if (mergeBoolean) {
-            scatter (reads in pairReads) {
-	            call readalignTask.readalignment_task {
-                        input:
-		      		finalContigs = assembly_subworkflow.assemblyScaffolds,
-                                forwardReads = reads.left,
-		      		reverseReads = reads.right,
-                                sampleName = reads.left
-             	    }
-            }
-          }
+    ## matching of contigs and reads before read alignment                 
+    scatter (reads in pairReads) {
+        call matchingTask.matching_contigs_reads_task {
+            input:
+            merged_Contigs = assembly_subworkflow.assemblyScaffolds,
+            non_merged_Contigs = nonMergedAssembly.assemblyScaffolds,
+            forwardReads = reads.left,
+            reverseReads = reads.right,
+            merge_opt = mergeBoolean
         }
+    }
+
+    ## read alignment task                                                 
+    if (readalignBoolean) {
+        scatter (matchmap in matching_contigs_reads_task.matchedclr) {
+            call readalignTask.readalignment_task {
+                input:
+                Inputmap = matchmap
+            }
+        }
+    }
 
 	if (taxonBoolean) {
 	    if(mergeBoolean){
@@ -277,8 +286,8 @@ workflow metaGenPipe {
                 Array[File?]? hmmerOutputArray = nonMergedGenePrediction.hmmerOutput
 
 	  	## Read alignment output                                                                                  
-                Array[File?]? sampleSamOutput = readalignment_task.sampleSamOutput
-                Array[File?]? sampleSortedBam = readalignment_task.sampleSortedBam
+        Array[File?]? sampleSamOutput = readalignment_task.sampleSamOutput
+        Array[File?]? sampleSortedBam = readalignment_task.sampleSortedBam
 	  	Array[File?]? sampleFlagstatText = readalignment_task.sampleFlagstatText
 
 		## Taxonomy output merged
