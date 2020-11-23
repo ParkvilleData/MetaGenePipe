@@ -1,15 +1,15 @@
 task matching_contigs_reads_task {
         File? merged_Contigs
-     	Array[File?]? non_merged_Contigs
-	File forwardReads
+				Array[File?]? non_merged_Contigs
+				File forwardReads
         File reverseReads
         Boolean merge_opt
-	Int BMN_threads
+				Int BMN_threads
         Int BMN_minutes
         Int BMN_mem
 
         String sampleTempName = basename(forwardReads)
-        String sampleMatch = sub(sampleTempName,"_val(?!.*_val).*","")
+				String sampleMatch = sub(sampleTempName,"_R(?!.*_R).*","")
         
         command {
           if [[ ${merge_opt} = false ]]; then

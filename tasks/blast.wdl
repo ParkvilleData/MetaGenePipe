@@ -2,12 +2,12 @@ task blast_task {
 	File bparser
 	File inputScaffolds
 	Int BLST_threads
-    Int BLST_minutes
-    Int BLST_mem
+  Int BLST_minutes
+  Int BLST_mem
 	Int numOfHits
 	String database
 	String? outputPrefix
-    String? sampleName = if defined(outputPrefix) then outputPrefix else basename(inputScaffolds, ".contigs.fa")
+  String? sampleName = if defined(outputPrefix) then outputPrefix else basename(inputScaffolds, ".contigs.fa")
 
     command {
 		#remove quotes from xml for processing
