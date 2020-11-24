@@ -4,11 +4,13 @@ task prodigal_task {
   Int GEP_mem
   File assemblyScaffolds
   String? outputPrefix
-  String? sampleName = if defined(outputPrefix) then outputPrefix else basename(assemblyScaffolds, ".contigs.fa")
+  String? sampleName = if defined(outputPrefix) then outputPrefix else basename(basename(assemblyScaffolds, ".fa"), ".contigs")
   String? metaOption
 
   command {
     prodigal ${metaOption} -i ${assemblyScaffolds} -o ${sampleName}.prodigal.genes.fa -a ${sampleName}.prodigal.proteins.fa -d ${sampleName}.prodigal.nucl.genes.fa -s ${sampleName}.prodigal.potential_genes.fa
+    mkdir -p ./geneprediction
+    mv *.prodigal.*.fa ./geneprediction/
   }
   runtime {
     runtime_minutes: '${GEP_minutes}'
@@ -16,10 +18,10 @@ task prodigal_task {
     mem: '${GEP_mem}'
   }
   output {
-    File genesAlignmentOutput = "${sampleName}.prodigal.genes.fa"
-    File proteinAlignmentOutput = "${sampleName}.prodigal.proteins.fa"
-    File nucleotideGenesOutput = "${sampleName}.prodigal.nucl.genes.fa"
-    File potentialGenesAlignmentOutput = "${sampleName}.prodigal.potential_genes.fa"
+    File genesAlignmentOutput = "./geneprediction/${sampleName}.prodigal.genes.fa"
+    File proteinAlignmentOutput = "./geneprediction/${sampleName}.prodigal.proteins.fa"
+    File nucleotideGenesOutput = "./geneprediction/${sampleName}.prodigal.nucl.genes.fa"
+    File potentialGenesAlignmentOutput = "./geneprediction/${sampleName}.prodigal.potential_genes.fa"
   }        
   meta {
     author: "Bobbie Shaban"
