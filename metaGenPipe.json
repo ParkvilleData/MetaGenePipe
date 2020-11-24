@@ -10,8 +10,8 @@
   "## assembly parameters": "metaspades/idba/megahit/metahipmer",
   "metaGenPipe.metaspadesBoolean": false,
   "metaGenPipe.idbaBoolean": false,
-  "metaGenPipe.megahitBoolean": false,
-  "metaGenPipe.metahipmerBoolean": true,
+  "metaGenPipe.megahitBoolean": true,
+  "metaGenPipe.metahipmerBoolean": false,
   "metaGenPipe.readalignBoolean": true,
   "metaGenPipe.hmmerBoolean": true,
 
@@ -35,8 +35,6 @@
   "metaGenPipe.briteJson": "/data/gpfs/projects/punim0639/databases/metaGenePipe/taxon/br08610.json",
   "metaGenPipe.fullLineageFile": "/data/gpfs/projects/punim0639/metaGenPipe/taxon/fullnamelineage.dmp",
 
-  "## output prefixes": "Multiqc/merged",
-  "metaGenPipe.multiQCoutput": "multiQC",
   "## output prefix ##": "If running nonMerged mode leave blank: mergeBoolean variable needs to be true",
   "metaGenPipe.mergedOutput": "Merge",
 
