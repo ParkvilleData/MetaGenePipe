@@ -15,7 +15,7 @@ task megahit_task {
     python3 ${megaGraph} --directory ./assembly/intermediate_contigs --sampleName ${sampleName}
       
     #copy fastg graph to assembly directory
-    mv ./assembly/intermediate_contigs/${sampleName}*.fastg ./assembly/${sampleName}*.fastg
+    mv ./assembly/intermediate_contigs/${sampleName}.*.fastg ./assembly
   }
   runtime {
     runtime_minutes: '${MEH_minutes}'
