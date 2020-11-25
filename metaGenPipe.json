@@ -192,7 +192,7 @@
   "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_minutes": 10000,
   "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_mem": 60000,
 
-    "##_COMMENT_19#": "diamond alignment non-merged",
+  "##_COMMENT_19#": "diamond alignment non-merged",
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 6,
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 10000,
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 60000,
@@ -217,7 +217,7 @@
   "metaGenPipe.hmmer_taxon_task.HTAX_minutes": 10000,
   "metaGenPipe.hmmer_taxon_task.HTAX_mem": 60000,
 
-   "##_COMMENT_24#": "Taxon classification",
+  "##_COMMENT_24#": "Taxon classification",
   "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 2,
   "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 10000,
   "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 60000

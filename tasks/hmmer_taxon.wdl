@@ -17,7 +17,7 @@ task hmmer_taxon_task {
     python3 ${xml_parser} --outfile OTU.${outputFileName}.tsv ${briteJson} ${sep=' ' diamondXMLs} ${diamondXML}
 
     mkdir -p taxon
-    mv *.${outputFileName}* ./taxon
+    mv *.${outputFileName}.* ./taxon
   }
   runtime {
     runtime_minutes: '${HTAX_minutes}'

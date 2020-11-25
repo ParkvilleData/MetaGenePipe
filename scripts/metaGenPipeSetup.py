@@ -146,10 +146,6 @@ def get_settings( template, samples_filepath, scripts_path ):
         data = json.load(f)
 
     data["metaGenPipe.inputSamplesFile"] = check_path_for_file(samples_filepath)
-    data["metaGenPipe.bparser"] = check_path_for_file(scripts_path/"bparser.pl")
-    data["metaGenPipe.xml_parser"] = check_path_for_file(scripts_path/"xml_parser.function.pl")
-    data["metaGenPipe.orgID_2_name"] = check_path_for_file(scripts_path/"orgID_2_name.pl")
-    data["metaGenPipe.interleaveShell"] = check_path_for_file(scripts_path/"interleave_fastq.sh")
 
     return data
 
@@ -278,7 +274,7 @@ print("Created input samples text file with location of run files:", samples_fil
 ######################################################
 settings = get_settings(args.input_json, samples_filepath, scripts_dir)
 with open(settings_filepath, "w") as settings_file:
-    json.dump(settings, settings_file, indent=4, sort_keys=False)
+    json.dump(settings, settings_file, indent=2, sort_keys=False)
 print("Created input JSON settings file:", settings_filepath)
 
 ######################################################
