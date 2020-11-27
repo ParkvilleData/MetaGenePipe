@@ -2,3 +2,7 @@
 scripts/.ipynb_checkpoints/
 
 *.code-workspace
+
+.vscode/
+
+scripts/mfclient/__pycache__/

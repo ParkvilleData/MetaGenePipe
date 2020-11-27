@@ -154,7 +154,7 @@ def get_settings( template, samples_filepath, scripts_path ):
 args = parser.parse_args()
 
 if args.mma_token == "":
-    print("Please give an authentication token for the Melboune Metagenomic Archive either through a command line argument or the MMA_TOKEN environment variable.")
+    print("Please give an authentication token for the Melbourne Metagenomic Archive either through a command line argument or the MMA_TOKEN environment variable.")
     sys.exit(1)
 
 
@@ -194,11 +194,11 @@ if not mf_config['token']:
 
 ######################################################
 #### Get info for study from website API
-#### https://mma.robturnbull.com/mma/api/study/
+#### https://mma.robturnbull.com/mma/api/study/ # TODO: update to new website
 ######################################################
 
 study_accession = args.study_accession
-study = requests.get(f"https://mma.robturnbull.com/mma/api/study/{study_accession}/" , headers={"Authorization": f"Token {args.mma_token}" }).json()
+study = requests.get(f"https://mma.robturnbull.com/mma/api/study/{study_accession}/" , headers={"Authorization": f"Token {args.mma_token}" }).json() # TODO: update to new website
 batch_set = study.get('batch_set')
 
 if args.batch_count:
@@ -234,7 +234,7 @@ outputs_dir.mkdir( parents=True, exist_ok=True )
 with open(samples_filepath, "w") as samples_file:
     for run in batch:
         # For now the workflow only uses paired-end reads, so exclude everything else
-        if run['library_layout'] != "PAIRED":
+        if (run['library_layout'] != "PAIRED" or len(run['files']) != 2):
             continue 
 
         if args.download:
