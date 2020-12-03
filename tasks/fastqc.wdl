@@ -4,9 +4,12 @@ task fastqc_task {
   Int FQC_mem
   File forwardReads
   File reverseReads
+  String fwdName = sub(basename(forwardReads),".f.*q.*$","")
+  String revName = sub(basename(reverseReads),".f.*q.*$","")
 
   command {
-    fastqc -t ${FQC_threads} ${forwardReads} ${reverseReads} -O $PWD
+    mkdir -p ./qc/fastqc_zip
+    fastqc -t ${FQC_threads} ${forwardReads} ${reverseReads} --outdir ./qc/fastqc_zip
   }
   runtime {
     runtime_minutes: '${FQC_minutes}'
@@ -14,7 +17,7 @@ task fastqc_task {
     mem: '${FQC_mem}'
   }
   output {
-    Array[File] fastqcArray = glob("*.zip")
+    Array[File] fastqcArray = ["./qc/fastqc_zip/${fwdName}_fastqc.zip", "./qc/fastqc_zip/${revName}_fastqc.zip"]
   }        
   meta {
     author: "Bobbie Shaban"
@@ -26,7 +29,7 @@ task fastqc_task {
     forwardReads: "itype:fastq: Forward reads in read pair"
     reverseReads: "itype:fastq: Reverse reads in read pair"
     # Outputs:
-    fastqcArray: "otype:glob: All the zip files output"
+    fastqcArray: "otype:folder: All the zip files output"
   }
 }
 
