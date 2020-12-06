@@ -146,10 +146,6 @@ def get_settings( template, samples_filepath, scripts_path ):
         data = json.load(f)
 
     data["metaGenPipe.inputSamplesFile"] = check_path_for_file(samples_filepath)
-    data["metaGenPipe.bparser"] = check_path_for_file(scripts_path/"bparser.pl")
-    data["metaGenPipe.xml_parser"] = check_path_for_file(scripts_path/"xml_parser.function.pl")
-    data["metaGenPipe.orgID_2_name"] = check_path_for_file(scripts_path/"orgID_2_name.pl")
-    data["metaGenPipe.interleaveShell"] = check_path_for_file(scripts_path/"interleave_fastq.sh")
 
     return data
 
@@ -158,7 +154,7 @@ def get_settings( template, samples_filepath, scripts_path ):
 args = parser.parse_args()
 
 if args.mma_token == "":
-    print("Please give an authentication token for the Melboune Metagenomic Archive either through a command line argument or the MMA_TOKEN environment variable.")
+    print("Please give an authentication token for the Melbourne Metagenomic Archive either through a command line argument or the MMA_TOKEN environment variable.")
     sys.exit(1)
 
 
@@ -198,11 +194,11 @@ if not mf_config['token']:
 
 ######################################################
 #### Get info for study from website API
-#### https://mma.robturnbull.com/mma/api/study/
+#### https://mma.robturnbull.com/mma/api/study/ # TODO: update to new website
 ######################################################
 
 study_accession = args.study_accession
-study = requests.get(f"https://mma.robturnbull.com/mma/api/study/{study_accession}/" , headers={"Authorization": f"Token {args.mma_token}" }).json()
+study = requests.get(f"https://mma.robturnbull.com/mma/api/study/{study_accession}/" , headers={"Authorization": f"Token {args.mma_token}" }).json() # TODO: update to new website
 batch_set = study.get('batch_set')
 
 if args.batch_count:
@@ -238,7 +234,7 @@ outputs_dir.mkdir( parents=True, exist_ok=True )
 with open(samples_filepath, "w") as samples_file:
     for run in batch:
         # For now the workflow only uses paired-end reads, so exclude everything else
-        if run['library_layout'] != "PAIRED":
+        if (run['library_layout'] != "PAIRED" or len(run['files']) != 2):
             continue 
 
         if args.download:
@@ -278,7 +274,7 @@ print("Created input samples text file with location of run files:", samples_fil
 ######################################################
 settings = get_settings(args.input_json, samples_filepath, scripts_dir)
 with open(settings_filepath, "w") as settings_file:
-    json.dump(settings, settings_file, indent=4, sort_keys=False)
+    json.dump(settings, settings_file, indent=2, sort_keys=False)
 print("Created input JSON settings file:", settings_filepath)
 
 ######################################################

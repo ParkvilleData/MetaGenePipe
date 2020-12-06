@@ -1,24 +1,24 @@
-task idba_task {
-  Int IDBA_threads
-  Int IDBA_minutes
-  Int IDBA_mem
+task metahipmer_task {
   File trimmedReadsFwd
   File trimmedReadsRev
+  Int MHM_threads
+  Int MHM_minutes
+  Int MHM_mem
   String sampleName = basename(basename(basename(basename(trimmedReadsFwd, ".gz"), ".fq"), ".fastq"), "_R1")
 
   command {
-    fq2fa --merge ${trimmedReadsFwd} ${trimmedReadsRev} clean.fa.gz
-    idba_ud -r clean.fa.gz --num_threads '${IDBA_threads}' -o assembly
-    mv ./assembly/contig.fa ./assembly/${sampleName}.idba.fa  
+    reformat.sh in1=${trimmedReadsFwd} in2=${trimmedReadsRev} out=reads.fq
+    mhm2.py -r reads.fq -o assembly
+    cp ./assembly/final_assembly.fasta ./assembly/${sampleName}.metahipmer.fa  
   }
   runtime {
-    runtime_minutes: '${IDBA_minutes}'
-    cpus: '${IDBA_threads}'
-    mem: '${IDBA_mem}'
+    runtime_minutes: '${MHM_minutes}'
+    cpus: '${MHM_threads}'
+    mem: '${MHM_mem}'
   }
   output {
-    File assemblyOutput = "./assembly/${sampleName}.idba.fa"
-  }        
+    File assemblyOutput = "./assembly/${sampleName}.metahipmer.fa"
+  }
   meta {
     author: "Mar Quiroga"
     email: "mar.quiroga@unimelb.edu.au"
@@ -30,5 +30,6 @@ task idba_task {
     reverseReads: "itype:fastq: Reverse reads in read pair"
     # Outputs:
     fastqcArray: "otype:glob: All the zip files output"
-  }  
+  }
 }
+
