@@ -8,6 +8,8 @@
 ##########################################
 
 task hostremoval_task {
+	File deconseq
+	File deconConfig
   Int HRM_threads
   Int HRM_minutes
   Int HRM_mem
@@ -19,9 +21,10 @@ task hostremoval_task {
   String sampleName
 
   command {
-    perl /data/gpfs/projects/punim0256/MDAP/verbdap_dev/bin/dqc/deconseq.pl -threads ${HRM_threads}  -dbs ${removalSequence} -i ${identityPercentage} -c ${coverage} -f ${interleavedSequence} -id ${sampleName}
+    perl ${deconseq} -t ${HRM_threads}  -dbs ${removalSequence} -i ${identityPercentage} -c ${coverage} -f ${interleavedSequence} -id ${sampleName}
     mkdir -p ./data/hostremoved
     reformat.sh in=${sampleName}_clean.fq out1=./data/hostremoved/${sampleName}_R1.fq out2=./data/hostremoved/${sampleName}_R2.fq
+    pigz -p ${HRM_threads} ./data/hostremoved/${sampleName}_R1.fq ./data/hostremoved/${sampleName}_R2.fq
   }
   runtime {
     runtime_minutes: '${HRM_minutes}'
@@ -29,8 +32,8 @@ task hostremoval_task {
     mem: '${HRM_mem}'
   }
   output {
-    File hostRemovedFwdReads = "./data/hostremoved/${sampleName}_R1.fq"
-    File hostRemovedRevReads = "./data/hostremoved/${sampleName}_R2.fq"
+    File hostRemovedFwdReads = "./data/hostremoved/${sampleName}_R1.fq.gz"
+    File hostRemovedRevReads = "./data/hostremoved/${sampleName}_R2.fq.gz"
   }        
   meta {
     author: "Bobbie Shaban"

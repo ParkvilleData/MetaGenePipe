@@ -31,6 +31,8 @@ workflow metaGenPipe {
   File interleaveShell
   File hmmerDB
   File megaGraph
+  File deconseq
+  File deconConfig
   Array[Array[File]] inputSamples = read_tsv(inputSamplesFile)
   Int numOfHits
   Int maxTargetSeqs
@@ -82,11 +84,13 @@ workflow metaGenPipe {
       call hostRemovalSubWorkflow.hostremoval_subworkflow {
         input:
         flashBoolean = flashBoolean,
+				deconseq = deconseq,
         interleaveShell = interleaveShell,
         identityPercentage = identityPercentage,
         removalSequence = removalSequence,
         coverage = coverage,
         outputPrefix = mergedOutput,
+				deconConfig = deconConfig,
         hostRemovalFlash = qc_subworkflow.flashExtFrags,
         sampleName = sample[0],
         hostRemovalFwd = qc_subworkflow.trimmedFwdReads,
