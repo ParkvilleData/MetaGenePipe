@@ -84,13 +84,13 @@ workflow metaGenPipe {
       call hostRemovalSubWorkflow.hostremoval_subworkflow {
         input:
         flashBoolean = flashBoolean,
-				deconseq = deconseq,
+        deconseq = deconseq,
         interleaveShell = interleaveShell,
         identityPercentage = identityPercentage,
         removalSequence = removalSequence,
         coverage = coverage,
         outputPrefix = mergedOutput,
-				deconConfig = deconConfig,
+        deconConfig = deconConfig,
         hostRemovalFlash = qc_subworkflow.flashExtFrags,
         sampleName = sample[0],
         hostRemovalFwd = qc_subworkflow.trimmedFwdReads,

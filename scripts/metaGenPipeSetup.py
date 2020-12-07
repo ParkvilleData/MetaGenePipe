@@ -234,11 +234,14 @@ outputs_dir.mkdir( parents=True, exist_ok=True )
 with open(samples_filepath, "w") as samples_file:
     for run in batch:
         # For now the workflow only uses paired-end reads, so exclude everything else
-        if (run['library_layout'] != "PAIRED" or len(run['files']) != 2):
+        if (run['library_layout'] != "PAIRED" or len(run['files']) < 2):
             continue 
 
         if args.download:
             for file in run['files']:
+                # if file doesn't end in _1 or _2, don't download
+                if (len(run['files']) > 2 and file['rank'] not in set([1,2])):
+                    continue
                 asset_id = "path=/projects/proj-6300_metagenomics_repository_verbruggenmdap-1128.4.294/%s" % file['mf_path_str'] 
                 local_path = inputs_dir/Path(file['mf_path_str']).name
                 print(f"Downloading {asset_id} to {local_path}")
@@ -291,5 +294,3 @@ print("java -DLOG_MODE=pretty -Dconfig.file=./metaGenPipe.config -jar cromwell-5
     check_path_for_file(settings_filepath),
     check_path_for_file(options_filepath),
 ))
-
-

@@ -8,8 +8,8 @@
 ##########################################
 
 task hostremoval_task {
-	File deconseq
-	File deconConfig
+  File deconseq
+  File deconConfig
   Int HRM_threads
   Int HRM_minutes
   Int HRM_mem

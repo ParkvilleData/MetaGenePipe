@@ -20,7 +20,7 @@ workflow hostremoval_subworkflow {
   Boolean flashBoolean
   File interleaveShell
   File deconseq
-	File deconConfig
+  File deconConfig
   Int identityPercentage
   Int coverage
   String outputPrefix
@@ -41,8 +41,8 @@ workflow hostremoval_subworkflow {
     input: 
     removalSequence = removalSequence,
     outputPrefix = outputPrefix,
-	  deconseq = deconseq,
-	  deconConfig = deconConfig,
+    deconseq = deconseq,
+    deconConfig = deconConfig,
     interleavedSequence = interleave_task.interLeavedFile,
     sampleName=sampleName,
     coverage=coverage,
