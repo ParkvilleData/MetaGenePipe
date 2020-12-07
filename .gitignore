@@ -6,3 +6,5 @@ scripts/.ipynb_checkpoints/
 .vscode/
 
 scripts/mfclient/__pycache__/
+
+*.swp
