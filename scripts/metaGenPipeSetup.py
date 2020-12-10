@@ -6,6 +6,7 @@ import argparse
 import sys
 import os
 import json
+import re
 
 from mfclient import mfclient
 
@@ -64,6 +65,7 @@ parser.add_argument(
 parser.add_argument("--download", type=str2bool, nargs='?', const=True, default=True, help="Flag to download the files from mediaflux. Default: True")
 parser.add_argument("--options-json", type=str, help="The location of the template options JSON file to use. Default: ./metaGenPipe.options.json", default="./metaGenPipe.options.json")
 parser.add_argument("--input-json", type=str, help="The location of the template input JSON file to use. Default: ./metaGenPipe.json", default="./metaGenPipe.json")
+parser.add_argument("--config", type=str, help="The location of the template config file to use. Default: ./metaGenPipe.config", default="./metaGenPipe.config")
 
 def get_asset_metadata(connection, asset_id):
     """ Gets asset metadata.
@@ -149,6 +151,22 @@ def get_settings( template, samples_filepath, scripts_path ):
 
     return data
 
+def write_config( template, outputs_dir, config_filepath ):
+    """ 
+    Adjusts the ouput directory for the optimisation scripts
+    """
+    # Read in the file
+    with open(template, 'r') as file :
+        filedata = file.read()
+
+    # Replace the optim output directory
+    filedata = filedata.replace('optim_directory = "$PWD/outputs', f'optim_directory = "{check_path_for_file(outputs_dir)}')
+
+    # Write the file out again
+    with open(config_filepath, 'w') as file:
+        file.write(filedata)
+
+    print("Created config file:", config_filepath)
 
 
 args = parser.parse_args()
@@ -220,6 +238,7 @@ inputs_dir.mkdir( parents=True, exist_ok=True )
 samples_filepath = inputs_dir/ f"{study_accession}_{args.batch}.i.txt"
 settings_filepath = inputs_dir/ f"{study_accession}_{args.batch}.json"
 options_filepath  = inputs_dir/ f"{study_accession}_{args.batch}.options.json"
+config_filepath = inputs_dir/ f"{study_accession}_{args.batch}.config"
 
 scripts_dir = Path(args.scripts)
 
@@ -234,14 +253,21 @@ outputs_dir.mkdir( parents=True, exist_ok=True )
 with open(samples_filepath, "w") as samples_file:
     for run in batch:
         # For now the workflow only uses paired-end reads, so exclude everything else
-        if (run['library_layout'] != "PAIRED" or len(run['files']) < 2):
+        if run['library_layout'] != "PAIRED":
             continue 
+        
+        # Check if the run has a pair of read files. Otherwise metaGenPipe will not be able to process it at this stage
+        files = run['files']
+        if len(files) == 1:
+            continue
+        elif len(files) > 2:
+            # If there are more than two files, then only include files with _1 or _2 in the filenames
+            files = [file for file in files if re.search(r"_[1,2]\.", Path(file['mf_path_str']).name)]
+            if len(files) != 2:
+                continue
 
         if args.download:
-            for file in run['files']:
-                # if file doesn't end in _1 or _2, don't download
-                if (len(run['files']) > 2 and file['rank'] not in set([1,2])):
-                    continue
+            for file in files:
                 asset_id = "path=/projects/proj-6300_metagenomics_repository_verbruggenmdap-1128.4.294/%s" % file['mf_path_str'] 
                 local_path = inputs_dir/Path(file['mf_path_str']).name
                 print(f"Downloading {asset_id} to {local_path}")
@@ -264,7 +290,7 @@ with open(samples_filepath, "w") as samples_file:
                     sys.exit(1)
 
         
-        filenames = [str((inputs_dir/Path(file['mf_path_str']).name).resolve()) for file in run['files']]
+        filenames = [str((inputs_dir/Path(file['mf_path_str']).name).resolve()) for file in files]
         filenames_str = "\t".join(filenames)
         samples_file.write(f"{run['accession']}\t{filenames_str}\n")
 
@@ -287,10 +313,17 @@ options = get_options( args.options_json, outputs_dir)
 with open(options_filepath, "w") as options_file:
     json.dump(options, options_file, indent=4, sort_keys=False)
 print("Created options JSON file:", options_filepath)
+
+######################################################
+#### Write the config File
+######################################################
+write_config(args.config, outputs_dir, config_filepath)
+
 print("Outputs of metaGenPipe will be sent to:", outputs_dir)
 print()
 print("You can use this command from the root directory of metaGenPipe to run this job:")
-print("java -DLOG_MODE=pretty -Dconfig.file=./metaGenPipe.config -jar cromwell-52.jar run metaGenPipe.wdl -i %s -o %s" % (
+print("java -DLOG_MODE=pretty -Dconfig.file=%s -jar cromwell-52.jar run metaGenPipe.wdl -i %s -o %s" % (
+    check_path_for_file(config_filepath),
     check_path_for_file(settings_filepath),
     check_path_for_file(options_filepath),
 ))
