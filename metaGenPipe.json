@@ -1,8 +1,8 @@
 {
   "## Boolean list": "True or false for setting optional tasks",
   "metaGenPipe.flashBoolean": false,
-  "metaGenPipe.hostRemovalBoolean": true,
-  "metaGenPipe.blastBoolean": true,
+  "metaGenPipe.hostRemovalBoolean": false,
+  "metaGenPipe.blastBoolean": false,
   "metaGenPipe.mergeBoolean": true,
   "metaGenPipe.taxonBoolean": true,
   "metaGenPipe.trimmomaticBoolean": false,
