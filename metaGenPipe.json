@@ -28,9 +28,9 @@
   "## required reference files on shared project ##": "Don't need to change",
   "metaGenPipe.database": "/data/gpfs/datasets/BLAST/db/nt",
   "metaGenPipe.taxRankFile": "/data/gpfs/projects/punim0639/metaGenPipe/tax_rank",
-  "metaGenPipe.keggSpeciesFile": "/data/gpfs/projects/punim0639/metaGenPipe/eukaryotes.dat",
-  "metaGenPipe.DB": "/data/gpfs/projects/punim0639/databases/metaGenePipe/kegg/kegg-eukaryotes.dmnd",
-  "metaGenPipe.hmmerDB": "/data/gpfs/projects/punim0639/databases/metaGenePipe/kegg/prokaryotes.hmm",
+  "## metaGenPipe.keggSpeciesFile": "/data/gpfs/projects/punim0639/metaGenPipe/eukaryotes.dat",
+  "metaGenPipe.DB": "/data/gpfs/projects/punim0639/databases/metaGenePipe/kegg/kegg_all.dmnd",
+  "metaGenPipe.hmmerDB": "/data/gpfs/projects/punim0639/databases/metaGenePipe/kegg/hmmer.hmm",
   "metaGenPipe.briteList": "/data/gpfs/projects/punim0639/databases/metaGenePipe/taxon/brite.txt",
   "metaGenPipe.briteJson": "/data/gpfs/projects/punim0639/databases/metaGenePipe/taxon/br08610.json",
   "metaGenPipe.fullLineageFile": "/data/gpfs/projects/punim0639/metaGenPipe/taxon/fullnamelineage.dmp",
@@ -84,7 +84,7 @@
 
   "##_COMMENT_3#": "trim_galore",
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_threads": 4,
-  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 15,
+  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 100,
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_mem": 20000,
 
   "##_COMMENT_4#": "flash",
