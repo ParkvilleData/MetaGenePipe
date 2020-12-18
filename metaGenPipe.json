@@ -168,7 +168,7 @@
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_mem": 60000,
 
   "##_COMMENT_20#": "prodigal non-merged",
-  "metaGenPipe.nonMergedGenePrediction.prodigal_task.GEP_threads": 6,
+  "metaGenPipe.nonMergedGenePrediction.prodigal_task.GEP_threads": 32,
   "metaGenPipe.nonMergedGenePrediction.prodigal_task.GEP_minutes": 100,
   "metaGenPipe.nonMergedGenePrediction.prodigal_task.GEP_mem": 30000,
 
@@ -178,24 +178,24 @@
   "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_mem": 60000,
 
   "##_COMMENT_22#": "diamond alignment non-merged",
-  "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_threads": 6,
+  "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_threads": 16,
   "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_minutes": 100,
   "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_mem": 60000,
 
   "##_COMMENT_23#": "collation merged",
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_threads": 1,
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_minutes": 100,
-  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_mem": 60000,
+  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_mem": 6000,
 
   "##_COMMENT_24#": "collation non-merged",
   "metaGenPipe.nonMergedGenePrediction.collation_task.COL_threads": 1,
-  "metaGenPipe.nonMergedGenePrediction.collation_task.COL_minutes": 10000,
-  "metaGenPipe.nonMergedGenePrediction.collation_task.COL_mem": 60000,
+  "metaGenPipe.nonMergedGenePrediction.collation_task.COL_minutes": 100,
+  "metaGenPipe.nonMergedGenePrediction.collation_task.COL_mem": 6000,
 
   "##_COMMENT_25#": "hmmer merged",
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 16,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 32,
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 1000,
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 60000,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 200000,
 
   "##_COMMENT_26#": "hmmer non-merged",
   "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_threads": 6,
@@ -204,18 +204,18 @@
 
   "##_COMMENT_27#": "Matching contigs and reads ",
   "metaGenPipe.matching_contigs_reads_task.BMN_threads": 1,
-  "metaGenPipe.matching_contigs_reads_task.BMN_minutes": 100,
+  "metaGenPipe.matching_contigs_reads_task.BMN_minutes": 20,
   "metaGenPipe.matching_contigs_reads_task.BMN_mem": 6000,
 
   "##_COMMENT_28#": "Read alignment task ",
   "metaGenPipe.readalignment_task.BRA_threads": 4,
-  "metaGenPipe.readalignment_task.BRA_minutes": 100,
+  "metaGenPipe.readalignment_task.BRA_minutes": 200,
   "metaGenPipe.readalignment_task.BRA_mem": 6000,
 
   "##_COMMENT_29#": "Taxon classification",
   "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 24,
   "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 1000,
-  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 60000,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 100000,
 
   "##_COMMENT_30#": "Taxon classification non-merged",
   "metaGenPipe.hmmer_taxon_task.HTAX_threads": 2,
