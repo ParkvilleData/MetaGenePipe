@@ -204,12 +204,12 @@
 
   "##_COMMENT_27#": "Matching contigs and reads ",
   "metaGenPipe.matching_contigs_reads_task.BMN_threads": 2,
-  "metaGenPipe.matching_contigs_reads_task.BMN_minutes": 1000,
+  "metaGenPipe.matching_contigs_reads_task.BMN_minutes": 100,
   "metaGenPipe.matching_contigs_reads_task.BMN_mem": 6000,
 
   "##_COMMENT_28#": "Read alignment task ",
-  "metaGenPipe.readalignment_task.BRA_threads": 32,
-  "metaGenPipe.readalignment_task.BRA_minutes": 1000,
+  "metaGenPipe.readalignment_task.BRA_threads": 4,
+  "metaGenPipe.readalignment_task.BRA_minutes": 100,
   "metaGenPipe.readalignment_task.BRA_mem": 6000,
 
   "##_COMMENT_29#": "Taxon classification",
