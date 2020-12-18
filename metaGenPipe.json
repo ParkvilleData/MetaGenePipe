@@ -173,7 +173,7 @@
   "metaGenPipe.nonMergedGenePrediction.prodigal_task.GEP_mem": 30000,
 
   "##_COMMENT_21#": "diamond alignment merged",
-  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_threads": 32,
+  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_threads": 16,
   "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_minutes": 100,
   "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_mem": 60000,
 
@@ -183,7 +183,7 @@
   "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_mem": 60000,
 
   "##_COMMENT_23#": "collation merged",
-  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_threads": 32,
+  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_threads": 16,
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_minutes": 100,
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_mem": 60000,
 
@@ -193,7 +193,7 @@
   "metaGenPipe.nonMergedGenePrediction.collation_task.COL_mem": 60000,
 
   "##_COMMENT_25#": "hmmer merged",
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 32,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 16,
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 1000,
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 60000,
 
