@@ -213,7 +213,7 @@
   "metaGenPipe.readalignment_task.BRA_mem": 6000,
 
   "##_COMMENT_29#": "Taxon classification",
-  "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 32,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 24,
   "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 1000,
   "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 60000,
 
