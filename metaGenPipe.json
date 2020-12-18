@@ -183,12 +183,12 @@
   "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_mem": 60000,
 
   "##_COMMENT_23#": "collation merged",
-  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_threads": 16,
+  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_threads": 1,
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_minutes": 100,
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_mem": 60000,
 
   "##_COMMENT_24#": "collation non-merged",
-  "metaGenPipe.nonMergedGenePrediction.collation_task.COL_threads": 2,
+  "metaGenPipe.nonMergedGenePrediction.collation_task.COL_threads": 1,
   "metaGenPipe.nonMergedGenePrediction.collation_task.COL_minutes": 10000,
   "metaGenPipe.nonMergedGenePrediction.collation_task.COL_mem": 60000,
 
@@ -203,7 +203,7 @@
   "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_mem": 60000,
 
   "##_COMMENT_27#": "Matching contigs and reads ",
-  "metaGenPipe.matching_contigs_reads_task.BMN_threads": 2,
+  "metaGenPipe.matching_contigs_reads_task.BMN_threads": 1,
   "metaGenPipe.matching_contigs_reads_task.BMN_minutes": 100,
   "metaGenPipe.matching_contigs_reads_task.BMN_mem": 6000,
 
