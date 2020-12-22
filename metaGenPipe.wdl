@@ -214,7 +214,7 @@ workflow metaGenPipe {
 
   if (taxonBoolean) {
     if(mergeBoolean){
-      call hmmerTaxonTask.hmmer_taxon_task {
+      call hmmerTaxonTask.hmmer_taxon_task as hmmerMergedTaxon {
         input:
         hmmerTable=geneprediction_subworkflow.hmmerTable,
         diamondXML=geneprediction_subworkflow.collationOutput,
@@ -226,7 +226,7 @@ workflow metaGenPipe {
       }
     }
     if(!mergeBoolean){
-      call hmmerTaxonTask.hmmer_taxon_task as hmmerMergedTaxon {
+      call hmmerTaxonTask.hmmer_taxon_task {
         input:
         hmmerTables=nonMergedGenePrediction.hmmerTable,
         diamondXMLs=nonMergedGenePrediction.collationOutput,
@@ -294,16 +294,16 @@ workflow metaGenPipe {
     Array[File?]? sampleFlagstatText = readalignment_task.sampleFlagstatText
 
     ## Taxonomy output merged
-    File? level1BriteMerged = hmmer_taxon_task.level1Brite
-    File? level2BriteMerged = hmmer_taxon_task.level2Brite
-    File? level3BriteMerged = hmmer_taxon_task.level3Brite
-    File? OTUMerged = hmmer_taxon_task.OTU
+    File? level1BriteMerged = hmmerMergedTaxon.level1Brite
+    File? level2BriteMerged = hmmerMergedTaxon.level2Brite
+    File? level3BriteMerged = hmmerMergedTaxon.level3Brite
+    File? OTUMerged = hmmerMergedTaxon.OTU
 
     ## Taxonomy output unmerged
-    File? level1Brite = hmmerMergedTaxon.level1Brite
-    File? level2Brite = hmmerMergedTaxon.level2Brite
-    File? level3Brite = hmmerMergedTaxon.level3Brite
-    File? OTU = hmmerMergedTaxon.OTU
+    File? level1Brite = hmmer_taxon_task.level1Brite
+    File? level2Brite = hmmer_taxon_task.level2Brite
+    File? level3Brite = hmmer_taxon_task.level3Brite
+    File? OTU = hmmer_taxon_task.OTU
   }
   meta {
     author: "Bobbie Shaban"
