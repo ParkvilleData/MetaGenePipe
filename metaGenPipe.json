@@ -73,7 +73,7 @@
   "metaGenPipe.numOfHits": 10,
 
   "##_COMMENT_1#": "fastqc",
-  "metaGenPipe.qc_subworkflow.fastqc_task.FQC_threads": 6,
+  "metaGenPipe.qc_subworkflow.fastqc_task.FQC_threads": 4,
   "metaGenPipe.qc_subworkflow.fastqc_task.FQC_minutes": 15,
   "metaGenPipe.qc_subworkflow.fastqc_task.FQC_mem": 10000,
 
@@ -98,7 +98,7 @@
   "metaGenPipe.multiqc_task.MQC_mem": 20000,
 
   "##_COMMENT_6#": "multiqc merged",
-  "metaGenPipe.merge_task.MGS_threads": 6,
+  "metaGenPipe.merge_task.MGS_threads": 4,
   "metaGenPipe.merge_task.MGS_minutes": 15,
   "metaGenPipe.merge_task.MGS_mem": 20000,
 
