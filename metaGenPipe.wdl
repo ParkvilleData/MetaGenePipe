@@ -56,9 +56,6 @@ workflow metaGenPipe {
   Boolean flashBoolean
   Boolean mergeBoolean
   Boolean megahitBoolean
-  Boolean metahipmerBoolean
-  Boolean idbaBoolean
-  Boolean metaspadesBoolean
   Boolean blastBoolean
   Boolean taxonBoolean
   Boolean hostRemovalBoolean
@@ -122,10 +119,7 @@ workflow metaGenPipe {
     call assemblySubWorkflow.assembly_subworkflow {
       input:
       megaGraph = megaGraph,
-      idbaBoolean = idbaBoolean,
       preset = preset,
-      metaspadesBoolean = metaspadesBoolean,
-      metahipmerBoolean = metahipmerBoolean,
       megahitBoolean = megahitBoolean,
       blastBoolean = blastBoolean,
       trimmedReadsFwd = merge_task.mergedReadsFwd,
@@ -161,10 +155,7 @@ workflow metaGenPipe {
       call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
         input:
         megaGraph = megaGraph,
-        idbaBoolean = idbaBoolean,
         preset = preset,
-        metaspadesBoolean = metaspadesBoolean,
-        metahipmerBoolean = metahipmerBoolean,
         megahitBoolean = megahitBoolean,
         blastBoolean = blastBoolean,
         trimmedReadsFwd = reads.left,

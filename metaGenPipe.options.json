@@ -1,4 +1,6 @@
 {
   "final_workflow_outputs_dir": "/data/gpfs/projects/punim0256/MDAP/mgp_07122020/output/",
-  "use_relative_output_paths": true
+  "use_relative_output_paths": true,
+  "final_workflow_log_dir": "./logs",
+  "final_call_logs_dir": "./logs"
 }

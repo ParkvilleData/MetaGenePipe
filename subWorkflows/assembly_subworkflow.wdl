@@ -1,7 +1,4 @@
-import "./tasks/idba.wdl" as idbaTask
 import "./tasks/megahit.wdl" as megahitTask
-import "./tasks/metahipmer.wdl" as metahipmerTask
-import "./tasks/metaspades.wdl" as metaspadesTask
 import "./tasks/blast.wdl" as blastTask
 
 workflow assembly_subworkflow {
@@ -18,10 +15,7 @@ workflow assembly_subworkflow {
   }
 
   ### input variables
-  Boolean idbaBoolean
   Boolean megahitBoolean
-  Boolean metahipmerBoolean
-  Boolean metaspadesBoolean
   Boolean blastBoolean
   File trimmedReadsFwd
   File trimmedReadsRev
@@ -31,14 +25,6 @@ workflow assembly_subworkflow {
   String bparser
   String database
   String preset
-
-  if(idbaBoolean) {
-    call idbaTask.idba_task {
-      input:
-      trimmedReadsFwd = trimmedReadsFwd,
-      trimmedReadsRev = trimmedReadsRev
-    }
-  }
 
   if(megahitBoolean){
     call megahitTask.megahit_task {
@@ -50,22 +36,6 @@ workflow assembly_subworkflow {
     }
   }
 
-  if(metahipmerBoolean){
-    call metahipmerTask.metahipmer_task {
-      input:
-        trimmedReadsFwd = trimmedReadsFwd,
-        trimmedReadsRev = trimmedReadsRev
-    }
-  }
-
-  if(metaspadesBoolean){
-    call metaspadesTask.metaspades_task {
-      input:
-        trimmedReadsFwd = trimmedReadsFwd,
-        trimmedReadsRev = trimmedReadsRev
-    }
-  }
-
   if(blastBoolean) {
     call blastTask.blast_task {
       input:
@@ -73,12 +43,12 @@ workflow assembly_subworkflow {
         bparser = bparser,
         numOfHits = numOfHits,
         database = database,
-        inputScaffolds = select_first([megahit_task.assemblyOutput, metahipmer_task.assemblyOutput, metaspades_task.assemblyOutput, idba_task.assemblyOutput])
+        inputScaffolds = megahit_task.assemblyOutput
     }
   }
 
   output {
-    File assemblyScaffolds = select_first([megahit_task.assemblyOutput, metahipmer_task.assemblyOutput, metaspades_task.assemblyOutput, idba_task.assemblyOutput])
+    File assemblyScaffolds = megahit_task.assemblyOutput
     File? parsedBlast = blast_task.parsedOutput
     File? blastOutput = blast_task.blastOutput
     File? assemblyGraph = megahit_task.assemblyGraph
