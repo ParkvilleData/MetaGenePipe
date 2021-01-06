@@ -25,9 +25,9 @@ task hmmer_taxon_task {
     mem: '${HTAX_mem}'
   }
   output {
-    File level1Brite = "./taxon/Level1.${outputFileName}.counts.tsv"
-    File level2Brite = "./taxon/Level2.${outputFileName}.counts.tsv"
-    File level3Brite = "./taxon/Level3.${outputFileName}.counts.tsv"
+    File? level1Brite = "./taxon/Level1.${outputFileName}.counts.tsv"
+    File? level2Brite = "./taxon/Level2.${outputFileName}.counts.tsv"
+    File? level3Brite = "./taxon/Level3.${outputFileName}.counts.tsv"
     File OTU = "./taxon/OTU.${outputFileName}.tsv" 
   }        
   meta {
