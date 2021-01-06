@@ -133,7 +133,7 @@
   "metaGenPipe.nonMergedAssembly.blast_task.BLST_mem": 30000,
 
   "##_COMMENT_13#": "Megahit merged",
-  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_threads": 28,
+  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_threads": 24,
   "metaGenPipe.assembly_subworkflow.megahit_task.MEH_minutes": 1000,
   "metaGenPipe.assembly_subworkflow.megahit_task.MEH_mem": 100000,
 
@@ -219,6 +219,6 @@
 
   "##_COMMENT_30#": "Taxon classification non-merged",
   "metaGenPipe.hmmer_taxon_task.HTAX_threads": 2,
-  "metaGenPipe.hmmer_taxon_task.HTAX_minutes": 1000,
-  "metaGenPipe.hmmer_taxon_task.HTAX_mem": 60000
+  "metaGenPipe.hmmer_taxon_task.HTAX_minutes": 700,
+  "metaGenPipe.hmmer_taxon_task.HTAX_mem": 30000
 }
