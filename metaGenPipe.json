@@ -95,12 +95,12 @@
   "##_COMMENT_5#": "multiqc",
   "metaGenPipe.multiqc_task.MQC_threads": 1,
   "metaGenPipe.multiqc_task.MQC_minutes": 5,
-  "metaGenPipe.multiqc_task.MQC_mem": 1000,
+  "metaGenPipe.multiqc_task.MQC_mem": 1024,
 
   "##_COMMENT_6#": "merge",
   "metaGenPipe.merge_task.MGS_threads": 1,
   "metaGenPipe.merge_task.MGS_minutes": 5,
-  "metaGenPipe.merge_task.MGS_mem": 50,
+  "metaGenPipe.merge_task.MGS_mem": 1024,
 
   "##_COMMENT_7#": "interleave shell",
   "metaGenPipe.hostremoval_subworkflow.interleave_task.ILE_threads": 6,
@@ -165,7 +165,7 @@
   "##_COMMENT_19#": "prodigal merged",
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_threads": 1,
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 150,
-  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_mem": 100,
+  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_mem": 1024,
 
   "##_COMMENT_20#": "prodigal non-merged",
   "metaGenPipe.nonMergedGenePrediction.prodigal_task.GEP_threads": 6,
@@ -185,7 +185,7 @@
   "##_COMMENT_23#": "collation merged",
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_threads": 1,
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_minutes": 5,
-  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_mem": 100,
+  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_mem": 1024,
 
   "##_COMMENT_24#": "collation non-merged",
   "metaGenPipe.nonMergedGenePrediction.collation_task.COL_threads": 1,
@@ -205,7 +205,7 @@
   "##_COMMENT_27#": "Matching contigs and reads ",
   "metaGenPipe.matching_contigs_reads_task.BMN_threads": 1,
   "metaGenPipe.matching_contigs_reads_task.BMN_minutes": 5,
-  "metaGenPipe.matching_contigs_reads_task.BMN_mem": 100,
+  "metaGenPipe.matching_contigs_reads_task.BMN_mem": 1024,
 
   "##_COMMENT_28#": "Read alignment task ",
   "metaGenPipe.readalignment_task.BRA_threads": 4,
