@@ -48,7 +48,7 @@ workflow assembly_subworkflow {
   }
 
   output {
-    File assemblyScaffolds = megahit_task.assemblyOutput
+    File? assemblyScaffolds = megahit_task.assemblyOutput
     File? parsedBlast = blast_task.parsedOutput
     File? blastOutput = blast_task.blastOutput
     File? assemblyGraph = megahit_task.assemblyGraph
