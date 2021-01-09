@@ -180,7 +180,7 @@
 
   "##_COMMENT_29#": "Taxon classification",
   "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 2,
-  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 700,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 1400,
   "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 35840,
 
   "##_COMMENT_30#": "Taxon classification non-merged",
