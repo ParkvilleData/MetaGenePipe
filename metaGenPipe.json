@@ -130,7 +130,7 @@
 
   "##_COMMENT_19#": "prodigal merged",
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_threads": 1,
-  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 150,
+  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 500,
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_mem": 20480,
 
   "##_COMMENT_20#": "prodigal non-merged",
