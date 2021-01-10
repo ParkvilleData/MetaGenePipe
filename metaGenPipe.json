@@ -160,7 +160,7 @@
 
   "##_COMMENT_25#": "hmmer merged",
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 8,
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 2000,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 5000,
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 20480,
 
   "##_COMMENT_26#": "hmmer non-merged",
