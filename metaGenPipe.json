@@ -175,12 +175,12 @@
 
   "##_COMMENT_28#": "Read alignment task ",
   "metaGenPipe.readalignment_task.BRA_threads": 4,
-  "metaGenPipe.readalignment_task.BRA_minutes": 500,
+  "metaGenPipe.readalignment_task.BRA_minutes": 1500,
   "metaGenPipe.readalignment_task.BRA_mem": 10240,
 
   "##_COMMENT_29#": "Taxon classification",
   "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 2,
-  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 1400,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 3000,
   "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 35840,
 
   "##_COMMENT_30#": "Taxon classification non-merged",
