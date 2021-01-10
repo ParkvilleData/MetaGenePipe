@@ -80,7 +80,7 @@
 
   "##_COMMENT_3#": "trim_galore",
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_threads": 4,
-  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 180,
+  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 500,
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_mem": 20480,
 
   "##_COMMENT_4#": "flash",
@@ -140,7 +140,7 @@
 
   "##_COMMENT_21#": "diamond alignment merged",
   "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_threads": 18,
-  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_minutes": 150,
+  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_minutes": 500,
   "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_mem": 35840,
 
   "##_COMMENT_22#": "diamond alignment non-merged",
@@ -150,7 +150,7 @@
 
   "##_COMMENT_23#": "collation merged",
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_threads": 1,
-  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_minutes": 5,
+  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_minutes": 60,
   "metaGenPipe.geneprediction_subworkflow.collation_task.COL_mem": 6000,
 
   "##_COMMENT_24#": "collation non-merged",
@@ -160,8 +160,8 @@
 
   "##_COMMENT_25#": "hmmer merged",
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 8,
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 5000,
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 20480,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 10000,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 35840,
 
   "##_COMMENT_26#": "hmmer non-merged",
   "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_threads": 16,
@@ -170,13 +170,13 @@
 
   "##_COMMENT_27#": "Matching contigs and reads ",
   "metaGenPipe.matching_contigs_reads_task.BMN_threads": 1,
-  "metaGenPipe.matching_contigs_reads_task.BMN_minutes": 5,
-  "metaGenPipe.matching_contigs_reads_task.BMN_mem": 10240,
+  "metaGenPipe.matching_contigs_reads_task.BMN_minutes": 60,
+  "metaGenPipe.matching_contigs_reads_task.BMN_mem": 20480,
 
   "##_COMMENT_28#": "Read alignment task ",
   "metaGenPipe.readalignment_task.BRA_threads": 4,
-  "metaGenPipe.readalignment_task.BRA_minutes": 1500,
-  "metaGenPipe.readalignment_task.BRA_mem": 10240,
+  "metaGenPipe.readalignment_task.BRA_minutes": 3000,
+  "metaGenPipe.readalignment_task.BRA_mem": 35840,
 
   "##_COMMENT_29#": "Taxon classification",
   "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 2,
