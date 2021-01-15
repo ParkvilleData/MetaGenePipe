@@ -181,7 +181,7 @@
   "##_COMMENT_29#": "Taxon classification",
   "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 2,
   "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 5000,
-  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 61440,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 122880,
 
   "##_COMMENT_30#": "Taxon classification non-merged",
   "metaGenPipe.hmmer_taxon_task.HTAX_threads": 2,
