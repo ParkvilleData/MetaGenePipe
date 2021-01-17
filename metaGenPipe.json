@@ -141,7 +141,7 @@
   "##_COMMENT_21#": "diamond alignment merged",
   "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_threads": 18,
   "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_minutes": 500,
-  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_mem": 35840,
+  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_mem": 61440,
 
   "##_COMMENT_22#": "diamond alignment non-merged",
   "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_threads": 20,
@@ -176,7 +176,7 @@
   "##_COMMENT_28#": "Read alignment task ",
   "metaGenPipe.readalignment_task.BRA_threads": 4,
   "metaGenPipe.readalignment_task.BRA_minutes": 3000,
-  "metaGenPipe.readalignment_task.BRA_mem": 35840,
+  "metaGenPipe.readalignment_task.BRA_mem": 61440,
 
   "##_COMMENT_29#": "Taxon classification",
   "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 2,
