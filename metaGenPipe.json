@@ -179,9 +179,9 @@
   "metaGenPipe.readalignment_task.BRA_mem": 61440,
 
   "##_COMMENT_29#": "Taxon classification",
-  "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 2,
-  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 5000,
-  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 122880,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 1,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 10000,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 153600,
 
   "##_COMMENT_30#": "Taxon classification non-merged",
   "metaGenPipe.hmmer_taxon_task.HTAX_threads": 2,
