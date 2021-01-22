@@ -120,8 +120,8 @@
 
   "##_COMMENT_13#": "Megahit merged",
   "metaGenPipe.assembly_subworkflow.megahit_task.MEH_threads": 24,
-  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_minutes": 5000,
-  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_mem": 200000,
+  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_minutes": 8000,
+  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_mem": 300000,
 
   "##_COMMENT_14#": "Megahit non-merged",
   "metaGenPipe.nonMergedAssembly.megahit_task.MEH_threads": 6,
@@ -130,7 +130,7 @@
 
   "##_COMMENT_19#": "prodigal merged",
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_threads": 1,
-  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 500,
+  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 800,
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_mem": 20480,
 
   "##_COMMENT_20#": "prodigal non-merged",
@@ -160,8 +160,8 @@
 
   "##_COMMENT_25#": "hmmer merged",
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 8,
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 10000,
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 35840,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 20000,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 61440,
 
   "##_COMMENT_26#": "hmmer non-merged",
   "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_threads": 16,
@@ -176,12 +176,12 @@
   "##_COMMENT_28#": "Read alignment task ",
   "metaGenPipe.readalignment_task.BRA_threads": 4,
   "metaGenPipe.readalignment_task.BRA_minutes": 3000,
-  "metaGenPipe.readalignment_task.BRA_mem": 61440,
+  "metaGenPipe.readalignment_task.BRA_mem": 122880,
 
   "##_COMMENT_29#": "Taxon classification",
   "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 1,
-  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 10000,
-  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 153600,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 15000,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 200000,
 
   "##_COMMENT_30#": "Taxon classification non-merged",
   "metaGenPipe.hmmer_taxon_task.HTAX_threads": 2,
