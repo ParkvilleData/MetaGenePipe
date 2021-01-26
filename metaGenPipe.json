@@ -80,8 +80,8 @@
 
   "##_COMMENT_3#": "trim_galore",
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_threads": 4,
-  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 500,
-  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_mem": 20480,
+  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 1000,
+  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_mem": 40960,
 
   "##_COMMENT_4#": "flash",
   "metaGenPipe.qc_subworkflow.flash_task.FLA_threads": 6,
