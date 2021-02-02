@@ -80,7 +80,7 @@
 
   "##_COMMENT_3#": "trim_galore",
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_threads": 4,
-  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 1000,
+  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 500,
   "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_mem": 40960,
 
   "##_COMMENT_4#": "flash",
@@ -120,7 +120,7 @@
 
   "##_COMMENT_13#": "Megahit merged",
   "metaGenPipe.assembly_subworkflow.megahit_task.MEH_threads": 24,
-  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_minutes": 8000,
+  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_minutes": 5000,
   "metaGenPipe.assembly_subworkflow.megahit_task.MEH_mem": 300000,
 
   "##_COMMENT_14#": "Megahit non-merged",
@@ -130,7 +130,7 @@
 
   "##_COMMENT_19#": "prodigal merged",
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_threads": 1,
-  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 2000,
+  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 500,
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_mem": 20480,
 
   "##_COMMENT_20#": "prodigal non-merged",
@@ -140,7 +140,7 @@
 
   "##_COMMENT_21#": "diamond alignment merged",
   "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_threads": 18,
-  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_minutes": 500,
+  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_minutes": 300,
   "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_mem": 61440,
 
   "##_COMMENT_22#": "diamond alignment non-merged",
@@ -160,7 +160,7 @@
 
   "##_COMMENT_25#": "hmmer merged",
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 8,
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 20000,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 10000,
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 61440,
 
   "##_COMMENT_26#": "hmmer non-merged",
@@ -175,12 +175,12 @@
 
   "##_COMMENT_28#": "Read alignment task ",
   "metaGenPipe.readalignment_task.BRA_threads": 4,
-  "metaGenPipe.readalignment_task.BRA_minutes": 3000,
+  "metaGenPipe.readalignment_task.BRA_minutes": 1000,
   "metaGenPipe.readalignment_task.BRA_mem": 122880,
 
   "##_COMMENT_29#": "Taxon classification",
   "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 1,
-  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 4000,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 6000,
   "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 60000,
 
   "##_COMMENT_30#": "Taxon classification non-merged",
