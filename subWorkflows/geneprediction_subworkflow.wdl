@@ -13,7 +13,6 @@ workflow geneprediction_subworkflow {
   Int maxTargetSeqs
   Int outputType
   String? outputPrefix
-  String mode
   String blastMode
   String? metaOption
 
@@ -50,7 +49,6 @@ workflow geneprediction_subworkflow {
     DB=DB,
     outputPrefix=outputPrefix,
     maxTargetSeqs=maxTargetSeqs,
-    mode=mode,
     outputType=outputType,
     blastMode=blastMode,
     genesAlignmentOutput=prodigal_task.proteinAlignmentOutput

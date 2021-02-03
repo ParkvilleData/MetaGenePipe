@@ -59,7 +59,6 @@
   "metaGenPipe.hostremoval_subworkflow.removalSequence": "mm1,mm2,mm3,mm4,mm5,mm6",
 
   "## geneprediction ##": "##Parameters",
-  "metaGenPipe.mode": "meta",
   "metaGenPipe.maxTargetSeqs": 1,
   "metaGenPipe.blastMode": "blastp",
   "metaGenPipe.outputType": 5,

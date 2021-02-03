@@ -45,7 +45,6 @@ workflow metaGenPipe {
   String bparser
   String database
   String DB
-  String mode
   String blastMode
   String outputFileName
   String removalSequence
@@ -138,7 +137,6 @@ workflow metaGenPipe {
       blastMode=blastMode,
       maxTargetSeqs=maxTargetSeqs,
       outputPrefix = mergedOutput,
-      mode=mode,
       metaOption=metaOption,
       DB=DB
     }
@@ -174,7 +172,6 @@ workflow metaGenPipe {
         blastMode=blastMode,
         metaOption=metaOption,
         maxTargetSeqs=maxTargetSeqs,
-        mode=mode,
         DB=DB
       }
     } ## end scatter
