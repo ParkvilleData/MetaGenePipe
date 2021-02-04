@@ -17,7 +17,7 @@ df = pd.DataFrame()
 
 sample_names = []
 for xml in args.xmls:
-	sample_name = xml.split(".")[0]
+	sample_name = xml.split("/")[-1].split(".")[0]
 	sample_names.append(sample_name)
 
 	root = ET.parse(xml).getroot()
