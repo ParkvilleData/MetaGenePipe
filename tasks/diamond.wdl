@@ -21,9 +21,7 @@ task diamond_task {
   String? sampleName = if defined(outputPrefix) then outputPrefix else basename(genesAlignmentOutput)
 
   command {
-    # has been failing with out of memory, try halving
-    blocks=$((${DIM_mem}/1024/6/2))
-    diamond ${blastMode} --max-target-seqs ${maxTargetSeqs} --threads ${DIM_threads} --block-size $blocks --index-chunks 1 -f ${outputType} -d ${DB} -q ${genesAlignmentOutput} -o ${sampleName}.xml.out
+    diamond ${blastMode} --max-target-seqs ${maxTargetSeqs} --threads ${DIM_threads} -f ${outputType} -d ${DB} -q ${genesAlignmentOutput} -o ${sampleName}.xml.out
     mkdir -p ./geneprediction
     mv ${sampleName}.xml.out ./geneprediction
   }
