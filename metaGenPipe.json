@@ -119,7 +119,7 @@
 
   "##_COMMENT_13#": "Megahit merged",
   "metaGenPipe.assembly_subworkflow.megahit_task.MEH_threads": 24,
-  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_minutes": 10000,
+  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_minutes": 20000,
   "metaGenPipe.assembly_subworkflow.megahit_task.MEH_mem": 400000,
 
   "##_COMMENT_14#": "Megahit non-merged",
