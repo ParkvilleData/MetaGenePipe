@@ -129,7 +129,7 @@
 
   "##_COMMENT_19#": "prodigal merged",
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_threads": 1,
-  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 1000,
+  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 5000,
   "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_mem": 20480,
 
   "##_COMMENT_20#": "prodigal non-merged",
@@ -174,7 +174,7 @@
 
   "##_COMMENT_28#": "Read alignment task ",
   "metaGenPipe.readalignment_task.BRA_threads": 4,
-  "metaGenPipe.readalignment_task.BRA_minutes": 1000,
+  "metaGenPipe.readalignment_task.BRA_minutes": 5000,
   "metaGenPipe.readalignment_task.BRA_mem": 122880,
 
   "##_COMMENT_29#": "Taxon classification",
