@@ -120,7 +120,7 @@
   "##_COMMENT_13#": "Megahit merged",
   "metaGenPipe.assembly_subworkflow.megahit_task.MEH_threads": 24,
   "metaGenPipe.assembly_subworkflow.megahit_task.MEH_minutes": 20000,
-  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_mem": 400000,
+  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_mem": 500000,
 
   "##_COMMENT_14#": "Megahit non-merged",
   "metaGenPipe.nonMergedAssembly.megahit_task.MEH_threads": 6,
@@ -159,7 +159,7 @@
 
   "##_COMMENT_25#": "hmmer merged",
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 8,
-  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 40000,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 45000,
   "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 61440,
 
   "##_COMMENT_26#": "hmmer non-merged",
