@@ -26,10 +26,10 @@ affiliations:
    index: 1
  - name: School of BioSciences, University of Melbourne
    index: 2
- - name: Melbourne Integrative Genomics, University of Melbourne
+ - name: School of Mathematics and Statistics, Melbourne Integrative Genomics, University of Melbourne
    index: 3
 date: 16 March 2022
-bibliography: paper.bib
+bibliography: docs/refs.bib
 
 ---
 
@@ -44,6 +44,28 @@ Microorganisms including bacteria, viruses, archaea, fungi are ubiquitous in our
 # Acknowledgements
 
 
+
 # References
 
+[@Arden2017-as]
+[@Roediger2018-lq]
+[@Andrews:2010tn]
+[@Magoc2011-gb]
+[@Schmieder2011-jr]
+[@Hyatt2010-zh]
+[@Buchfink2015-rn]
+[@Li2010-nl]
+[@Camacho2009-hf]
+[@Altschul1997-oe]
+[@Silva_e_Santos2012-qm]
+[@Tosello2012-kp]
+[@Corinne2012-tx]
+[@Herrera2012-qm]
+[@Soares2012-us]
+[@Blome2012-dx]
+[@Bitencourt2012-vu]
+[@Coelho2012-tk]
+[@Scariot2012-bl]
+[@Zulch2012-ul]
+[@Altschul1990-xn]
 
