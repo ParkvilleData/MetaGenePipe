@@ -22,11 +22,11 @@ authors:
     orcid: 0000-0003-3923-1116
     affiliation: 3
 affiliations:
- - name: Melbourne Data Analytics Platform, University of Melbourne
+ - name: Melbourne Data Analytics Platform, The University of Melbourne
    index: 1
- - name: School of BioSciences, University of Melbourne
+ - name: School of BioSciences, The University of Melbourne
    index: 2
- - name: School of Mathematics and Statistics, Melbourne Integrative Genomics, University of Melbourne
+ - name: School of Mathematics and Statistics, Melbourne Integrative Genomics, The University of Melbourne
    index: 3
 date: 16 March 2022
 bibliography: docs/refs.bib
