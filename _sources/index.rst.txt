@@ -12,6 +12,7 @@ Welcome to MetaGenePipe's documentation!
 
    installation
    citation
+   bibliography
 
 Indices and tables
 ==================
