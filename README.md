@@ -1,4 +1,5 @@
-![Image](../logo/mgp_logo_cut.png?raw=true)
+![Image](../logo/master/mgp_logo_cut.png?raw=true)
+
 
 # MetaGenePipe developed by Bobbie shaban from Melbourne Integrative Genomics.
 
@@ -14,7 +15,7 @@ Different phases of development are proposed for this project. First, benchmarki
 
 ## MetaGenePipe workflow
 
-![Image](../logo/MegaGenePipe.jpeg?raw=true)
+![Image](../logo/master/MegaGenePipe.jpeg?raw=true)
 
 ## Is MetaGenePipe for you?
 ** Expected output **
