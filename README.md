@@ -1,4 +1,4 @@
-![Image](/logo/master/mgp_logo_cut.png)
+![Image](/logo/mgp_logo_cut.png)
 
 
 # MetaGenePipe developed by Bobbie shaban from Melbourne Integrative Genomics.
