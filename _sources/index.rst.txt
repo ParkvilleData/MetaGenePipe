@@ -6,11 +6,19 @@
 Welcome to MetaGenePipe's documentation!
 ========================================
 
+.. image:: ../logo/mgp_logo_cut.png
+  :width: 400
+  :alt: MetaGenePipe Logo
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    installation
+   workflow
+   usage
+   extension
    citation
    bibliography
 
