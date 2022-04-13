@@ -4,12 +4,11 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-      - uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@v2
       - uses: eWaterCycle/setup-singularity@v7
         with:
-          singularity-version: 3.8.7
-      - name: Install and Build 🔧
+          singularity-version: 3.8.3
+      - name: Run a singularity container
         run: |
           singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v1
           singularity run metagenepipe.simg_v1.sif megahit
