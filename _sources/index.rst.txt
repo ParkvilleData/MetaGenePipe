@@ -16,8 +16,8 @@ Welcome to MetaGenePipe's documentation!
    :caption: Contents:
 
    installation
-   workflow
    usage
+   workflow
    extension
    citation
    bibliography

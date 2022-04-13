@@ -21,8 +21,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Extension" href="extension.html" />
-    <link rel="prev" title="Workflow" href="workflow.html" /> 
+    <link rel="next" title="Workflow" href="workflow.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,15 +43,15 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setup-input-file">Setup input file</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#copy-files">Copy files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#java">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#output-directory">Output Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#blast-optional">Blast (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#high-performance-computing-hpc-instructions">High Performance Computing (HPC) instructions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#run-pipeline">Run Pipeline</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension.html">Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citation.html">Citation and Attribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -85,72 +85,67 @@
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h1>
 <section id="setup-input-file">
 <h2>Setup input file<a class="headerlink" href="#setup-input-file" title="Permalink to this headline"></a></h2>
-<p>Open <code class="docutils literal notranslate"><span class="pre">input.txt</span></code> and update with your samples. The file format is as follows</p>
+<p>Open <code class="docutils literal notranslate"><span class="pre">input_file.txt</span></code> and update with your samples. The file format is as follows</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SampleID</span>    <span class="n">Read1FQ</span> <span class="n">Read2FQ</span>
 </pre></div>
 </div>
-<p>For example, the first two lines of <code class="docutils literal notranslate"><span class="pre">input.txt</span></code> could be</p>
+<p>For example, the first two lines of <code class="docutils literal notranslate"><span class="pre">input_file.txt</span></code> could be</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mockpos_S50</span>     <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">cephfs</span><span class="o">/</span><span class="n">punim0256</span><span class="o">/</span><span class="n">gitlab</span><span class="o">/</span><span class="n">metaGenePipe</span><span class="o">/</span><span class="n">metaGenePipe</span><span class="o">/</span><span class="n">fastqFiles</span><span class="o">/</span><span class="n">mockpos_S50_100k_R1</span><span class="o">.</span><span class="n">fasta</span>    <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">cephfs</span><span class="o">/</span><span class="n">punim0256</span><span class="o">/</span><span class="n">gitlab</span><span class="o">/</span><span class="n">metaGenePipe</span><span class="o">/</span><span class="n">metaGenePipe</span><span class="o">/</span><span class="n">fastqFiles</span><span class="o">/</span><span class="n">mockpos_S50_100k_R2</span><span class="o">.</span><span class="n">fasta</span>
 <span class="n">mockpos_S52</span>     <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">cephfs</span><span class="o">/</span><span class="n">punim0256</span><span class="o">/</span><span class="n">gitlab</span><span class="o">/</span><span class="n">metaGenePipe</span><span class="o">/</span><span class="n">metaGenePipe</span><span class="o">/</span><span class="n">fastqFiles</span><span class="o">/</span><span class="n">mockpos_S52_100k_R1</span><span class="o">.</span><span class="n">fastq</span>    <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">cephfs</span><span class="o">/</span><span class="n">punim0256</span><span class="o">/</span><span class="n">gitlab</span><span class="o">/</span><span class="n">metaGenePipe</span><span class="o">/</span><span class="n">metaGenePipe</span><span class="o">/</span><span class="n">fastqFiles</span><span class="o">/</span><span class="n">mockpos_S52_100k_R2</span><span class="o">.</span><span class="n">fastq</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The spaces between the sampleID and reads are tabs. There can be no whitespaces at the end of each line or else the pipeline will fail. Use the complete path to the files to avoid any missed files.**</p>
+<p>The paths need to be the full paths on your file system.
+The spaces between the sampleID and reads are tabs.
+There can be no whitespaces at the end of each line or else the pipeline will fail.
+Use the complete path to the files to avoid any missed files.**</p>
 </div>
 </section>
-<section id="copy-files">
-<h2>Copy files<a class="headerlink" href="#copy-files" title="Permalink to this headline"></a></h2>
-<p>Copy your sample files to the path you used in the input.txt file. There is a folder called “fastqFiles” which can be used.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash:~$ cp *.fastq &lt;metagenepipe_path&gt;/fastqFiles/
+<section id="output-directory">
+<h2>Output Directory<a class="headerlink" href="#output-directory" title="Permalink to this headline"></a></h2>
+<p>By default the workflow with write output to the <code class="docutils literal notranslate"><span class="pre">./outputs</span></code> directory. To change this, edit line 2 in <code class="docutils literal notranslate"><span class="pre">metaGenPipe.options.json</span></code>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;final_workflow_outputs_dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/output/&quot;</span><span class="p">,</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
-<section id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline"></a></h2>
-<p>Edit metaGenePipe.json (config file) and update the workingDir variable to reflect your working directory.</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">&quot;##_GLBOAL_VARS#&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;global&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">&quot;metaGenPipe.workingDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/data/cephfs/punim0256/MGP_ComEnc_011119/&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">&quot;metaGenPipe.outputDir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;output&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">&quot;metaGenPipe.inputSamplesFile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;input.txt&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">&quot;metaGenPipe.outputFileName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;geneCountTable.txt&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">&quot;metaGenPipe.kolist&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ko.sorted.txt&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="p">}</span><span class="w"></span>
+<section id="blast-optional">
+<h2>Blast (Optional)<a class="headerlink" href="#blast-optional" title="Permalink to this headline"></a></h2>
+<p>To use blast, download your preferred database from here:
+<a class="reference external" href="https://ftp.ncbi.nlm.nih.gov/blast/db/">https://ftp.ncbi.nlm.nih.gov/blast/db/</a></p>
+<p>Tell the worklow to use Blast by changing the <code class="docutils literal notranslate"><span class="pre">metaGenPipe.blastBoolean</span></code> variable to <code class="docutils literal notranslate"><span class="pre">true</span></code> on line 5 of <code class="docutils literal notranslate"><span class="pre">metaGenePipe.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;metaGenPipe.blastBoolean&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Change all paths to reflect where you are running the pipeline and change create the output directory you set in the config above **</p>
+<p>Add the path to the Blast database on line 25 of <code class="docutils literal notranslate"><span class="pre">metaGenePipe.json</span></code></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;metaGenPipe.database&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path/to/BLAST/db/&quot;</span><span class="w"></span>
+</pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The working directory you set has to be the directory you cloned the repository into**</p>
+<p>Additionally, set the <code class="docutils literal notranslate"><span class="pre">database_directory</span></code> in <code class="docutils literal notranslate"><span class="pre">metaGenPipe.config</span></code> on lines 34 and 104:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">database_directory</span> <span class="o">=</span> <span class="s2">&quot;/path/to/BLAST/db/&quot;</span>
+</pre></div>
 </div>
 </section>
-<section id="java">
-<h2>Java<a class="headerlink" href="#java" title="Permalink to this headline"></a></h2>
-<p>Ensure that Java is installed. Since this pipeline is made to only be run on the UniMelb cluster, Spartan, Java is already installed. To load Java, you can use:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash:~$ module load Java
+<section id="high-performance-computing-hpc-instructions">
+<h2>High Performance Computing (HPC) instructions<a class="headerlink" href="#high-performance-computing-hpc-instructions" title="Permalink to this headline"></a></h2>
+<p>To run in a High Performance Computing (HPC) environment, change the <code class="docutils literal notranslate"><span class="pre">metaGenPipe.config</span></code> file
+and change the default provider on line 17 from <code class="docutils literal notranslate"><span class="pre">local</span></code> to <code class="docutils literal notranslate"><span class="pre">Slurm</span></code>. e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;Slurm&quot;</span>
+</pre></div>
+</div>
+<p>Change the account string to the appropriate account on your HPC system on line 45 of <code class="docutils literal notranslate"><span class="pre">metaGenPipe.config</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">account</span> <span class="o">=</span> <span class="s2">&quot;--account=ACCOUNT_NAME&quot;</span>
+</pre></div>
+</div>
+<p>Change the <code class="docutils literal notranslate"><span class="pre">rt_queue</span></code> string on line 39 of <code class="docutils literal notranslate"><span class="pre">metaGenPipe.config</span></code> to the partition name(s) in your job scheduler</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">rt_queue</span> <span class="o">=</span> <span class="s2">&quot;PARTITION_NAME_1,PARTITION_NAME_2&quot;</span>
 </pre></div>
 </div>
 </section>
 <section id="run-pipeline">
 <h2>Run Pipeline<a class="headerlink" href="#run-pipeline" title="Permalink to this headline"></a></h2>
-<p>To run the pipeline use the command below in the directory where the cromwell jar file is found.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Before running the pipeline change the cromslurm.conf file to reflect the correct partition you have permission to submit to**</p>
-</div>
-<p>### the line you have change is: String rt_queue = “mig-gpu”</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash:~$ java -Dconfig.file<span class="o">=</span>./cromslurm.conf -jar cromwell-45.1.jar run metaGenPipe.wdl -i metaGenPipe.json
+<p>To run the pipeline use the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>java -Dconfig.file<span class="o">=</span>./metaGenePipe.config -jar cromwell-78.jar run metaGenePipe.wdl -i metaGenePipe.json -o metaGenePipe.options.json
 </pre></div>
 </div>
 </section>
@@ -160,8 +155,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="workflow.html" class="btn btn-neutral float-left" title="Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="extension.html" class="btn btn-neutral float-right" title="Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="workflow.html" class="btn btn-neutral float-right" title="Workflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

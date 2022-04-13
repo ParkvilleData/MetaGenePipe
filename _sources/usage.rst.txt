@@ -5,84 +5,74 @@ Usage
 Setup input file
 ==================
 
-Open ``input.txt`` and update with your samples. The file format is as follows ::
+Open ``input_file.txt`` and update with your samples. The file format is as follows ::
 
   SampleID    Read1FQ Read2FQ
 
-For example, the first two lines of ``input.txt`` could be ::
+For example, the first two lines of ``input_file.txt`` could be ::
 
   mockpos_S50     /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFiles/mockpos_S50_100k_R1.fasta    /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFiles/mockpos_S50_100k_R2.fasta
   mockpos_S52     /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFiles/mockpos_S52_100k_R1.fastq    /data/cephfs/punim0256/gitlab/metaGenePipe/metaGenePipe/fastqFiles/mockpos_S52_100k_R2.fastq
 
 .. note::
 
-  The spaces between the sampleID and reads are tabs. There can be no whitespaces at the end of each line or else the pipeline will fail. Use the complete path to the files to avoid any missed files.**
+  The paths need to be the full paths on your file system.
+  The spaces between the sampleID and reads are tabs. 
+  There can be no whitespaces at the end of each line or else the pipeline will fail. 
+  Use the complete path to the files to avoid any missed files.**
 
+Output Directory
+================
 
-Copy files
-==========
-
-Copy your sample files to the path you used in the input.txt file. There is a folder called "fastqFiles" which can be used.
-
-
-.. code-block:: bash
-
-  bash:~$ cp *.fastq <metagenepipe_path>/fastqFiles/
-
-
-Configuration
-==============
-
-Edit metaGenePipe.json (config file) and update the workingDir variable to reflect your working directory.
+By default the workflow with write output to the ``./outputs`` directory. To change this, edit line 2 in ``metaGenPipe.options.json``:
 
 .. code-block:: json
 
-  {
+  "final_workflow_outputs_dir": "/path/to/output/",  
 
-    "##_GLBOAL_VARS#": "global",
+Blast (Optional)
+================
 
-    "metaGenPipe.workingDir": "/data/cephfs/punim0256/MGP_ComEnc_011119/",
-    
-    "metaGenPipe.outputDir": "output",
-    
-    "metaGenPipe.inputSamplesFile": "input.txt",
-    
-    "metaGenPipe.outputFileName": "geneCountTable.txt",
-    
-    "metaGenPipe.kolist": "ko.sorted.txt",
-    
-  }
+To use blast, download your preferred database from here:
+https://ftp.ncbi.nlm.nih.gov/blast/db/
+
+Tell the worklow to use Blast by changing the ``metaGenPipe.blastBoolean`` variable to ``true`` on line 5 of ``metaGenePipe.json``
   
+.. code-block:: json
 
-.. note::
+  "metaGenPipe.blastBoolean": true,
 
-  Change all paths to reflect where you are running the pipeline and change create the output directory you set in the config above **
+Add the path to the Blast database on line 25 of ``metaGenePipe.json``
 
-.. note::
-  
-  The working directory you set has to be the directory you cloned the repository into**
+.. code-block:: json
 
-Java
-=====
+  "metaGenPipe.database": "/path/to/BLAST/db/"
 
-Ensure that Java is installed. Since this pipeline is made to only be run on the UniMelb cluster, Spartan, Java is already installed. To load Java, you can use:
+Additionally, set the ``database_directory`` in ``metaGenPipe.config`` on lines 34 and 104::
 
-.. code-block:: bash
+  String database_directory = "/path/to/BLAST/db/"
 
-  bash:~$ module load Java
+High Performance Computing (HPC) instructions
+=============================================
 
+To run in a High Performance Computing (HPC) environment, change the ``metaGenPipe.config`` file 
+and change the default provider on line 17 from ``local`` to ``Slurm``. e.g. ::
+
+  default = "Slurm"
+
+Change the account string to the appropriate account on your HPC system on line 45 of ``metaGenPipe.config`` ::
+
+  String account = "--account=ACCOUNT_NAME" 
+
+Change the ``rt_queue`` string on line 39 of ``metaGenPipe.config`` to the partition name(s) in your job scheduler :: 
+
+  String rt_queue = "PARTITION_NAME_1,PARTITION_NAME_2"
 
 Run Pipeline
 ============
 
-To run the pipeline use the command below in the directory where the cromwell jar file is found.
-
-.. note::
-  
-  Before running the pipeline change the cromslurm.conf file to reflect the correct partition you have permission to submit to**
-
-### the line you have change is: String rt_queue = "mig-gpu"
+To run the pipeline use the command:
 
 .. code-block:: bash
 
-  bash:~$ java -Dconfig.file=./cromslurm.conf -jar cromwell-45.1.jar run metaGenPipe.wdl -i metaGenPipe.json
+  java -Dconfig.file=./metaGenePipe.config -jar cromwell-78.jar run metaGenePipe.wdl -i metaGenePipe.json -o metaGenePipe.options.json

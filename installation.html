@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Workflow" href="workflow.html" />
+    <link rel="next" title="Usage" href="usage.html" />
     <link rel="prev" title="Welcome to MetaGenePipe’s documentation!" href="index.html" /> 
 </head>
 
@@ -42,9 +42,15 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clone-the-repository">Clone the repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#java">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cromwell">Cromwell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#singularity">Singularity</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">Workflow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extension.html">Extension</a></li>
 <li class="toctree-l1"><a class="reference internal" href="citation.html">Citation and Attribution</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
@@ -66,7 +72,7 @@
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Installation</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/installation.md.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/installation.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,12 +80,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="installation">
+  <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
-<ul class="simple">
-<li><p>Singularity</p></li>
-<li><p>Kegg database</p></li>
-</ul>
+<p>Uses these steps to install MetaGenePipe:</p>
+<section id="clone-the-repository">
+<h2>Clone the repository<a class="headerlink" href="#clone-the-repository" title="Permalink to this headline"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ParkvilleData/MetaGenePipe.git
+<span class="nb">cd</span> MetaGenePipe
+</pre></div>
+</div>
+<p>MetaGenePipe requires Java, Cromwell and Singularity to run.</p>
+</section>
+<section id="java">
+<h2>Java<a class="headerlink" href="#java" title="Permalink to this headline"></a></h2>
+<p>Ensure you have Java installed. If not, follow the instructions for the relevant operating system here:
+<a class="reference external" href="https://www.java.com/en/download/help/download_options.html">https://www.java.com/en/download/help/download_options.html</a></p>
+<p>If running on Spartan (the University of Melbourne HPC cluster) Java is already installed. To load Java, you can use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module load Java
+</pre></div>
+</div>
+</section>
+<section id="cromwell">
+<h2>Cromwell<a class="headerlink" href="#cromwell" title="Permalink to this headline"></a></h2>
+<p>Download the latest Cromwell release .jar file from here: <a class="reference external" href="https://github.com/broadinstitute/cromwell/releases">https://github.com/broadinstitute/cromwell/releases</a>
+Place this jar file in the root directory of MetaGenePipe.</p>
+</section>
+<section id="singularity">
+<h2>Singularity<a class="headerlink" href="#singularity" title="Permalink to this headline"></a></h2>
+<p>Follow the instructions for installing Singularity: <a class="reference external" href="https://sylabs.io/guides/3.0/user-guide/installation.html">https://sylabs.io/guides/3.0/user-guide/installation.html</a></p>
+<p>Then get the Singularity image for MetaGenePipe:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v1
+</pre></div>
+</div>
+<p>Test the workflow with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity run metagenepipe.simg_v1.sif megahit
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -87,7 +124,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to MetaGenePipe’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="workflow.html" class="btn btn-neutral float-right" title="Workflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
