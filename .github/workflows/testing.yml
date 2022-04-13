@@ -1,0 +1,17 @@
+name: testing
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    container: singularityware/singularity
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Install and Build 🔧
+        run: |
+          install singularity
+
+          singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v1
+          singularity run metaGenePipe.simg megahit          
+
