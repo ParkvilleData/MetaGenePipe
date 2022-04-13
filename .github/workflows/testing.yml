@@ -10,8 +10,6 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          install singularity
-
           singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v1
-          singularity run metaGenePipe.simg megahit          
+          singularity run metagenepipe.simg_v1.sif megahit
 
