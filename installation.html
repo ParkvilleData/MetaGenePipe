@@ -112,10 +112,11 @@ Place this jar file in the root directory of MetaGenePipe.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v1
 </pre></div>
 </div>
-<p>Test the workflow with the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity run metagenepipe.simg_v1.sif megahit
+<p>Test that the Singularity container is working with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity run metagenepipe.simg_v1.sif megahit --help
 </pre></div>
 </div>
+<p>If the help description for megahit displays then the Singularity container can be used with MetaGenePipe.</p>
 </section>
 </section>
 
