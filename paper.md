@@ -9,11 +9,11 @@ authors:
   - name: Maria del Mar Quiroga
     orcid: 0000-0002-8943-2808
     affiliation: 1
-  - name: Edoardo Tescari
-    orcid: 0000-0003-1157-4897
-    affiliation: 1
   - name: Robert Turnbull
     orcid: 0000-0003-1274-6750
+    affiliation: 1
+- name: Edoardo Tescari
+    orcid: 0000-0003-1157-4897
     affiliation: 1
   - name: Heroen Verbruggen
     orcid: 0000-0002-6305-4749
@@ -45,6 +45,8 @@ Microorganisms including bacteria, viruses, archaea, fungi are ubiquitous in our
 
 
 # Workflow
+
+![Figure 1](logo/MetaGenePipe.drawio.png)
 
 # Use in Metagenomic Research
 
