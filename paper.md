@@ -46,7 +46,7 @@ Microorganisms including bacteria, viruses, archaea, fungi are ubiquitous in our
 
 # Workflow
 
-![Figure 1](logo/MetaGenePipe.drawio.png)
+<!-- ![Figure 1](logo/MetaGenePipe.drawio.png) -->
 
 # Use in Metagenomic Research
 
