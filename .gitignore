@@ -8,3 +8,7 @@ scripts/.ipynb_checkpoints/
 scripts/mfclient/__pycache__/
 
 *.swp
+*.jar
+*.simg
+*.sif
+output/*

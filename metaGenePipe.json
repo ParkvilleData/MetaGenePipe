@@ -1,0 +1,181 @@
+{
+  "## Boolean list": "True or false for setting optional tasks",
+  "metaGenPipe.flashBoolean": true,
+  "metaGenPipe.blastBoolean": false,
+  "metaGenPipe.mergeBoolean": true,
+  "metaGenPipe.taxonBoolean": true,
+  "metaGenPipe.trimmomaticBoolean": false,
+  "metaGenPipe.trimGaloreBoolean": true,
+  "metaGenPipe.megahitBoolean": true,
+  "metaGenPipe.readalignBoolean": true,
+  "metaGenPipe.hmmerBoolean": true,
+
+  "##_GLOBAL_VARS#": "files",
+  "metaGenPipe.inputSamplesFile": "./input_file.txt",
+  "metaGenPipe.bparser": "./scripts/bparser.pl",
+  "metaGenPipe.xml_parser": "./scripts/xml_parser-v3.py",
+  "metaGenPipe.hmm_parser": "./scripts/hmm_parser-v1.py",
+  "metaGenPipe.interleaveShell": "./scripts/interleave_fastq.sh",
+  "metaGenPipe.megaGraph": "./scripts/megaGraph.py",
+
+  "## required reference files on shared project ##": "Don't need to change",
+  "metaGenPipe.database": "/data/gpfs/datasets/BLAST/db/nt",
+  "metaGenPipe.taxRankFile": "./tax_rank",
+  "metaGenPipe.DB": "./kegg/kegg_all.dmnd",
+  "metaGenPipe.hmmerDB": "./kegg/hmmer.hmm",
+  "metaGenPipe.briteList": "./taxon/brite.txt",
+  "metaGenPipe.briteJson": "./taxon/br08610.json",
+  "metaGenPipe.fullLineageFile": "./taxon/fullnamelineage.dmp",
+
+  "## output prefix ##": "If running nonMerged mode leave blank: mergeBoolean variable needs to be true",
+  "metaGenPipe.mergedOutput": "Merge",
+
+  "## software calls": "trimmomatic etc",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.trimmomatic": "java -jar /local_build/bin/trimmomatic-0.39.jar",
+
+  "## assembly parameters ###": "megahit",
+  "metaGenPipe.preset": "meta-large",
+
+  "## trim adapters and parameters": "",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.truseq_pe_adapter": "./adapters/TruSeq3-PE.fa",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.truseq_se_adapter": "./adapters/TruSeq3-SE.fa",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.Phred": "33",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.EndType": "PE",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.minLength": "50",
+  "metaGenPipe.qc_subworkflow.trim_galore_task.Phred": "33",
+  "metaGenPipe.qc_subworkflow.trim_galore_task.minLength": "50",
+  "metaGenPipe.qc_subworkflow.trim_galore_task.quality": "30",
+  "metaGenPipe.qc_subworkflow.trim_galore_task.clip_r5": "10",
+  "metaGenPipe.qc_subworkflow.trim_galore_task.clip_r3": "5",
+
+  "## geneprediction ##": "##Parameters",
+  "metaGenPipe.identityPercentage": 70, 
+  "metaGenPipe.coverage": 70, 
+  "metaGenPipe.maxTargetSeqs": 1,
+  "metaGenPipe.blastMode": "blastp",
+  "metaGenPipe.outputType": 5,
+  "metaGenPipe.metaOption": "-p meta",
+
+  "metaGenPipe.outputFileName": "brite",
+  "metaGenPipe.numOfHits": 10,
+
+  "##_COMMENT_1#": "fastqc",
+  "metaGenPipe.qc_subworkflow.fastqc_task.FQC_threads": 2,
+  "metaGenPipe.qc_subworkflow.fastqc_task.FQC_minutes": 120,
+  "metaGenPipe.qc_subworkflow.fastqc_task.FQC_mem": 10240,
+
+  "##_COMMENT_2#": "trimmomatic",
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.TRIM_threads": 6,
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.TRIM_minutes": 15,
+  "metaGenPipe.qc_subworkflow.trimmomatic_task.TRIM_mem": 20000,
+
+  "##_COMMENT_3#": "trim_galore",
+  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_threads": 4,
+  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_minutes": 500,
+  "metaGenPipe.qc_subworkflow.trim_galore_task.TRMG_mem": 20960,
+
+  "##_COMMENT_4#": "flash",
+  "metaGenPipe.qc_subworkflow.flash_task.FLA_threads": 6,
+  "metaGenPipe.qc_subworkflow.flash_task.FLA_minutes": 15,
+  "metaGenPipe.qc_subworkflow.flash_task.FLA_mem": 20000,
+
+  "##_COMMENT_5#": "multiqc",
+  "metaGenPipe.multiqc_task.MQC_threads": 1,
+  "metaGenPipe.multiqc_task.MQC_minutes": 60,
+  "metaGenPipe.multiqc_task.MQC_mem": 5120,
+
+  "##_COMMENT_6#": "merge",
+  "metaGenPipe.merge_task.MGS_threads": 1,
+  "metaGenPipe.merge_task.MGS_minutes": 60,
+  "metaGenPipe.merge_task.MGS_mem": 20480,
+
+  "##_COMMENT_7#": "interleave shell",
+  "metaGenPipe.hostremoval_subworkflow.interleave_task.ILE_threads": 6,
+  "metaGenPipe.hostremoval_subworkflow.interleave_task.ILE_minutes": 100,
+  "metaGenPipe.hostremoval_subworkflow.interleave_task.ILE_mem": 20000,
+
+  "##_COMMENT_8#": "host removal",
+  "metaGenPipe.hostremoval_subworkflow.hostremoval_task.HRM_threads": 6,
+  "metaGenPipe.hostremoval_subworkflow.hostremoval_task.HRM_minutes": 600,
+  "metaGenPipe.hostremoval_subworkflow.hostremoval_task.HRM_mem": 20000,
+
+  "##_COMMENT_11#": "Blast merged",
+  "metaGenPipe.assembly_subworkflow.blast_task.BLST_threads": 6,
+  "metaGenPipe.assembly_subworkflow.blast_task.BLST_minutes": 100,
+  "metaGenPipe.assembly_subworkflow.blast_task.BLST_mem": 30000,
+
+  "##_COMMENT_12#": "Blast non-merged",
+  "metaGenPipe.nonMergedAssembly.blast_task.BLST_threads": 6,
+  "metaGenPipe.nonMergedAssembly.blast_task.BLST_minutes": 100,
+  "metaGenPipe.nonMergedAssembly.blast_task.BLST_mem": 30000,
+
+  "##_COMMENT_13#": "Megahit merged",
+  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_threads": 24,
+  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_minutes": 200,
+  "metaGenPipe.assembly_subworkflow.megahit_task.MEH_mem": 20000,
+
+  "##_COMMENT_14#": "Megahit non-merged",
+  "metaGenPipe.nonMergedAssembly.megahit_task.MEH_threads": 6,
+  "metaGenPipe.nonMergedAssembly.megahit_task.MEH_minutes": 100,
+  "metaGenPipe.nonMergedAssembly.megahit_task.MEH_mem": 30000,
+
+  "##_COMMENT_19#": "prodigal merged",
+  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_threads": 1,
+  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_minutes": 500,
+  "metaGenPipe.geneprediction_subworkflow.prodigal_task.GEP_mem": 20480,
+
+  "##_COMMENT_20#": "prodigal non-merged",
+  "metaGenPipe.nonMergedGenePrediction.prodigal_task.GEP_threads": 6,
+  "metaGenPipe.nonMergedGenePrediction.prodigal_task.GEP_minutes": 100,
+  "metaGenPipe.nonMergedGenePrediction.prodigal_task.GEP_mem": 30000,
+
+  "##_COMMENT_21#": "diamond alignment merged",
+  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_threads": 18,
+  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_minutes": 300,
+  "metaGenPipe.geneprediction_subworkflow.diamond_task.DIM_mem": 21440,
+
+  "##_COMMENT_22#": "diamond alignment non-merged",
+  "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_threads": 20,
+  "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_minutes": 300,
+  "metaGenPipe.nonMergedGenePrediction.diamond_task.DIM_mem": 20000,
+
+  "##_COMMENT_23#": "collation merged",
+  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_threads": 1,
+  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_minutes": 60,
+  "metaGenPipe.geneprediction_subworkflow.collation_task.COL_mem": 6000,
+
+  "##_COMMENT_24#": "collation non-merged",
+  "metaGenPipe.nonMergedGenePrediction.collation_task.COL_threads": 1,
+  "metaGenPipe.nonMergedGenePrediction.collation_task.COL_minutes": 200,
+  "metaGenPipe.nonMergedGenePrediction.collation_task.COL_mem": 6000,
+
+  "##_COMMENT_25#": "hmmer merged",
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_threads": 8,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_minutes": 300,
+  "metaGenPipe.geneprediction_subworkflow.hmmer_task.HMMER_mem": 21440,
+
+  "##_COMMENT_26#": "hmmer non-merged",
+  "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_threads": 16,
+  "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_minutes": 200,
+  "metaGenPipe.nonMergedGenePrediction.hmmer_task.HMMER_mem": 40000,
+
+  "##_COMMENT_27#": "Matching contigs and reads ",
+  "metaGenPipe.matching_contigs_reads_task.BMN_threads": 1,
+  "metaGenPipe.matching_contigs_reads_task.BMN_minutes": 60,
+  "metaGenPipe.matching_contigs_reads_task.BMN_mem": 20480,
+
+  "##_COMMENT_28#": "Read alignment task ",
+  "metaGenPipe.readalignment_task.BRA_threads": 4,
+  "metaGenPipe.readalignment_task.BRA_minutes": 200,
+  "metaGenPipe.readalignment_task.BRA_mem": 20880,
+
+  "##_COMMENT_29#": "Taxon classification",
+  "metaGenPipe.hmmerMergedTaxon.HTAX_threads": 1,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_minutes": 600,
+  "metaGenPipe.hmmerMergedTaxon.HTAX_mem": 30000,
+
+  "##_COMMENT_30#": "Taxon classification non-merged",
+  "metaGenPipe.hmmer_taxon_task.HTAX_threads": 2,
+  "metaGenPipe.hmmer_taxon_task.HTAX_minutes": 300,
+  "metaGenPipe.hmmer_taxon_task.HTAX_mem": 30000
+}

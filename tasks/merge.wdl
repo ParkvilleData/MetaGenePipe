@@ -2,24 +2,15 @@ task merge_task {
   Array[File?] readsToMergeFlash
   Array[File] readsToMergeFwd
   Array[File] readsToMergeRev
-  Array[File?] hostRemFwdReads
-  Array[File?] hostRemRevReads
   Int MGS_threads
   Int MGS_minutes
   Int MGS_mem
   Int mergeArray = length(select_all(readsToMergeFwd))
-  Int hostMergeArray = length(select_all(hostRemFwdReads))
 
   command {
     mkdir -p ./data/merged
-    if [[ ${hostMergeArray} > 0 ]]
-      then
-        cat ${sep = ' ' hostRemFwdReads} > ./data/merged/merged_R1.fq.gz
-        cat ${sep = ' ' hostRemRevReads} > ./data/merged/merged_R2.fq.gz
-      else
-        cat ${sep = ' ' readsToMergeFwd} > ./data/merged/merged_R1.fq.gz
-        cat ${sep = ' ' readsToMergeRev} > ./data/merged/merged_R2.fq.gz
-    fi
+    cat ${sep = ' ' readsToMergeFwd} > ./data/merged/merged_R1.fq.gz
+    cat ${sep = ' ' readsToMergeRev} > ./data/merged/merged_R2.fq.gz
   }
   runtime {
     runtime_minutes: '${MGS_minutes}'
