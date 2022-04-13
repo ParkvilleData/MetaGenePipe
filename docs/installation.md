@@ -1,4 +1,0 @@
-# Installation
-
-- Singularity
-- Kegg database
