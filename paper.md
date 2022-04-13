@@ -12,7 +12,7 @@ authors:
   - name: Robert Turnbull
     orcid: 0000-0003-1274-6750
     affiliation: 1
-- name: Edoardo Tescari
+  - name: Edoardo Tescari
     orcid: 0000-0003-1157-4897
     affiliation: 1
   - name: Heroen Verbruggen
@@ -46,7 +46,7 @@ Microorganisms including bacteria, viruses, archaea, fungi are ubiquitous in our
 
 # Workflow
 
-<!-- ![Figure 1](logo/MetaGenePipe.drawio.png) -->
+![Figure 1](logo/MetaGenePipe.drawio.png)
 
 # Use in Metagenomic Research
 
