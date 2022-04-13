@@ -1,0 +1,1 @@
+ java -Dconfig.file=./metaGenePipe.config -jar cromwell-78.jar run metaGenePipe.wdl -i metaGenePipe.json -o metaGenePipe.options.json
