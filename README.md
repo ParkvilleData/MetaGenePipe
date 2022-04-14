@@ -1,5 +1,6 @@
 ![Image](/logo/mgp_logo_cut.png)
 
+![testing](https://github.com/ParkvilleData/MetaGenePipe/actions/workflows/testing.yml/badge.svg)
 [<img src="https://github.com/ParkvilleData/MetaGenePipe/actions/workflows/docs.yml/badge.svg">](<https://parkvilledata.github.io/MetaGenePipe/>)
 
 # MetaGenePipe developed by Bobbie Shaban from Melbourne Integrative Genomics.
