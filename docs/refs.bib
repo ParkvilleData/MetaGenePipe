@@ -646,3 +646,121 @@
   year      =  1990,
   language  = "en"
 }
+
+@Article{pmid31742321,
+   Author="Aramaki, T.  and Blanc-Mathieu, R.  and Endo, H.  and Ohkubo, K.  and Kanehisa, M.  and Goto, S.  and Ogata, H. ",
+   Title="{{K}ofam{K}{O}{A}{L}{A}: {K}{E}{G}{G} {O}rtholog assignment based on profile {H}{M}{M} and adaptive score threshold}",
+   Journal="Bioinformatics",
+   Year="2020",
+   Volume="36",
+   Number="7",
+   Pages="2251--2252",
+   Month="04"
+}
+
+@article{10.1093/nargab/lqaa026,
+    author = {Brůna, Tomáš and Lomsadze, Alexandre and Borodovsky, Mark},
+    title = "{GeneMark-EP+: eukaryotic gene prediction with self-training in the space of genes and proteins}",
+    journal = {NAR Genomics and Bioinformatics},
+    volume = {2},
+    number = {2},
+    year = {2020},
+    month = {05},
+    abstract = "{We have made several steps toward creating a fast and accurate algorithm for gene prediction in eukaryotic genomes. First, we introduced an automated method for efficient ab initio gene finding, GeneMark-ES, with parameters trained in iterative unsupervised mode. Next, in GeneMark-ET we proposed a method of integration of unsupervised training with information on intron positions revealed by mapping short RNA reads. Now we describe GeneMark-EP, a tool that utilizes another source of external information, a protein database, readily available prior to the start of a sequencing project. A new specialized pipeline, ProtHint, initiates massive protein mapping to genome and extracts hints to splice sites and translation start and stop sites of potential genes. GeneMark-EP uses the hints to improve estimation of model parameters as well as to adjust coordinates of predicted genes if they disagree with the most reliable hints (the -EP+ mode). Tests of GeneMark-EP and -EP+ demonstrated improvements in gene prediction accuracy in comparison with GeneMark-ES, while the GeneMark-EP+ showed higher accuracy than GeneMark-ET. We have observed that the most pronounced improvements in gene prediction accuracy happened in large eukaryotic genomes.}",
+    issn = {2631-9268},
+    doi = {10.1093/nargab/lqaa026},
+    url = {https://doi.org/10.1093/nargab/lqaa026},
+    note = {lqaa026},
+    eprint = {https://academic.oup.com/nargab/article-pdf/2/2/lqaa026/34054524/lqaa026.pdf},
+}
+
+
+
+@Inbook{Sallet2019,
+author="Sallet, Erika
+and Gouzy, J{\'e}r{\^o}me
+and Schiex, Thomas",
+editor="Kollmar, Martin",
+title="EuGene: An Automated Integrative Gene Finder for Eukaryotes and Prokaryotes",
+bookTitle="Gene Prediction: Methods and Protocols ",
+year="2019",
+publisher="Springer New York",
+address="New York, NY",
+pages="97--120",
+abstract="EuGene is an integrative gene finder applicable to both prokaryotic and eukaryotic genomes. EuGene annotated its first genome in 1999. Starting from genomic DNA sequences representing a complete genome, EuGene is able to predict the major transcript units in the genome from a variety of sources of information: statistical information, similarities with known transcripts and proteins, but also any GFF3 structured information supporting the presence or absence of specific types of elements. EuGene has been used to find genes in the plants Arabidopsis thaliana, Medicago truncatula, and Theobroma cacao; tomato, sunflower, and Rosa genomes; and in the nematode Meloidogyne incognita genome, among many others. The large fraction of plant in this list probably influenced EuGene development, especially in its capacities to withstand a genome with a large number of repeated regions and transposable elements.",
+isbn="978-1-4939-9173-0",
+doi="10.1007/978-1-4939-9173-0_6",
+url="https://doi.org/10.1007/978-1-4939-9173-0_6"
+}
+
+@article{10.1093/bioinformatics/btv033,
+    author = {Li, Dinghua and Liu, Chi-Man and Luo, Ruibang and Sadakane, Kunihiko and Lam, Tak-Wah},
+    title = "{MEGAHIT: an ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph}",
+    journal = {Bioinformatics},
+    volume = {31},
+    number = {10},
+    pages = {1674-1676},
+    year = {2015},
+    month = {01},
+    abstract = "{Summary: MEGAHIT is a NGS de novo assembler for assembling large and complex metagenomics data in a time- and cost-efficient manner. It finished assembling a soil metagenomics dataset with 252 Gbps in 44.1 and 99.6 h on a single computing node with and without a graphics processing unit, respectively. MEGAHIT assembles the data as a whole, i.e. no pre-processing like partitioning and normalization was needed. When compared with previous methods on assembling the soil data, MEGAHIT generated a three-time larger assembly, with longer contig N50 and average contig length; furthermore, 55.8\\% of the reads were aligned to the assembly, giving a fourfold improvement.Availability and implementation: The source code of MEGAHIT is freely available at https://github.com/voutcn/megahit under GPLv3 license.Contact:rb@l3-bioinfo.com or twlam@cs.hku.hkSupplementary information: Supplementary data are available at Bioinformatics online.}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btv033},
+    url = {https://doi.org/10.1093/bioinformatics/btv033},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/31/10/1674/17085710/btv033.pdf},
+}
+
+
+
+@article{10.1093/bioinformatics/bts174,
+    author = {Peng, Yu and Leung, Henry C. M. and Yiu, S. M. and Chin, Francis Y. L.},
+    title = "{IDBA-UD: a de novo assembler for single-cell and metagenomic sequencing data with highly uneven depth}",
+    journal = {Bioinformatics},
+    volume = {28},
+    number = {11},
+    pages = {1420-1428},
+    year = {2012},
+    month = {04},
+    abstract = "{Motivation: Next-generation sequencing allows us to sequence reads from a microbial environment using single-cell sequencing or metagenomic sequencing technologies. However, both technologies suffer from the problem that sequencing depth of different regions of a genome or genomes from different species are highly uneven. Most existing genome assemblers usually have an assumption that sequencing depths are even. These assemblers fail to construct correct long contigs.Results: We introduce the IDBA-UD algorithm that is based on the de Bruijn graph approach for assembling reads from single-cell sequencing or metagenomic sequencing technologies with uneven sequencing depths. Several non-trivial techniques have been employed to tackle the problems. Instead of using a simple threshold, we use multiple depthrelative thresholds to remove erroneous k-mers in both low-depth and high-depth regions. The technique of local assembly with paired-end information is used to solve the branch problem of low-depth short repeat regions. To speed up the process, an error correction step is conducted to correct reads of high-depth regions that can be aligned to highconfident contigs. Comparison of the performances of IDBA-UD and existing assemblers (Velvet, Velvet-SC, SOAPdenovo and Meta-IDBA) for different datasets, shows that IDBA-UD can reconstruct longer contigs with higher accuracy.Availability: The IDBA-UD toolkit is available at our website http://www.cs.hku.hk/~alse/idba\_udContact:chin@cs.hku.hk}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/bts174},
+    url = {https://doi.org/10.1093/bioinformatics/bts174},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/28/11/1420/742285/bts174.pdf},
+}
+
+
+
+@Article{pmid10592173,
+   Author="Kanehisa, M.  and Goto, S. ",
+   Title="{{K}{E}{G}{G}: kyoto encyclopedia of genes and genomes}",
+   Journal="Nucleic Acids Res",
+   Year="2000",
+   Volume="28",
+   Number="1",
+   Pages="27--30",
+   Month="Jan"
+}
+@Article{pmid31441146,
+   Author="Kanehisa, M. ",
+   Title="{{T}oward understanding the origin and evolution of cellular organisms}",
+   Journal="Protein Sci",
+   Year="2019",
+   Volume="28",
+   Number="11",
+   Pages="1947--1951",
+   Month="11"
+}
+@Article{pmid33125081,
+   Author="Kanehisa, M.  and Furumichi, M.  and Sato, Y.  and Ishiguro-Watanabe, M.  and Tanabe, M. ",
+   Title="{{K}{E}{G}{G}: integrating viruses and cellular organisms}",
+   Journal="Nucleic Acids Res",
+   Year="2021",
+   Volume="49",
+   Number="D1",
+   Pages="D545-D551",
+   Month="01"
+}
+
+@misc{krakenmanual,
+  Title="Kraken taxonomic sequence classification system: Operating Manual", 
+  url={https://ccb.jhu.edu/software/kraken/MANUAL.html}
+} 

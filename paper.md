@@ -39,17 +39,17 @@ MetaGenePipe is an efficient, flexible, portable and scalable metagenomics pipel
 
 The current software list includes the option of two genomic assemblers, IDBA and MegaHIT, allowing for genomic assembly in low coverage samples while allowing for computational efficiency. The gene prediction tool, Prodigal (PROkaryotic Dynamic programming Gen-finding Algorithm), is used to predict gene coding sequences from raw genomic data. Diamond, HMMER and BLAST are the alignment tools incorporated into the MetaGenePipe workflow and allow for the alignment of predicted Gene Coding Sequences to known databases for classification. Currently the Swissprot database is used for classification purposes.  
 
-Not only does MetaGenePipe create an OTU table for known organisms, but it also provides Brite hierarchy classification when using KoalaFam Hmmer profiles (https://www.genome.jp/tools/kofamkoala/).  MetaGenePipe can easily be tailored to find viruses, bacteria, plants, archaea, vertebrates, invertebrates or fungi with minimal changes. 
+Not only does MetaGenePipe create an OTU table for known organisms, but it also provides Brite hierarchy classification when using [KoalaFam HMMER profiles](https://www.genome.jp/tools/kofamkoala/) [@pmid31742321].  MetaGenePipe can easily be tailored to find viruses, bacteria, plants, archaea, vertebrates, invertebrates or fungi with minimal changes. 
 
 
 # Statement of need 
 
-Microorganisms including bacteria, viruses, archaea, fungi are ubiquitous in our environment. The study of microorganisms and their full genomes has been enabled through advances in culture independent techniques and high-throughput sequencing technologies. Whole genome metagenomics shotgun sequencing (WGS) empowers researchers to study biological functions of microorganisms, and how their presence affect human disease or a specific ecosystem. However, advanced, and novel bioinformatics techniques are required to process the data into a suitable format. There is no universally accepted standardised bioinformatics framework a microbiologist can use effectively. Most modern metagenomic software including MG-RAST and Kraken automates taxonomic classification of bacterial sequences within genomic samples. While both MG-RAST and Kraken are well known metagenomic software suites, installation of MG-RAST on local hardware infrastructure is difficult and set up of Kraken custom databases can take up-to 5 hours (https://ccb.jhu.edu/software/kraken/MANUAL.html). 
+Microorganisms including bacteria, viruses, archaea, fungi are ubiquitous in our environment. The study of microorganisms and their full genomes has been enabled through advances in culture independent techniques and high-throughput sequencing technologies. Whole genome metagenomics shotgun sequencing (WGS) empowers researchers to study biological functions of microorganisms, and how their presence affect human disease or a specific ecosystem. However, advanced, and novel bioinformatics techniques are required to process the data into a suitable format. There is no universally accepted standardised bioinformatics framework a microbiologist can use effectively. Most modern metagenomic software packages including MG-RAST and Kraken automates taxonomic classification of bacterial sequences within genomic samples. While both MG-RAST and Kraken are well known metagenomic software suites, installation of MG-RAST on local hardware infrastructure is difficult and set up of Kraken custom databases can take up-to 5 hours according to the [Kraken operating manual](https://ccb.jhu.edu/software/kraken/MANUAL.html). 
 
 
 MetaGenePipe overcomes these obstacles by improving portability and installation via the use of singularity containers and the Diamond Aligner which can take minutes to create bespoke databases.  
 
-While MetaGenePipe is focussed on Prokaryotes, it can easily be adapted to Eukaryotes or Viruses by changing the Prokaryotic gene prediction software, Prodigal, to a Eukaryote gene prediction software such as GeneMark-EP+ (https://academic.oup.com/nargab/article/2/2/lqaa026/5836691) or EuGene (http://eugene.toulouse.inra.fr/).  
+While MetaGenePipe is focussed on Prokaryotes, it can easily be adapted to Eukaryotes or Viruses by changing the Prokaryotic gene prediction software, Prodigal, to a Eukaryote gene prediction software such as GeneMark-EP+ [@10.1093/nargab/lqaa026] or [EuGene](http://eugene.toulouse.inra.fr/) [@Sallet2019].  
 
 Similarly, bespoke databases can easily be created by using the ‘makedb’ function that comes with Diamond Aligner. Once the database has been created an update in the relevant line in the configuration file will allow the workflow to use the new database. 
 
@@ -63,6 +63,8 @@ MetaGenePipe is written in the Workflow Definition Language (WDL) which is renow
 
 MetaGenePipe is broken up into 3 sub-workflows which contains all the individual components of the workflow: QC Subworkflow, Assembly Sub-workflow and the Gene Prediction Sub-workflow, with separate tasks for Gene alignment, Merge Samples and taxonomic alignment. 
 
+![The MetaGenePipe Workflow](logo/MetaGenePipe.drawio.pdf)
+
 ## QC Sub-workflow 
 
 The QC sub-worflow contains the portion of the workflow which trims genomic samples for poor quality reads and any adapter sequence which may be present via the use of either trimmomatic or trim_galore. There is also the option of lengthening the reads by connecting any overlapping 5’ and 3’ regions in paired-end reads. Lengthening reads can help overcome potential low-coverage regions encountered during the assembly process. 
@@ -73,16 +75,13 @@ Standalone task, concatenate samples, concatenates samples by merging forward re
 
 ## Assembly sub-workflow 	 
 
-The Assembly sub-workflow makes use of two genomic assemblers, IDBA and Megahit. IDBA is known for being able to assemble genomic samples with uneven sequencing length (https://academic.oup.com/bioinformatics/article/28/11/1420/266973) and “Megahit is a de novo assembler for assembling large and complex metagenomics samples in a time- and cost – efficient manner” (https://academic.oup.com/bioinformatics/article/31/10/1674/177884). 
-
-
-Figure 1 
+The Assembly sub-workflow makes use of two genomic assemblers, IDBA and Megahit. IDBA is known for being able to assemble genomic samples with uneven sequencing length [@10.1093/bioinformatics/bts174] and “Megahit is a de novo assembler for assembling large and complex metagenomics samples in a time- and cost – efficient manner” [@10.1093/bioinformatics/btv033]. 
 
 ## Gene Prediction sub-workflow 
 
-The gene prediction sub-workflow uses prodigal for “prokaryotic gene recognition and translation initiation site identification” (https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-119).  Three types of output files are produced, genbank (.gbk), nucleotide (.fna) and protein (.fna) which are used in the gene alignment portion of the workflow. 
+The gene prediction sub-workflow uses prodigal for “prokaryotic gene recognition and translation initiation site identification” [@Hyatt2010-zh].  Three types of output files are produced, genbank (.gbk), nucleotide (.fna) and protein (.fna) which are used in the gene alignment portion of the workflow. 
 
-The predicted gene coding sequences are then aligned to the swissprot database with the diamond aligner and to KoalaFam HMM profiles (https://www.genome.jp/tools/kofamkoala/). Custom Python scripts are then used to extract the output of the alignments and match genes to functional hierarchies using the KEGG Brite Database (https://www.genome.jp/kegg/brite.html). 
+The predicted gene coding sequences are then aligned to the swissprot database with the diamond aligner and to KoalaFam HMM profiles [@pmid31742321]. Custom Python scripts are then used to extract the output of the alignments and match genes to functional hierarchies using the [KEGG Brite Database](https://www.genome.jp/kegg/brite.html) [@pmid10592173; @pmid31441146; @pmid33125081]. 
 
 ## Read Mapping and Blast 
 
@@ -96,9 +95,7 @@ MetaGenePipe uses unix’s time tool to measure resources each task uses. Resour
 
 # Use in Metagenomic Research 
 
-Earlier versions of MetaGenePipe have been used previously in publications [@Arden2017-as]. The current version of the pipeline was used to  
-
-analyze more than 700 environmental metagenomic datasets which will be published at the Melbourne Metagenomic Archive (MMA). 
+Earlier versions of MetaGenePipe have been used previously in publications [@Arden2017-as].
 
  
 # Acknowledgements
