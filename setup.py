@@ -60,9 +60,9 @@ def main():
                         help='Download KoalaFam hmmer profiles')
     parser.add_argument('-s', '--sprott', type=str,
                         help='Download Swissprot db and convert to diamond db')
-    parser.add_argument('-c', '--cromwell', type=bool,
+    parser.add_argument('-c', '--cromwell', type=str,
                         help='Download cromwell jar')
-    parser.add_argument('-i', '--singularity', type=bool,
+    parser.add_argument('-i', '--singularity', type=str,
                         help='Download Singularity container')
     args = parser.parse_args()
 
@@ -189,7 +189,7 @@ def download_koalafam(singularity, karyote):
 
     ## sed start of hal file
     print("update hal file to correct location of hmmer profiles")
-    os.system("sed 's/K/profiles\/K/' " + karyote + ".hal > profiles/prok.hal")
+    os.system("sed 's/K/profiles\/K/' " + "profiles/" + karyote + ".hal > profiles/prok.hal")
 
     ##cat hmmer files together
     print("Merging " + str(karyote) + ".hal hmmer profiles")
@@ -289,47 +289,6 @@ def get_datetime_format(date_time):
     date_time = datetime.strptime(date_time, "%Y%m%d%H%M%S")
     # convert to human readable date time string
     return date_time.strftime("%Y/%m/%d %H:%M:%S")
-
-
-def mlsd():
-    print("downloading blast database")
-    FTP_HOST = "ftp.ncbi.nlm.nih.gov"
-    FTP_USER = "anonymous"
-
-    ftp = ftplib.FTP(FTP_HOST, FTP_USER)
-    ftp.encoding = "utf-8"
-    ftp.cwd('blast/db')
-
-    for file_data in ftp.mlsd():
-        # extract returning data
-        file_name, meta = file_data
-        # i.e directory, file or link, etc
-        file_type = meta.get("type")
-        if file_type == "file":
-            # if it is a file, change type of transfer data to IMAGE/binary
-            ftp.voidcmd("TYPE I")
-            # get the file size in bytes
-            file_size = ftp.size(file_name)
-            # convert it to human readable format (i.e in 'KB', 'MB', etc)
-            file_size = get_size_format(file_size)
-        else:
-            # not a file, may be a directory or other types
-            file_size = "N/A"
-            # date of last modification of the file
-            last_modified = get_datetime_format(meta.get("modify"))
-            # file permissions
-            permission = meta.get("perm")
-    
-            # get the file unique id
-            unique_id = meta.get("unique")
-            # user group
-            unix_group = meta.get("unix.group")
-            # file mode, unix permissions 
-            unix_mode = meta.get("unix.mode")
-            # owner of the file
-            unix_owner = meta.get("unix.owner")
-            # print all
-            print(f"{file_name:30} {last_modified} {file_size:7} {permission:5} {file_type:4} {unix_group:4} {unix_mode:4} {unix_owner}")
 
 ###### Main call ##########
 if __name__ == "__main__":

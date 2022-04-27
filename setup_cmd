@@ -1,0 +1,3 @@
+module load singularity/3.6.3
+ 
+python3 setup.py --hmmer_kegg prokaryote --singularity metagenepipe.simg_v1.sif -s y --blast mito --cromwell y
