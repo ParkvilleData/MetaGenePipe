@@ -1,5 +1,5 @@
 ---
-title: 'MetaGenePipe: A Pipeline for Metagenomics'
+title: 'MetaGenePipe: An automated, portable Pipeline for Contig based Functional and Taxonomic Analysis'
 tags:
   - metagenomics
 authors:
@@ -35,11 +35,13 @@ bibliography: docs/refs.bib
 
 # Summary 
 
-MetaGenePipe is an efficient, flexible, portable and scalable metagenomics pipeline that uses ‘best-in-domain’ bioinformatics software suites, genomic databases to create an accurate taxonomic characterisation of prokaryotic microbiome samples. Written in the Workflow Definition Language (WDL), MetaGenePipe (MGP) produces output that is both useful and can used for further downstream analysis.  
+MetaGenePipe is an efficient, flexible, portable and scalable metagenomics pipeline that uses ‘best-in-domain’ bioinformatics software suites, genomic databases to create an accurate taxonomic characterisation of prokaryotic microbiome samples. Written in the Workflow Definition Language (WDL), MetaGenePipe (MGP) produces output that is both useful and can used for further downstream analysis. The current contig based homology searching approaches to taxonomic classification includes such software suites like MG-RAST and MMseqs2 (https://academic.oup.com/bioinformatics/article/37/18/3029/6178277). 
+
+MGP differs from MG-RAST by being a tool which is easily installed on local infrastructure and it differs from MMSeqs2 as it doesn't eliminate fragments which do not bear similarity to existing reference databases and as such low-score homology matches produced by MGP can be used for discovering novel sequences.
 
 The current software list includes the option of two genomic assemblers, IDBA and MegaHIT, allowing for genomic assembly in low-coverage samples while allowing for computational efficiency. The gene prediction tool, Prodigal (PROkaryotic Dynamic programming Gen-finding Algorithm), is used to predict gene coding sequences from raw genomic data. Diamond, HMMER and BLAST are the alignment tools incorporated into the MetaGenePipe workflow and allow for the alignment of predicted Gene Coding Sequences to known databases for classification. Currently the Swiss-Prot database is used for classification purposes.  
 
-Not only does MetaGenePipe create an Operational Taxonomic Unit (OTU) table for known organisms, but it also provides Brite hierarchy classification when using KoalaFam HMMER profiles.  MetaGenePipe can easily be tailored to find viruses, bacteria, plants, archaea, vertebrates, invertebrates or fungi with minimal changes. 
+Not only does MetaGenePipe create an Operational Taxonomic Unit (OTU) table for known organisms, but it also provides Brite hierarchy classification when using KoalaFam HMMER profiles.  MetaGenePipe's focus can be modified to find viruses, bacteria, plants, archaea, vertebrates, invertebrates or fungi by updating the reference databases to be kingdom specific. 
 
 
 # Statement of need 
@@ -95,7 +97,7 @@ MetaGenePipe can be run locally on a laptop or in a high performance computing s
 <!-- Further discussion is available in the [MetaGenePipe documentation](https://parkvilledata.github.io/MetaGenePipe/). -->
 
 *TODO: Add table with resource usage stats*
- 
+
 # Acknowledgements
 
 *TODO: Add names here?*

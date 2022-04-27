@@ -1,7 +1,7 @@
 {
   "## Boolean list": "True or false for setting optional tasks",
   "metaGenPipe.flashBoolean": true,
-  "metaGenPipe.blastBoolean": false,
+  "metaGenPipe.blastBoolean": true,
   "metaGenPipe.mergeBoolean": true,
   "metaGenPipe.taxonBoolean": true,
   "metaGenPipe.trimmomaticBoolean": false,
@@ -19,10 +19,10 @@
   "metaGenPipe.megaGraph": "./scripts/megaGraph.py",
 
   "## required reference files on shared project ##": "Don't need to change",
-  "metaGenPipe.database": "/data/gpfs/datasets/BLAST/db/nt",
+  "metaGenPipe.database": "./blast/mito",
   "metaGenPipe.taxRankFile": "./tax_rank",
-  "metaGenPipe.DB": "./kegg/kegg_all.dmnd",
-  "metaGenPipe.hmmerDB": "./kegg/hmmer.hmm",
+  "metaGenPipe.DB": "./kegg/swissprot.dmnd",
+  "metaGenPipe.hmmerDB": "./kegg/kegg_all.hmm",
   "metaGenPipe.briteList": "./taxon/brite.txt",
   "metaGenPipe.briteJson": "./taxon/br08610.json",
   "metaGenPipe.fullLineageFile": "./taxon/fullnamelineage.dmp",
