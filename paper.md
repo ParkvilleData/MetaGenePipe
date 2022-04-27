@@ -90,12 +90,12 @@ The second post processing quality check is the BLAST task. BLAST (Basic Local A
 
 ##  Resource Usage and Infrastructure requirements
 
-MetaGenePipe uses unix’s time tool to measure resources each task uses. Resource such as CPU utilisaton, Maximum resident size, Elapsed (wall clock) time and System time. This output can be parsed to create visualisations that can be used in deciding resource requests for the workflow when executing using a job scheduler on high performance computing infrastructure. Table 1 shows the resource usage for processing paired end samples of 25,000 reads each.
+MetaGenePipe uses unix’s time tool to measure resources each task uses. Resource such as CPU utilisaton, Maximum resident size, Elapsed (wall clock) time and System time. This output can be parsed to create visualisations that can be used in deciding resource requests for the workflow when executing using a job scheduler on high performance computing infrastructure. Table 1 shows the resource usage for processing paired end samples of 25,000 reads each. Table 2 shows the resource usage for running Cromwell on the head node.
 
 MetaGenePipe can be run locally on a laptop or in a high performance computing setting. metaGenePipe requires a minimum of 1 core and 5 gigabytes of RAM to complete the test example that comes in the git repository. 
 
 
-|   Task            |   User Time (hh:mm:ss)  |   CPU utilisation  |   Max Memory (kbytes)  |
+|   Task            |   User Time (mm:ss)            |   CPU utilisation  |   Max Memory (kbytes)  |
 |-------------------|--------------------------------|--------------------|------------------------|
 |   fastqc          |   00:04.0                      |   226%             |   233376               |
 |   flash           |   00:00.3                      |   129%             |   13140                |
@@ -109,6 +109,12 @@ MetaGenePipe can be run locally on a laptop or in a high performance computing s
 |   read alignment  |   00:02.0                      |   117%             |   91952                |
 
 <p align = "center"> Table 1: The resource usage for processing paired end samples of 25,000 reads each in MetaGenePipe.</p>
+
+|   Task            |   User Time (mm:ss)            |   CPU utilisation  |   Max Memory (kbytes)  |
+|-------------------|--------------------------------|--------------------|------------------------|
+|   fastqc          |   08:50.9                      |   12%              |   572800               |
+
+<p align = "center"> Table 2: The resource usage for running Cromwell on the head node.</p>
 
 
 <!-- Further discussion is available in the [MetaGenePipe documentation](https://parkvilledata.github.io/MetaGenePipe/). -->
