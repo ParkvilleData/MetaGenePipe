@@ -1,5 +1,5 @@
 ---
-title: 'MetaGenePipe: An automated, portable Pipeline for Contig based Functional and Taxonomic Analysis'
+title: 'MetaGenePipe: An Automated, Portable Pipeline for Contig-based Functional and Taxonomic Analysis'
 tags:
   - metagenomics
 authors:
@@ -90,16 +90,34 @@ The second post processing quality check is the BLAST task. BLAST (Basic Local A
 
 ##  Resource Usage and Infrastructure requirements
 
-MetaGenePipe uses unix’s time tool to measure resources each task uses. Resource such as CPU utilisaton, Maximum resident size, Elapsed (wall clock) time and System time. This output can be parsed to create visualisations that can be used in deciding resource requests for the workflow when executing using a job scheduler on high performance computing infrastructure. 
+MetaGenePipe uses unix’s time tool to measure resources each task uses. Resource such as CPU utilisaton, Maximum resident size, Elapsed (wall clock) time and System time. This output can be parsed to create visualisations that can be used in deciding resource requests for the workflow when executing using a job scheduler on high performance computing infrastructure. Table 1 shows the resource usage for processing paired end samples of 25,000 reads each.
 
 MetaGenePipe can be run locally on a laptop or in a high performance computing setting. metaGenePipe requires a minimum of 1 core and 5 gigabytes of RAM to complete the test example that comes in the git repository. 
 
+
+|   Task            |   User Time (hh:mm:ss)  |   CPU utilisation  |   Max Memory (kbytes)  |
+|-------------------|--------------------------------|--------------------|------------------------|
+|   fastqc          |   00:04.0                      |   226%             |   233376               |
+|   flash           |   00:00.3                      |   129%             |   13140                |
+|   trim_galore     |   00:02.3                      |   183%             |   22772                |
+|   diamond         |   00:03.2                      |   477%             |   392904               |
+|   hmmer           |   03:06.4                      |   104%             |   39296                |
+|   prodigal        |   00:00.4                      |   96%              |   49088                |
+|   blast           |   01:30.1                      |   188%             |   13308876             |
+|   megahit         |   00:08.2                      |   446%             |   66944                |
+|   multiqc         |   00:04.5                      |   84%              |   78084                |
+|   read alignment  |   00:02.0                      |   117%             |   91952                |
+
+<p align = "center"> Table 1: The resource usage for processing paired end samples of 25,000 reads each in MetaGenePipe.</p>
+
+
 <!-- Further discussion is available in the [MetaGenePipe documentation](https://parkvilledata.github.io/MetaGenePipe/). -->
 
-*TODO: Add table with resource usage stats*
 
 # Acknowledgements
 
-*TODO: Add names here?*
+We thank the members of the Verbruggen lab, Kshitij Tandon and Vinicius Salazar in particular, for sharing ideas, feedback and testing the workflow.
+This research was supported by The University of Melbourne’s Research Computing Services and the Petascale Campus.
+The project benefited from funding by the Australian Research Council (DP200101613 to Heroen Verbruggen).
 
 # References
