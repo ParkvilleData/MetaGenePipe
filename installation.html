@@ -45,8 +45,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#clone-the-repository">Clone the repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#java">Java</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cromwell">Cromwell</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#singularity">Singularity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-dependencies">Other Dependencies</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
@@ -100,20 +99,18 @@
 </pre></div>
 </div>
 </section>
-<section id="cromwell">
-<h2>Cromwell<a class="headerlink" href="#cromwell" title="Permalink to this headline"></a></h2>
-<p>Download the latest Cromwell release .jar file from here: <a class="reference external" href="https://github.com/broadinstitute/cromwell/releases">https://github.com/broadinstitute/cromwell/releases</a>
-Place this jar file in the root directory of MetaGenePipe.</p>
-</section>
-<section id="singularity">
-<h2>Singularity<a class="headerlink" href="#singularity" title="Permalink to this headline"></a></h2>
-<p>Follow the instructions for installing Singularity: <a class="reference external" href="https://sylabs.io/guides/3.0/user-guide/installation.html">https://sylabs.io/guides/3.0/user-guide/installation.html</a></p>
-<p>Then get the Singularity image for MetaGenePipe:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v1
+<section id="other-dependencies">
+<h2>Other Dependencies<a class="headerlink" href="#other-dependencies" title="Permalink to this headline"></a></h2>
+<p>Other necessary depenencies and databases can be downloaded using the setup script in the project directory. It requires that python (&gt;=3.5) is available:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">bash</span>
 </pre></div>
 </div>
+<blockquote>
+<div><p>python3 setup.py –hmmer_kegg prokaryote –singularity y -s y –blast mito –cromwell y</p>
+</div></blockquote>
+<p>This takes about half an hour (due to bandwidth limitations for the KEGG FTP server).</p>
 <p>Test that the Singularity container is working with the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity run metagenepipe.simg_v1.sif megahit --help
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity run metagenepipe.simg_v2.sif megahit --help
 </pre></div>
 </div>
 <p>If the help description for megahit displays then the Singularity container can be used with MetaGenePipe.</p>
