@@ -27,28 +27,21 @@ If running on Spartan (the University of Melbourne HPC cluster) Java is already 
 
   module load Java
 
-
-Cromwell
+Other Dependencies
 ====================
 
-Download the latest Cromwell release .jar file from here: https://github.com/broadinstitute/cromwell/releases 
-Place this jar file in the root directory of MetaGenePipe.
-
-Singularity
-====================
-
-Follow the instructions for installing Singularity: https://sylabs.io/guides/3.0/user-guide/installation.html
-
-Then get the Singularity image for MetaGenePipe:
+Other necessary depenencies and databases can be downloaded using the setup script in the project directory. It requires that python (>=3.5) is available::
 
 .. code-block:: bash
 
-    singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v1
+    python3 setup.py --hmmer_kegg prokaryote --singularity y -s y --blast mito --cromwell y
+
+This takes about half an hour (due to bandwidth limitations for the KEGG FTP server).
   
 Test that the Singularity container is working with the following command:
   
 .. code-block:: bash
 
-    singularity run metagenepipe.simg_v1.sif megahit --help
+    singularity run metagenepipe.simg_v2.sif megahit --help
 
 If the help description for megahit displays then the Singularity container can be used with MetaGenePipe.
