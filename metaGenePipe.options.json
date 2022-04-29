@@ -1,5 +1,5 @@
 {
-  "final_workflow_outputs_dir": "$PWD/output/",
+  "final_workflow_outputs_dir": "./output/",
   "use_relative_output_paths": true,
   "final_workflow_log_dir": "./logs",
   "final_call_logs_dir": "./logs"
