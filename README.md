@@ -2,10 +2,6 @@
 
 Please refer to documentation for how to run.
 
-```
-"metaGenPipe.DB": "kegg/kegg.dmnd",
-```
-
 ## Citation and Attribution
 
 We currently are authoring a paper for the Journal of Open Source Software about this software package. Citation details will be added upon publication.
