@@ -33,6 +33,7 @@ import urllib.request as urllib
 import gzip
 import shutil
 import ftplib
+import glob
 from datetime import datetime
 
 
@@ -72,7 +73,9 @@ def main():
     try:
        if args.singularity:
            print("Ensure singularity is installed and in your path")
-           os.system("singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v1")
+           os.system("singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v2")
+           args.singularity = glob.glob('*.sif')[0]
+           print(args.singularity) 
     except Exception as err:
        print(err)
 
