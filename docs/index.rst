@@ -21,6 +21,7 @@ Welcome to MetaGenePipe's documentation!
    extension
    citation
    bibliography
+   contributing
 
 Indices and tables
 ==================
