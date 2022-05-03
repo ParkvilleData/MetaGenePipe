@@ -18,7 +18,7 @@ import "./tasks/matching_contigs_reads.wdl" as matchingTask
 import "./tasks/readalignment.wdl" as readalignTask
 import "./tasks/hmmer_taxon.wdl" as hmmerTaxonTask
 
-workflow metaGenPipe {
+workflow metaGenePipe {
 
   ## global variables for wdl workflow
   ## input files
