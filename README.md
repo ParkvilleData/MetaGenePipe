@@ -13,11 +13,6 @@ If you create a derivative work from this software package, attribution should b
 ## Troubleshooting tips:
 ` The pipeline has been set up to run against the swissprot database. We have supplied sample fastq files consisting of 100,000 reads so the pipeline can be tested.`
 
-` If you would like access to the kegg database, send an email to bshaban@unimelb.edu.au and he may be able to see if you're eligble to use it. `
-
-
-**NOTE: Some reference files have not been added due to be kegg reference files. These must be obtained separately with authorisation**
-
 ## References for software used
 
 * [1]: Detection of Toscana virus from an adult traveler returning to Australia with encephalitis. Katherine E. Arden  Claire Heney  Babak Shaban  Graeme R. Nimmo  Michael D. Nissen  Theo P. Sloots  Ian M. Mackay.https://doi.org/10.1002/jmv.24839
