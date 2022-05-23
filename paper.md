@@ -35,7 +35,13 @@ bibliography: docs/refs.bib
 
 # Summary 
 
-MetaGenePipe is an efficient, flexible, portable and scalable metagenomics pipeline that uses ‘best-in-domain’ bioinformatics software suites, genomic databases to create an accurate taxonomic characterisation of prokaryotic microbiome samples. Written in the Workflow Definition Language (WDL), MetaGenePipe (MGP) produces output that is both useful and can used for further downstream analysis. The current contig based homology searching approaches to taxonomic classification includes such software suites like MG-RAST and MMseqs2 (https://academic.oup.com/bioinformatics/article/37/18/3029/6178277). 
+MetaGenePipe is an efficient, flexible, portable and scalable metagenomics pipeline that uses ‘best-in-domain’ bioinformatics software suites, genomic databases to create an accurate taxonomic characterisation of prokaryotic microbiome samples. Written in the Workflow Definition Language (WDL), MetaGenePipe (MGP) produces output that is both useful and can used for further downstream analysis. The current contig based homology searching approaches to taxonomic classification includes such software suites like MG-RAST and MMseqs2 [@10.1093/bioinformatics/btab184]. 
+<!-- add papers that cite contig base functional taxonomic suites 
+e.g. mmseq2 
+SprayNPray
+
+couple sentences which describe the landscape and one sentence describing where MGP fits.
+-->
 
 MGP differs from MG-RAST by being a tool which is easily installed on local infrastructure and it differs from MMSeqs2 as it doesn't eliminate fragments which do not bear similarity to existing reference databases and as such low-score homology matches produced by MGP can be used for discovering novel sequences.
 
@@ -45,6 +51,12 @@ Not only does MetaGenePipe create an Operational Taxonomic Unit (OTU) table for 
 
 
 # Statement of need 
+
+<!--
+Remove Kraken. Add mmseq2 as an example. Add in a point or two for how MGP differs from them. Highlight the need mentioned in the summary.
+
+Expand on the need for MGP.
+--->
 
 Microorganisms including bacteria, viruses, archaea, and fungi are ubiquitous in our environment. The study of microorganisms and their full genomes has been enabled through advances in culture independent techniques and high-throughput sequencing technologies. Whole genome metagenomics shotgun sequencing (WGS) empowers researchers to study biological functions of microorganisms, and how their presence affect human disease or a specific ecosystem. However, advanced, and novel bioinformatics techniques are required to process the data into a suitable format. There is no universally accepted standardised bioinformatics framework a microbiologist can use effectively. Most modern metagenomic software packages including MG-RAST and Kraken automates taxonomic classification of bacterial sequences within genomic samples. While both MG-RAST and Kraken are well known metagenomic software suites, installation of MG-RAST on local hardware infrastructure is difficult and set up of Kraken custom databases can take up-to 5 hours according to the [Kraken operating manual](https://ccb.jhu.edu/software/kraken/MANUAL.html). 
 
