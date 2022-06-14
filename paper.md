@@ -92,7 +92,7 @@ The quality control (QC) sub-workflow contains the portion of the workflow which
 
 
 
-This is a standalone task that allows for the option of concatenating samples by merging forward reads and reverse reads into files combining all available samples. This step is intended to facilitate co-assembly of the available sequences. Co-assembly has shown to provide more complete genomes, with lower error rates when compared to multiassembly [17]. 
+This is a standalone task that allows for the option of concatenating samples by merging forward reads and reverse reads into files combining all available samples. This step is intended to facilitate co-assembly of the available sequences. Co-assembly has shown to provide more complete genomes, with lower error rates when compared to multiassembly [@hofmeyr2020]. 
 
 
 
