@@ -109,7 +109,7 @@ While MegaHIT performs de novo assembly of large and complex metagenomics sample
 
 
 
-The gene prediction sub-workflow uses Prodigal for prediction prokaryotic gene coding sequences and identifying the sites of translation initiation [@Hyatt2010-zh]. Prodigal produces an `fna` file with the resulting protein prediction. The predicted gene coding sequences are then aligned to the Swiss-Prot database [@pmid18287689] with the DIAMOND Aligner and to [KoalaFam HMMER profiles](https://www.genome.jp/tools/kofamkoala/) [@pmid31742321]. Custom Python scripts are then used to extract the output of the alignments and match genes to functional hierarchies using the [KEGG Brite Database](https://www.genome.jp/kegg/brite.html) [@pmid10592173; @pmid31441146; @pmid33125081].  
+The gene prediction sub-workflow uses Prodigal for prediction prokaryotic gene coding sequences and identifying the sites of translation initiation [@Hyatt2010-zh]. Prodigal produces an `fna` file with the resulting protein prediction. The predicted gene coding sequences are then aligned to the Swiss-Prot database [@pmid18287689] with the \mbox{DIAMOND} Aligner and to [KoalaFam HMMER profiles](https://www.genome.jp/tools/kofamkoala/) [@pmid31742321]. Custom Python scripts are then used to extract the output of the alignments and match genes to functional hierarchies using the [KEGG Brite Database](https://www.genome.jp/kegg/brite.html) [@pmid10592173; @pmid31441146; @pmid33125081].  
 
 
 ## Read Mapping and BLAST 
