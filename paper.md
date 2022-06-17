@@ -1,6 +1,6 @@
 --- 
 
-title: 'MetaGenePipe: An Automated, Portable Pipeline for Contig-based Functional and Taxonomic Analysis and WDL Best Practice'’0 
+title: 'MetaGenePipe: An Automated, Portable Pipeline for Contig-based Functional and Taxonomic Analysis and WDL Best Practice'’ 
 
 tags: 
 
@@ -76,7 +76,7 @@ bibliography: docs/refs.bib
 
  
 
-MetaGenePipe is an efficient, flexible, portable, and scalable metagenomics pipeline that uses ‘best-in-domain’ bioinformatics software suites and genomic databases to create an accurate taxonomic characterisation of prokaryotic microbiome samples. Written in the Workflow Definition Language (WDL), MetaGenePipe (MGP) produces output that is both useful in its default form and that can used for further downstream analysis. There are currently several contig-based taxonomic software suites such as 0MG-RAST [@keegan_glass_meyer_2016 ] and MMseqs2 [@10.1093/bioinformatics/btab184] with onlyonly a few which make use of a workflow language such as nf-core [@krakau_straub_gourlé_gabernet_nahnsen_2021] 0which is written in Nextflow [@article{di tommaso_chatzou_floden_barja_palumbo_notredame_2017] Muffin [@van damme_hölzer_viehweger_müller_bongcam-rudloff_brandt_2021]and Atlas [@kieser_brown_zdobnov_trajkovski_mccue_2020] which makes use of Snakemake [@mölder_jablonski_letcher_hall_tomkins-tinch_sochat_forster_lee_twardziok_kanitz et al._2021] 0and 0Nextflow 0 respectively. MGP is a pipeline-development best practice which uses singularity [@kurtzer_sochat_bauer_2017] for containerisation and includes a setup script which downloads the necessary databases for setup. The source code for MGP is freely available and is distributed under the [Apache 2.0 license] (https://www.apache.org/licenses/LICENSE-2.0). 
+MetaGenePipe is an efficient, flexible, portable, and scalable metagenomics pipeline that uses ‘best-in-domain’ bioinformatics software suites and genomic databases to create an accurate taxonomic characterisation of prokaryotic microbiome samples. Written in the Workflow Definition Language (WDL), MetaGenePipe (MGP) produces output that is both useful in its default form and that can be used for further downstream analysis. There are currently several contig-based taxonomic software suites such as MG-RAST [@keegan_glass_meyer_2016 ] and MMseqs2 [@10.1093/bioinformatics/btab184] with onlyonly a few which make use of a workflow language such as nf-core [@krakau_straub_gourlé_gabernet_nahnsen_2021] which is written in Nextflow [@article{di tommaso_chatzou_floden_barja_palumbo_notredame_2017] Muffin [@van damme_hölzer_viehweger_müller_bongcam-rudloff_brandt_2021]and Atlas [@kieser_brown_zdobnov_trajkovski_mccue_2020] which makes use of Snakemake [@mölder_jablonski_letcher_hall_tomkins-tinch_sochat_forster_lee_twardziok_kanitz et al._2021] and Nextflow respectively. MGP is a pipeline-development best practice which uses singularity [@kurtzer_sochat_bauer_2017] for containerisation and includes a setup script which downloads the necessary databases for setup. The source code for MGP is freely available and is distributed under the [Apache 2.0 license] (https://www.apache.org/licenses/LICENSE-2.0). 
 
  
 
@@ -100,7 +100,7 @@ Microorganisms including bacteria, viruses, archaea, and fungi are ubiquitous in
 
  
 
-0MGP is written in WDL and thus differs from existing assembly-based workflow pipelines such as Atlas (which uses Snakemake) and Muffin (which is written in Nextflow). MGP is an example of WDL and containerization best practice. Similar to NF-core/Mag, MGP employs co-assembly as a feature. MGP differs from NF-Core as it has the option to use IDBA-Assembler which is capable of assembling genomes of assembling reads of uneven sequencing coverage. 
+MGP is written in WDL and thus differs from existing assembly-based workflow pipelines such as Atlas (which uses Snakemake) and Muffin (which is written in Nextflow). MGP is an example of WDL and containerization best practice. Similar to NF-core/Mag, MGP employs co-assembly as a feature. MGP differs from NF-Core as it has the option to use IDBA-Assembler which is capable of assembling genomes from reads of uneven sequencing coverage. 
 
  
 
@@ -124,7 +124,7 @@ MetaGenePipe is broken up into three sub-workflows: Quality Control (QC), Assemb
 
  
 
-The quality control (QC) sub-workflow contains the portion of the workflow which trims genomic samples for poor quality reads and any adapter sequence which may be present via the use of either Trimmomatic [@pmid24695404] or TrimGalore [@felix_krueger_2021_5127899]. There is also the option of merging the reads by merging overlapping reads paired-end reads using FLASH [@Magoc2011-gb]. Lengthening reads can help overcome potential low-coverage regions encountered during the assembly process. Visualizations of the sequence quality are obtained using FastQC [@Andrews:2010tn] and the subsequent FastQC output is merged and analyzed as a whole using MultiQC [@10.1093/bioinformatics/btw354]. 
+The quality control (QC) sub-workflow contains the portion of the workflow which trims genomic samples for poor quality reads and any adapter sequence which may be present via the use of either Trimmomatic [@pmid24695404] or TrimGalore [@felix_krueger_2021_5127899]. There is also the option of merging the reads by merging overlapping reads paired-end reads using FLASH [@Magoc2011-gb]. Lengthening reads (via merging with FLASH) can help overcome potential low-coverage regions encountered during the assembly process. Visualizations of the sequence quality are obtained using FastQC [@Andrews:2010tn] and the subsequent FastQC output is merged and analyzed as a whole using MultiQC [@10.1093/bioinformatics/btw354]. 
 
 
 ## Concatenate Samples 
@@ -148,7 +148,7 @@ While MegaHIT performs de novo assembly of large and complex metagenomics sample
 
 
 
-The gene prediction sub-workflow uses Prodigal for prediction prokaryotic gene coding sequences 0and identifying the sites of translation initiation [@Hyatt2010-zh]. 0. Prodigal produces an `fna` file with the resulting protein prediction.,. The predicted gene coding sequences are then aligned to the Swiss-Prot database [@pmid18287689] with the DIAMOND Aligner and to [KoalaFam HMMER profiles](https://www.genome.jp/tools/kofamkoala/) [@pmid31742321]. Custom Python scripts are then used to extract the output of the alignments and match genes to functional hierarchies using the [KEGG Brite Database](https://www.genome.jp/kegg/brite.html) [@pmid10592173; @pmid31441146; @pmid33125081].  
+The gene prediction sub-workflow uses Prodigal for prediction prokaryotic gene coding sequences and identifying the sites of translation initiation [@Hyatt2010-zh]. Prodigal produces an `fna` file with the resulting protein prediction.,. The predicted gene coding sequences are then aligned to the Swiss-Prot database [@pmid18287689] with the DIAMOND Aligner and to [KoalaFam HMMER profiles](https://www.genome.jp/tools/kofamkoala/) [@pmid31742321]. Custom Python scripts are then used to extract the output of the alignments and match genes to functional hierarchies using the [KEGG Brite Database](https://www.genome.jp/kegg/brite.html) [@pmid10592173; @pmid31441146; @pmid33125081].  
 
 
 ## Read Mapping and BLAST 
@@ -165,7 +165,7 @@ BLAST is used to query the assembly created contigs to the NCBI NT/NR database t
 MetaGenePipe relies on Unix’s time tool to measure the resources that each task uses, such as CPU usage, file size, elapsed time, and system time. This output can be parsed to create visualizations that can be used in deciding resource requests for the workflow when executing it using a job scheduler on high- performance computing infrastructure. Table 1 shows the resource usage for processing paired- end samples of 25,000 reads each. Table 2 shows the resource usage for running Cromwell on the head node. 
 
 
-MetaGenePipe can be run locally on a laptop, a virtual machine, or in a high- performance computing setting.  
+MetaGenePipe can be run locally on a laptop, a virtual machine, or in a high-performance computing setting.  
 
 
 | Task | User Time (mm:ss) | CPU utilisation | Max Memory (kbytes) | 
@@ -209,6 +209,6 @@ MetaGenePipe can be run locally on a laptop, a virtual machine, or in a high- pe
 # Acknowledgements 
 
 
-We thank the members of the Verbruggen lab, Kshitij Tandon and Vinicius Salazar in particular, for sharing ideas, feedback and testing the workflow.0This research was supported by The University of Melbourne’s Research Computing Services and the Petascale Campus.0The project benefited from funding by the Australian Research Council (DP200101613 to Heroen Verbruggen). 
+We thank the members of the Verbruggen lab, Kshitij Tandon and Vinicius Salazar in particular, for sharing ideas, feedback and testing the workflow. This research was supported by The University of Melbourne’s Research Computing Services and the Petascale Campus. The project benefited from funding by the Australian Research Council (DP200101613 to Heroen Verbruggen). 
 
  
