@@ -30,11 +30,11 @@ If running on Spartan (the University of Melbourne HPC cluster) Java is already 
 Other Dependencies
 ====================
 
-Other necessary depenencies and databases can be downloaded using the setup script in the project directory. It requires that python (>=3.5) is available::
+Other necessary depenencies and databases can be downloaded using the setup script in the project directory. It requires that python (>=3.5) is available:
 
 .. code-block:: bash
 
-    python3 setup.py --hmmer_kegg prokaryote --singularity y -s y --blast mito --cromwell y
+    python3 setup.py --hmmer_kegg prokaryote --singularity y --sprott y --blast mito --cromwell y
 
 This takes about half an hour (due to bandwidth limitations for the KEGG FTP server).
   

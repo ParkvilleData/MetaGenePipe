@@ -103,12 +103,9 @@
 <section id="other-dependencies">
 <h2>Other Dependencies<a class="headerlink" href="#other-dependencies" title="Permalink to this headline"></a></h2>
 <p>Other necessary depenencies and databases can be downloaded using the setup script in the project directory. It requires that python (&gt;=3.5) is available:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">bash</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 setup.py --hmmer_kegg prokaryote --singularity y --sprott y --blast mito --cromwell y
 </pre></div>
 </div>
-<blockquote>
-<div><p>python3 setup.py –hmmer_kegg prokaryote –singularity y -s y –blast mito –cromwell y</p>
-</div></blockquote>
 <p>This takes about half an hour (due to bandwidth limitations for the KEGG FTP server).</p>
 <p>Test that the Singularity container is working with the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>singularity run metagenepipe.simg_v2.sif megahit --help
