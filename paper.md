@@ -4,7 +4,7 @@ tags:
   - metagenomics
   - WDL
   - Singularity
-  - Containerizsation
+  - Containerization
 authors:
   - name: Babak Shaban
     orcid: 0000-0002-7393-810X
