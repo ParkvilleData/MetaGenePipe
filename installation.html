@@ -45,6 +45,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#clone-the-repository">Clone the repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#java">Java</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#singularity">Singularity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#other-dependencies">Other Dependencies</a></li>
 </ul>
 </li>
@@ -89,20 +90,29 @@
 <span class="nb">cd</span> MetaGenePipe
 </pre></div>
 </div>
-<p>MetaGenePipe requires Java, Cromwell and Singularity to run.</p>
+<p>MetaGenePipe requires Java, Singularity, and other dependencies to run. See below for instructions.</p>
 </section>
 <section id="java">
 <h2>Java<a class="headerlink" href="#java" title="Permalink to this headline"></a></h2>
 <p>Ensure you have Java installed. If not, follow the instructions for the relevant operating system here:
 <a class="reference external" href="https://www.java.com/en/download/help/download_options.html">https://www.java.com/en/download/help/download_options.html</a></p>
-<p>If running on Spartan (the University of Melbourne HPC cluster) Java is already installed. To load Java, you can use:</p>
+<p>If running on Spartan (the University of Melbourne HPC cluster), Java is already installed. To load Java, you can use:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module load Java
+</pre></div>
+</div>
+</section>
+<section id="singularity">
+<h2>Singularity<a class="headerlink" href="#singularity" title="Permalink to this headline"></a></h2>
+<p>Ensure you have Singularity installed. If not, follow the instructions for the relevant operating system here:
+<a class="reference external" href="https://docs.sylabs.io/guides/3.0/user-guide/installation.html">https://docs.sylabs.io/guides/3.0/user-guide/installation.html</a></p>
+<p>If running on Spartan (the University of Melbourne HPC cluster), Singularity is already installed. To load Singularity, you can use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module load singularity/3.6.3
 </pre></div>
 </div>
 </section>
 <section id="other-dependencies">
 <h2>Other Dependencies<a class="headerlink" href="#other-dependencies" title="Permalink to this headline"></a></h2>
-<p>Other necessary depenencies and databases can be downloaded using the setup script in the project directory. It requires that python (&gt;=3.5) is available:</p>
+<p>Other necessary dependencies and databases can be downloaded using the setup script in the project directory. It requires that python (&gt;=3.5) is available:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 setup.py --hmmer_kegg prokaryote --singularity y --sprott y --blast mito --cromwell y
 </pre></div>
 </div>
