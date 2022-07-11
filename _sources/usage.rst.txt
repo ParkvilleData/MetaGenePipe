@@ -75,4 +75,4 @@ To run the pipeline use the command:
 
 .. code-block:: bash
 
-  java -Dconfig.file=./metaGenePipe.config -jar cromwell-78.jar run metaGenePipe.wdl -i metaGenePipe.json -o metaGenePipe.options.json
+  java -Dconfig.file=./metaGenePipe.config -jar cromwell-latest.jar run metaGenePipe.wdl -i metaGenePipe.json -o metaGenePipe.options.json
