@@ -1,74 +1,39 @@
---- 
+---
+title: 'MetaGenePipe: An Automated, Portable Pipeline for Contig-based Functional and Taxonomic Analysis and WDL Best Practice'
+tags:
+  - metagenomics
+  - WDL
+  - Singularity
+  - Containerization
+authors:
+  - name: Babak Shaban
+    orcid: 0000-0002-7393-810X
+    affiliation: 1
+  - name: Maria del Mar Quiroga
+    orcid: 0000-0002-8943-2808
+    affiliation: 1
+  - name: Robert Turnbull
+    orcid: 0000-0003-1274-6750
+    affiliation: 1
+  - name: Edoardo Tescari
+    orcid: 0000-0003-1157-4897
+    affiliation: 1
+  - name: Heroen Verbruggen
+    orcid: 0000-0002-6305-4749
+    affiliation: 2
+  - name: Kim-Anh Lê Cao
+    orcid: 0000-0003-3923-1116
+    affiliation: 3
+affiliations:
+ - name: Melbourne Data Analytics Platform, The University of Melbourne
+   index: 1
+ - name: School of BioSciences, The University of Melbourne
+   index: 2
+ - name: School of Mathematics and Statistics, Melbourne Integrative Genomics, The University of Melbourne
+   index: 3
+date: 16 March 2022
+bibliography: docs/refs.bib
 
-title: 'MetaGenePipe: An Automated, Portable Pipeline for Contig-based Functional and Taxonomic Analysis and WDL Best Practice'’ 
-
-tags: 
-
-- metagenomics 
-
-- WDL 
-
-- Singularity 
-
-- Containerizsation 
-
-authors: 
-
- - name: Babak Shaban 
-
- orcid: 0000-0002-7393-810X 
-
- affiliation: 1 
-
- - name: Maria del Mar Quiroga 
-
- orcid: 0000-0002-8943-2808 
-
- affiliation: 1 
-
- - name: Robert Turnbull 
-
- orcid: 0000-0003-1274-6750 
-
- affiliation: 1 
-
- - name: Edoardo Tescari 
-
- orcid: 0000-0003-1157-4897 
-
- affiliation: 1 
-
- - name: Heroen Verbruggen 
-
- orcid: 0000-0002-6305-4749 
-
- affiliation: 2 
-
- - name: Kim-Anh Lê Cao 
-
- orcid: 0000-0003-3923-1116 
-
- affiliation: 3 
-
-affiliations: 
-
-- name: Melbourne Data Analytics Platform, The University of Melbourne 
-
- index: 1 
-
-- name: School of BioSciences, The University of Melbourne 
-
- index: 2 
-
-- name: School of Mathematics and Statistics, Melbourne Integrative Genomics, The University of Melbourne 
-
- index: 3 
-
-date: 16 March 2022 
-
-bibliography: docs/refs.bib 
-
- 
 ---
 
 # Summary 
@@ -83,7 +48,7 @@ The main advantage of MGP over MG-RAST is its ease of installation on local infr
 
  
 
-The current software list includes the option of two genomic assemblers: IDBA [@peng_leung_yiu_chin_2012] and MegaHIT [@li_liu_luo_sadakane_lam_2015], allowing for genomic assembly in low-coverage samples or with high computational efficiency. The included gene prediction tool, Prodigal (PROkaryotic Dynamic programming Gen-finding Algorithm) [@hyatt_chen_locascio_land_larimer_hauser_2010], is used to predict gene coding sequences from raw genomic data. Alignment tools incorporated into the workflow include DIAMOND, [HMMER](http://hmmer.org/), and BLAST - Basic Local Alignment Search Tool - [@Camacho2009-hf; @Altschul1990-xn; @Altschul1997-oe]. These allow for the alignment of predicted gene-coding sequences to known databases for subsequent classification. Currently the Swiss-Prot database is used for classifying genes to obtain protein descriptions and function. 
+The current software list includes the option of two genomic assemblers: IDBA [@peng_leung_yiu_chin_2012] and MegaHIT [@li_liu_luo_sadakane_lam_2015], allowing for genomic assembly in low-coverage samples or with high computational efficiency. The included gene prediction tool, Prodigal (PROkaryotic Dynamic programming Gen-finding Algorithm) [@hyatt_chen_locascio_land_larimer_hauser_2010], is used to predict gene coding sequences from raw genomic data. Alignment tools incorporated into the workflow include DIAMOND, [HMMER](http://hmmer.org/), and BLAST -- Basic Local Alignment Search Tool -- [@Camacho2009-hf; @Altschul1990-xn; @Altschul1997-oe]. These allow for the alignment of predicted gene-coding sequences to known databases for subsequent classification. Currently the Swiss-Prot database is used for classifying genes to obtain protein descriptions and function. 
 
  
 
