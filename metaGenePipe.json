@@ -75,7 +75,7 @@
   "metaGenePipe.qc_subworkflow.trim_galore_task.TRMG_mem": 20960,
 
   "##_COMMENT_4#": "flash",
-  "metaGenePipe.qc_subworkflow.flash_task.FLA_threads": 6,
+  "metaGenePipe.qc_subworkflow.flash_task.FLA_threads": 2,
   "metaGenePipe.qc_subworkflow.flash_task.FLA_minutes": 15,
   "metaGenePipe.qc_subworkflow.flash_task.FLA_mem": 20000,
 
