@@ -25,7 +25,7 @@ If running on Spartan (the University of Melbourne HPC cluster), Java is already
 
 .. code-block:: bash
 
-  module load Java
+  module load java
 
 Singularity
 ======
