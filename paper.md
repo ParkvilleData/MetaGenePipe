@@ -117,27 +117,27 @@ BLAST is used to query the contigs created during assembly against the NCBI NT/N
 ## Resource Usage and Infrastructure requirements 
 
 
-MGP uses Unix’s `time` tool to measure the resources used by each task, such as CPU usage, file size, elapsed time, and system time. This output can be visualized and inform resource requests when using a job scheduler on high-performance computing infrastructure. Table 1 shows indicative resource usage for processing paired-end samples of 25,000 reads each run on the University of Melbourne SPARTAN high performance computing system consisting of Intel Xeon Gold 6154 3GHz CPUs. Running Cromwell on the head node took 2 hours and 22 minutes (including time spent on the queue) and required a maximum memory of 837168 kbytes.
+MGP uses Unix’s `time` tool to measure the resources used by each task, such as CPU usage, file size, elapsed time, and system time. This output can be visualized and inform resource requests when using a job scheduler on high-performance computing infrastructure. Table 1 shows indicative resource usage for processing paired-end samples of 25,000 reads each run on the University of Melbourne SPARTAN high performance computing system consisting of Intel Xeon Gold 6154 3GHz CPUs. Running Cromwell on the head node took 2 minutes and 22.6 seconds (excluding time spent on the queue) and required a maximum memory of 837168 kbytes.
 
-MGP can be run locally on a laptop, a virtual machine, or in a high-performance computing setting.  
+MGP can be run locally on a laptop, a virtual machine, or in a high-performance computing setting. 
 
 
-| Task | User Time (mm:ss) | Allocated threads | CPU utilization | Max Memory (kbytes) | 
+| Task | User time (mm:ss) | Threads | CPU utilization | Max memory (kbytes) | 
 |-------------------|--------------------------------|--------------------|--------------------|------------------------| 
-| trim_galore | 00:03.35 | 4 | 103% | 23144 | 
-| fastqc | 00:05.53 | 2 | 126% | 305268 | 
-| multiqc | 00:05.71 | 1 | 38% | 84960 |
-| flash | 00:00.91 | 2 | 46% | 20388 | 
-| concatenate | 00:00.38 | 1 | 54% | 20372 |
-| megahit | 00:24.71 | 24 | 1770% | 70928 |
-| blast | 00:01.57 | 6 | 43% | 22560 | 
-| prodigal | 00:00.84 | 1 | 39% | 56796 | 
-| diamond | 00:02.03 | 18 | 535% | 433768 | 
-| collation | 00:00.76 | 1 | 22% | 18356 |
-| hmmer | 00:51.78 | 8 | 106% | 59428 | 
-| read alignment | 00:01.82 | 4 | 107% | 92144 | 
-| matching contigs | 00:00.37 | 1 | 47% | 18336 |
-| taxonomic classification | 00:02.49 | 1 | 46% | 74532 |
+| trimgalore | 00:02.5| 4 | 103% | 23144 | 
+| fastqc | 00:05.78 | 2 | 120% | 305268 | 
+| multiqc | 00:01.24 | 1 | 38% | 84960 |
+| flash | 00:00.17 | 2 | 46% | 20388 | 
+| concatenate | 00:00.3 | 1 | 54% | 20372 |
+| megahit | 07:25.19 | 24 | 1770% | 70928 |
+| blast | 00:00.13 | 6 | 43% | 22560 | 
+| prodigal | 00:00.07 | 1 | 39% | 56796 | 
+| diamond | 00:10.23 | 18 | 535% | 433768 | 
+| collation | 00:00.03 | 1 | 22% | 18356 |
+| hmmer | 00:47.9 | 8 | 106% | 59428 | 
+| read alignment | 00:01.19 | 4 | 107% | 92144 | 
+| matching contigs | 00:00.3 | 1 | 47% | 18336 |
+| taxonomic classification | 00:00.56 | 1 | 46% | 74532 |
 <p align = "center"> Table 1: The resource usage for processing two paired end samples of 25,000 reads each in MetaGenePipe.</p> 
 
 
