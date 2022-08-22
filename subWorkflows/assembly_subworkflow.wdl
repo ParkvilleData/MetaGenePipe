@@ -1,5 +1,7 @@
 import "./tasks/megahit.wdl" as megahitTask
 import "./tasks/blast.wdl" as blastTask
+import "./tasks/matching_contigs_reads.wdl" as matchingTask
+import "./tasks/readalignment.wdl" as readalignTask
 
 workflow assembly_subworkflow {
   meta {
@@ -17,6 +19,8 @@ workflow assembly_subworkflow {
   ### input variables
   Boolean megahitBoolean
   Boolean blastBoolean
+  Boolean readalignBoolean
+  Boolean mergeBoolean
   File trimmedReadsFwd
   File trimmedReadsRev
   File megaGraph

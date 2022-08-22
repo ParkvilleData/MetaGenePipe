@@ -10,13 +10,11 @@
 import "./subWorkflows/qc_subworkflow.wdl" as qcSubWorkflow
 import "./subWorkflows/assembly_subworkflow.wdl" as assemblySubWorkflow
 import "./subWorkflows/geneprediction_subworkflow.wdl" as genepredictionSubWorkflow
+import "./subWorkflows/readalignment_subworkflow.wdl" as readalignmentSubWorkflow
 
 ## import tasks
 import "./tasks/multiqc.wdl" as multiqcTask
 import "./tasks/merge.wdl" as mergeTask
-import "./tasks/matching_contigs_reads.wdl" as matchingTask
-import "./tasks/readalignment.wdl" as readalignTask
-import "./tasks/hmmer_taxon.wdl" as hmmerTaxonTask
 
 workflow metaGenePipe {
 
@@ -70,7 +68,7 @@ workflow metaGenePipe {
   ## end of qc subworkflow
   }
 
-  Array[File] mQCArray = flatten(qc_subworkflow.fastqcArray)
+  Array[File] mQCArray = flatten(fastqcArray)
 
   ## call multiqc after the qc workflow on all fastqc output
   call multiqcTask.multiqc_task {
@@ -78,40 +76,49 @@ workflow metaGenePipe {
     fastqcArray = mQCArray
   }
 
-  
+
   ## If merge dataset is set to true
   if (mergeBoolean) {
     call mergeTask.merge_task {
       input:
-      readsToMergeFlash = qc_subworkflow.flashExtFrags,
-      readsToMergeFwd = qc_subworkflow.trimmedFwdReads,
-      readsToMergeRev = qc_subworkflow.trimmedRevReads
+        readsToMergeFlash = qc_subworkflow.flashExtFrags,
+        readsToMergeFwd = qc_subworkflow.trimmedFwdReads,
+        readsToMergeRev = qc_subworkflow.trimmedRevReads
     }
 
     call assemblySubWorkflow.assembly_subworkflow {
       input:
-      megaGraph = megaGraph,
-      preset = preset,
-      megahitBoolean = megahitBoolean,
-      blastBoolean = blastBoolean,
-      trimmedReadsFwd = merge_task.mergedReadsFwd,
-      trimmedReadsRev = merge_task.mergedReadsRev,
-      numOfHits = numOfHits,
-      bparser = bparser,
-      database = database
+        megaGraph = megaGraph,
+        preset = preset,
+        megahitBoolean = megahitBoolean,
+        blastBoolean = blastBoolean,
+        readalignBoolean = readalignBoolean,
+        trimmedReadsFwd = merge_task.mergedReadsFwd,
+        trimmedReadsRev = merge_task.mergedReadsRev,
+        mergeBoolean = mergeBoolean,
+        numOfHits = numOfHits,
+        bparser = bparser,
+        database = database
     }
 
     call genepredictionSubWorkflow.geneprediction_subworkflow {
       input:
-      hmmerDB = hmmerDB,
-      hmmerBoolean = hmmerBoolean,
-      assemblyScaffolds = assembly_subworkflow.assemblyScaffolds,
-      outputType=outputType,
-      blastMode=blastMode,
-      maxTargetSeqs=maxTargetSeqs,
-      outputPrefix = mergedOutput,
-      metaOption=metaOption,
-      DB=DB
+        hmmerDB = hmmerDB,
+        hmmerBoolean = hmmerBoolean,
+        assemblyScaffolds = assembly_subworkflow.assemblyScaffolds,
+        outputType=outputType,
+        blastMode=blastMode,
+        hmm_parser=hmm_parser,
+        xml_parser=xml_parser,
+        briteList=briteList,
+        mergeBoolean=mergeBoolean,
+        taxonBoolean=taxonBoolean,
+        outputFileName=outputFileName,
+        briteJson=briteJson,
+        maxTargetSeqs=maxTargetSeqs,
+        outputPrefix = mergedOutput,
+        metaOption=metaOption,
+        DB=DB
     }
   } ## end merge dataset
 
@@ -126,8 +133,10 @@ workflow metaGenePipe {
         preset = preset,
         megahitBoolean = megahitBoolean,
         blastBoolean = blastBoolean,
+        readalignBoolean = readalignBoolean,
         trimmedReadsFwd = reads.left,
         trimmedReadsRev = reads.right,  
+        mergeBoolean = mergeBoolean,
         numOfHits = numOfHits,
         bparser = bparser,
         database = database
@@ -139,61 +148,41 @@ workflow metaGenePipe {
         hmmerDB=hmmerDB,
         hmmerBoolean=hmmerBoolean,
         outputType=outputType,
+        briteList=briteList,
+        briteJson=briteJson,
+        hmm_parser=hmm_parser,
+        xml_parser=xml_parser,
+        outputFileName=outputFileName,
         blastMode=blastMode,
         metaOption=metaOption,
         maxTargetSeqs=maxTargetSeqs,
+        taxonBoolean=taxonBoolean,
+        mergeBoolean=mergeBoolean,
         DB=DB
       }
     } ## end scatter
   } ## end don't merge datasets
 
-
-  ## matching of contigs and reads before read alignment                 
-  scatter (reads in pairReads) {
-    call matchingTask.matching_contigs_reads_task {
-      input:
-        merged_Contigs = assembly_subworkflow.assemblyScaffolds,
-        non_merged_Contigs = nonMergedAssembly.assemblyScaffolds,
-        forwardReads = reads.left,
-        reverseReads = reads.right,
-        merge_opt = mergeBoolean
-    }
-  }
-
-  ## read alignment task                                                 
-  if (readalignBoolean) {
-    scatter (matchmap in matching_contigs_reads_task.matchedclr) {
-      call readalignTask.readalignment_task {
-        input:
-        Inputmap = matchmap
+  if(readalignBoolean) {
+    if(!mergeBoolean) {
+      call readalignmentSubWorkflow.readalignment_subworkflow {
+         input:
+            pairReads=pairReads,
+            readalignBoolean=readalignBoolean,
+            merged_Contigs = assembly_subworkflow.assemblyScaffolds,
+            non_merged_Contigs = nonMergedAssembly.assemblyScaffolds,
+            mergeBoolean=mergeBoolean
       }
-    }
-  }
+    } 
 
-  if (taxonBoolean) {
-    if(mergeBoolean){
-      call hmmerTaxonTask.hmmer_taxon_task as hmmerMergedTaxon {
-        input:
-        hmmerTable=geneprediction_subworkflow.hmmerTable,
-        diamondXML=geneprediction_subworkflow.collationOutput,
-        xml_parser=xml_parser,
-        hmm_parser=hmm_parser,
-        briteList=briteList,
-        briteJson=briteJson,
-        outputFileName=outputFileName
-      }
-    }
-    if(!mergeBoolean){
-      call hmmerTaxonTask.hmmer_taxon_task {
-        input:
-        hmmerTables=nonMergedGenePrediction.hmmerTable,
-        diamondXMLs=nonMergedGenePrediction.collationOutput,
-        xml_parser=xml_parser,
-        hmm_parser=hmm_parser,
-        briteList=briteList,
-        briteJson=briteJson,
-        outputFileName=outputFileName
-      }
+    if(mergeBoolean) {
+       call readalignmentSubWorkflow.readalignment_subworkflow as nonMergedReadAlignment{
+          input:
+             pairReads=pairReads,
+             merged_Contigs = assembly_subworkflow.assemblyScaffolds,
+             readalignBoolean=readalignBoolean,
+             mergeBoolean=mergeBoolean
+       } 
     }
   }
 
@@ -247,21 +236,26 @@ workflow metaGenePipe {
     Array[File?]? hmmerOutputArray = nonMergedGenePrediction.hmmerOutput
 
     ## Read alignment output                                                                                  
-    Array[File?]? sampleSamOutput = readalignment_task.sampleSamOutput
-    Array[File?]? sampleSortedBam = readalignment_task.sampleSortedBam
-    Array[File?]? sampleFlagstatText = readalignment_task.sampleFlagstatText
+    Array[File?]? sampleSamOutput = readalignment_subworkflow.sampleSamOutput
+    Array[File?]? sampleSortedBam = readalignment_subworkflow.sampleSortedBam
+    Array[File?]? sampleFlagstatText = readalignment_subworkflow.sampleFlagstatText
+
+    ## Read alignment output
+    Array[File?]? sampleSamOutputNonMerged = nonMergedReadAlignment.sampleSamOutputNonMerged
+    Array[File?]? sampleSortedBamNonMerged = nonMergedReadAlignment.sampleSortedBamNonMerged
+    Array[File?]? sampleFlagstatTextNonMerged = nonMergedReadAlignment.sampleFlagstatTextNonMerged
 
     ## Taxonomy output merged
-    File? level1BriteMerged = hmmerMergedTaxon.level1Brite
-    File? level2BriteMerged = hmmerMergedTaxon.level2Brite
-    File? level3BriteMerged = hmmerMergedTaxon.level3Brite
-    File? OTUMerged = hmmerMergedTaxon.OTU
+    File? level1BriteMerged = geneprediction_subworkflow.level1Brite
+    File? level2BriteMerged = geneprediction_subworkflow.level2Brite
+    File? level3BriteMerged = geneprediction_subworkflow.level3Brite
+    File? OTUMerged = geneprediction_subworkflow.OTU
 
     ## Taxonomy output unmerged
-    File? level1Brite = hmmer_taxon_task.level1Brite
-    File? level2Brite = hmmer_taxon_task.level2Brite
-    File? level3Brite = hmmer_taxon_task.level3Brite
-    File? OTU = hmmer_taxon_task.OTU
+    File? level1Brite = geneprediction_subworkflow.level1Brite
+    File? level2Brite = geneprediction_subworkflow.level2Brite
+    File? level3Brite = geneprediction_subworkflow.level3Brite
+    File? OTU = geneprediction_subworkflow.OTU
   }
   meta {
     author: "Bobbie Shaban"

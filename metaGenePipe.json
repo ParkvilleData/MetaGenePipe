@@ -159,23 +159,51 @@
   "metaGenePipe.nonMergedGenePrediction.hmmer_task.HMMER_minutes": 200,
   "metaGenePipe.nonMergedGenePrediction.hmmer_task.HMMER_mem": 40000,
 
-  "##_COMMENT_27#": "Matching contigs and reads ",
-  "metaGenePipe.matching_contigs_reads_task.BMN_threads": 1,
-  "metaGenePipe.matching_contigs_reads_task.BMN_minutes": 60,
-  "metaGenePipe.matching_contigs_reads_task.BMN_mem": 20480,
+  "metaGenePipe.readalignment_subworkflow.readalignment_task.BRA_minutes": 200,
+  "metaGenePipe.readalignment_subworkflow.readalignment_task.BRA_threads": 2,
+  "metaGenePipe.readalignment_subworkflow.readalignment_task.BRA_mem": 20000,
 
-  "##_COMMENT_28#": "Read alignment task ",
-  "metaGenePipe.readalignment_task.BRA_threads": 4,
-  "metaGenePipe.readalignment_task.BRA_minutes": 200,
-  "metaGenePipe.readalignment_task.BRA_mem": 20880,
+  "metaGenePipe.readalignment_subworkflow.non_merged_readalignment_task.BRA_threads": 2,
+  "metaGenePipe.readalignment_subworkflow.non_merged_readalignment_task.BRA_minutes": 200,
+  "metaGenePipe.readalignment_subworkflow.non_merged_readalignment_task.BRA_mem": 20000,
 
-  "##_COMMENT_29#": "Taxon classification",
-  "metaGenePipe.hmmerMergedTaxon.HTAX_threads": 1,
-  "metaGenePipe.hmmerMergedTaxon.HTAX_minutes": 600,
-  "metaGenePipe.hmmerMergedTaxon.HTAX_mem": 30000,
+  "metaGenePipe.readalignment_subworkflow.matching_contigs_reads_task.BMN_minutes": 200,
+  "metaGenePipe.readalignment_subworkflow.matching_contigs_reads_task.BMN_threads": 2,
+  "metaGenePipe.readalignment_subworkflow.matching_contigs_reads_task.BMN_mem": 20000,
 
-  "##_COMMENT_30#": "Taxon classification non-merged",
-  "metaGenePipe.hmmer_taxon_task.HTAX_threads": 2,
-  "metaGenePipe.hmmer_taxon_task.HTAX_minutes": 300,
-  "metaGenePipe.hmmer_taxon_task.HTAX_mem": 30000
+  "metaGenePipe.readalignment_subworkflow.non_merged_matching_contigs_reads_task.BMN_threads": 2,
+  "metaGenePipe.readalignment_subworkflow.non_merged_matching_contigs_reads_task.BMN_minutes": 200,
+  "metaGenePipe.readalignment_subworkflow.non_merged_matching_contigs_reads_task.BMN_mem": 2000,
+
+  "metaGenePipe.nonMergedReadAlignment.non_merged_readalignment_task.BRA_mem": 20000,
+  "metaGenePipe.nonMergedReadAlignment.non_merged_readalignment_task.BRA_threads": 2,
+  "metaGenePipe.nonMergedReadAlignment.non_merged_readalignment_task.BRA_minutes": 200,
+
+  "metaGenePipe.nonMergedReadAlignment.readalignment_task.BRA_threads": 2,
+  "metaGenePipe.nonMergedReadAlignment.readalignment_task.BRA_minutes": 200,
+  "metaGenePipe.nonMergedReadAlignment.readalignment_task.BRA_mem": 20000,
+
+  "metaGenePipe.nonMergedReadAlignment.non_merged_matching_contigs_reads_task.BMN_minutes": 200,
+  "metaGenePipe.nonMergedReadAlignment.non_merged_matching_contigs_reads_task.BMN_threads": 2,
+  "metaGenePipe.nonMergedReadAlignment.non_merged_matching_contigs_reads_task.BMN_mem": 20000,
+
+  "metaGenePipe.nonMergedReadAlignment.matching_contigs_reads_task.BMN_mem": 20000,
+  "metaGenePipe.nonMergedReadAlignment.matching_contigs_reads_task.BMN_threads": 2,
+  "metaGenePipe.nonMergedReadAlignment.matching_contigs_reads_task.BMN_minutes": 200,
+
+  "metaGenePipe.nonMergedGenePrediction.hmmer_taxon_task.HTAX_minutes": 200,
+  "metaGenePipe.nonMergedGenePrediction.hmmer_taxon_task.HTAX_threads": 2,
+  "metaGenePipe.nonMergedGenePrediction.hmmer_taxon_task.HTAX_mem": 20000,
+
+  "metaGenePipe.geneprediction_subworkflow.hmmer_taxon_task.HTAX_mem": 20000,
+  "metaGenePipe.geneprediction_subworkflow.hmmer_taxon_task.HTAX_threads": 2,
+  "metaGenePipe.geneprediction_subworkflow.hmmer_taxon_task.HTAX_minutes": 200,
+
+  "metaGenePipe.nonMergedGenePrediction.hmmerMergedTaxon.HTAX_threads": 2,
+  "metaGenePipe.nonMergedGenePrediction.hmmerMergedTaxon.HTAX_minutes": 200,
+  "metaGenePipe.nonMergedGenePrediction.hmmerMergedTaxon.HTAX_mem": 20000,
+
+  "metaGenePipe.geneprediction_subworkflow.hmmerMergedTaxon.HTAX_threads": 2,
+  "metaGenePipe.geneprediction_subworkflow.hmmerMergedTaxon.HTAX_minutes": 200,
+  "metaGenePipe.geneprediction_subworkflow.hmmerMergedTaxon.HTAX_mem": 20000
 }

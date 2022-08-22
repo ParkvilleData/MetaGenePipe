@@ -55,6 +55,7 @@ workflow qc_subworkflow {
       sampleName=sampleName
     }
   }
+
   output {
     Array[File] fastqcArray = fastqc_task.fastqcArray
     File? flashExtFrags = flash_task.extendedFrags
