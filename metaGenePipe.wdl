@@ -92,10 +92,8 @@ workflow metaGenePipe {
         preset = preset,
         megahitBoolean = megahitBoolean,
         blastBoolean = blastBoolean,
-        readalignBoolean = readalignBoolean,
         trimmedReadsFwd = merge_task.mergedReadsFwd,
         trimmedReadsRev = merge_task.mergedReadsRev,
-        mergeBoolean = mergeBoolean,
         numOfHits = numOfHits,
         bparser = bparser,
         database = database
