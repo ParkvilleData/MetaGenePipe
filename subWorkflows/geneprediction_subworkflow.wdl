@@ -8,7 +8,7 @@ workflow geneprediction_subworkflow {
 
   ### Imported files #####
   Boolean hmmerBoolean
-  Boolean mergeBoolean
+  Boolean concatenateBoolean
   Boolean taxonBoolean
   File DB
   File? assemblyScaffolds
@@ -70,7 +70,7 @@ workflow geneprediction_subworkflow {
   }
 
    if (taxonBoolean) {
-     if (mergeBoolean){
+     if (concatenateBoolean){
         call hmmerTaxonTask.hmmer_taxon_task as hmmerMergedTaxon {
            input:
            hmmerTable=hmmer_task.hmmerTable,
@@ -82,7 +82,7 @@ workflow geneprediction_subworkflow {
            outputFileName=outputFileName
         }
       }
-      if (!mergeBoolean) {
+      if (!concatenateBoolean) {
         call hmmerTaxonTask.hmmer_taxon_task {
           input:
             hmmerTables=hmmer_task.hmmerTable,

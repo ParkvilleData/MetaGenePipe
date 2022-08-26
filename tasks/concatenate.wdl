@@ -1,4 +1,4 @@
-task merge_task {
+task concatenate_task {
   Array[File?] readsToMergeFlash
   Array[File] readsToMergeFwd
   Array[File] readsToMergeRev
@@ -8,9 +8,9 @@ task merge_task {
   Int mergeArray = length(select_all(readsToMergeFwd))
 
   command {
-    mkdir -p ./data/merged
-    cat ${sep = ' ' readsToMergeFwd} > ./data/merged/merged_R1.fq.gz
-    cat ${sep = ' ' readsToMergeRev} > ./data/merged/merged_R2.fq.gz
+    mkdir -p ./data
+    cat ${sep = ' ' readsToMergeFwd} > ./data/combined_R1.fq.gz
+    cat ${sep = ' ' readsToMergeRev} > ./data/combined_R2.fq.gz
   }
   runtime {
     runtime_minutes: '${MGS_minutes}'
@@ -18,10 +18,10 @@ task merge_task {
     mem: '${MGS_mem}'
   }
   output {
-    File? flashReadsFwdComb = "./data/merged/flash_R1.fq.gz"
-    File? flashReadsRevComb = "./data/merged/flash_R2.fq.gz"
-    File mergedReadsFwd = "./data/merged/merged_R1.fq.gz"
-    File mergedReadsRev = "./data/merged/merged_R2.fq.gz"
+    File? flashReadsFwdComb = "./data/combined_flash_R1.fq.gz"
+    File? flashReadsRevComb = "./data/combined_flash_R2.fq.gz"
+    File mergedReadsFwd = "./data/combined_R1.fq.gz"
+    File mergedReadsRev = "./data/combined_R2.fq.gz"
   }        
   meta {
     author: "Bobbie Shaban"
