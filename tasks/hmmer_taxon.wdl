@@ -17,8 +17,8 @@ task hmmer_taxon_task {
     # Comment out OTU file until we fix it
     # python3 ${xml_parser} --outfile OTU.${outputFileName}.tsv ${briteJson} ${sep=' ' diamondXMLs} ${diamondXML}
 
-    mkdir -p taxon
-    mv *.${outputFileName}.* ./taxon
+    mkdir -p ./geneprediction/taxon
+    mv *.${outputFileName}.* ./geneprediction/taxon
   }
   runtime {
     runtime_minutes: '${HTAX_minutes}'
@@ -26,10 +26,10 @@ task hmmer_taxon_task {
     mem: '${HTAX_mem}'
   }
   output {
-    File? level1Brite = "./taxon/Level1.${outputFileName}.counts.tsv"
-    File? level2Brite = "./taxon/Level2.${outputFileName}.counts.tsv"
-    File? level3Brite = "./taxon/Level3.${outputFileName}.counts.tsv"
-    File? OTU = "./taxon/OTU.${outputFileName}.tsv" 
+    File? level1Brite = "./geneprediction/taxon/Level1.${outputFileName}.counts.tsv"
+    File? level2Brite = "./geneprediction/taxon/Level2.${outputFileName}.counts.tsv"
+    File? level3Brite = "./geneprediction/taxon/Level3.${outputFileName}.counts.tsv"
+    File? OTU = "./geneprediction/taxon/OTU.${outputFileName}.tsv" 
   }        
   meta {
     author: "Bobbie Shaban"

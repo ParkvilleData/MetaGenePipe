@@ -8,9 +8,9 @@ task hmmer_task {
   String? sampleName = if defined(outputPrefix) then outputPrefix else basename(proteinAlignmentOutput, ".fa")
 
   command {
-    mkdir -p ./geneprediction
+    mkdir -p ./geneprediction/hmmer
     hmmsearch --cpu ${HMMER_threads} --tblout ${sampleName}.hmmer.tblout ${hmmerDB} ${proteinAlignmentOutput} > ${sampleName}.hmmer.out
-    mv ${sampleName}.hmmer.* ./geneprediction
+    mv ${sampleName}.hmmer.* ./geneprediction/hmmer
   }
   runtime {
     runtime_minutes: '${HMMER_minutes}'
@@ -18,8 +18,8 @@ task hmmer_task {
     mem: '${HMMER_mem}'
   }
   output {
-    File hmmerTable = "./geneprediction/${sampleName}.hmmer.tblout"
-    File hmmerOutput = "./geneprediction/${sampleName}.hmmer.out"
+    File hmmerTable = "./geneprediction/hmmer/${sampleName}.hmmer.tblout"
+    File hmmerOutput = "./geneprediction/hmmer/${sampleName}.hmmer.out"
   }        
   meta {
     author: "Bobbie Shaban"

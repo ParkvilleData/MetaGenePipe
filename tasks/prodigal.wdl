@@ -8,9 +8,9 @@ task prodigal_task {
   String? metaOption
 
   command {
-    prodigal ${metaOption} -i ${assemblyScaffolds} -o ${sampleName}.prodigal.genes.fa -a ${sampleName}.prodigal.proteins.fa -d ${sampleName}.prodigal.nucl.genes.fa -s ${sampleName}.prodigal.potential_genes.fa
-    mkdir -p ./geneprediction
-    mv *.prodigal.*.fa ./geneprediction/
+    prodigal ${metaOption} -i ${assemblyScaffolds} -o ${sampleName}.gene_coordinates.gbk -a ${sampleName}.proteins.fa -d ${sampleName}.nucl_genes.fa -s ${sampleName}.starts.txt
+    mkdir -p ./geneprediction/prodigal
+    mv *.prodigal.*.fa ./geneprediction/prodigal
   }
   runtime {
     runtime_minutes: '${GEP_minutes}'
@@ -18,10 +18,10 @@ task prodigal_task {
     mem: '${GEP_mem}'
   }
   output {
-    File genesAlignmentOutput = "./geneprediction/${sampleName}.prodigal.genes.fa"
-    File proteinAlignmentOutput = "./geneprediction/${sampleName}.prodigal.proteins.fa"
-    File nucleotideGenesOutput = "./geneprediction/${sampleName}.prodigal.nucl.genes.fa"
-    File potentialGenesAlignmentOutput = "./geneprediction/${sampleName}.prodigal.potential_genes.fa"
+    File genesAlignmentOutput = "./geneprediction/prodigal/${sampleName}.gene_coordinates.gbk"
+    File proteinAlignmentOutput = "./geneprediction/prodigal/${sampleName}.proteins.fa"
+    File nucleotideGenesOutput = "./geneprediction/prodigal/${sampleName}.nucl_genes.fa"
+    File potentialGenesAlignmentOutput = "./geneprediction/prodigal/${sampleName}.starts.txt"
   }        
   meta {
     author: "Bobbie Shaban"

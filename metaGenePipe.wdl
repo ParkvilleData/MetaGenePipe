@@ -10,11 +10,11 @@
 import "./subWorkflows/qc_subworkflow.wdl" as qcSubWorkflow
 import "./subWorkflows/assembly_subworkflow.wdl" as assemblySubWorkflow
 import "./subWorkflows/geneprediction_subworkflow.wdl" as genepredictionSubWorkflow
-import "./subWorkflows/readalignment_subworkflow.wdl" as readalignmentSubWorkflow
+import "./subWorkflows/mapreads_subworkflow.wdl" as mapreadsSubWorkflow
 
-## import tasks
+## import standalone tasks
 import "./tasks/multiqc.wdl" as multiqcTask
-import "./tasks/merge.wdl" as mergeTask
+import "./tasks/concatenate.wdl" as concatenateTask
 
 workflow metaGenePipe {
 
@@ -46,13 +46,13 @@ workflow metaGenePipe {
 
   ## boolean variables 
   Boolean flashBoolean
-  Boolean mergeBoolean
+  Boolean concatenateBoolean
   Boolean megahitBoolean
   Boolean blastBoolean
   Boolean taxonBoolean
   Boolean trimmomaticBoolean
   Boolean trimGaloreBoolean
-  Boolean readalignBoolean
+  Boolean mapreadsBoolean
   
   scatter (sample in inputSamples) {
     
@@ -78,8 +78,8 @@ workflow metaGenePipe {
 
 
   ## If merge dataset is set to true
-  if (mergeBoolean) {
-    call mergeTask.merge_task {
+  if (concatenateBoolean) {
+    call concatenateTask.concatenate_task {
       input:
         readsToMergeFlash = qc_subworkflow.flashExtFrags,
         readsToMergeFwd = qc_subworkflow.trimmedFwdReads,
@@ -92,8 +92,8 @@ workflow metaGenePipe {
         preset = preset,
         megahitBoolean = megahitBoolean,
         blastBoolean = blastBoolean,
-        trimmedReadsFwd = merge_task.mergedReadsFwd,
-        trimmedReadsRev = merge_task.mergedReadsRev,
+        trimmedReadsFwd = concatenate_task.mergedReadsFwd,
+        trimmedReadsRev = concatenate_task.mergedReadsRev,
         numOfHits = numOfHits,
         bparser = bparser,
         database = database
@@ -109,7 +109,7 @@ workflow metaGenePipe {
         hmm_parser=hmm_parser,
         xml_parser=xml_parser,
         briteList=briteList,
-        mergeBoolean=mergeBoolean,
+        concatenateBoolean=concatenateBoolean,
         taxonBoolean=taxonBoolean,
         outputFileName=outputFileName,
         briteJson=briteJson,
@@ -123,7 +123,7 @@ workflow metaGenePipe {
   Array[Pair[File?, File?]] pairReads = zip(qc_subworkflow.trimmedFwdReads, qc_subworkflow.trimmedRevReads)
 
   ## if merge dataset is set to false: Includes scatter but same tasks
-  if(!mergeBoolean) {
+  if(!concatenateBoolean) {
     scatter (reads in pairReads) {
       call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
         input:
@@ -153,31 +153,31 @@ workflow metaGenePipe {
         metaOption=metaOption,
         maxTargetSeqs=maxTargetSeqs,
         taxonBoolean=taxonBoolean,
-        mergeBoolean=mergeBoolean,
+        concatenateBoolean=concatenateBoolean,
         DB=DB
       }
     } ## end scatter
   } ## end don't merge datasets
 
-  if(readalignBoolean) {
-    if(!mergeBoolean) {
-      call readalignmentSubWorkflow.readalignment_subworkflow {
+  if(mapreadsBoolean) {
+    if(!concatenateBoolean) {
+      call mapreadsSubWorkflow.mapreads_subworkflow {
          input:
             pairReads=pairReads,
-            readalignBoolean=readalignBoolean,
+            mapreadsBoolean=mapreadsBoolean,
             merged_Contigs = assembly_subworkflow.assemblyScaffolds,
             non_merged_Contigs = nonMergedAssembly.assemblyScaffolds,
-            mergeBoolean=mergeBoolean
+            concatenateBoolean=concatenateBoolean
       }
     } 
 
-    if(mergeBoolean) {
-       call readalignmentSubWorkflow.readalignment_subworkflow as nonMergedReadAlignment{
+    if(concatenateBoolean) {
+       call mapreadsSubWorkflow.mapreads_subworkflow as nonMergedmapreads{
           input:
              pairReads=pairReads,
              merged_Contigs = assembly_subworkflow.assemblyScaffolds,
-             readalignBoolean=readalignBoolean,
-             mergeBoolean=mergeBoolean
+             mapreadsBoolean=mapreadsBoolean,
+             concatenateBoolean=concatenateBoolean
        } 
     }
   }
@@ -193,9 +193,9 @@ workflow metaGenePipe {
 
     ## Removed for now add later if output required
     Array[File?] flashArray = qc_subworkflow.flashExtFrags
-    File? flashReadsRevComb = merge_task.flashReadsRevComb
-    File? mergedReadsFwd = merge_task.mergedReadsFwd
-    File? mergedReadsRev = merge_task.mergedReadsRev 
+    File? flashReadsRevComb = concatenate_task.flashReadsRevComb
+    File? mergedReadsFwd = concatenate_task.mergedReadsFwd
+    File? mergedReadsRev = concatenate_task.mergedReadsRev 
 
     ## Assembly output
     File? assemblyScaffolds = assembly_subworkflow.assemblyScaffolds
@@ -232,14 +232,14 @@ workflow metaGenePipe {
     Array[File?]? hmmerOutputArray = nonMergedGenePrediction.hmmerOutput
 
     ## Read alignment output                                                                                  
-    Array[File?]? sampleSamOutput = readalignment_subworkflow.sampleSamOutput
-    Array[File?]? sampleSortedBam = readalignment_subworkflow.sampleSortedBam
-    Array[File?]? sampleFlagstatText = readalignment_subworkflow.sampleFlagstatText
+    Array[File?]? sampleSamOutput = mapreads_subworkflow.sampleSamOutput
+    Array[File?]? sampleSortedBam = mapreads_subworkflow.sampleSortedBam
+    Array[File?]? sampleFlagstatText = mapreads_subworkflow.sampleFlagstatText
 
     ## Read alignment output
-    Array[File?]? sampleSamOutputNonMerged = nonMergedReadAlignment.sampleSamOutputNonMerged
-    Array[File?]? sampleSortedBamNonMerged = nonMergedReadAlignment.sampleSortedBamNonMerged
-    Array[File?]? sampleFlagstatTextNonMerged = nonMergedReadAlignment.sampleFlagstatTextNonMerged
+    Array[File?]? sampleSamOutputNonMerged = nonMergedmapreads.sampleSamOutputNonMerged
+    Array[File?]? sampleSortedBamNonMerged = nonMergedmapreads.sampleSortedBamNonMerged
+    Array[File?]? sampleFlagstatTextNonMerged = nonMergedmapreads.sampleFlagstatTextNonMerged
 
     ## Taxonomy output merged
     File? level1BriteMerged = geneprediction_subworkflow.level1Brite

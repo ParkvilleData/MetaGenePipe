@@ -82,7 +82,9 @@ MGP is broken up into three sub-workflows: Quality Control (QC), Assembly, and G
 
  
 
-The quality control (QC) sub-workflow trims poor quality reads and any potential adapter sequence from the genomic samples using either Trimmomatic [@pmid24695404] or TrimGalore [@felix_krueger_2021_5127899]. There is also the option of lengthening the reads by merging overlapping paired-end reads using FLASH. This option can help overcome potential low-coverage regions encountered during the assembly process [@Magoc2011-gb]. Visualizations of the sequence quality are obtained using FastQC [@Andrews:2010tn] and the subsequent output is merged and analyzed using MultiQC [@10.1093/bioinformatics/btw354]. 
+The quality control (QC) sub-workflow trims poor quality reads and any potential adapter sequence from the genomic samples using either Trimmomatic [@pmid24695404] or TrimGalore [@felix_krueger_2021_5127899]. There is also the option of lengthening the reads by merging overlapping paired-end reads using FLASH. This option can help overcome potential low-coverage regions encountered during the assembly process [@Magoc2011-gb]. Visualizations of the sequence quality are obtained using FastQC [@Andrews:2010tn].
+
+There is an optional extra standalone task to merge and analyze the FastQC outputs from each of the samples using MultiQC [@10.1093/bioinformatics/btw354]. 
 
 
 ## Concatenate Samples 
@@ -96,22 +98,20 @@ This standalone and optional task can consolidate all forward and all reverse re
 ## Assembly sub-workflow 
 
 
-The Assembly sub-workflow uses MegaHIT, which performs de-novo assembly of large and complex metagenomic samples in a time and cost-efficient manner [@10.1093/bioinformatics/btv033]. 
+For assembling contigs we chose MegaHIT, which performs de-novo assembly of large and complex metagenomic samples in a time and cost-efficient manner [@10.1093/bioinformatics/btv033].
 
+BLAST is used to query the contigs created during assembly against the NCBI NT/NR database to determine the species of the assembled contigs. The BLAST output is parsed to be easily searchable and also lists queries returning no hits. This informs researchers to further investigate potentially novel sequences. Additionally, the BLAST results can be used to filter contigs that belong to a taxon of interest that was not matched during the Swiss-Prot alignment stage. This can be useful for genomic binning or investigation of regions of interest. 
+
+## Map reads sub-workflow
+
+
+Mapping the raw reads back to the assembled contigs allows for the quantification of the relative abundance of contigs in a metagenomics dataset. This task is important for downstream genomic binning and metagenome statistics. The raw reads that have passed the QC stage are at this point aligned back to the contigs resulting from the assembly sub-workflow using the Bowtie2 Aligner [@langmead2012]. A compressed binary file representing the alignment of sorted raw sequences to the assembly output in BAM format is created via SAMtools [@10.1093/bioinformatics/btp352]. Mapping statistics for the alignment are created using the SAMtools flagstat function, which can be used to quantify relative abundance.
 
 ## Gene Prediction sub-workflow 
 
 
 
-The gene prediction sub-workflow uses Prodigal for predicting prokaryotic gene coding sequences and identifying the sites of translation initiation [@Hyatt2010-zh]. Prodigal produces an `fna` file with the resulting protein prediction. The predicted gene coding sequences are then aligned to the Swiss-Prot database [@pmid18287689] with the DIAMOND aligner and to [KoalaFam HMMER profiles](https://www.genome.jp/tools/kofamkoala/) [@pmid31742321]. Custom Python scripts are used to extract the output of the alignments and to match genes to functional hierarchies using the [KEGG Brite Database](https://www.genome.jp/kegg/brite.html) [@pmid10592173; @pmid31441146; @pmid33125081].  
-
-
-## Read Mapping and BLAST 
-
-
-Aligning raw reads back to the assembled contigs allows for the quantification of the relative abundance of contigs in a metagenomics dataset. This task is important for downstream genomic binning and metagenome statistics. The raw reads that have passed the QC stage are at this point aligned back to the contigs resulting from the assembly sub-workflow using the Burrows-Wheeler Aligner (BWA) [@Li2010-nl]. A compressed binary file representing the alignment of raw sequences to the assembly output in BAM format is created via BamTools [@10.1093/bioinformatics/btr174] and analysis is performed using SAMtools' [@10.1093/bioinformatics/btp352] flagstat function to determine the percentage of raw reads that were used for the assembly.  
-
-BLAST is used to query the contigs created during assembly against the NCBI NT/NR database to determine the species of the assembled contigs. The BLAST output is parsed to be easily searchable and also lists queries returning no hits. This informs researchers to further investigate potentially novel sequences. Additionally, the BLAST results can be used to filter contigs that belong to a taxon of interest that was not matched during the Swiss-Prot alignment stage. This can be useful for genomic binning or investigation of regions of interest. 
+The gene prediction sub-workflow uses Prodigal for predicting prokaryotic gene coding sequences and identifying the sites of translation initiation [@Hyatt2010-zh]. Prodigal produces an `fa` file with the predicted aminoacid (protein) coding sequences. These are then aligned to the Swiss-Prot database [@pmid18287689] with the DIAMOND aligner and to [KoalaFam HMMER profiles](https://www.genome.jp/tools/kofamkoala/) with HMMER [@pmid31742321]. Custom Python scripts are used to extract the output of the alignments and to match genes to functional hierarchies using the [KEGG Brite Database](https://www.genome.jp/kegg/brite.html) [@pmid10592173; @pmid31441146; @pmid33125081].  
 
 
 ## Resource Usage and Infrastructure requirements 
@@ -133,10 +133,8 @@ MGP can be run locally on a laptop, a virtual machine, or in a high-performance 
 | blast | 00:00.13 | 6 | 43% | 22560 | 
 | prodigal | 00:00.07 | 1 | 39% | 56796 | 
 | diamond | 00:10.23 | 18 | 535% | 433768 | 
-| collation | 00:00.03 | 1 | 22% | 18356 |
 | hmmer | 00:47.9 | 8 | 106% | 59428 | 
-| read alignment | 00:01.19 | 4 | 107% | 92144 | 
-| matching contigs | 00:00.3 | 1 | 47% | 18336 |
+| map reads | 00:01.19 | 4 | 107% | 92144 | 
 | taxonomic classification | 00:00.56 | 1 | 46% | 74532 |
 <p align = "center"> Table 1: The resource usage for processing two paired end samples of 25,000 reads each in MetaGenePipe.</p> 
 
@@ -144,7 +142,7 @@ MGP can be run locally on a laptop, a virtual machine, or in a high-performance 
 # Acknowledgements 
 
 
-We thank the members of the Verbruggen lab, Kshitij Tandon and Vinicius Salazar in particular, for sharing ideas, feedback, and testing the workflow. This research was supported by The University of Melbourne’s Research Computing Services and the Petascale Campus Initiative. The project benefited from funding by the Australian Research Council (DP200101613 to Heroen Verbruggen). 
+We thank the members of the Verbruggen lab, Kshitij Tandon and Vinícius Salazar in particular, for sharing ideas, feedback, and testing the workflow. This research was supported by The University of Melbourne’s Research Computing Services and the Petascale Campus Initiative. The project benefited from funding by the Australian Research Council (DP200101613 to Heroen Verbruggen). 
 
  
 # References 

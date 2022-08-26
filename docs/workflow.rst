@@ -3,7 +3,7 @@ Workflow
 ===============
 
 
-.. image:: ../logo/MetaGenePipe.drawio.png
+.. image:: ../logo/MetaGenePipe.drawio.svg
   :alt: MetaGenePipe Workflow
 
 - Flash: Lengthens reads
@@ -20,11 +20,11 @@ The submodules of the workflow are configured in ``metaGenePipe.json``. The defa
 
   "metaGenPipe.flashBoolean": true,
   "metaGenPipe.blastBoolean": false,
-  "metaGenPipe.mergeBoolean": true,
+  "metaGenPipe.concatenateBoolean": true,
   "metaGenPipe.taxonBoolean": true,
   "metaGenPipe.trimmomaticBoolean": false,
   "metaGenPipe.trimGaloreBoolean": true,
   "metaGenPipe.megahitBoolean": true,
-  "metaGenPipe.readalignBoolean": true,
+  "metaGenPipe.mapreadsBoolean": true,
   "metaGenPipe.hmmerBoolean": true,
 
