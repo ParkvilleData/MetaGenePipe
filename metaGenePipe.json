@@ -89,16 +89,6 @@
   "metaGenePipe.concatenate_task.MGS_minutes": 60,
   "metaGenePipe.concatenate_task.MGS_mem": 20480,
 
-  "##_COMMENT_7#": "interleave shell",
-  "metaGenePipe.hostremoval_subworkflow.interleave_task.ILE_threads": 6,
-  "metaGenePipe.hostremoval_subworkflow.interleave_task.ILE_minutes": 100,
-  "metaGenePipe.hostremoval_subworkflow.interleave_task.ILE_mem": 20000,
-
-  "##_COMMENT_8#": "host removal",
-  "metaGenePipe.hostremoval_subworkflow.hostremoval_task.HRM_threads": 6,
-  "metaGenePipe.hostremoval_subworkflow.hostremoval_task.HRM_minutes": 600,
-  "metaGenePipe.hostremoval_subworkflow.hostremoval_task.HRM_mem": 20000,
-
   "##_COMMENT_11#": "Blast merged",
   "metaGenePipe.assembly_subworkflow.blast_task.BLST_threads": 6,
   "metaGenePipe.assembly_subworkflow.blast_task.BLST_minutes": 100,

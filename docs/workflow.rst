@@ -3,7 +3,7 @@ Workflow
 ===============
 
 
-.. image:: ../logo/MetaGenePipe.drawio.png
+.. image:: ../logo/MetaGenePipe.drawio.svg
   :alt: MetaGenePipe Workflow
 
 - Flash: Lengthens reads
