@@ -22,8 +22,8 @@ task diamond_task {
 
   command {
     diamond ${blastMode} --max-target-seqs ${maxTargetSeqs} --threads ${DIM_threads} -f ${outputType} -d ${DB} -q ${genesAlignmentOutput} -o ${sampleName}.xml.out
-    mkdir -p ./geneprediction
-    mv ${sampleName}.xml.out ./geneprediction
+    mkdir -p ./geneprediction/diamond
+    mv ${sampleName}.xml.out ./geneprediction/diamond
   }
   runtime {
     runtime_minutes: '${DIM_minutes}'
@@ -31,6 +31,6 @@ task diamond_task {
     mem: '${DIM_mem}'
   }
   output {
-    File diamondOutput = "./geneprediction/${sampleName}.xml.out" 
+    File diamondOutput = "./geneprediction/diamond/${sampleName}.xml.out" 
   }        
 }

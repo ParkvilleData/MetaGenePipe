@@ -8,8 +8,8 @@ task fastqc_task {
   String revName = sub(basename(reverseReads),".f.*q.*$","")
 
   command {
-    mkdir -p ./qc/fastqc_zip
-    fastqc -t ${FQC_threads} ${forwardReads} ${reverseReads} --outdir ./qc/fastqc_zip
+    mkdir -p ./qc/fastqc
+    fastqc -t ${FQC_threads} ${forwardReads} ${reverseReads} --outdir ./qc/fastqc
   }
   runtime {
     runtime_minutes: '${FQC_minutes}'
@@ -17,7 +17,7 @@ task fastqc_task {
     mem: '${FQC_mem}'
   }
   output {
-    Array[File] fastqcArray = ["./qc/fastqc_zip/${fwdName}_fastqc.zip", "./qc/fastqc_zip/${revName}_fastqc.zip"]
+    Array[File] fastqcArray = ["./qc/fastqc/${fwdName}_fastqc.zip", "./qc/fastqc/${revName}_fastqc.zip"]
   }        
   meta {
     author: "Bobbie Shaban"

@@ -13,7 +13,7 @@ task trimmomatic_task {
   String trimmomatic
 
   command {
-    mkdir -p ./data/trimmed/orphaned
+    mkdir -p ./qc/data/trimmed/orphaned
 
     ${trimmomatic} \
     ${EndType} -threads ${TRIM_threads} -phred${Phred} \
@@ -26,10 +26,10 @@ task trimmomatic_task {
     echo ".. Done\n";
   }
   output {
-    File outFwdPaired="./data/trimmed/${outputPrefix}.TT_R1.fq.gz"
-    File outRevPaired="./data/trimmed/${outputPrefix}.TT_R2.fq.gz"
-    File outFwdUnpaired="./data/trimmed/orphaned/${outputPrefix}.unpaired_R1.fq.gz"
-    File outRevUnpaired="./data/trimmed/orphaned/${outputPrefix}.unpaired_R2.fq.gz"
+    File outFwdPaired="./qc/data/trimmed/${outputPrefix}.TT_R1.fq.gz"
+    File outRevPaired="./qc/data/trimmed/${outputPrefix}.TT_R2.fq.gz"
+    File outFwdUnpaired="./qc/data/trimmed/orphaned/${outputPrefix}.unpaired_R1.fq.gz"
+    File outRevUnpaired="./qc/data/trimmed/orphaned/${outputPrefix}.unpaired_R2.fq.gz"
   }
   runtime {
     runtime_minutes: '${TRIM_minutes}'
