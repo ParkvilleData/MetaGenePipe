@@ -12,3 +12,5 @@ scripts/mfclient/__pycache__/
 *.simg
 *.sif
 output/*
+
+MetaGenePipe*.pdf
