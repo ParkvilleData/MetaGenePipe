@@ -1,5 +1,10 @@
 ## MetaGenePipe
 
+![pipline](https://github.com/parkvilledata/MetaGenePipe/actions/workflows/testing.yml/badge.svg)
+[<img src="https://github.com/parkvilledata/MetaGenePipe/actions/workflows/docs.yml/badge.svg">](<https://parkvilledata.github.io/MetaGenePipe>)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
+
+
 MetaGenePipe (MGP) is an efficient, flexible, portable, and scalable metagenomics pipeline that uses performant bioinformatics software suites and genomic databases to create an accurate taxonomic and functional characterization of the prokaryotic fraction of sequenced microbiomes.
 
 Microorganisms such as bacteria, viruses, archaea, and fungi are ubiquitous in our environment. The study of microorganisms and their full genomes has been enabled through advances in culture independent techniques and high-throughput sequencing technologies. Whole genome metagenomics shotgun sequencing (WGS) empowers researchers to study biological functions of microorganisms, and how their presence affects human disease or a specific ecosystem. However, advanced and novel bioinformatics techniques are required to process the data into a suitable format. There is no universally accepted standardized bioinformatics framework that a computational microbiologist can use effectively. 
