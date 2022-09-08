@@ -8,6 +8,7 @@ license = "Apache-2.0"
 [tool.poetry.dependencies]
 python = "^3.7.1"
 sphinxcontrib-bibtex = "^2.4.1"
+requests = "^2.28.1"
 
 [tool.poetry.dev-dependencies]
 Sphinx = "^4.2.0"
