@@ -20,9 +20,9 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         cache: 'poetry'
-    - run: |
-      cd docs
-      poetry install
+      run: |
+        cd docs
+        poetry install
     - name: Docs
       run: |
         poetry run ./mkdocs.sh
