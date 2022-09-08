@@ -23,7 +23,7 @@ jobs:
     - run: cd docs && poetry install
     - name: Docs
       run: |
-        cd docs && poetry run ./mkdocs.sh
+        cd docs && ./mkdocs.sh
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.5
       with:
