@@ -17,15 +17,17 @@ jobs:
       run: pipx install poetry
     - name: Install dependencies for Python ${{ matrix.python-version }}
       uses: actions/setup-python@v3
+      working-directory: ./docs
       with:
         python-version: ${{ matrix.python-version }}
         cache: 'poetry'
-    - run: cd docs && poetry install
+    - run: poetry install
     - name: Docs
+      working-directory: ./docs
       run: |
         poetry run ./mkdocs.sh
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.5
       with:
         branch: gh-pages # The branch the action should deploy to.
-        folder: ./_build/html # The folder the action should deploy.
+        folder: ./docs/_build/html # The folder the action should deploy.
