@@ -10,6 +10,7 @@ Welcome to MetaGenePipe's documentation!
   :width: 400
   :alt: MetaGenePipe Logo
 
+MetaGenePipe (MGP) is an efficient, flexible, portable, and scalable metagenomics pipeline that uses performant bioinformatics software suites and genomic databases to create an accurate taxonomic and functional characterization of the prokaryotic fraction of sequenced microbiomes.
 
 .. toctree::
    :maxdepth: 2
