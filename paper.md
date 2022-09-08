@@ -116,8 +116,7 @@ The gene prediction sub-workflow uses Prodigal for predicting prokaryotic gene c
 
 ## Resource Usage and Infrastructure requirements 
 
-
-MGP uses Unix’s `time` tool to measure the resources used by each task, such as CPU usage, file size, elapsed time, and system time. This output can be visualized and inform resource requests when using a job scheduler on high-performance computing infrastructure. Table 1 shows indicative resource usage for processing paired-end samples of 25,000 reads each run on the University of Melbourne SPARTAN high performance computing system consisting of Intel Xeon Gold 6154 3GHz CPUs. Running Cromwell on the head node took 2 minutes and 22.6 seconds (excluding time spent on the queue) and required a maximum memory of 837168 kbytes.
+MGP uses Unix’s `time` tool to measure the resources used by each task, such as CPU usage, file size, elapsed time, and system time. This output can be visualized and used to inform resource requests when using a job scheduler on high-performance computing infrastructure. Table 1 shows indicative resource usage for processing paired-end samples of 25,000 reads each run on the University of Melbourne SPARTAN high performance computing system consisting of Intel Xeon Gold 6154 3GHz CPUs. Running Cromwell on the head node took 2 minutes and 22.6 seconds (excluding time spent on the queue) and required a maximum memory of 837168 kbytes.
 
 MGP can be run locally on a laptop, a virtual machine, or in a high-performance computing setting. 
 
