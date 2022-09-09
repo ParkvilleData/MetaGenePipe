@@ -1,9 +1,9 @@
-## MetaGenePipe
+# MetaGenePipe
 
 ![pipline](https://github.com/parkvilledata/MetaGenePipe/actions/workflows/testing.yml/badge.svg)
 [<img src="https://github.com/parkvilledata/MetaGenePipe/actions/workflows/docs.yml/badge.svg">](<https://parkvilledata.github.io/MetaGenePipe>)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
-
+[![status](https://joss.theoj.org/papers/c9c52942084258507eeb1693b83153ba/status.svg)](https://joss.theoj.org/papers/c9c52942084258507eeb1693b83153ba)
 
 MetaGenePipe (MGP) is an efficient, flexible, portable, and scalable metagenomics pipeline that uses performant bioinformatics software suites and genomic databases to create an accurate taxonomic and functional characterization of the prokaryotic fraction of sequenced microbiomes.
 
