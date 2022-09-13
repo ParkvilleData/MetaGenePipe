@@ -48,34 +48,34 @@ There are five main folders of output (Assembly, Gene Prediction, Read Alignment
 An example tree of the the output directory and the associated output definitions are below:
 
 The Assembly directory contains the following
-: merged.contigs.k27.fa: Kmer assembled contigs: assembled contigs for the kmer values, represented in the "intermediate_contigs" folder
-: merged.megahit.contigs.fa: Final assembled contigs
-: merged.37.fastg: A fastg file. Fastg is the assembly graph produced by the assembler.
-: merged.megahit.blast.out: Raw blast results for the contigs
-: merged.megahit.blast.parsed: Blast results parsed to be easily viewed in tsv format
+* merged.contigs.k27.fa: Kmer assembled contigs: assembled contigs for the kmer values, represented in the "intermediate_contigs" folder
+* merged.megahit.contigs.fa: Final assembled contigs
+* merged.37.fastg: A fastg file. Fastg is the assembly graph produced by the assembler.
+* merged.megahit.blast.out: Raw blast results for the contigs
+* merged.megahit.blast.parsed: Blast results parsed to be easily viewed in tsv format
 
 Gene prediction contains the output from prodigal
-: Merge.hmmer.out: Raw hmmer output aligned to Koalafam profiles
-: Merge.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles
-: Merge.prodigal.genes.fa: Gene coordinates file (Genbank like file)
-: Merge.prodigal.nucl.genes.fa: Predicted gene nucleotide sequences
-: Merge.prodigal.potential_genes.fa: Prodigal starts file
-: Merge.prodigal.proteins.fa: Predicted gene amino acid sequences
-: Merge.xml: XML output of alignment of predicted Amino Acids to NCBI database (We chose swissprot, but any blast database can be substituted)
+* Merge.hmmer.out: Raw hmmer output aligned to Koalafam profiles
+* Merge.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles
+* Merge.prodigal.genes.fa: Gene coordinates file (Genbank like file)
+* Merge.prodigal.nucl.genes.fa: Predicted gene nucleotide sequences
+* Merge.prodigal.potential_genes.fa: Prodigal starts file
+* Merge.prodigal.proteins.fa: Predicted gene amino acid sequences
+* Merge.xml: XML output of alignment of predicted Amino Acids to NCBI database (We chose swissprot, but any blast database can be substituted)
 
 Quality Control
-: SRR5808831.TG_R1_fastqc.zip: Fastqc output for each of the individual sample files
-: multiqc_report.html: Combined report of all fastqc files
+* SRR5808831.TG_R1_fastqc.zip: Fastqc output for each of the individual sample files
+* multiqc_report.html: Combined report of all fastqc files
 
 Read Alignment
-: SRR5808831.TG.flagstat.txt: Samtools flagstat output. Reports statistics on alignment of reads back to assembled contigs
-: SRR5808831.TG.sam: Alignment of reads back to contigs in SAM format
-: SRR5808831.TG.sorted.bam: Alignment of reads back to contigs in BAM format
+* SRR5808831.TG.flagstat.txt: Samtools flagstat output. Reports statistics on alignment of reads back to assembled contigs
+* SRR5808831.TG.sam: Alignment of reads back to contigs in SAM format
+* SRR5808831.TG.sorted.bam: Alignment of reads back to contigs in BAM format
 
 Taxon output
-: Level1.brite.counts.tsv: Level 1 Kegg Brite Heirarchical count
-: Level2.brite.counts.tsv: Level 2 Kegg Brite Heirarchical count
-: Level3.brite.counts.tsv: Level 3 Kegg Brite Heirarchical count
+* Level1.brite.counts.tsv: Level 1 Kegg Brite Heirarchical count
+* Level2.brite.counts.tsv: Level 2 Kegg Brite Heirarchical count
+* Level3.brite.counts.tsv: Level 3 Kegg Brite Heirarchical count
 
 ```
 .
