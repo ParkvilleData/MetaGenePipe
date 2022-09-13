@@ -41,7 +41,7 @@ MGP is a WDL workflow created using existing bioinformatics tools with the view 
 | Transporters [BR:ko02000] | 0 |
 
 
-## Output
+### Output
 
 There are five main folders of output (Assembly, Gene Prediction, Read Alignment, QC and Taxon) and one intermediary (data) which contains the merging of raw samples and the output from Trim Galore. 
 
@@ -76,6 +76,8 @@ Taxon output
 * Level1.brite.counts.tsv: Level 1 Kegg Brite Heirarchical count
 * Level2.brite.counts.tsv: Level 2 Kegg Brite Heirarchical count
 * Level3.brite.counts.tsv: Level 3 Kegg Brite Heirarchical count
+
+#### Output Tree
 
 ```
 .
