@@ -18,26 +18,43 @@ Microbial communities which make up microbiomes have the potential to be major r
 
 MetaGenePipe is a WDL workflow created using existing bioinformatics tools with the view of allowing the user to incorporate extra flexibility in creating taxonomic profiles of their microbiome samples. Through the use of Kegg's Brite Heirarchy, MetaGenePipe is able to process raw microbiome (metagenomic) samples, perform quality checks to remove poor quality sequences, assemble the samples to create longer length sequences, i.e. contigs which are then processed for open reading frames. These open reading frames are potential protein sequences which are then aligned to major protein databases. The matches from the alignment are parsed and using in house scripts, are assigned taxonomic ID's using the brite heirarchy. Example output from MetaGenePipe can be seen in the table below.  
 
-====    ====
- Pathway        Count 
-------- ----- 
-09121 Transcription     0 
-09182 Protein families: genetic information processing  0 
-09183 Protein families: signaling and cellular processes        0 
-09192 Unclassified: genetic information processing      0 
-09194 Poorly characterized      0 
-Brite Hierarchies       6 
-DNA repair and recombination proteins [BR:ko03400]      0 
-DNA replication proteins [BR:ko03032]   0 
-Function unknown        0 
-Genetic Information Processing  1 
-Not Included in Pathway or Brite        3 
-Prokaryotic defense system [BR:ko02048] 0 
-RNA polymerase [PATH:ko03020]   0 
-Replication and repair  0 
-Transcription machinery [BR:ko03021]    0 
-Transporters [BR:ko02000]       0 
-
++-----------------------------------------------------------+-----------+
+|                         Pathway                           |   Count   |
++===========================================================+===========+ 
+| 09121 Transcription                                       |     0     | 
++-----------------------------------------------------------+-----------+
+| 09182 Protein families: genetic information processing    |     0     |
++-----------------------------------------------------------+-----------+
+| 09183 Protein families: signaling and cellular processes  |     0     |
++-----------------------------------------------------------+-----------+
+| 09192 Unclassified: genetic information processing        |     0     |
++-----------------------------------------------------------+-----------+
+| 09192 Unclassified: genetic information processing        |     0     |
++-----------------------------------------------------------+-----------+
+| 09194 Poorly characterized                                |     0     |
++-----------------------------------------------------------+-----------+
+| Brite Hierarchies                                         |     6     |
++-----------------------------------------------------------+-----------+
+| DNA repair and recombination proteins [BR:ko03400]        |     0     |
++-----------------------------------------------------------+-----------+
+| DNA replication proteins [BR:ko03032]                     |     0     |
++-----------------------------------------------------------+-----------+
+| Function unknown                                          |     0     |
++-----------------------------------------------------------+-----------+
+| Genetic Information Processing                            |     1     | 
++-----------------------------------------------------------+-----------+
+| Not Included in Pathway or Brite                          |     3     |
++-----------------------------------------------------------+-----------+
+| Prokaryotic defense system [BR:ko02048]                   |     0     |
++-----------------------------------------------------------+-----------+
+| RNA polymerase [PATH:ko03020]                             |     0     |
++-----------------------------------------------------------+-----------+
+| Replication and repair                                    |     0     |
++-----------------------------------------------------------+-----------+
+| Transcription machinery [BR:ko03021]                      |     0     |
++-----------------------------------------------------------+-----------+
+| Transporters [BR:ko02000]                                 |     0     |
++-----------------------------------------------------------+-----------+
 
 .. toctree::
    :maxdepth: 2
