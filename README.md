@@ -40,6 +40,99 @@ MGP is a WDL workflow created using existing bioinformatics tools with the view 
 | Transcription machinery [BR:ko03021] | 0 |
 | Transporters [BR:ko02000] | 0 |
 
+
+## Output
+
+There are five main folders of output (Assembly, Gene Prediction, Read Alignment, QC and Taxon) and one intermediary (data) which contains the merging of raw samples and the output from Trim Galore. 
+
+An example tree of the the output directory and the associated output definitions are below:
+
+The Assembly directory contains the following
+: merged.contigs.k27.fa: Kmer assembled contigs: assembled contigs for the kmer values, represented in the "intermediate_contigs" folder
+: merged.megahit.contigs.fa: Final assembled contigs
+: merged.37.fastg: A fastg file. Fastg is the assembly graph produced by the assembler.
+: merged.megahit.blast.out: Raw blast results for the contigs
+: merged.megahit.blast.parsed: Blast results parsed to be easily viewed in tsv format
+
+Gene prediction contains the output from prodigal
+: Merge.hmmer.out: Raw hmmer output aligned to Koalafam profiles
+: Merge.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles
+: Merge.prodigal.genes.fa: Gene coordinates file (Genbank like file)
+: Merge.prodigal.nucl.genes.fa: Predicted gene nucleotide sequences
+: Merge.prodigal.potential_genes.fa: Prodigal starts file
+: Merge.prodigal.proteins.fa: Predicted gene amino acid sequences
+: Merge.xml: XML output of alignment of predicted Amino Acids to NCBI database (We chose swissprot, but any blast database can be substituted)
+
+Quality Control
+: SRR5808831.TG_R1_fastqc.zip: Fastqc output for each of the individual sample files
+: multiqc_report.html: Combined report of all fastqc files
+
+Read Alignment
+: SRR5808831.TG.flagstat.txt: Samtools flagstat output. Reports statistics on alignment of reads back to assembled contigs
+: SRR5808831.TG.sam: Alignment of reads back to contigs in SAM format
+: SRR5808831.TG.sorted.bam: Alignment of reads back to contigs in BAM format
+
+Taxon output
+: Level1.brite.counts.tsv: Level 1 Kegg Brite Heirarchical count
+: Level2.brite.counts.tsv: Level 2 Kegg Brite Heirarchical count
+: Level3.brite.counts.tsv: Level 3 Kegg Brite Heirarchical count
+
+```
+.
+├── assembly
+│   ├── intermediate_contigs
+│   │   ├── merged.contigs.k27.fa
+│   │   ├── merged.contigs.k37.fa
+│   │   ├── merged.contigs.k47.fa
+│   │   ├── merged.contigs.k57.fa
+│   │   ├── merged.contigs.k67.fa
+│   │   ├── merged.contigs.k77.fa
+│   │   ├── merged.contigs.k87.fa
+│   │   └── merged.contigs.k97.fa
+│   ├── merged.37.fastg
+│   ├── merged.megahit.blast.out
+│   ├── merged.megahit.blast.parsed
+│   └── merged.megahit.contigs.fa
+├── data
+│   ├── merged
+│   │   ├── merged_R1.fq.gz
+│   │   └── merged_R2.fq.gz
+│   └── trimmed
+│       ├── SRR5808831.TG_R1.fq.gz
+│       ├── SRR5808831.TG_R2.fq.gz
+│       ├── SRR5808882.TG_R1.fq.gz
+│       └── SRR5808882.TG_R2.fq.gz
+├── geneprediction
+│   ├── Merge.hmmer.out
+│   ├── Merge.hmmer.tblout
+│   ├── Merge.prodigal.genes.fa
+│   ├── Merge.prodigal.nucl.genes.fa
+│   ├── Merge.prodigal.potential_genes.fa
+│   ├── Merge.prodigal.proteins.fa
+│   ├── Merge.xml
+│   └── Merge.xml.out
+├── qc
+│   ├── fastqc_zip
+│   │   ├── SRR5808831.TG_R1_fastqc.zip
+│   │   ├── SRR5808831.TG_R2_fastqc.zip
+│   │   ├── SRR5808882.TG_R1_fastqc.zip
+│   │   └── SRR5808882.TG_R2_fastqc.zip
+│   └── multiqc_report.html
+├── readalignment
+│   ├── SRR5808831.TG.flagstat.txt
+│   ├── SRR5808831.TG.sam
+│   ├── SRR5808831.TG.sorted.bam
+│   ├── SRR5808882.TG.flagstat.txt
+│   ├── SRR5808882.TG.sam
+│   └── SRR5808882.TG.sorted.bam
+├── SRR5808831.extendedFrags.fastq
+├── SRR5808882.extendedFrags.fastq
+└── taxon
+    ├── Level1.brite.counts.tsv
+    ├── Level2.brite.counts.tsv
+    └── Level3.brite.counts.tsv
+```
+
 Please refer to the [documentation](https://parkvilledata.github.io/MetaGenePipe/) for how to run.
 
 ## Citation and Attribution
