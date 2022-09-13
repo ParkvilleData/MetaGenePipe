@@ -78,6 +78,29 @@
 <h1>Welcome to MetaGenePipe’s documentation!<a class="headerlink" href="#welcome-to-metagenepipe-s-documentation" title="Permalink to this headline"></a></h1>
 <a class="reference internal image-reference" href="_images/mgp_logo_cut.png"><img alt="MetaGenePipe Logo" src="_images/mgp_logo_cut.png" style="width: 400px;" /></a>
 <p>MetaGenePipe (MGP) is an efficient, flexible, portable, and scalable metagenomics pipeline that uses performant bioinformatics software suites and genomic databases to create an accurate taxonomic and functional characterization of the prokaryotic fraction of sequenced microbiomes.</p>
+<p>A Microbiome is a collection of all microbes, such as bacteria, from a given environment. The environment can be human related, i.e. the human gut or can be from environments such as soil or water. The composition of the microbiome, in terms of the percentages of bacterial species present in the environment can be beneficial in determining the effect bacteria has on the environment.</p>
+<p>Microbial communities which make up microbiomes have the potential to be major regulators in biogeochemical processes and can determine ecosystem function. Understanding the composition, both in terms of diversity and taxnomic profiles, is useful for determining potential effects of changes in environmental conditions. For example, taxonomic composition of soil samples can be taken in base line (regular conditions) conditions and then compared to areas which may be experiencing distress in the form of physical ecological changes such as mining operations.</p>
+<p>MetaGenePipe is a WDL workflow created using existing bioinformatics tools with the view of allowing the user to incorporate extra flexibility in creating taxonomic profiles of their microbiome samples. Through the use of Kegg’s Brite Heirarchy, MetaGenePipe is able to process raw microbiome (metagenomic) samples, perform quality checks to remove poor quality sequences, assemble the samples to create longer length sequences, i.e. contigs which are then processed for open reading frames. These open reading frames are potential protein sequences which are then aligned to major protein databases. The matches from the alignment are parsed and using in house scripts, are assigned taxonomic ID’s using the brite heirarchy. Example output from MetaGenePipe can be seen in the table below.</p>
+<div class="line-block">
+<div class="line">Pathway | Count |</div>
+<div class="line">——- | —– |</div>
+<div class="line">09121 Transcription | 0 |</div>
+<div class="line">09182 Protein families: genetic information processing  | 0 |</div>
+<div class="line">09183 Protein families: signaling and cellular processes | 0 |</div>
+<div class="line">09192 Unclassified: genetic information processing | 0 |</div>
+<div class="line">09194 Poorly characterized | 0 |</div>
+<div class="line">Brite Hierarchies | 6 |</div>
+<div class="line">DNA repair and recombination proteins [BR:ko03400] | 0 |</div>
+<div class="line">DNA replication proteins [BR:ko03032] | 0 |</div>
+<div class="line">Function unknown | 0 |</div>
+<div class="line">Genetic Information Processing | 1 |</div>
+<div class="line">Not Included in Pathway or Brite | 3 |</div>
+<div class="line">Prokaryotic defense system [BR:ko02048] | 0 |</div>
+<div class="line">RNA polymerase [PATH:ko03020] | 0 |</div>
+<div class="line">Replication and repair  | 0 |</div>
+<div class="line">Transcription machinery [BR:ko03021] | 0 |</div>
+<div class="line">Transporters [BR:ko02000] | 0 |</div>
+</div>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
