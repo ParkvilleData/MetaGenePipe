@@ -1,8 +1,7 @@
 MetaGenePipe
 ============
 
-|pipline| ` <https://parkvilledata.github.io/MetaGenePipe>`__
-|Contributor Covenant| |status|
+|pipline| |docs| |Contributor Covenant| |joss|
 
 MetaGenePipe (MGP) is an efficient, flexible, portable, and scalable
 metagenomics pipeline that uses performant bioinformatics software
@@ -125,6 +124,7 @@ There are five main folders of output (Assembly, Gene Prediction, Read Alignment
 An example tree of the the output directory and the associated output definitions are below:
 
 The Assembly directory contains the following
+
 * merged.contigs.k27.fa: Kmer assembled contigs: assembled contigs for the kmer values, represented in the "intermediate_contigs" folder
 * merged.megahit.contigs.fa: Final assembled contigs
 * merged.37.fastg: A fastg file. Fastg is the assembly graph produced by the assembler.
@@ -132,6 +132,7 @@ The Assembly directory contains the following
 * merged.megahit.blast.parsed: Blast results parsed to be easily viewed in tsv format
 
 Gene prediction contains the output from prodigal
+
 * Merge.hmmer.out: Raw hmmer output aligned to Koalafam profiles
 * Merge.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles
 * Merge.prodigal.genes.fa: Gene coordinates file (Genbank like file)
@@ -141,15 +142,18 @@ Gene prediction contains the output from prodigal
 * Merge.xml: XML output of alignment of predicted Amino Acids to NCBI database (We chose swissprot, but any blast database can be substituted)
 
 Quality Control
+
 * SRR5808831.TG_R1_fastqc.zip: Fastqc output for each of the individual sample files
 * multiqc_report.html: Combined report of all fastqc files
 
 Read Alignment
+
 * SRR5808831.TG.flagstat.txt: Samtools flagstat output. Reports statistics on alignment of reads back to assembled contigs
 * SRR5808831.TG.sam: Alignment of reads back to contigs in SAM format
 * SRR5808831.TG.sorted.bam: Alignment of reads back to contigs in BAM format
 
 Taxon output
+
 * Level1.brite.counts.tsv: Level 1 Kegg Brite Heirarchical count
 * Level2.brite.counts.tsv: Level 2 Kegg Brite Heirarchical count
 * Level3.brite.counts.tsv: Level 3 Kegg Brite Heirarchical count
@@ -246,7 +250,9 @@ Troubleshooting tips:
 The pipeline has been set up to run against the swissprot database. We have supplied sample fastq files consisting of 100,000 reads so the pipeline can be tested.
 
 .. |pipline| image:: https://github.com/parkvilledata/MetaGenePipe/actions/workflows/testing.yml/badge.svg
+.. |docs| image:: https://github.com/parkvilledata/MetaGenePipe/actions/workflows/docs.yml/badge.svg
+   :target: https://parkvilledata.github.io/MetaGenePipe
 .. |Contributor Covenant| image:: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
    :target: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
-.. |status| image:: https://joss.theoj.org/papers/c9c52942084258507eeb1693b83153ba/status.svg
+.. |joss| image:: https://joss.theoj.org/papers/c9c52942084258507eeb1693b83153ba/status.svg
    :target: https://joss.theoj.org/papers/c9c52942084258507eeb1693b83153ba
