@@ -18,7 +18,7 @@ MetaGenePipe requires Java, Singularity, and other dependencies to run. See belo
 Java
 ======
 
-Ensure you have Java installed. If not, follow the instructions for the relevant operating system here: 
+Ensure you have Java installed (at least version 1.8 or higher). If not, follow the instructions for the relevant operating system here: 
 https://www.java.com/en/download/help/download_options.html
 
 If running on Spartan (the University of Melbourne HPC cluster), Java is already installed. To load Java, you can use:
@@ -30,7 +30,7 @@ If running on Spartan (the University of Melbourne HPC cluster), Java is already
 Singularity
 ===========
 
-Ensure you have Singularity installed. If not, follow the instructions for the relevant operating system here: 
+Ensure you have Singularity installed (version 3.6.3 or higher). If not, follow the instructions for the relevant operating system here: 
 https://docs.sylabs.io/guides/3.0/user-guide/installation.html
 
 If running on Spartan (the University of Melbourne HPC cluster), Singularity is already installed. To load Singularity, you can use:
