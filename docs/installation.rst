@@ -28,7 +28,7 @@ If running on Spartan (the University of Melbourne HPC cluster), Java is already
   module load java
 
 Singularity
-======
+===========
 
 Ensure you have Singularity installed. If not, follow the instructions for the relevant operating system here: 
 https://docs.sylabs.io/guides/3.0/user-guide/installation.html
