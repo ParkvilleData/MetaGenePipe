@@ -108,13 +108,16 @@ See the `installation instructions in the documentation <https://parkvilledata.g
 Usage
 ======
 
-To run MetaGenePipe, modify the input files to reflect your sample files and required configuration settings. Then you can start the workflow with the following command:
+you can start the workflow with the following command:
 
 .. code-block:: bash
 
    java -Dconfig.file=./metaGenePipe.config -jar cromwell-latest.jar run metaGenePipe.wdl -i metaGenePipe.json -o metaGenePipe.options.json
 
-More information about running MetaGenePipe is found in the `documentation <https://parkvilledata.github.io/MetaGenePipe/usage.html>`_
+The pipeline has been set up to run against the swissprot database. We have supplied sample fastq files consisting of 100,000 reads so the pipeline can be tested.
+You can modify the input file ``input_file.txt`` to reflect your sample files. 
+
+Read the `documentation <https://parkvilledata.github.io/MetaGenePipe/usage.html>`_ for more information about usage and modifying the configuration files.
 
 Output
 ======
@@ -244,10 +247,6 @@ Contributing
 
 If you would like to contribute to this software package, please make sure you follow the `code of conduct <https://parkvilledata.github.io/MetaGenePipe/contributing.html>`_.
 
-Troubleshooting tips:
-========================
-
-The pipeline has been set up to run against the swissprot database. We have supplied sample fastq files consisting of 100,000 reads so the pipeline can be tested.
 
 .. |pipline| image:: https://github.com/parkvilledata/MetaGenePipe/actions/workflows/testing.yml/badge.svg
 .. |docs| image:: https://github.com/parkvilledata/MetaGenePipe/actions/workflows/docs.yml/badge.svg
