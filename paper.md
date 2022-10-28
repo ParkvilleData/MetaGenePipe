@@ -57,13 +57,9 @@ MGP creates a taxonomic hierarchy classification using Kegg’s Brite hierarchy 
 
 # Statement of need 
 
- 
+MetaGenePipe (`MGP`) is a pipeline for characterizing the prokaryotic fraction of whole genome metagenomics shotgun sequencing data functionally and taxonomically.
 
-Microorganisms such as bacteria, viruses, archaea, and fungi are ubiquitous in our environment. The study of microorganisms and their full genomes has been enabled through advances in culture independent techniques and high-throughput sequencing technologies. Whole genome metagenomics shotgun sequencing (WGS) empowers researchers to study biological functions of microorganisms, and how their presence affects human disease or a specific ecosystem. However, advanced and novel bioinformatics techniques are required to process the data into a suitable format. There is no universally accepted standardized bioinformatics framework that a computational microbiologist can use effectively. 
-
-MGP is written in WDL and thus differs from existing assembly-based workflow pipelines such as Atlas (which uses Snakemake) and Muffin (which is written in Nextflow). MGP is an example of WDL and containerization best practices. Similar to NF-core/Mag, MGP employs co-assembly of multiple metagenome samples as a feature. 
-
-MGP overcomes traditional portability obstacles by using Singularity containers and increases the flexibility of research focus by using the DIAMOND aligner — able to create bespoke databases in a matter of minutes. Researchers often have institutional datasets resulting from previous research, which can be incorporated into MGP in place of the default DIAMOND and BLAST databases. Once these databases have been created, an update in the relevant line in the configuration file will allow the workflow to use the new database. While MGP is focussed on prokaryotes, it can easily be adapted to eukaryotes or viruses by changing the prokaryotic gene prediction software, Prodigal, to eukaryotic gene prediction software such as GeneMark-EP+ [@10.1093/nargab/lqaa026] or [EuGene](http://eugene.toulouse.inra.fr/) [@Sallet2019], or a gene finding tool for viruses. 
+`MGP` was designed to be used by computational microbiologists, written in WDL to make further customization accessible to researchers. `MGP` uses a Singularity container to overcome traditional portability obstacles and caters to a flexible research focus. For example, the default DIAMOND and BLAST databases can be replaced with any relevant databases owned by the researcher via an update in the configuration file. While `MGP` is focussed on prokaryotes, it can easily be adapted to eukaryotes or viruses by changing the prokaryotic gene prediction software, Prodigal, to eukaryotic gene prediction software such as GeneMark-EP+ [@10.1093/nargab/lqaa026] or [EuGene](http://eugene.toulouse.inra.fr/) [@Sallet2019], or a gene finding tool for viruses.
 
 
 ![The MetaGenePipe Workflow](logo/MetaGenePipe.drawio.pdf) 
