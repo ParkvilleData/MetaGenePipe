@@ -19,6 +19,7 @@ task flash_task {
   command {
     mkdir -p ./qc/flash
     flash -t ${FLA_threads} -o ${sampleName} ${forwardReads} ${reverseReads}
+    mv ${sampleName}.extendedFrags.fastq ./qc/flash
   }
   runtime {
     runtime_minutes: '${FLA_minutes}'
