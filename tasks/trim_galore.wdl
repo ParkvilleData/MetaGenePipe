@@ -15,8 +15,8 @@ task trim_galore_task {
 	trim_galore --cores ${TRMG_threads} --phred${Phred} --length ${minLength} --quality ${quality} --basename ${outputPrefix} --clip_R1 ${clip_r5} --clip_R2 ${clip_r5} --three_prime_clip_R1 ${clip_r3} --three_prime_clip_R2 ${clip_r3} --paired ${forwardReads} ${reverseReads} --gzip
 
     mkdir -p ./qc/data/trimmed
-    cp ${outputPrefix}_val_1.fq.gz ./data/trimmed/${outputPrefix}.TG_R1.fq.gz
-    cp ${outputPrefix}_val_2.fq.gz ./data/trimmed/${outputPrefix}.TG_R2.fq.gz
+    cp ${outputPrefix}_val_1.fq.gz ./qc/data/trimmed/${outputPrefix}.TG_R1.fq.gz
+    cp ${outputPrefix}_val_2.fq.gz ./qc/data/trimmed/${outputPrefix}.TG_R2.fq.gz
   }
   output {
     File outFwdPaired="./qc/data/trimmed/${outputPrefix}.TG_R1.fq.gz"
