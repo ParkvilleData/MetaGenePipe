@@ -8,9 +8,8 @@ task prodigal_task {
   String? metaOption
 
   command {
-    prodigal ${metaOption} -i ${assemblyScaffolds} -o ${sampleName}.gene_coordinates.gbk -a ${sampleName}.proteins.fa -d ${sampleName}.nucl_genes.fa -s ${sampleName}.starts.txt
     mkdir -p ./geneprediction/prodigal
-    mv *.prodigal.*.fa ./geneprediction/prodigal
+    prodigal ${metaOption} -i ${assemblyScaffolds} -o ./geneprediction/prodigal/${sampleName}.gene_coordinates.gbk -a ./geneprediction/prodigal/${sampleName}.proteins.fa -d ./geneprediction/prodigal/${sampleName}.nucl_genes.fa -s ./geneprediction/prodigal/${sampleName}.starts.txt
   }
   runtime {
     runtime_minutes: '${GEP_minutes}'
