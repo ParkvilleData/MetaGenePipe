@@ -11,6 +11,7 @@ authors:
     affiliation: 1
   - name: Maria del Mar Quiroga
     orcid: 0000-0002-8943-2808
+    corresponding: true # (This is how to denote the corresponding author)
     affiliation: 1
   - name: Robert Turnbull
     orcid: 0000-0003-1274-6750
@@ -126,10 +127,10 @@ MGP can be run locally on a laptop, a virtual machine, or in a high-performance 
 | concatenate | 00:00.3 | 1 | 54% | 20372 |
 | megahit | 07:25.19 | 24 | 1770% | 70928 |
 | blast | 00:00.13 | 6 | 43% | 22560 | 
+| map reads | 00:01.19 | 4 | 107% | 92144 | 
 | prodigal | 00:00.07 | 1 | 39% | 56796 | 
 | diamond | 00:10.23 | 18 | 535% | 433768 | 
 | hmmer | 00:47.9 | 8 | 106% | 59428 | 
-| map reads | 00:01.19 | 4 | 107% | 92144 | 
 | taxonomic classification | 00:00.56 | 1 | 46% | 74532 |
 <p align = "center"> Table 1: The resource usage for processing two paired end samples of 25,000 reads each in MetaGenePipe.</p> 
 

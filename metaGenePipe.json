@@ -167,7 +167,7 @@
 
   "metaGenePipe.nonMergedmapreads.non_merged_mapreads_task.BRA_mem": 20000,
   "metaGenePipe.nonMergedmapreads.non_merged_mapreads_task.BRA_threads": 2,
-  "metaGenePipe.nonMergedmapreads.non_merged_mapreads.BRA_minutes": 200,
+  "metaGenePipe.nonMergedmapreads.non_merged_mapreads_task.BRA_minutes": 200,
 
   "metaGenePipe.nonMergedmapreads.mapreads_task.BRA_threads": 2,
   "metaGenePipe.nonMergedmapreads.mapreads_task.BRA_minutes": 200,
