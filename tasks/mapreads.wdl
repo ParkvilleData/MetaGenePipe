@@ -7,14 +7,12 @@ task mapreads_task {
   String sampleOutput = sub(sampleTempName,"_R(?!.*_R).*","")
 
   command {
-    mkdir -p ./mapreads
+    mkdir -p ./readalignment
     bowtie2-build ${Inputmap["index"]} bowtieContigIndex;
-    bowtie2 -x bowtieContigIndex -1 ${Inputmap["left"]} -2 ${Inputmap["right"]} -S ${sampleOutput}.sam -p ${BRA_threads};
+    bowtie2 -x bowtieContigIndex -1 ${Inputmap["left"]} -2 ${Inputmap["right"]} -S ./readalignment/${sampleOutput}.sam -p ${BRA_threads};
 
-    samtools view -bS ${sampleOutput}.sam | samtools sort > ${sampleOutput}.sorted.bam;
-    samtools flagstat ${sampleOutput}.sorted.bam > ${sampleOutput}.flagstat.txt
-
-    mv ${sampleOutput}.* ./mapreads
+    samtools view -bS ./readalignment/${sampleOutput}.sam | samtools sort > ./readalignment/${sampleOutput}.sorted.bam;
+    samtools flagstat ./readalignment/${sampleOutput}.sorted.bam > ./readalignment/${sampleOutput}.flagstat.txt
   }
   runtime {
     runtime_minutes: '${BRA_minutes}'
@@ -22,9 +20,9 @@ task mapreads_task {
     mem: '${BRA_mem}'
   }
   output {
-    File sampleSamOutput = "./mapreads/${sampleOutput}.sam"
-    File sampleSortedBam = "./mapreads/${sampleOutput}.sorted.bam"
-    File sampleFlagstatText = "./mapreads/${sampleOutput}.flagstat.txt"
+    File sampleSamOutput = "./readalignment/${sampleOutput}.sam"
+    File sampleSortedBam = "./readalignment/${sampleOutput}.sorted.bam"
+    File sampleFlagstatText = "./readalignment/${sampleOutput}.flagstat.txt"
   }        
   meta {
     author: "Edoardo Tescari"
