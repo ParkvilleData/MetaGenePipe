@@ -73,7 +73,7 @@ def main():
     try:
        if args.singularity:
            print("Ensure singularity is installed and in your path")
-           os.system("singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v2")
+           os.system("singularity pull --arch amd64 library://mariadelmarq/metagenepipe/metagenepipe:v2")
            args.singularity = glob.glob('*.sif')[0]
            print(args.singularity) 
     except Exception as err:
