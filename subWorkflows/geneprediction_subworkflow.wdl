@@ -17,7 +17,6 @@ workflow geneprediction_subworkflow {
   File hmm_parser
   Int maxTargetSeqs
   Int outputType
-  String? outputPrefix
   String blastMode
   String? metaOption
   String briteList
@@ -36,18 +35,16 @@ workflow geneprediction_subworkflow {
     # Outputs:
     Output1: "otype:<TYPE>: <DESCRIPTION>"
   }
+  
   call prodigalTask.prodigal_task {
     input: 
-    outputPrefix=outputPrefix,
     metaOption=metaOption,
     assemblyScaffolds=assemblyScaffolds
   }
   
-  #if hmmer boolean = true run hmmer else run diamond
   if(hmmerBoolean){
     call hmmerTask.hmmer_task{
       input:
-      outputPrefix=outputPrefix,
       proteinAlignmentOutput=prodigal_task.proteinAlignmentOutput,
       hmmerDB=hmmerDB      
     }
@@ -56,7 +53,6 @@ workflow geneprediction_subworkflow {
   call diamondTask.diamond_task {
     input: 
     DB=DB,
-    outputPrefix=outputPrefix,
     maxTargetSeqs=maxTargetSeqs,
     outputType=outputType,
     blastMode=blastMode,
@@ -65,7 +61,6 @@ workflow geneprediction_subworkflow {
     
   call collationTask.collation_task {
     input: 
-    outputPrefix=outputPrefix,
     inputXML=diamond_task.diamondOutput
   }
 

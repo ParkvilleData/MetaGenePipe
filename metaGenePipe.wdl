@@ -35,7 +35,6 @@ workflow metaGenePipe {
   Int coverage
   String briteList
   String briteJson
-  String mergedOutput
   String bparser
   String database
   String DB
@@ -81,7 +80,6 @@ workflow metaGenePipe {
   if (concatenateBoolean) {
     call concatenateTask.concatenate_task {
       input:
-        readsToMergeFlash = qc_subworkflow.flashExtFrags,
         readsToMergeFwd = qc_subworkflow.trimmedFwdReads,
         readsToMergeRev = qc_subworkflow.trimmedRevReads
     }
@@ -114,7 +112,6 @@ workflow metaGenePipe {
         outputFileName=outputFileName,
         briteJson=briteJson,
         maxTargetSeqs=maxTargetSeqs,
-        outputPrefix = mergedOutput,
         metaOption=metaOption,
         DB=DB
     }
@@ -161,7 +158,7 @@ workflow metaGenePipe {
 
   if(mapreadsBoolean) {
     if(!concatenateBoolean) {
-      call mapreadsSubWorkflow.mapreads_subworkflow {
+      call mapreadsSubWorkflow.mapreads_subworkflow as nonMergedmapreads {
          input:
             pairReads=pairReads,
             mapreadsBoolean=mapreadsBoolean,
@@ -172,7 +169,7 @@ workflow metaGenePipe {
     } 
 
     if(concatenateBoolean) {
-       call mapreadsSubWorkflow.mapreads_subworkflow as nonMergedmapreads{
+       call mapreadsSubWorkflow.mapreads_subworkflow {
           input:
              pairReads=pairReads,
              merged_Contigs = assembly_subworkflow.assemblyScaffolds,
@@ -193,7 +190,6 @@ workflow metaGenePipe {
 
     ## Removed for now add later if output required
     Array[File?] flashArray = qc_subworkflow.flashExtFrags
-    File? flashReadsRevComb = concatenate_task.flashReadsRevComb
     File? mergedReadsFwd = concatenate_task.mergedReadsFwd
     File? mergedReadsRev = concatenate_task.mergedReadsRev 
 
@@ -220,6 +216,11 @@ workflow metaGenePipe {
     File? genesAlignmentOutput = geneprediction_subworkflow.genesAlignmentOutput
     File? hmmerTable = geneprediction_subworkflow.hmmerTable
     File? hmmerOutput = geneprediction_subworkflow.hmmerOutput
+    ## Taxonomy output merged
+    File? level1BriteMerged = geneprediction_subworkflow.level1BriteMerged
+    File? level2BriteMerged = geneprediction_subworkflow.level2BriteMerged
+    File? level3BriteMerged = geneprediction_subworkflow.level3BriteMerged
+    File? OTUMerged = geneprediction_subworkflow.OTUMerged
 
     ## Non merged gene prediction
     Array[File?]? collationOutputArray = nonMergedGenePrediction.collationOutput
@@ -230,6 +231,11 @@ workflow metaGenePipe {
     Array[File]? genesAlignmentOutputArray = nonMergedGenePrediction.genesAlignmentOutput
     Array[File?]? hmmerTableArray = nonMergedGenePrediction.hmmerTable
     Array[File?]? hmmerOutputArray = nonMergedGenePrediction.hmmerOutput
+    ## Taxonomy output unmerged
+    Array[File?]? level1Brite = nonMergedGenePrediction.level1Brite
+    Array[File?]? level2Brite = nonMergedGenePrediction.level2Brite
+    Array[File?]? level3Brite = nonMergedGenePrediction.level3Brite
+    Array[File?]? OTU = nonMergedGenePrediction.OTU
 
     ## Read alignment output                                                                                  
     Array[File?]? sampleSamOutput = mapreads_subworkflow.sampleSamOutput
@@ -241,17 +247,6 @@ workflow metaGenePipe {
     Array[File?]? sampleSortedBamNonMerged = nonMergedmapreads.sampleSortedBamNonMerged
     Array[File?]? sampleFlagstatTextNonMerged = nonMergedmapreads.sampleFlagstatTextNonMerged
 
-    ## Taxonomy output merged
-    File? level1BriteMerged = geneprediction_subworkflow.level1Brite
-    File? level2BriteMerged = geneprediction_subworkflow.level2Brite
-    File? level3BriteMerged = geneprediction_subworkflow.level3Brite
-    File? OTUMerged = geneprediction_subworkflow.OTU
-
-    ## Taxonomy output unmerged
-    File? level1Brite = geneprediction_subworkflow.level1Brite
-    File? level2Brite = geneprediction_subworkflow.level2Brite
-    File? level3Brite = geneprediction_subworkflow.level3Brite
-    File? OTU = geneprediction_subworkflow.OTU
   }
   meta {
     author: "Bobbie Shaban"

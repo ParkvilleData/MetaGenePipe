@@ -7,29 +7,29 @@ task trimmomatic_task {
   Int minLength
   String Phred
   String EndType
-  String outputPrefix
+  String sampleName
   File truseq_pe_adapter
   File? trueseq_se_adapter
   String trimmomatic
 
   command {
-    mkdir -p ./qc/data/trimmed/orphaned
+    mkdir -p ./qc/trimmed/orphaned
 
     ${trimmomatic} \
     ${EndType} -threads ${TRIM_threads} -phred${Phred} \
     ${forwardReads} ${reverseReads} \
-    ./data/trimmed/${outputPrefix}.TT_R1.fq.gz ./data/trimmed/orphaned/${outputPrefix}.unpaired_R1.fq.gz \
-    ./data/trimmed/${outputPrefix}.TT_R2.fq.gz ./data/trimmed/orphaned/${outputPrefix}.unpaired_R2.fq.gz \
+    ./qc/trimmed/${sampleName}.TT_R1.fq.gz ./qc/trimmed/orphaned/${sampleName}.unpaired_R1.fq.gz \
+    ./qc/trimmed/${sampleName}.TT_R2.fq.gz ./qc/trimmed/orphaned/${sampleName}.unpaired_R2.fq.gz \
     ILLUMINACLIP:${truseq_pe_adapter}:2:30:10:2 \
     LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:${minLength};
 
     echo ".. Done\n";
   }
   output {
-    File outFwdPaired="./qc/data/trimmed/${outputPrefix}.TT_R1.fq.gz"
-    File outRevPaired="./qc/data/trimmed/${outputPrefix}.TT_R2.fq.gz"
-    File outFwdUnpaired="./qc/data/trimmed/orphaned/${outputPrefix}.unpaired_R1.fq.gz"
-    File outRevUnpaired="./qc/data/trimmed/orphaned/${outputPrefix}.unpaired_R2.fq.gz"
+    File outFwdPaired="./qc/trimmed/${sampleName}.TT_R1.fq.gz"
+    File outRevPaired="./qc/trimmed/${sampleName}.TT_R2.fq.gz"
+    File outFwdUnpaired="./qc/trimmed/orphaned/${sampleName}.unpaired_R1.fq.gz"
+    File outRevUnpaired="./qc/trimmed/orphaned/${sampleName}.unpaired_R2.fq.gz"
   }
   runtime {
     runtime_minutes: '${TRIM_minutes}'
@@ -48,5 +48,3 @@ task trimmomatic_task {
     Output1: "otype:<TYPE>: <DESCRIPTION>"
   }
 }
-
-

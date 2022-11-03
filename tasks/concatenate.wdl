@@ -1,5 +1,4 @@
 task concatenate_task {
-  Array[File?] readsToMergeFlash
   Array[File] readsToMergeFwd
   Array[File] readsToMergeRev
   Int MGS_threads
@@ -18,8 +17,6 @@ task concatenate_task {
     mem: '${MGS_mem}'
   }
   output {
-    File? flashReadsFwdComb = "./data/combined_flash_R1.fq.gz"
-    File? flashReadsRevComb = "./data/combined_flash_R2.fq.gz"
     File mergedReadsFwd = "./data/combined_R1.fq.gz"
     File mergedReadsRev = "./data/combined_R2.fq.gz"
   }        
@@ -36,6 +33,3 @@ task concatenate_task {
     fastqcArray: "otype:glob: All the zip files output"
   }
 }
-
-
-

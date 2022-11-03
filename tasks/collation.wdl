@@ -13,8 +13,7 @@ task collation_task {
   Int COL_minutes
   Int COL_mem
   File inputXML
-  String? outputPrefix
-  String? sampleName = if defined(outputPrefix) then outputPrefix else basename(inputXML)
+  String sampleName = basename(inputXML)
 
   command {
     mkdir -p ./geneprediction

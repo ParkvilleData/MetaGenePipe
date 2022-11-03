@@ -21,7 +21,6 @@ workflow assembly_subworkflow {
   File trimmedReadsRev
   File megaGraph
   Int numOfHits
-  String? outputPrefix
   String bparser
   String database
   String preset
@@ -39,7 +38,6 @@ workflow assembly_subworkflow {
   if(blastBoolean) {
     call blastTask.blast_task {
       input:
-        outputPrefix=outputPrefix,
         bparser = bparser,
         numOfHits = numOfHits,
         database = database,

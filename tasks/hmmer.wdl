@@ -4,8 +4,7 @@ task hmmer_task {
   Int HMMER_mem
   File proteinAlignmentOutput
   File hmmerDB
-  String? outputPrefix
-  String? sampleName = if defined(outputPrefix) then outputPrefix else basename(proteinAlignmentOutput, ".fa")
+  String sampleName = basename(proteinAlignmentOutput, ".fa")
 
   command {
     mkdir -p ./geneprediction/hmmer

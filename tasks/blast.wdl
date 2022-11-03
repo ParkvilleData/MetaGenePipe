@@ -6,8 +6,7 @@ task blast_task {
   Int BLST_mem
   Int numOfHits
   String database
-  String? outputPrefix
-  String? sampleName = if defined(outputPrefix) then outputPrefix else basename(basename(inputScaffolds, ".fa"), ".contigs")
+  String sampleName = basename(basename(inputScaffolds, ".fa"), ".contigs")
 
   command {
     #remove quotes from xml for processing

@@ -17,8 +17,7 @@ task diamond_task {
   File genesAlignmentOutput
   File DB
   String blastMode
-  String? outputPrefix
-  String? sampleName = if defined(outputPrefix) then outputPrefix else basename(genesAlignmentOutput)
+  String sampleName = basename(genesAlignmentOutput)
 
   command {
     diamond ${blastMode} --max-target-seqs ${maxTargetSeqs} --threads ${DIM_threads} -f ${outputType} -d ${DB} -q ${genesAlignmentOutput} -o ${sampleName}.xml.out

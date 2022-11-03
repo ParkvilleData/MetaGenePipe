@@ -30,7 +30,7 @@ workflow qc_subworkflow {
       input:
       forwardReads = forwardReads,
       reverseReads = reverseReads,
-      outputPrefix = sampleName
+      sampleName = sampleName
     }
   }
   if (trimGaloreBoolean) {
@@ -38,7 +38,7 @@ workflow qc_subworkflow {
       input:
       forwardReads = forwardReads,
       reverseReads = reverseReads,
-      outputPrefix = sampleName
+      sampleName = sampleName
     }
   }
   call fastqcTask.fastqc_task {

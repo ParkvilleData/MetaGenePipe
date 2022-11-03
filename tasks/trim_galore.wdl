@@ -6,21 +6,21 @@ task trim_galore_task {
   Int TRMG_mem
   Int minLength
   String Phred
-  String outputPrefix
+  String sampleName
   Int clip_r5
   Int clip_r3
   Int quality
 
   command {
-	trim_galore --cores ${TRMG_threads} --phred${Phred} --length ${minLength} --quality ${quality} --basename ${outputPrefix} --clip_R1 ${clip_r5} --clip_R2 ${clip_r5} --three_prime_clip_R1 ${clip_r3} --three_prime_clip_R2 ${clip_r3} --paired ${forwardReads} ${reverseReads} --gzip
+	trim_galore --cores ${TRMG_threads} --phred${Phred} --length ${minLength} --quality ${quality} --basename ${sampleName} --clip_R1 ${clip_r5} --clip_R2 ${clip_r5} --three_prime_clip_R1 ${clip_r3} --three_prime_clip_R2 ${clip_r3} --paired ${forwardReads} ${reverseReads} --gzip
 
-    mkdir -p ./qc/data/trimmed
-    cp ${outputPrefix}_val_1.fq.gz ./qc/data/trimmed/${outputPrefix}.TG_R1.fq.gz
-    cp ${outputPrefix}_val_2.fq.gz ./qc/data/trimmed/${outputPrefix}.TG_R2.fq.gz
+    mkdir -p ./qc/trimmed
+    cp ${sampleName}_val_1.fq.gz ./qc/trimmed/${sampleName}.TG_R1.fq.gz
+    cp ${sampleName}_val_2.fq.gz ./qc/trimmed/${sampleName}.TG_R2.fq.gz
   }
   output {
-    File outFwdPaired="./qc/data/trimmed/${outputPrefix}.TG_R1.fq.gz"
-    File outRevPaired="./qc/data/trimmed/${outputPrefix}.TG_R2.fq.gz"
+    File outFwdPaired="./qc/trimmed/${sampleName}.TG_R1.fq.gz"
+    File outRevPaired="./qc/trimmed/${sampleName}.TG_R2.fq.gz"
   }
   runtime {
     runtime_minutes: '${TRMG_minutes}'
@@ -39,5 +39,3 @@ task trim_galore_task {
     Output1: "otype:<TYPE>: <DESCRIPTION>"
   }
 }
-
-

@@ -3,8 +3,7 @@ task prodigal_task {
   Int GEP_minutes
   Int GEP_mem
   File assemblyScaffolds
-  String? outputPrefix
-  String? sampleName = if defined(outputPrefix) then outputPrefix else basename(basename(assemblyScaffolds, ".fa"), ".contigs")
+  String sampleName = basename(basename(assemblyScaffolds, ".fa"), ".contigs")
   String? metaOption
 
   command {

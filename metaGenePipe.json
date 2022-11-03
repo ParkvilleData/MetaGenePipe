@@ -27,9 +27,6 @@
   "metaGenePipe.briteJson": "./taxon/br08610.json",
   "metaGenePipe.fullLineageFile": "./taxon/fullnamelineage.dmp",
 
-  "## output prefix ##": "If running nonMerged mode leave blank: concatenateBoolean variable needs to be true",
-  "metaGenePipe.mergedOutput": "Merge",
-
   "## software calls": "trimmomatic etc",
   "metaGenePipe.qc_subworkflow.trimmomatic_task.trimmomatic": "java -jar /local_build/bin/trimmomatic-0.39.jar",
 
