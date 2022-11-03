@@ -14,8 +14,7 @@ task hmmer_taxon_task {
 
   command {
     python3 ${hmm_parser} --outprefix ${outputFileName} --consistent-pathways ${briteList} ${sep=' ' hmmerTables} ${hmmerTable}
-    # Comment out OTU file until we fix it
-    # python3 ${xml_parser} --outfile OTU.${outputFileName}.tsv ${briteJson} ${sep=' ' diamondXMLs} ${diamondXML}
+    python3 ${xml_parser} --outfile OTU.${outputFileName}.tsv ${briteJson} ${sep=' ' diamondXMLs} ${diamondXML}
 
     mkdir -p ./geneprediction/taxon
     mv *.${outputFileName}.* ./geneprediction/taxon
