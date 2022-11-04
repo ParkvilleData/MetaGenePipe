@@ -13,7 +13,7 @@
   "##_GLOBAL_VARS#": "files",
   "metaGenePipe.inputSamplesFile": "./input_file.txt",
   "metaGenePipe.bparser": "./scripts/bparser.pl",
-  "metaGenePipe.xml_parser": "./scripts/xml_parser-v3.py",
+  "metaGenePipe.xml_parser": "./scripts/xml_parser-v4.py",
   "metaGenePipe.hmm_parser": "./scripts/hmm_parser-v1.py",
   "metaGenePipe.interleaveShell": "./scripts/interleave_fastq.sh",
   "metaGenePipe.megaGraph": "./scripts/megaGraph.py",
