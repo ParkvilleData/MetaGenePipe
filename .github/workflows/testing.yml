@@ -10,8 +10,8 @@ jobs:
           singularity-version: 3.8.3
       - name: Run a singularity container
         run: |
-          singularity pull --arch amd64 library://bshaban/metagenepipe/metagenepipe.simg:v1
-          singularity run metagenepipe.simg_v1.sif megahit --help
+          singularity pull --arch amd64 library://mariadelmarq/metagenepipe/metagenepipe:v2
+          singularity run metagenepipe_v2.sif megahit --help
           wget https://github.com/broadinstitute/cromwell/releases/download/78/cromwell-78.jar
           # singularity run metagenepipe.simg_v1.sif java -Dconfig.file=./metaGenePipe.config -jar cromwell-78.jar run metaGenePipe.wdl -i metaGenePipe.json -o metaGenePipe.options.json
 

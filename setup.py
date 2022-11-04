@@ -145,7 +145,7 @@ def download_blast(blast, singularity):
 
             ## Create directory
             Path("blast").mkdir(parents=True, exist_ok=True)
-            ## move file to kegg directory
+            ## move file to blast directory
             shutil.move(file_name, "blast/"+file_name)
             
             ## unzip file
@@ -233,6 +233,8 @@ def download_swissprot(singularity):
     ## remove fasta file
     os.remove("uniprot_sprot.fasta")
 
+    ## Create directory
+    Path("kegg").mkdir(parents=True, exist_ok=True)
     ## move file to kegg directory
     shutil.move("swissprot.dmnd", "kegg/swissprot.dmnd")
 

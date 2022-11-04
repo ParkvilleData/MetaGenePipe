@@ -54,6 +54,6 @@ Test that the Singularity container is working with the following command:
   
 .. code-block:: bash
 
-    singularity run metagenepipe.simg_v2.sif megahit --help
+    singularity run metagenepipe_v2.sif megahit --help
 
 If the help description for megahit displays then the Singularity container can be used with MetaGenePipe.
