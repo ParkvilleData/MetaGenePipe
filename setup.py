@@ -195,6 +195,8 @@ def download_koalafam(singularity, karyote):
     os.system("sed 's/K/profiles\/K/' " + "profiles/" + karyote + ".hal > profiles/prok.hal")
 
     ##cat hmmer files together
+    ## Create directory
+    Path("kegg").mkdir(parents=True, exist_ok=True)
     print("Merging " + str(karyote) + ".hal hmmer profiles")
     os.system("xargs cat < profiles/prok.hal > kegg/kegg_all.hmm") 
 
