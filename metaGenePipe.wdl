@@ -34,7 +34,7 @@ workflow metaGenePipe {
   Int identityPercentage
   Int coverage
   String briteList
-  String briteJson
+  String briteLineage
   String bparser
   String database
   String DB
@@ -110,7 +110,7 @@ workflow metaGenePipe {
         concatenateBoolean=concatenateBoolean,
         taxonBoolean=taxonBoolean,
         outputFileName=outputFileName,
-        briteJson=briteJson,
+        briteLineage=briteLineage,
         maxTargetSeqs=maxTargetSeqs,
         metaOption=metaOption,
         DB=DB
@@ -142,7 +142,7 @@ workflow metaGenePipe {
         hmmerBoolean=hmmerBoolean,
         outputType=outputType,
         briteList=briteList,
-        briteJson=briteJson,
+        briteLineage=briteLineage,
         hmm_parser=hmm_parser,
         xml_parser=xml_parser,
         outputFileName=outputFileName,

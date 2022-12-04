@@ -7,14 +7,14 @@ task hmmer_taxon_task {
   Int HTAX_mem
   Int HTAX_threads
   File briteList
-  File briteJson
+  File briteLineage
   File hmm_parser
   File xml_parser
   String outputFileName
 
   command {
     python3 ${hmm_parser} --outprefix ${outputFileName} --consistent-pathways ${briteList} ${sep=' ' hmmerTables} ${hmmerTable}
-    python3 ${xml_parser} --outfile OTU.${outputFileName}.tsv ${briteJson} ${sep=' ' diamondXMLs} ${diamondXML}
+    python3 ${xml_parser} --outfile OTU.${outputFileName}.tsv ${briteLineage} ${sep=' ' diamondXMLs} ${diamondXML}
 
     mkdir -p ./geneprediction/taxon
     mv *.${outputFileName}.* ./geneprediction/taxon

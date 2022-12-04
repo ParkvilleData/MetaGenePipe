@@ -1,7 +1,7 @@
 import shelve
 import json
 
-with open('/data/gpfs/projects/punim0639/databases/metaGenePipe/taxon/br08610.json') as f:
+with open('taxon/br08610.json') as f:
 	tax = json.load(f)
 
 def get_lineage(tree, current = []):
@@ -22,5 +22,5 @@ archaea = list(get_lineage(tax['children'][2]))
 
 my_dict = {lineage[0]: "; ".join(lineage[1:]) for lineage in eukaryota+bacteria+archaea}
 
-myShelvedDict = shelve.open("/data/gpfs/projects/punim0639/databases/metaGenePipe/taxon/taxonomic_lineages.db")
+myShelvedDict = shelve.open("taxon/taxonomic_lineages.db")
 myShelvedDict.update(my_dict)

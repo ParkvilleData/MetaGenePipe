@@ -20,7 +20,7 @@ workflow geneprediction_subworkflow {
   String blastMode
   String? metaOption
   String briteList
-  String briteJson
+  String briteLineage
   String outputFileName
 
 
@@ -73,7 +73,7 @@ workflow geneprediction_subworkflow {
            xml_parser=xml_parser,
            hmm_parser=hmm_parser,
            briteList=briteList,
-           briteJson=briteJson,
+           briteLineage=briteLineage,
            outputFileName=outputFileName
         }
       }
@@ -85,7 +85,7 @@ workflow geneprediction_subworkflow {
             xml_parser=xml_parser,
             hmm_parser=hmm_parser,
             briteList=briteList,
-            briteJson=briteJson,
+            briteLineage=briteLineage,
             outputFileName=outputFileName
         }
       }

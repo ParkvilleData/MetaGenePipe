@@ -3,15 +3,19 @@ import sys
 import re
 import argparse
 import pandas as pd
-import shelve
+import pickle
 
 parser = argparse.ArgumentParser()
+parser.add_argument('lineage', help="The taxonomic lineage file.")
 parser.add_argument('xmls', help="The XML files to search for the hits.",  nargs='+')
 parser.add_argument('--outfile', help="The name of the output file. Default: OTU.tsv", default="OTU.tsv")
 
 args = parser.parse_args()
 
-tax = shelve.open('/data/gpfs/projects/punim0639/databases/metaGenePipe/taxon/taxonomic_lineages.db')
+#import pdb; pdb.set_trace()
+
+with open(args.lineage, 'rb') as f:
+    tax = pickle.load(f)
 
 df = pd.DataFrame()
 
