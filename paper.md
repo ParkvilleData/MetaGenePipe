@@ -41,26 +41,18 @@ bibliography: docs/refs.bib
 
  
 
-MetaGenePipe (MGP) is an efficient, flexible, portable, and scalable metagenomics pipeline that uses performant bioinformatics software suites and genomic databases to create an accurate taxonomic and functional characterization of the prokaryotic fraction of sequenced microbiomes. Written in the Workflow Definition Language (WDL), MGP produces output that is useful in its default format, or that can be used for further downstream analysis. MGP is a pipeline-development best practice tool that uses Singularity [@kurtzer_sochat_bauer_2017] for containerization and includes a setup script that downloads the necessary databases for setup. The source code for MGP is freely available and distributed under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
+MetaGenePipe (MGP) is an efficient, flexible, portable, and scalable metagenomics pipeline that uses performant bioinformatics software suites and genomic databases to create an accurate taxonomic and functional characterization of the prokaryotic fraction of sequenced microbiomes. Written in the Workflow Definition Language (WDL), MGP produces output that can be explored and interpreted directly, or can be used for downstream analysis. MGP is a pipeline-development best practice tool that uses Singularity for containerization and includes a setup script that downloads the necessary databases for setup. The source code for MGP is freely available and distributed under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
 
+The workflow uses MegaHIT for read assembly and the user can specify whether to co-assemble multiple samples or do sample-by-sample assembly. A BLAST search is carried out against a user-specified blast database.
 
-There are currently several assembly-based taxonomic software suites such as MG-RAST [@keegan_glass_meyer_2016], MMseqs2 [@10.1093/bioinformatics/btab184], and a few that make use of a workflow language, including nf-core and Muffin written in Nextflow, and Atlas written in Snakemake [@krakau_straub_gourle_gabernet_nahnsen_2022; @di_tommaso_chatzou_floden_barja_palumbo_notredame_2017; @van_damme_hölzer_viehweger_müller_bongcam-rudloff_brandt_2021;  @kieser_brown_zdobnov_trajkovski_mccue_2020; @mölder_jablonski_letcher_hall_tomkins-tinch_sochat_forster_lee_twardziok_kanitz_et_al._2021]. The main advantage of MGP over MG-RAST is its ease of installation on local infrastructure, as it only requires running a setup script that downloads a supplied Singularity image from SylabsCloud, the latest version of Cromwell [@voss_van_der_auwera_gentry_2022], Koalafam HMMER profiles [@aramaki_blanc-mathieu_endo_ohkubo_kanehisa_goto_ogata_2019], and the Swiss-Prot database [@uniprot_consortium_2018] which is converted to the DIAMOND aligner [@Buchfink2015-rn] format. This setup allows MGP to be used on a range of computing infrastructures across institutions. 
+Coding regions are predicted in contigs with Prodigal and taxonomic annotation of the predicted protein-coding genes is done using DIAMOND alignment against the Swiss-Prot database. Functional annotation uses HMMER searches against the KoalaFam HMM profiles. The main outputs of the workflow are tables with counts of taxonomic (organism) and functional hits against the reference databases, which can be easily employed for downstream statistical analysis. MGP's focus can be easily modified to find viruses, bacteria, plants, archaea, vertebrates, invertebrates, or fungi by choosing suitable reference databases.
 
- 
-
-We have chosen MegaHIT [@li_liu_luo_sadakane_lam_2015] as the assembly software for the workflow due to its high computational efficiency and performance. The gene prediction tool, Prodigal (PROkaryotic Dynamic programming Gen-finding Algorithm) [@hyatt_chen_locascio_land_larimer_hauser_2010], is used to predict gene coding sequences from contigs. Alignment tools DIAMOND, HMMER ([http://hmmer.org/](http://hmmer.org/)), and BLAST [@Camacho2009-hf; @Altschul1990-xn; @Altschul1997-oe] allow for the alignment of predicted gene-coding sequences to known databases for subsequent taxonomic classification. Currently, the Swiss-Prot database is used for classifying genes to obtain protein descriptions and functions. 
-
- 
-
-MGP creates a taxonomic hierarchy classification using Kegg’s Brite hierarchy and KoalaFam HMMER profiles. MGP's focus can be modified to find viruses, bacteria, plants, archaea, vertebrates, invertebrates, or fungi by updating the reference databases to suit the user's research question.
-
- 
 
 # Statement of need 
 
 MetaGenePipe (`MGP`) is a pipeline for characterizing the prokaryotic fraction of whole genome metagenomics shotgun sequencing data functionally and taxonomically.
 
-`MGP` was designed to be used by computational microbiologists, written in WDL to make further customization accessible to researchers. `MGP` uses a Singularity container to overcome traditional portability obstacles and caters to a flexible research focus. For example, the default DIAMOND and BLAST databases can be replaced with any relevant databases owned by the researcher via an update in the configuration file. While `MGP` is focussed on prokaryotes, it can easily be adapted to eukaryotes or viruses by changing the prokaryotic gene prediction software, Prodigal, to eukaryotic gene prediction software such as GeneMark-EP+ [@10.1093/nargab/lqaa026] or [EuGene](http://eugene.toulouse.inra.fr/) [@Sallet2019], or a gene finding tool for viruses.
+`MGP` was designed to be used by computational microbiologists, written in WDL to make further customization accessible to researchers. `MGP` uses a Singularity container to overcome traditional portability obstacles and caters to a flexible research focus. For example, the default DIAMOND and BLAST databases can be replaced with any relevant databases owned by the researcher via an update in the configuration file. While `MGP` is focussed on prokaryotes, it can easily be adapted to eukaryotes or viruses by changing the prokaryotic gene prediction software, Prodigal, to eukaryotic gene prediction software such as GeneMark-EP+ [@10.1093/nargab/lqaa026] or [EuGene](http://eugene.toulouse.inra.fr/) [@Sallet2019], or a gene finding tool for viruses [insert link here].
 
 
 ![The MetaGenePipe Workflow](logo/MetaGenePipe.drawio.pdf) 
@@ -69,12 +61,11 @@ MetaGenePipe (`MGP`) is a pipeline for characterizing the prokaryotic fraction o
 # Workflow 
 
 
-MGP is written in the [Workflow Definition Language (WDL)](https://openwdl.org/), renowned for its human readable and writable syntax. Singularity is used to containerize the software required for MGP, and is stored in [SylabsCloud](https://sylabs.io/) for universal accessibility.  
-
+MGP is written in the [Workflow Definition Language (WDL)](https://openwdl.org/), renowned for its human readable and writable syntax. Singularity [@kurtzer_sochat_bauer_2017] is used to containerize the software required for MGP, and is stored in [SylabsCloud](https://sylabs.io/) for universal accessibility.
 
 MGP is broken up into four sub-workflows: Quality Control (QC), Assembly, Map Sequence Reads, and Gene Prediction.
 
-
+There are currently several assembly-based taxonomic software suites such as MG-RAST [@keegan_glass_meyer_2016], MMseqs2 [@10.1093/bioinformatics/btab184], and a few that make use of a workflow language, including nf-core and Muffin written in Nextflow, and Atlas written in Snakemake [@krakau_straub_gourle_gabernet_nahnsen_2022; @di_tommaso_chatzou_floden_barja_palumbo_notredame_2017; @van_damme_hölzer_viehweger_müller_bongcam-rudloff_brandt_2021;  @kieser_brown_zdobnov_trajkovski_mccue_2020; @mölder_jablonski_letcher_hall_tomkins-tinch_sochat_forster_lee_twardziok_kanitz_et_al._2021]. The main advantage of MGP over MG-RAST is its ease of installation on local infrastructure, as it only requires running a setup script that downloads a supplied Singularity image from SylabsCloud, the latest version of Cromwell [@voss_van_der_auwera_gentry_2022], Koalafam HMMER profiles [@aramaki_blanc-mathieu_endo_ohkubo_kanehisa_goto_ogata_2019], and the Swiss-Prot database [@uniprot_consortium_2018] which is converted to the DIAMOND aligner [@Buchfink2015-rn] format. This setup allows MGP to be used on a range of computing infrastructures across institutions. 
 ## QC Sub-workflow 
 
  
@@ -95,9 +86,9 @@ This standalone and optional task can consolidate all forward and all reverse re
 ## Assembly sub-workflow 
 
 
-For assembling contigs we chose MegaHIT, which performs de-novo assembly of large and complex metagenomic samples in a time and cost-efficient manner [@10.1093/bioinformatics/btv033].
+For assembling contigs we chose MegaHIT [@li_liu_luo_sadakane_lam_2015], which performs de-novo assembly of large and complex metagenomic samples in a time and cost-efficient manner [@10.1093/bioinformatics/btv033].
 
-BLAST is used to query the contigs created during assembly against the NCBI NT/NR database to determine the species of the assembled contigs. The BLAST output is parsed to be easily searchable and also lists queries returning no hits. This informs researchers to further investigate potentially novel sequences. Additionally, the BLAST results can be used to filter contigs that belong to a taxon of interest that was not matched during the Swiss-Prot alignment stage. This can be useful for genomic binning or investigation of regions of interest. 
+BLAST [@Camacho2009-hf; @Altschul1990-xn; @Altschul1997-oe] is used to query the contigs created during assembly against a user-specified blast database (e.g., mito, nt, nr), downloaded from the NCBI ftp server ([https://ftp.ncbi.nlm.nih.gov/blast/db/]). The BLAST output is parsed to be easily searchable and also lists queries returning no hits. This informs researchers to further investigate potentially novel sequences. Additionally, the BLAST results can be used to filter contigs that belong to a taxon of interest that was not matched during the Swiss-Prot alignment stage. This can be useful for genomic binning or investigation of regions of interest. 
 
 ## Map reads sub-workflow
 
@@ -106,9 +97,13 @@ Mapping the raw reads back to the assembled contigs allows for the quantificatio
 
 ## Gene Prediction sub-workflow 
 
+The gene prediction sub-workflow uses Prodigal (PROkaryotic Dynamic programming Gen-finding Algorithm) [@hyatt_chen_locascio_land_larimer_hauser_2010] for predicting prokaryotic gene coding sequences and identifying the sites of translation initiation [@Hyatt2010-zh]. Prodigal produces a Fasta file with the predicted amino acid (protein) coding sequences. These are then aligned to the Swiss-Prot database [@pmid18287689] with the DIAMOND aligner, and the output is parsed to generate a table of taxonomic (organism) identifications. The reference database can be easily exchanged if Swiss-Prot is not suitable for the user's application.
 
+The protein coding sequences are also aligned to the [KoalaFam HMM profiles](https://www.genome.jp/tools/kofamkoala/) with [HMMER](http://hmmer.org/) [@pmid31742321], allowing assigning KEGG pathways and EC numbers to the proteins. Custom Python scripts are used to output counts at different levels of the [KEGG Brite](https://www.genome.jp/kegg/brite.html) hierarchical function classification [@pmid10592173; @pmid31441146; @pmid33125081]. 
 
-The gene prediction sub-workflow uses Prodigal for predicting prokaryotic gene coding sequences and identifying the sites of translation initiation [@Hyatt2010-zh]. Prodigal produces a Fasta file with the predicted amino acid (protein) coding sequences. These are then aligned to the Swiss-Prot database [@pmid18287689] with the DIAMOND aligner and to [KoalaFam HMMER profiles](https://www.genome.jp/tools/kofamkoala/) with HMMER [@pmid31742321]. Custom Python scripts are used to extract the output of the alignments and to match genes to functional hierarchies using the [KEGG Brite Database](https://www.genome.jp/kegg/brite.html) [@pmid10592173; @pmid31441146; @pmid33125081].  
+## Outputs and interpretation
+
+[ADD SECTION HERE]
 
 
 ## Resource Usage and Infrastructure requirements 
