@@ -17,7 +17,7 @@ workflow mapreads_subworkflow {
   ### input variables
   Boolean mapreadsBoolean
   Boolean concatenateBoolean
-  File? non_merged_Contigs 
+  Array[File?]? non_merged_Contigs 
   File? merged_Contigs
   Array[Pair[File?, File?]] pairReads
 
