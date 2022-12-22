@@ -108,41 +108,39 @@
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline"></a></h2>
 <p>There are four main output folders: qc (quality control), assembly, readalignment, and geneprediction and one intermediary, data, which contains the samples for assembly after running through TrimGalore and concatenating the samples for co-assembly if specified.</p>
 <p>An example tree of the the output directory and the associated output definitions are below:</p>
-<p>Quality Control
-* trimmed</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>{sampleName}.T{G|T}_R{1|2}.fq.gz: Trimmed output for each of the individual sample files, TG if the chosen trimmer is TrimGalore, and TT if it is Trimmomatic</p></li>
-</ul>
-</div></blockquote>
+<p>Quality Control</p>
 <ul class="simple">
+<li><p>trimmed
+* {sampleName}.T{G|T}_R{1|2}.fq.gz: Trimmed output for each of the individual sample files, TG if the chosen trimmer is TrimGalore, and TT if it is Trimmomatic</p></li>
 <li><p>fastqc
 * {sampleName}.T{G|T}_R{1|2}_fastqc.zip: Fastqc output for each of the individual sample files</p></li>
 <li><p>multiqc_report.html: Combined report of all fastqc files</p></li>
 <li><p>flash
 * {sampleName}.extendedFrags.fastq: [ADD HERE]</p></li>
 </ul>
-<p>Data
-* {sampleName}_R{1|2}.fq.gz Sample files after trimming and/or concatenating for co-assembly. If files are concatenated for co-assembly, the sample name is set to be <cite>combined</cite></p>
-<p>Assembly
-* {sampleName}.megahit.contigs.fa: Final assembled contigs
-* {sampleName}.{kmer}.fastg: Assembly graph for {kmer} assembled contigs, where {kmer} produces the largest assembled contig file size in the <cite>intermediate_contigs</cite> folder
-* intermediate_contigs: a folder containing all intermediate assembled contigs {sampleName}.contigs.k{kmer}.fastg
-* {sampleName}.megahit.blast.out: Raw blast results for the contigs
-* {sampleName}.megahit.blast.parsed: Blast results parsed to be easily viewed in tsv format</p>
-<p>Read alignment
-* {sampleName}.T{G|T}.flagstat.txt: Samtools flagstat output. Reports statistics on alignment of reads back to assembled contigs
-* {sampleName}.T{G|T}.sam: Alignment of reads back to contigs in SAM format
-* {sampleName}.T{G|T}.sorted.bam: Alignment of reads back to contigs in BAM format</p>
-<p>Gene prediction
-* {sampleName}.megahit.proteins.fa.xml.out.xml: XML output of alignment of predicted Amino Acids to NCBI database (We chose swissprot, but any blast database can be substituted)
-* diamond</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>{sampleName}.megahit.proteins.fa.xml.out:</p></li>
-</ul>
-</div></blockquote>
+<p>Data</p>
 <ul class="simple">
+<li><p>{sampleName}_R{1|2}.fq.gz Sample files after trimming and/or concatenating for co-assembly. If files are concatenated for co-assembly, the sample name is set to be <cite>combined</cite></p></li>
+</ul>
+<p>Assembly</p>
+<ul class="simple">
+<li><p>{sampleName}.megahit.contigs.fa: Final assembled contigs</p></li>
+<li><p>{sampleName}.{kmer}.fastg: Assembly graph for {kmer} assembled contigs, where {kmer} produces the largest assembled contig file size in the <cite>intermediate_contigs</cite> folder</p></li>
+<li><p>intermediate_contigs: a folder containing all intermediate assembled contigs {sampleName}.contigs.k{kmer}.fastg</p></li>
+<li><p>{sampleName}.megahit.blast.out: Raw blast results for the contigs</p></li>
+<li><p>{sampleName}.megahit.blast.parsed: Blast results parsed to be easily viewed in tsv format</p></li>
+</ul>
+<p>Read alignment</p>
+<ul class="simple">
+<li><p>{sampleName}.T{G|T}.flagstat.txt: Samtools flagstat output. Reports statistics on alignment of reads back to assembled contigs</p></li>
+<li><p>{sampleName}.T{G|T}.sam: Alignment of reads back to contigs in SAM format</p></li>
+<li><p>{sampleName}.T{G|T}.sorted.bam: Alignment of reads back to contigs in BAM format</p></li>
+</ul>
+<p>Gene prediction</p>
+<ul class="simple">
+<li><p>{sampleName}.megahit.proteins.fa.xml.out.xml: XML output of alignment of predicted Amino Acids to NCBI database (We chose swissprot, but any blast database can be substituted)</p></li>
+<li><p>diamond
+* {sampleName}.megahit.proteins.fa.xml.out:</p></li>
 <li><p>hmmer
 * combined.megahit.proteins.hmmer.out: Raw hmmer output aligned to Koalafam profiles
 * combined.megahit.proteins.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles</p></li>
