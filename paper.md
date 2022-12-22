@@ -94,8 +94,7 @@ The protein coding sequences are also aligned to the [KoalaFam HMM profiles](htt
 
 ## Outputs and interpretation
 
-[ADD SECTION HERE]
-
+The mapping results in SAM/BAM mapping files for each pair of read files, which can be used for downstream metagenome binning applications, or users could use these to obtain a list of contigs with read depth metrics by running these through the [jgi_summarize_bam_contig_depths](https://bitbucket.org/berkeleylab/metabat/src/master/src/jgi_summarize_bam_contig_depths.cpp) tool, available through MetaBAT [@kang2019].
 
 ## Resource usage and infrastructure requirements 
 
