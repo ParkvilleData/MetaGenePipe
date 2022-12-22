@@ -125,9 +125,7 @@ Output
 
 There are four main output folders: qc (quality control), assembly, readalignment, and geneprediction and one intermediary, data, which contains the samples for assembly after running through TrimGalore and concatenating the samples for co-assembly if specified. 
 
-An example tree of the the output directory and the associated output definitions are below:
-
-Quality Control
+Quality control
 ~~~~~~~~~~~~~~~~
 
 * trimmed
@@ -141,7 +139,7 @@ Quality Control
 * multiqc_report.html: Combined report of all fastqc files
 * flash
 
-  * {sampleName}.extendedFrags.fastq: [ADD HERE]
+  * {sampleName}.extendedFrags.fastq: The merged reads
 
 Data
 ~~~~~~~~~~~~~~~~
@@ -186,10 +184,10 @@ Gene prediction
 
 * taxon
 
-  * LevelA.brite.counts.tsv: Level A Kegg Brite Hierarchical count
-  * LevelB.brite.counts.tsv: Level B Kegg Brite Hierarchical count
-  * LevelC.brite.counts.tsv: Level C Kegg Brite Hierarchical count
-  * OTU.brite.tsv: [DESCRIBE HERE]
+  * LevelA.brite.counts.tsv: Level A Kegg Brite Hierarchical gene count
+  * LevelB.brite.counts.tsv: Level B Kegg Brite Hierarchical gene count
+  * LevelC.brite.counts.tsv: Level C Kegg Brite Hierarchical gene count
+  * OTU.brite.tsv: Table with counts of taxanomic (organism) IDs of genes
 
 .. end-output
 
@@ -197,6 +195,7 @@ Output Tree
 ~~~~~~~~~~~
 
 .. start-output-tree
+Below is an example tree of the the output directory:
 
 ::
 
@@ -231,9 +230,9 @@ Output Tree
    │   │   ├── combined.megahit.proteins.fa
    │   │   └── combined.megahit.starts.txt
    │   └── taxon
-   │       ├── Level1.brite.counts.tsv
-   │       ├── Level2.brite.counts.tsv
-   │       ├── Level3.brite.counts.tsv
+   │       ├── LevelA.brite.counts.tsv
+   │       ├── LevelB.brite.counts.tsv
+   │       ├── LevelC.brite.counts.tsv
    │       └── OTU.brite.tsv
    ├── qc
    │   ├── fastqc
