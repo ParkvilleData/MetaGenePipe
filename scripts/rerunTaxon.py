@@ -67,7 +67,7 @@ def rerun_taxon(xml_parser, diamondXML, destination):
     os.system(f'sbatch -J "rerunTaxon" -D {destination} -o {destination} -e ${err} -t 5000 -p "adhoc,snowy,physical" -q adhoc --account=punim1293 -n 1 -c 1 --mem=61440 \
             --wrap "module load singularity/3.5.3;
             /usr/bin/time -v --output {optim_directory}/cromwell_xxxxxxxx_OTUtaxon.txt singularity run -B {singularity} /bin/bash ${script}; 
-            sh ${head_directory}/scripts/opt_shell.sh ${script} ${job_name} ${optim_directory}
+            sh ${head_directory}/scripts/opt_shell.sh ${script} ${job_name} ${optim_directory}')
 
 
 def upload_taxon():

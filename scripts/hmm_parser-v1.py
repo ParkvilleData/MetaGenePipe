@@ -43,7 +43,7 @@ def main():
 
 	args = parser.parse_args()
 
-	levels = ["Level1", "Level2", "Level3"]
+	levels = ["LevelA", "LevelB", "LevelC"]
 
 	# load brite database
 	brite_df = pd.read_csv(args.brite, sep='\t')

@@ -25,9 +25,9 @@ task hmmer_taxon_task {
     mem: '${HTAX_mem}'
   }
   output {
-    File? level1Brite = "./geneprediction/taxon/Level1.${outputFileName}.counts.tsv"
-    File? level2Brite = "./geneprediction/taxon/Level2.${outputFileName}.counts.tsv"
-    File? level3Brite = "./geneprediction/taxon/Level3.${outputFileName}.counts.tsv"
+    File? level1Brite = "./geneprediction/taxon/LevelA.${outputFileName}.counts.tsv"
+    File? level2Brite = "./geneprediction/taxon/LevelB.${outputFileName}.counts.tsv"
+    File? level3Brite = "./geneprediction/taxon/LevelC.${outputFileName}.counts.tsv"
     File? OTU = "./geneprediction/taxon/OTU.${outputFileName}.tsv" 
   }        
   meta {
