@@ -28,3 +28,17 @@ The submodules of the workflow are configured in ``metaGenePipe.json``. The defa
   "metaGenPipe.mapreadsBoolean": true,
   "metaGenPipe.hmmerBoolean": true,
 
+Output
+========
+
+.. include:: ../README.rst
+   :start-after: start-output
+   :end-before: end-output
+
+
+Output Tree
+-----------
+
+.. include:: ../README.rst
+   :start-after: start-output-tree
+   :end-before: end-output-tree
