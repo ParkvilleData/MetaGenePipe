@@ -108,7 +108,7 @@ See the `installation instructions in the documentation <https://parkvilledata.g
 Usage
 ======
 
-you can start the workflow with the following command:
+You can start the workflow with the following command:
 
 .. code-block:: bash
 
@@ -121,6 +121,7 @@ Read the `documentation <https://parkvilledata.github.io/MetaGenePipe/usage.html
 
 Output
 ======
+.. start-output
 
 There are four main output folders: qc (quality control), assembly, readalignment, and geneprediction and one intermediary, data, which contains the samples for assembly after running through TrimGalore and concatenating the samples for co-assembly if specified. 
 
@@ -168,8 +169,12 @@ Gene prediction
   * LevelC.brite.counts.tsv: Level C Kegg Brite Hierarchical count
   * OTU.brite.tsv: [DESCRIBE HERE]
 
+.. end-output
+
 Output Tree
 ~~~~~~~~~~~
+
+.. start-output-tree
 
 ::
 
@@ -230,6 +235,8 @@ Output Tree
       ├── SRR5808882.TG.flagstat.txt
       ├── SRR5808882.TG.sam
       └── SRR5808882.TG.sorted.bam
+
+.. end-output-tree
 
 Please refer to the
 `documentation <https://parkvilledata.github.io/MetaGenePipe/>`__ for
