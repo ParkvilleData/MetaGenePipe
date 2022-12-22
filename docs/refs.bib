@@ -863,17 +863,6 @@ url="https://doi.org/10.1007/978-1-4939-9173-0_6"
     pages={1420-1428}
 }
 
-@article{li_liu_luo_sadakane_lam_2015,
-    title={MEGAHIT: an ultra-fast single-node solution for large and complex metagenomics assembly via succinct de Bruijn graph},
-    volume={31},
-    DOI={10.1093/bioinformatics/btv033},
-    number={10},
-    journal={Bioinformatics},
-    author={Li, Dinghua and Liu, Chi-Man and Luo, Ruibang and Sadakane, Kunihiko and Lam, Tak-Wah},
-    year={2015},
-    pages={1674-1676}
-}
-
 @article{hyatt_chen_locascio_land_larimer_hauser_2010,
     title={Prodigal: prokaryotic gene recognition and translation initiation site identification},
     volume={11},
@@ -948,3 +937,48 @@ url="https://doi.org/10.1007/978-1-4939-9173-0_6"
     so = "PeerJ. 2019 Jul 26;7:e7359. doi: 10.7717/peerj.7359. eCollection 2019.",
     aid = "7359 [pii]"
 }
+@article {Gonzalez-Tortuero2021.12.11.472104,
+	author = {Gonz{\'a}lez-Tortuero, Enrique and Krishnamurthi, Revathy and Allison, Heather E. and Goodhead, Ian B. and James, Chlo{\"e} E.},
+	title = {Comparative analysis of gene prediction tools for viral genome annotation},
+	elocation-id = {2021.12.11.472104},
+	year = {2021},
+	doi = {10.1101/2021.12.11.472104},
+	publisher = {Cold Spring Harbor Laboratory},
+	abstract = {The number of newly available viral genomes and metagenomes has increased exponentially since the development of high throughput sequencing platforms and genome analysis tools. Bioinformatic annotation pipelines are largely based on open reading frame (ORF) calling software, which identifies genes independently of the sequence taxonomical background. Although ORF-calling programs provide a rapid genome annotation, they can misidentify ORFs and start codons; errors that might be perpetuated and propagated over time. This study evaluated the performance of multiple ORF-calling programs for viral genome annotation against the complete RefSeq viral database. Programs outputs varied when considering the viral nucleic acid type versus the viral host. According to the number of ORFs, Prodigal and Metaprodigal were the most accurate programs for DNA viruses, while FragGeneScan and Prodigal generated the most accurate outputs for RNA viruses. Similarly, Prodigal outperformed the benchmark for viruses infecting prokaryotes, and GLIMMER and GeneMarkS produced the most accurate annotations for viruses infecting eukaryotes. When the coordinates of the ORFs were considered, Prodigal scored high for all scenarios except for RNA viruses, where GeneMarkS generated the most reliable results. Overall, the quality of the coordinates predicted for RNA viruses was poorer than for DNA viruses, suggesting the need for improved ORF-calling programs to deal with RNA viruses. Moreover, none of the ORF-calling programs reached 90\% accuracy for annotation of DNA viruses. Any automatic annotation can still be improved by manual curation, especially when the presence of ORFs is validated with wet-lab experiments. However, our evaluation of the current ORF-calling programs is expected to be useful for the improvement of viral genome annotation pipelines and highlights the need for more expression data to improve the rigor of reference genomes.Competing Interest StatementThe authors have declared no competing interest.},
+	URL = {https://www.biorxiv.org/content/early/2021/12/13/2021.12.11.472104},
+	eprint = {https://www.biorxiv.org/content/early/2021/12/13/2021.12.11.472104.full.pdf},
+	journal = {bioRxiv}
+}
+
+@article{10.1093/bioinformatics/btv383,
+    author = {Wick, Ryan R. and Schultz, Mark B. and Zobel, Justin and Holt, Kathryn E.},
+    title = "{Bandage: interactive visualization of de novo genome assemblies}",
+    journal = {Bioinformatics},
+    volume = {31},
+    number = {20},
+    pages = {3350-3352},
+    year = {2015},
+    month = {06},
+    abstract = "{Summary: Although de novo assembly graphs contain assembled contigs (nodes), the connections between those contigs (edges) are difficult for users to access. Bandage (a Bioinformatics Application for Navigating De novo Assembly Graphs Easily) is a tool for visualizing assembly graphs with connections. Users can zoom in to specific areas of the graph and interact with it by moving nodes, adding labels, changing colors and extracting sequences. BLAST searches can be performed within the Bandage graphical user interface and the hits are displayed as highlights in the graph. By displaying connections between contigs, Bandage presents new possibilities for analyzing de novo assemblies that are not possible through investigation of contigs alone.Availability and implementation: Source code and binaries are freely available at https://github.com/rrwick/Bandage. Bandage is implemented in C++ and supported on Linux, OS X and Windows. A full feature list and screenshots are available at http://rrwick.github.io/Bandage.Contact:rrwick@gmail.comSupplementary information:Supplementary data are available at Bioinformatics online.}",
+    issn = {1367-4803},
+    doi = {10.1093/bioinformatics/btv383},
+    url = {https://doi.org/10.1093/bioinformatics/btv383},
+    eprint = {https://academic.oup.com/bioinformatics/article-pdf/31/20/3350/17088082/btv383.pdf},
+}
+
+
+
+@InProceedings{10.1007/978-3-031-04749-7_5,
+author="Mallawaarachchi, Vijini
+and Lin, Yu",
+editor="Pe'er, Itsik",
+title="MetaCoAG: Binning Metagenomic Contigs via Composition, Coverage and Assembly Graphs",
+booktitle="Research in Computational Molecular Biology",
+year="2022",
+publisher="Springer International Publishing",
+address="Cham",
+pages="70--85",
+abstract="Metagenomics has allowed us to obtain various genetic material from different species and gain valuable insights into microbial communities. Binning plays an important role in the early stages of metagenomic analysis pipelines. A typical pipeline in metagenomics binning is to assemble short reads into longer contigs and then bin into groups representing different species in the metagenomic sample. While existing binning tools bin metagenomic contigs, they do not make use of the assembly graphs that produce such assemblies. Here we propose MetaCoAG, a tool that utilizes assembly graphs with the composition and coverage information to bin metagenomic contigs. MetaCoAG uses single-copy marker genes to estimate the number of initial bins, assigns contigs into bins iteratively and adjusts the number of bins dynamically throughout the binning process. Experimental results on simulated and real datasets demonstrate that MetaCoAG significantly outperforms state-of-the-art binning tools, producing similar or more high-quality bins than the second-best tool. To the best of our knowledge, MetaCoAG is the first stand-alone contig-binning tool to make direct use of the assembly graph information.",
+isbn="978-3-031-04749-7"
+}
+

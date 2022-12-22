@@ -125,23 +125,29 @@ Output
 
 There are four main output folders: qc (quality control), assembly, readalignment, and geneprediction and one intermediary, data, which contains the samples for assembly after running through TrimGalore and concatenating the samples for co-assembly if specified. 
 
-An example tree of the the output directory and the associated output definitions are below:
-
-Quality Control
+Quality control
+~~~~~~~~~~~~~~~~
 
 * trimmed
+
   * {sampleName}.T{G|T}_R{1|2}.fq.gz: Trimmed output for each of the individual sample files, TG if the chosen trimmer is TrimGalore, and TT if it is Trimmomatic
+
 * fastqc
+
   * {sampleName}.T{G|T}_R{1|2}_fastqc.zip: Fastqc output for each of the individual sample files
+
 * multiqc_report.html: Combined report of all fastqc files
 * flash
-  * {sampleName}.extendedFrags.fastq: [ADD HERE]
+
+  * {sampleName}.extendedFrags.fastq: The merged reads
 
 Data
+~~~~~~~~~~~~~~~~
 
 * {sampleName}_R{1|2}.fq.gz Sample files after trimming and/or concatenating for co-assembly. If files are concatenated for co-assembly, the sample name is set to be `combined`
 
 Assembly
+~~~~~~~~~~~~~~~~
 
 * {sampleName}.megahit.contigs.fa: Final assembled contigs
 * {sampleName}.{kmer}.fastg: Assembly graph for {kmer} assembled contigs, where {kmer} produces the largest assembled contig file size in the `intermediate_contigs` folder
@@ -150,29 +156,38 @@ Assembly
 * {sampleName}.megahit.blast.parsed: Blast results parsed to be easily viewed in tsv format
 
 Read alignment
+~~~~~~~~~~~~~~~~
 
 * {sampleName}.T{G|T}.flagstat.txt: Samtools flagstat output. Reports statistics on alignment of reads back to assembled contigs
 * {sampleName}.T{G|T}.sam: Alignment of reads back to contigs in SAM format
 * {sampleName}.T{G|T}.sorted.bam: Alignment of reads back to contigs in BAM format
 
 Gene prediction
+~~~~~~~~~~~~~~~~
 
 * {sampleName}.megahit.proteins.fa.xml.out.xml: XML output of alignment of predicted Amino Acids to NCBI database (We chose swissprot, but any blast database can be substituted)
 * diamond
+
   * {sampleName}.megahit.proteins.fa.xml.out:
+  
 * hmmer
+
   * combined.megahit.proteins.hmmer.out: Raw hmmer output aligned to Koalafam profiles
   * combined.megahit.proteins.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles
+  
 * prodigal
+
   * combined.megahit.gene_coordinates.gbk: Gene coordinates file (Genbank like file)
   * combined.megahit.nucl_genes.fa: Predicted gene nucleotide sequences
   * combined.megahit.proteins.fa: Predicted gene amino acid sequences
   * combined.megahit.starts.txt: Prodigal starts file
+
 * taxon
-  * LevelA.brite.counts.tsv: Level A Kegg Brite Hierarchical count
-  * LevelB.brite.counts.tsv: Level B Kegg Brite Hierarchical count
-  * LevelC.brite.counts.tsv: Level C Kegg Brite Hierarchical count
-  * OTU.brite.tsv: [DESCRIBE HERE]
+
+  * LevelA.brite.counts.tsv: Level A Kegg Brite Hierarchical gene count
+  * LevelB.brite.counts.tsv: Level B Kegg Brite Hierarchical gene count
+  * LevelC.brite.counts.tsv: Level C Kegg Brite Hierarchical gene count
+  * OTU.brite.tsv: Table with counts of taxanomic (organism) IDs of genes
 
 .. end-output
 
@@ -180,6 +195,7 @@ Output Tree
 ~~~~~~~~~~~
 
 .. start-output-tree
+Below is an example tree of the the output directory:
 
 ::
 
@@ -214,9 +230,9 @@ Output Tree
    │   │   ├── combined.megahit.proteins.fa
    │   │   └── combined.megahit.starts.txt
    │   └── taxon
-   │       ├── Level1.brite.counts.tsv
-   │       ├── Level2.brite.counts.tsv
-   │       ├── Level3.brite.counts.tsv
+   │       ├── LevelA.brite.counts.tsv
+   │       ├── LevelB.brite.counts.tsv
+   │       ├── LevelC.brite.counts.tsv
    │       └── OTU.brite.tsv
    ├── qc
    │   ├── fastqc

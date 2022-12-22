@@ -50,7 +50,7 @@ Coding regions are predicted in contigs with Prodigal and taxonomic annotation o
 
 MetaGenePipe (`MGP`) is a pipeline for characterizing the prokaryotic fraction of whole genome metagenomics shotgun sequencing data functionally and taxonomically.
 
-`MGP` was designed to be used by computational microbiologists, written in WDL to make further customization accessible to researchers. `MGP` uses a Singularity container to overcome traditional portability obstacles and caters to a flexible research focus. For example, the default DIAMOND and BLAST databases can be replaced with any relevant databases owned by the researcher via an update in the configuration file. While `MGP` is focussed on prokaryotes, it can easily be adapted to eukaryotes or viruses by changing the prokaryotic gene prediction software, Prodigal, to eukaryotic gene prediction software such as GeneMark-EP+ [@10.1093/nargab/lqaa026] or [EuGene](http://eugene.toulouse.inra.fr/) [@Sallet2019], or a gene finding tool for viruses [insert link here].
+`MGP` was designed to be used by computational microbiologists, written in WDL to make further customization accessible to researchers. `MGP` uses a Singularity container to overcome traditional portability obstacles and caters to a flexible research focus. For example, the default DIAMOND and BLAST databases can be replaced with any relevant databases owned by the researcher via an update in the configuration file. While `MGP` is focussed on prokaryotes, it can easily be adapted to eukaryotes or viruses by changing the prokaryotic gene prediction software, Prodigal, to eukaryotic gene prediction software such as GeneMark-EP+ [@10.1093/nargab/lqaa026] or [EuGene](http://eugene.toulouse.inra.fr/) [@Sallet2019], or a gene finding tool for viruses [@Gonzalez-Tortuero2021.12.11.472104].
 
 
 ![The MetaGenePipe Workflow](logo/MetaGenePipe.drawio.pdf) 
@@ -78,7 +78,7 @@ This standalone and optional task can consolidate all forward and all reverse re
 
 ## Assembly sub-workflow 
 
-For assembling contigs we chose MegaHIT [@li_liu_luo_sadakane_lam_2015], which performs de-novo assembly of large and complex metagenomic samples in a time and cost-efficient manner [@10.1093/bioinformatics/btv033].
+For assembling contigs we chose MegaHIT [@10.1093/bioinformatics/btv033], which performs de-novo assembly of large and complex metagenomic samples in a time and cost-efficient manner [@10.1093/bioinformatics/btv033].
 
 BLAST [@Camacho2009-hf; @Altschul1990-xn; @Altschul1997-oe] is used to query the contigs created during assembly against a user-specified BLAST database (e.g., mito, nt, nr), downloaded from the NCBI ftp server ([https://ftp.ncbi.nlm.nih.gov/blast/db/]). The BLAST output is parsed to be easily searchable and also lists queries returning no hits. This informs researchers to further investigate potentially novel sequences. Additionally, the BLAST results can be used to filter contigs that belong to a taxon of interest that was not matched during the Swiss-Prot alignment stage. This can be useful for genomic binning or investigation of regions of interest. 
 
@@ -94,7 +94,8 @@ The protein coding sequences are also aligned to the [KoalaFam HMM profiles](htt
 
 ## Outputs and interpretation
 
-The mapping results in SAM/BAM mapping files for each pair of read files, which can be used for downstream metagenome binning applications, or users could use these to obtain a list of contigs with read depth metrics by running these through the [jgi_summarize_bam_contig_depths](https://bitbucket.org/berkeleylab/metabat/src/master/src/jgi_summarize_bam_contig_depths.cpp) tool, available through MetaBAT [@kang2019].
+The principal outputs for downstream analysis are the assembly, the mapped reads, and tables of the functional and taxonomic (organisms) counts of the genes found in the contigs. For the assembly, both the final contigs as well as the assembly graph which users can visualize [@10.1093/bioinformatics/btv383] or use for downstream graph-based metagenome binning [@10.1007/978-3-031-04749-7_5]. The mapping results in SAM/BAM mapping files for each pair of read files, which can be used for downstream metagenome binning applications, or users could use these to obtain a list of contigs with read depth metrics by running these through the [jgi_summarize_bam_contig_depths](https://bitbucket.org/berkeleylab/metabat/src/master/src/jgi_summarize_bam_contig_depths.cpp) tool, available through MetaBAT [@kang2019]. The taxonomic and functional tables of gene counts produced in the gene prediction sub-workflow are suitable for downstream statistical analysis. Several other potentially useful intermediate files are saved in each of the sub-workflows. A description of each of the output files and an example hierarchical structure of the output directory are available in the [MGP documentation](https://parkvilledata.github.io/MetaGenePipe/workflow.html#output).
+
 
 ## Resource usage and infrastructure requirements 
 
