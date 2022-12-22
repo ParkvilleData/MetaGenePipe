@@ -46,7 +46,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Workflow</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#output">Output</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#quality-control">Quality Control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quality-control">Quality control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#data">Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assembly">Assembly</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#read-alignment">Read alignment</a></li>
@@ -114,9 +114,8 @@
 <section id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline"></a></h2>
 <p>There are four main output folders: qc (quality control), assembly, readalignment, and geneprediction and one intermediary, data, which contains the samples for assembly after running through TrimGalore and concatenating the samples for co-assembly if specified.</p>
-<p>An example tree of the the output directory and the associated output definitions are below:</p>
 <section id="quality-control">
-<h3>Quality Control<a class="headerlink" href="#quality-control" title="Permalink to this headline"></a></h3>
+<h3>Quality control<a class="headerlink" href="#quality-control" title="Permalink to this headline"></a></h3>
 <ul class="simple">
 <li><p>trimmed</p>
 <ul>
@@ -131,7 +130,7 @@
 <li><p>multiqc_report.html: Combined report of all fastqc files</p></li>
 <li><p>flash</p>
 <ul>
-<li><p>{sampleName}.extendedFrags.fastq: [ADD HERE]</p></li>
+<li><p>{sampleName}.extendedFrags.fastq: The merged reads</p></li>
 </ul>
 </li>
 </ul>
@@ -185,15 +184,16 @@
 </li>
 <li><p>taxon</p>
 <ul>
-<li><p>LevelA.brite.counts.tsv: Level A Kegg Brite Hierarchical count</p></li>
-<li><p>LevelB.brite.counts.tsv: Level B Kegg Brite Hierarchical count</p></li>
-<li><p>LevelC.brite.counts.tsv: Level C Kegg Brite Hierarchical count</p></li>
-<li><p>OTU.brite.tsv: [DESCRIBE HERE]</p></li>
+<li><p>LevelA.brite.counts.tsv: Level A Kegg Brite Hierarchical gene count</p></li>
+<li><p>LevelB.brite.counts.tsv: Level B Kegg Brite Hierarchical gene count</p></li>
+<li><p>LevelC.brite.counts.tsv: Level C Kegg Brite Hierarchical gene count</p></li>
+<li><p>OTU.brite.tsv: Table with counts of taxanomic (organism) IDs of genes</p></li>
 </ul>
 </li>
 </ul>
 <section id="output-tree">
 <h4>Output Tree<a class="headerlink" href="#output-tree" title="Permalink to this headline"></a></h4>
+<p>Below is an example tree of the the output directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
 ├── assembly
 │   ├── combined.57.fastg
@@ -225,9 +225,9 @@
 │   │   ├── combined.megahit.proteins.fa
 │   │   └── combined.megahit.starts.txt
 │   └── taxon
-│       ├── Level1.brite.counts.tsv
-│       ├── Level2.brite.counts.tsv
-│       ├── Level3.brite.counts.tsv
+│       ├── LevelA.brite.counts.tsv
+│       ├── LevelB.brite.counts.tsv
+│       ├── LevelC.brite.counts.tsv
 │       └── OTU.brite.tsv
 ├── qc
 │   ├── fastqc
