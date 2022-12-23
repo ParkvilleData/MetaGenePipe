@@ -50,7 +50,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#data">Data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#assembly">Assembly</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#read-alignment">Read alignment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#gene-prediction">Gene prediction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gene-prediction">Gene prediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#classification">Classification</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#output-tree">Output Tree</a></li>
 </ul>
 </li>
@@ -170,24 +171,29 @@
 </li>
 <li><p>hmmer</p>
 <ul>
-<li><p>combined.megahit.proteins.hmmer.out: Raw hmmer output aligned to Koalafam profiles</p></li>
-<li><p>combined.megahit.proteins.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles</p></li>
+<li><p>{sampleName}.megahit.proteins.hmmer.out: Raw hmmer output aligned to Koalafam profiles</p></li>
+<li><p>{sampleName}.megahit.proteins.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles</p></li>
 </ul>
 </li>
 <li><p>prodigal</p>
 <ul>
-<li><p>combined.megahit.gene_coordinates.gbk: Gene coordinates file (Genbank like file)</p></li>
-<li><p>combined.megahit.nucl_genes.fa: Predicted gene nucleotide sequences</p></li>
-<li><p>combined.megahit.proteins.fa: Predicted gene amino acid sequences</p></li>
-<li><p>combined.megahit.starts.txt: Prodigal starts file</p></li>
+<li><p>{sampleName}.megahit.gene_coordinates.gbk: Gene coordinates file (Genbank like file)</p></li>
+<li><p>{sampleName}.megahit.nucl_genes.fa: Predicted gene nucleotide sequences</p></li>
+<li><p>{sampleName}.megahit.proteins.fa: Predicted gene amino acid sequences</p></li>
+<li><p>{sampleName}.megahit.starts.txt: Prodigal starts file</p></li>
 </ul>
 </li>
+</ul>
+</section>
+<section id="classification">
+<h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline"></a></h3>
+<ul class="simple">
 <li><p>taxon</p>
 <ul>
 <li><p>LevelA.brite.counts.tsv: Level A Kegg Brite Hierarchical gene count</p></li>
 <li><p>LevelB.brite.counts.tsv: Level B Kegg Brite Hierarchical gene count</p></li>
 <li><p>LevelC.brite.counts.tsv: Level C Kegg Brite Hierarchical gene count</p></li>
-<li><p>OTU.brite.tsv: Table with counts of taxanomic (organism) IDs of genes</p></li>
+<li><p>OTU.brite.tsv: Table with counts of taxonomic (organism) IDs of genes</p></li>
 </ul>
 </li>
 </ul>
@@ -219,16 +225,11 @@
 │   ├── hmmer
 │   │   ├── combined.megahit.proteins.hmmer.out
 │   │   └── combined.megahit.proteins.hmmer.tblout
-│   ├── prodigal
-│   │   ├── combined.megahit.gene_coordinates.gbk
-│   │   ├── combined.megahit.nucl_genes.fa
-│   │   ├── combined.megahit.proteins.fa
-│   │   └── combined.megahit.starts.txt
-│   └── taxon
-│       ├── LevelA.brite.counts.tsv
-│       ├── LevelB.brite.counts.tsv
-│       ├── LevelC.brite.counts.tsv
-│       └── OTU.brite.tsv
+│   └── prodigal
+│       ├── combined.megahit.gene_coordinates.gbk
+│       ├── combined.megahit.nucl_genes.fa
+│       ├── combined.megahit.proteins.fa
+│       └── combined.megahit.starts.txt
 ├── qc
 │   ├── fastqc
 │   │   ├── SRR5808831.TG_R1_fastqc.zip
@@ -244,13 +245,18 @@
 │       ├── SRR5808831.TG_R2.fq.gz
 │       ├── SRR5808882.TG_R1.fq.gz
 │       └── SRR5808882.TG_R2.fq.gz
-└── readalignment
-   ├── SRR5808831.TG.flagstat.txt
-   ├── SRR5808831.TG.sam
-   ├── SRR5808831.TG.sorted.bam
-   ├── SRR5808882.TG.flagstat.txt
-   ├── SRR5808882.TG.sam
-   └── SRR5808882.TG.sorted.bam
+├── readalignment
+│   ├── SRR5808831.TG.flagstat.txt
+│   ├── SRR5808831.TG.sam
+│   ├── SRR5808831.TG.sorted.bam
+│   ├── SRR5808882.TG.flagstat.txt
+│   ├── SRR5808882.TG.sam
+│   └── SRR5808882.TG.sorted.bam
+└── taxon
+    ├── LevelA.brite.counts.tsv
+    ├── LevelB.brite.counts.tsv
+    ├── LevelC.brite.counts.tsv
+    └── OTU.brite.tsv
 </pre></div>
 </div>
 </section>
