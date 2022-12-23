@@ -16,8 +16,8 @@ task hmmer_taxon_task {
     python3 ${hmm_parser} --outprefix ${outputFileName} --consistent-pathways ${briteList} ${sep=' ' hmmerTables} ${hmmerTable}
     python3 ${xml_parser} --outfile OTU.${outputFileName}.tsv ${briteLineage} ${sep=' ' diamondXMLs} ${diamondXML}
 
-    mkdir -p ./geneprediction/taxon
-    mv *.${outputFileName}.* ./geneprediction/taxon
+    mkdir -p ./taxon
+    mv *.${outputFileName}.* ./taxon
   }
   runtime {
     runtime_minutes: '${HTAX_minutes}'
@@ -25,10 +25,10 @@ task hmmer_taxon_task {
     mem: '${HTAX_mem}'
   }
   output {
-    File? level1Brite = "./geneprediction/taxon/LevelA.${outputFileName}.counts.tsv"
-    File? level2Brite = "./geneprediction/taxon/LevelB.${outputFileName}.counts.tsv"
-    File? level3Brite = "./geneprediction/taxon/LevelC.${outputFileName}.counts.tsv"
-    File? OTU = "./geneprediction/taxon/OTU.${outputFileName}.tsv" 
+    File? level1Brite = "./taxon/LevelA.${outputFileName}.counts.tsv"
+    File? level2Brite = "./taxon/LevelB.${outputFileName}.counts.tsv"
+    File? level3Brite = "./taxon/LevelC.${outputFileName}.counts.tsv"
+    File? OTU = "./taxon/OTU.${outputFileName}.tsv" 
   }        
   meta {
     author: "Bobbie Shaban"
