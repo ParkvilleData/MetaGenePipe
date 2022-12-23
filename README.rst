@@ -172,22 +172,25 @@ Gene prediction
   
 * hmmer
 
-  * combined.megahit.proteins.hmmer.out: Raw hmmer output aligned to Koalafam profiles
-  * combined.megahit.proteins.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles
+  * {sampleName}.megahit.proteins.hmmer.out: Raw hmmer output aligned to Koalafam profiles
+  * {sampleName}.megahit.proteins.hmmer.tblout: Parsed hmmer output aligned to Koalafam profiles
   
 * prodigal
 
-  * combined.megahit.gene_coordinates.gbk: Gene coordinates file (Genbank like file)
-  * combined.megahit.nucl_genes.fa: Predicted gene nucleotide sequences
-  * combined.megahit.proteins.fa: Predicted gene amino acid sequences
-  * combined.megahit.starts.txt: Prodigal starts file
+  * {sampleName}.megahit.gene_coordinates.gbk: Gene coordinates file (Genbank like file)
+  * {sampleName}.megahit.nucl_genes.fa: Predicted gene nucleotide sequences
+  * {sampleName}.megahit.proteins.fa: Predicted gene amino acid sequences
+  * {sampleName}.megahit.starts.txt: Prodigal starts file
+
+Classification
+~~~~~~~~~~~~~~~~
 
 * taxon
 
   * LevelA.brite.counts.tsv: Level A Kegg Brite Hierarchical gene count
   * LevelB.brite.counts.tsv: Level B Kegg Brite Hierarchical gene count
   * LevelC.brite.counts.tsv: Level C Kegg Brite Hierarchical gene count
-  * OTU.brite.tsv: Table with counts of taxanomic (organism) IDs of genes
+  * OTU.brite.tsv: Table with counts of taxonomic (organism) IDs of genes
 
 .. end-output
 
@@ -199,63 +202,63 @@ Below is an example tree of the the output directory:
 
 ::
 
-   .
-   ├── assembly
-   │   ├── combined.57.fastg
-   │   ├── combined.megahit.blast.out
-   │   ├── combined.megahit.blast.parsed
-   │   ├── combined.megahit.contigs.fa
-   │   └── intermediate_contigs
-   │       ├── combined.contigs.k27.fa
-   │       ├── combined.contigs.k37.fa
-   │       ├── combined.contigs.k47.fa
-   │       ├── combined.contigs.k57.fa
-   │       ├── combined.contigs.k67.fa
-   │       ├── combined.contigs.k77.fa
-   │       ├── combined.contigs.k87.fa
-   │       └── combined.contigs.k97.fa
-   ├── data
-   │   ├── combined_R1.fq.gz
-   │   └── combined_R2.fq.gz
-   ├── geneprediction
-   │   ├── combined.megahit.proteins.fa.xml.out.xml
-   │   ├── diamond
-   │   │   └── combined.megahit.proteins.fa.xml.out
-   │   ├── hmmer
-   │   │   ├── combined.megahit.proteins.hmmer.out
-   │   │   └── combined.megahit.proteins.hmmer.tblout
-   │   ├── prodigal
-   │   │   ├── combined.megahit.gene_coordinates.gbk
-   │   │   ├── combined.megahit.nucl_genes.fa
-   │   │   ├── combined.megahit.proteins.fa
-   │   │   └── combined.megahit.starts.txt
-   │   └── taxon
-   │       ├── LevelA.brite.counts.tsv
-   │       ├── LevelB.brite.counts.tsv
-   │       ├── LevelC.brite.counts.tsv
-   │       └── OTU.brite.tsv
-   ├── qc
-   │   ├── fastqc
-   │   │   ├── SRR5808831.TG_R1_fastqc.zip
-   │   │   ├── SRR5808831.TG_R2_fastqc.zip
-   │   │   ├── SRR5808882.TG_R1_fastqc.zip
-   │   │   └── SRR5808882.TG_R2_fastqc.zip
-   │   ├── flash
-   │   │   ├── SRR5808831.extendedFrags.fastq
-   │   │   └── SRR5808882.extendedFrags.fastq
-   │   ├── multiqc_report.html
-   │   └── trimmed
-   │       ├── SRR5808831.TG_R1.fq.gz
-   │       ├── SRR5808831.TG_R2.fq.gz
-   │       ├── SRR5808882.TG_R1.fq.gz
-   │       └── SRR5808882.TG_R2.fq.gz
-   └── readalignment
-      ├── SRR5808831.TG.flagstat.txt
-      ├── SRR5808831.TG.sam
-      ├── SRR5808831.TG.sorted.bam
-      ├── SRR5808882.TG.flagstat.txt
-      ├── SRR5808882.TG.sam
-      └── SRR5808882.TG.sorted.bam
+  .
+  ├── assembly
+  │   ├── combined.57.fastg
+  │   ├── combined.megahit.blast.out
+  │   ├── combined.megahit.blast.parsed
+  │   ├── combined.megahit.contigs.fa
+  │   └── intermediate_contigs
+  │       ├── combined.contigs.k27.fa
+  │       ├── combined.contigs.k37.fa
+  │       ├── combined.contigs.k47.fa
+  │       ├── combined.contigs.k57.fa
+  │       ├── combined.contigs.k67.fa
+  │       ├── combined.contigs.k77.fa
+  │       ├── combined.contigs.k87.fa
+  │       └── combined.contigs.k97.fa
+  ├── data
+  │   ├── combined_R1.fq.gz
+  │   └── combined_R2.fq.gz
+  ├── geneprediction
+  │   ├── combined.megahit.proteins.fa.xml.out.xml
+  │   ├── diamond
+  │   │   └── combined.megahit.proteins.fa.xml.out
+  │   ├── hmmer
+  │   │   ├── combined.megahit.proteins.hmmer.out
+  │   │   └── combined.megahit.proteins.hmmer.tblout
+  │   └── prodigal
+  │       ├── combined.megahit.gene_coordinates.gbk
+  │       ├── combined.megahit.nucl_genes.fa
+  │       ├── combined.megahit.proteins.fa
+  │       └── combined.megahit.starts.txt
+  ├── qc
+  │   ├── fastqc
+  │   │   ├── SRR5808831.TG_R1_fastqc.zip
+  │   │   ├── SRR5808831.TG_R2_fastqc.zip
+  │   │   ├── SRR5808882.TG_R1_fastqc.zip
+  │   │   └── SRR5808882.TG_R2_fastqc.zip
+  │   ├── flash
+  │   │   ├── SRR5808831.extendedFrags.fastq
+  │   │   └── SRR5808882.extendedFrags.fastq
+  │   ├── multiqc_report.html
+  │   └── trimmed
+  │       ├── SRR5808831.TG_R1.fq.gz
+  │       ├── SRR5808831.TG_R2.fq.gz
+  │       ├── SRR5808882.TG_R1.fq.gz
+  │       └── SRR5808882.TG_R2.fq.gz
+  ├── readalignment
+  │   ├── SRR5808831.TG.flagstat.txt
+  │   ├── SRR5808831.TG.sam
+  │   ├── SRR5808831.TG.sorted.bam
+  │   ├── SRR5808882.TG.flagstat.txt
+  │   ├── SRR5808882.TG.sam
+  │   └── SRR5808882.TG.sorted.bam
+  └── taxon
+      ├── LevelA.brite.counts.tsv
+      ├── LevelB.brite.counts.tsv
+      ├── LevelC.brite.counts.tsv
+      └── OTU.brite.tsv
 
 .. end-output-tree
 
