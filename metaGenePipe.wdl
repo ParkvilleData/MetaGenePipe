@@ -15,6 +15,7 @@ import "./subWorkflows/mapreads_subworkflow.wdl" as mapreadsSubWorkflow
 ## import standalone tasks
 import "./tasks/multiqc.wdl" as multiqcTask
 import "./tasks/concatenate.wdl" as concatenateTask
+import "./tasks/hmmer_taxon.wdl" as taxonTask
 
 workflow metaGenePipe {
 
@@ -76,7 +77,7 @@ workflow metaGenePipe {
   }
 
 
-  ## If merge dataset is set to true
+  ## If concatenate dataset is set to true
   if (concatenateBoolean) {
     call concatenateTask.concatenate_task {
       input:
@@ -104,16 +105,22 @@ workflow metaGenePipe {
         assemblyScaffolds = assembly_subworkflow.assemblyScaffolds,
         outputType=outputType,
         blastMode=blastMode,
-        hmm_parser=hmm_parser,
-        xml_parser=xml_parser,
-        briteList=briteList,
-        concatenateBoolean=concatenateBoolean,
-        taxonBoolean=taxonBoolean,
-        outputFileName=outputFileName,
-        briteLineage=briteLineage,
         maxTargetSeqs=maxTargetSeqs,
         metaOption=metaOption,
         DB=DB
+    }
+
+    if (taxonBoolean) {
+      call taxonTask.hmmer_taxon_task {
+        input:
+        hmmerTable=geneprediction_subworkflow.hmmerTable,
+        diamondXML=geneprediction_subworkflow.collationOutput,
+        xml_parser=xml_parser,
+        hmm_parser=hmm_parser,
+        briteList=briteList,
+        briteLineage=briteLineage,
+        outputFileName=outputFileName
+      }
     }
   } ## end merge dataset
 
@@ -124,58 +131,52 @@ workflow metaGenePipe {
     scatter (reads in pairReads) {
       call assemblySubWorkflow.assembly_subworkflow as nonMergedAssembly {
         input:
-        megaGraph = megaGraph,
-        preset = preset,
-        megahitBoolean = megahitBoolean,
-        blastBoolean = blastBoolean,
-        trimmedReadsFwd = reads.left,
-        trimmedReadsRev = reads.right,  
-        numOfHits = numOfHits,
-        bparser = bparser,
-        database = database
+          megaGraph = megaGraph,
+          preset = preset,
+          megahitBoolean = megahitBoolean,
+          blastBoolean = blastBoolean,
+          trimmedReadsFwd = reads.left,
+          trimmedReadsRev = reads.right,  
+          numOfHits = numOfHits,
+          bparser = bparser,
+          database = database
       }
 
       call genepredictionSubWorkflow.geneprediction_subworkflow as nonMergedGenePrediction {
         input:
-        assemblyScaffolds = nonMergedAssembly.assemblyScaffolds,
-        hmmerDB=hmmerDB,
-        hmmerBoolean=hmmerBoolean,
-        outputType=outputType,
-        briteList=briteList,
-        briteLineage=briteLineage,
-        hmm_parser=hmm_parser,
-        xml_parser=xml_parser,
-        outputFileName=outputFileName,
-        blastMode=blastMode,
-        metaOption=metaOption,
-        maxTargetSeqs=maxTargetSeqs,
-        taxonBoolean=taxonBoolean,
-        concatenateBoolean=concatenateBoolean,
-        DB=DB
+          hmmerDB=hmmerDB,
+          hmmerBoolean=hmmerBoolean,
+          assemblyScaffolds = nonMergedAssembly.assemblyScaffolds,
+          outputType=outputType,
+          blastMode=blastMode,
+          maxTargetSeqs=maxTargetSeqs,
+          metaOption=metaOption,
+          DB=DB
       }
     } ## end scatter
+
+    if (taxonBoolean) {
+      call taxonTask.hmmer_taxon_task as taxonNonMerged {
+        input:
+          hmmerTables=nonMergedGenePrediction.hmmerTable,
+          diamondXMLs=nonMergedGenePrediction.collationOutput,
+          xml_parser=xml_parser,
+          hmm_parser=hmm_parser,
+          briteList=briteList,
+          briteLineage=briteLineage,
+          outputFileName=outputFileName
+      }
+    }
+
   } ## end don't merge datasets
 
   if(mapreadsBoolean) {
-    if(!concatenateBoolean) {
-      call mapreadsSubWorkflow.mapreads_subworkflow as nonMergedmapreads {
-         input:
-            pairReads=pairReads,
-            mapreadsBoolean=mapreadsBoolean,
-            merged_Contigs = assembly_subworkflow.assemblyScaffolds,
-            non_merged_Contigs = nonMergedAssembly.assemblyScaffolds,
-            concatenateBoolean=concatenateBoolean
-      }
-    } 
-
-    if(concatenateBoolean) {
-       call mapreadsSubWorkflow.mapreads_subworkflow {
-          input:
-             pairReads=pairReads,
-             merged_Contigs = assembly_subworkflow.assemblyScaffolds,
-             mapreadsBoolean=mapreadsBoolean,
-             concatenateBoolean=concatenateBoolean
-       } 
+    call mapreadsSubWorkflow.mapreads_subworkflow {
+      input:
+          pairReads=pairReads,
+          merged_contigs = assembly_subworkflow.assemblyScaffolds,
+          non_merged_contigs = nonMergedAssembly.assemblyScaffolds,
+          concatenateBoolean=concatenateBoolean
     }
   }
 
@@ -216,11 +217,6 @@ workflow metaGenePipe {
     File? genesAlignmentOutput = geneprediction_subworkflow.genesAlignmentOutput
     File? hmmerTable = geneprediction_subworkflow.hmmerTable
     File? hmmerOutput = geneprediction_subworkflow.hmmerOutput
-    ## Taxonomy output merged
-    File? level1BriteMerged = geneprediction_subworkflow.level1BriteMerged
-    File? level2BriteMerged = geneprediction_subworkflow.level2BriteMerged
-    File? level3BriteMerged = geneprediction_subworkflow.level3BriteMerged
-    File? OTUMerged = geneprediction_subworkflow.OTUMerged
 
     ## Non merged gene prediction
     Array[File?]? collationOutputArray = nonMergedGenePrediction.collationOutput
@@ -231,21 +227,22 @@ workflow metaGenePipe {
     Array[File]? genesAlignmentOutputArray = nonMergedGenePrediction.genesAlignmentOutput
     Array[File?]? hmmerTableArray = nonMergedGenePrediction.hmmerTable
     Array[File?]? hmmerOutputArray = nonMergedGenePrediction.hmmerOutput
-    ## Taxonomy output unmerged
-    Array[File?]? level1Brite = nonMergedGenePrediction.level1Brite
-    Array[File?]? level2Brite = nonMergedGenePrediction.level2Brite
-    Array[File?]? level3Brite = nonMergedGenePrediction.level3Brite
-    Array[File?]? OTU = nonMergedGenePrediction.OTU
+
+    ## Taxonomy output merged
+    File? level1Brite = hmmer_taxon_task.level1Brite
+    File? level2Brite = hmmer_taxon_task.level2Brite
+    File? level3Brite = hmmer_taxon_task.level3Brite
+    File? OTU = hmmer_taxon_task.OTU
+    ## Taxonomy output non-merged
+    File? level1BriteNonMerged = taxonNonMerged.level1Brite
+    File? level2BriteNonMerged = taxonNonMerged.level2Brite
+    File? level3BriteNonMerged = taxonNonMerged.level3Brite
+    File? OTUNonMerged = taxonNonMerged.OTU
 
     ## Read alignment output                                                                                  
     Array[File?]? sampleSamOutput = mapreads_subworkflow.sampleSamOutput
     Array[File?]? sampleSortedBam = mapreads_subworkflow.sampleSortedBam
     Array[File?]? sampleFlagstatText = mapreads_subworkflow.sampleFlagstatText
-
-    ## Read alignment output
-    Array[File?]? sampleSamOutputNonMerged = nonMergedmapreads.sampleSamOutputNonMerged
-    Array[File?]? sampleSortedBamNonMerged = nonMergedmapreads.sampleSortedBamNonMerged
-    Array[File?]? sampleFlagstatTextNonMerged = nonMergedmapreads.sampleFlagstatTextNonMerged
 
   }
   meta {

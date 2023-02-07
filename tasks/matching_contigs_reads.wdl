@@ -1,9 +1,9 @@
 task matching_contigs_reads_task {
-  File? merged_Contigs
-  Array[File?]? non_merged_Contigs
+  File? merged_contigs
+  Array[File?]? non_merged_contigs
   File forwardReads
   File reverseReads
-  Boolean merge_opt
+  Boolean concatenateBoolean
   Int BMN_threads
   Int BMN_minutes
   Int BMN_mem
@@ -11,14 +11,14 @@ task matching_contigs_reads_task {
   String sampleMatch = sub(sampleTempName,"_R(?!.*_R).*","")
         
   command {
-    if [[ ${merge_opt} = false ]]; then
-      for file in ${sep=' ' non_merged_Contigs}; do
+    if [[ ${concatenateBoolean} = false ]]; then
+      for file in ${sep=' ' non_merged_contigs}; do
         if grep -q "${sampleMatch}" <<< "$file"; then
           echo $file
         fi
       done
     else
-      echo ${merged_Contigs}
+      echo ${merged_contigs}
     fi
   }
   runtime {
