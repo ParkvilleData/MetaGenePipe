@@ -182,7 +182,7 @@ Gene prediction
   * combined.megahit.proteins.fa: Predicted gene amino acid sequences
   * combined.megahit.starts.txt: Prodigal starts file
 
-* taxon
+* taxon - These files are produced for each sample (pair of read files) if the inputs are assembled separately (as opposed to co-assembly).
 
   * LevelA.brite.counts.tsv: Level A Kegg Brite Hierarchical gene count
   * LevelB.brite.counts.tsv: Level B Kegg Brite Hierarchical gene count
