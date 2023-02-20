@@ -10,6 +10,10 @@ Welcome to MetaGenePipe's documentation!
   :width: 400
   :alt: MetaGenePipe Logo
 
+.. include:: ../README.rst
+   :start-after: start-badges
+   :end-before: end-badges
+
 MetaGenePipe (MGP) is an efficient, flexible, portable, and scalable metagenomics pipeline that uses performant bioinformatics software suites and genomic databases to create an accurate taxonomic and functional characterization of the prokaryotic fraction of sequenced microbiomes.
 
 A Microbiome is a collection of all microbes, such as bacteria, from a given environment. The environment can be human related, i.e. the human gut or can be from environments such as soil or water. The composition of the microbiome, in terms of the percentages of bacterial species present in the environment can be beneficial in determining the effect bacteria has on the environment. 

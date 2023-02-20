@@ -1,7 +1,20 @@
 MetaGenePipe
 ============
 
+.. start-badges
+
 |pipline| |docs| |Contributor Covenant| |joss|
+
+.. |pipline| image:: https://github.com/parkvilledata/MetaGenePipe/actions/workflows/testing.yml/badge.svg
+.. |docs| image:: https://github.com/parkvilledata/MetaGenePipe/actions/workflows/docs.yml/badge.svg
+   :target: https://parkvilledata.github.io/MetaGenePipe
+.. |Contributor Covenant| image:: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
+   :target: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
+.. |joss| image:: https://joss.theoj.org/papers/10.21105/joss.04851/status.svg
+   :target: https://doi.org/10.21105/joss.04851
+
+.. end-badges
+
 
 MetaGenePipe (MGP) is an efficient, flexible, portable, and scalable
 metagenomics pipeline that uses performant bioinformatics software
@@ -316,10 +329,3 @@ Contributing
 If you would like to contribute to this software package, please make sure you follow the `code of conduct <https://parkvilledata.github.io/MetaGenePipe/contributing.html>`_.
 
 
-.. |pipline| image:: https://github.com/parkvilledata/MetaGenePipe/actions/workflows/testing.yml/badge.svg
-.. |docs| image:: https://github.com/parkvilledata/MetaGenePipe/actions/workflows/docs.yml/badge.svg
-   :target: https://parkvilledata.github.io/MetaGenePipe
-.. |Contributor Covenant| image:: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
-   :target: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
-.. |joss| image:: https://joss.theoj.org/papers/10.21105/joss.04851/status.svg
-   :target: https://doi.org/10.21105/joss.04851
