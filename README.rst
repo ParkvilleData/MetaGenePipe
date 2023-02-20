@@ -269,12 +269,34 @@ how to run.
 Citation and Attribution
 ========================
 
-MetaGenePipe was developed at the Melbourne Data Analytics Platform
-(MDAP).
+.. start-citation
 
-We are in the process of authoring a paper for the Journal of Open
-Source Software about this software package. Citation details will be
-added upon publication.
+MetaGenePipe was developed at the Melbourne Data Analytics Platform (MDAP).
+
+An article about the software package is published in the `Journal of Open Source Software <https://joss.theoj.org/papers/10.21105/joss.04851>`_:
+
+  Shaban, Bobbie, Maria Mar del Quiroga, Robert Turnbull, Edoardo Tescari, Kim-Anh Lê Cao, Heroen Verbruggen. (2023). 
+  MetaGenePipe: An Automated, Portable Pipeline for Contig-based Functional and Taxonomic Analysis. Journal of Open Source Software, 
+  8 (82), 4851. doi: 10.21105/joss.04851
+
+Here is the citation details in BibTeX format:
+
+.. code-block:: BibTeX
+
+  @article{
+      Shaban2023, 
+      doi = {10.21105/joss.04851}, 
+      url = {https://doi.org/10.21105/joss.04851}, 
+      year = {2023}, 
+      publisher = {The Open Journal}, 
+      volume = {8}, 
+      number = {82}, 
+      pages = {4851}, 
+      author = {Babak Shaban and Maria Mar del Quiroga and Robert Turnbull and Edoardo Tescari and Kim-Anh Lê Cao and Heroen Verbruggen}, 
+      title = {{MetaGenePipe: An Automated, Portable Pipeline for Contig-based Functional and Taxonomic Analysis}}, 
+      journal = {Journal of Open Source Software} 
+  }
+
 
 If you create a derivative work from this software package, attribution
 should be included as follows:
@@ -283,6 +305,10 @@ should be included as follows:
    the Apache 2.0 license, developed by Bobbie Shaban, Mar Quiroga,
    Robert Turnbull and Edoardo Tescari at Melbourne Data Analytics
    Platform (MDAP) at the University of Melbourne.
+
+
+.. end-citation
+
 
 Contributing
 ========================
@@ -295,5 +321,5 @@ If you would like to contribute to this software package, please make sure you f
    :target: https://parkvilledata.github.io/MetaGenePipe
 .. |Contributor Covenant| image:: https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg
    :target: https://www.contributor-covenant.org/version/2/1/code_of_conduct/
-.. |joss| image:: https://joss.theoj.org/papers/c9c52942084258507eeb1693b83153ba/status.svg
-   :target: https://joss.theoj.org/papers/c9c52942084258507eeb1693b83153ba
+.. |joss| image:: https://joss.theoj.org/papers/10.21105/joss.04851/status.svg
+   :target: https://doi.org/10.21105/joss.04851
