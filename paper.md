@@ -9,7 +9,9 @@ authors:
   - name: Babak Shaban
     orcid: 0000-0002-7393-810X
     affiliation: 1
-  - name: Maria del Mar Quiroga
+  - name:
+      given-names: Maria del Mar
+      surname: Quiroga
     orcid: 0000-0002-8943-2808
     corresponding: true # (This is how to denote the corresponding author)
     affiliation: 1
