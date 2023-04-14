@@ -305,7 +305,7 @@ Here is the citation details in BibTeX format:
       volume = {8}, 
       number = {82}, 
       pages = {4851}, 
-      author = {Babak Shaban and Maria Mar del Quiroga and Robert Turnbull and Edoardo Tescari and Kim-Anh Lê Cao and Heroen Verbruggen}, 
+      author = {Babak Shaban and Maria del Mar Quiroga and Robert Turnbull and Edoardo Tescari and Kim-Anh Lê Cao and Heroen Verbruggen}, 
       title = {{MetaGenePipe: An Automated, Portable Pipeline for Contig-based Functional and Taxonomic Analysis}}, 
       journal = {Journal of Open Source Software} 
   }
