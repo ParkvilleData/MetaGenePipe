@@ -288,7 +288,7 @@ MetaGenePipe was developed at the Melbourne Data Analytics Platform (MDAP).
 
 An article about the software package is published in the `Journal of Open Source Software <https://joss.theoj.org/papers/10.21105/joss.04851>`_:
 
-  Shaban, Bobbie, Maria Mar del Quiroga, Robert Turnbull, Edoardo Tescari, Kim-Anh Lê Cao, Heroen Verbruggen. (2023). 
+  Shaban, Bobbie, Maria del Mar Quiroga, Robert Turnbull, Edoardo Tescari, Kim-Anh Lê Cao, Heroen Verbruggen. (2023). 
   MetaGenePipe: An Automated, Portable Pipeline for Contig-based Functional and Taxonomic Analysis. Journal of Open Source Software, 
   8 (82), 4851. doi: 10.21105/joss.04851
 
